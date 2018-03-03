@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 15.999999 15.999999"
+   height="16"
+   width="16">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4164">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4166" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4176">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4178" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4188">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4190" />
+    </clipPath>
+    <clipPath
+       id="clipPath4166"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4168"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4178"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4180"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4219"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4221"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4231"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4233"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4164-3">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4166-6" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4176-8">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4178-2" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4188-7">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4190-0" />
+    </clipPath>
+    <clipPath
+       id="clipPath4164-6"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4166-8"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4176-0"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4178-5"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4188-2"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4190-7"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4166-7">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4168-6" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4178-1">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4180-9" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4219-2">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4221-0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4231-8">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4233-6" />
+    </clipPath>
+    <clipPath
+       id="clipPath4164-8"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4166-7"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4176-3"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4178-4"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4188-5"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4190-73"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4166-8">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4168-8" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4178-5">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4180-4" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4219-6">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4221-4" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4231-9">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4233-2" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8132">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8134" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8146">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8148" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8144">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8146-7" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8166">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8168" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8141">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path8143" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8149">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path8151" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <style
+     type="text/css"
+     id="style8200">.icon-canvas-transparent{opacity:0;fill:#F6F6F6;} .icon-vs-out{fill:#F6F6F6;} .icon-vs-bg{fill:#424242;} .icon-vs-fg{fill:#F0EFF1;}</style>
+  <g
+     id="g8135"
+     transform="matrix(0.99993738,0,0,-0.99993738,0.06809516,15.969416)">
+    <g
+       id="g8137">
+      <g
+         id="g8139"
+         clip-path="url(#clipPath8141)">
+        <g
+           id="g8145">
+          <g
+             id="g8147" />
+          <g
+             id="g8153">
+            <g
+               clip-path="url(#clipPath8149)"
+               id="g8155"
+               style="opacity:0">
+              <path
+                 d="M 16,0 0,0 0,16 16,16 16,0 Z"
+                 style="fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                 id="path8157" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g8159"
+       transform="translate(3.9996,16.0002)">
+      <path
+         d="m 0,0 0,-2 -2,0 0,-2.001 -2,0 0,-10.999 12,0 0,1.999 2.001,0 0,2.001 2,0 0,11 L 0,0 Z"
+         style="fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8161" />
+    </g>
+    <g
+       id="g8163"
+       transform="translate(5,15)">
+      <path
+         d="m 0,0 0,-1 9,0 0,-8 1,0 0,9 -10,0 z"
+         style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8165" />
+    </g>
+    <g
+       id="g8167"
+       transform="translate(2,8)">
+      <path
+         d="m 0,0 3,-3 2,0 3,3 0,-5 -8,0 0,5 z M 8,2 4,-2 0,2 8,2 Z m -9,-8 10,0 0,9 -10,0 0,-9 z"
+         style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8169" />
+    </g>
+    <g
+       id="g8171"
+       transform="translate(3,12)">
+      <path
+         d="m 0,0 9,0 0,-8 1,0 0,9 L 0,1 0,0 Z"
+         style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8173" />
+    </g>
+    <g
+       id="g8175"
+       transform="translate(5,5)">
+      <path
+         d="M 0,0 -3,3 -3,-2 5,-2 5,3 2,0 0,0 Z"
+         style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8177" />
+    </g>
+    <g
+       id="g8179"
+       transform="translate(10,10)">
+      <path
+         d="m 0,0 -8,0 4,-4 4,4 z"
+         style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8181" />
+    </g>
+  </g>
+</svg>

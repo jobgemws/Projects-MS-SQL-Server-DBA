@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vQueryResourse</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Представления</a></li>
+            <li class="active">inf.vQueryResourse</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vQueryResourse" />
+            <h1 class="inline-middle">inf.vQueryResourse</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация о запросах согласно статистике экземпляра MS SQL Server </span>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Столбцы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th class="column-description-60">Описание</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>creation_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_execution_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Avg CPU Time SEC</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>execution_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement_text</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vQueryResourse</font>&nbsp;<font color="Blue">as</font><br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">creation_time</font><br><font color="buttontext">	 </font><font color="buttontext">,</font>&nbsp;<font color="buttontext">last_execution_time</font><br><font color="buttontext">	 </font><font color="buttontext">,</font><font color="Maroon">round</font><font color="buttontext">(</font><font color="Maroon">cast</font><font color="buttontext">(</font><font color="buttontext">(</font><font color="buttontext">total_worker_time</font><font color="buttontext">/</font><font color="buttontext">execution_count</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Blue">float</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="Green">1000000</font><font color="buttontext">,</font><font color="Green">4</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Avg CPU Time SEC]</font><br><font color="buttontext">	 </font><font color="buttontext">,</font><font color="buttontext">execution_count</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUBSTRING</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="Blue">text</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_start_offset</font><font color="buttontext">/</font><font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">+</font><font color="Green">1</font><font color="buttontext">,</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font><font color="buttontext">(</font><font color="Blue">CASE</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_end_offset</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">WHEN</font>&nbsp;<font color="buttontext">-</font><font color="Green">1</font>&nbsp;<font color="Blue">THEN</font>&nbsp;<font color="Maroon">DATALENGTH</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="Blue">text</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">ELSE</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_end_offset</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">END</font>&nbsp;<font color="buttontext">-</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_start_offset</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="Green">2</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">statement_text</font><br><font color="Blue">FROM</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_query_stats</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">qs</font><br><font color="Blue">CROSS</font>&nbsp;<font color="Blue">APPLY</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_sql_text</font><font color="buttontext">(</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">sql_handle</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">st</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Информация о запросах согласно статистике экземпляра MS SQL Server '</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vQueryResourse'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

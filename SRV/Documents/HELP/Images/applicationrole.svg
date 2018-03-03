@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 15.999999 15.999999"
+   height="16"
+   width="16">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4164">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4166" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4176">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4178" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4188">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4190" />
+    </clipPath>
+    <clipPath
+       id="clipPath4166"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4168"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4178"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4180"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4219"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4221"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4231"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4233"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8099">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8101" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8113">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8115" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8109">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8111" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8121">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8123-4" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8133">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8135" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8119">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8121" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8139">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path8141" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g8109"
+     transform="matrix(0.49999994,0,0,-0.49999994,0.01819327,15.637575)">
+    <g
+       id="g8111"
+       transform="translate(0,29.9997)">
+      <path
+         d="M 0,0 0,-15.999 0,-28 l 0,-2 18,0 0,2 14,0 0,28 -32,0 z"
+         style="fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8113" />
+    </g>
+    <g
+       id="g8115">
+      <g
+         id="g8117"
+         clip-path="url(#clipPath8119)">
+        <g
+           id="g8123"
+           transform="translate(2,28)">
+          <path
+             d="m 0,0 0,-14 2,0 0,0.673 c -0.633,0.954 -1,2.09 -1,3.327 0,1.226 0.369,2.364 1,3.314 L 2,-6 2.537,-6 c 1.098,1.225 2.688,2 4.463,2 1.775,0 3.365,-0.775 4.463,-2 L 26,-6 l 0,-16 -10,0 0,-2 12,0 0,24 -28,0 z"
+             style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8125" />
+        </g>
+        <g
+           id="g8127"
+           transform="translate(9,14)">
+          <path
+             d="M 0,0 C 2.207,0 4,1.792 4,4 4,6.208 2.207,8 0,8 -2.209,8 -4,6.208 -4,4 -4,1.792 -2.209,0 0,0"
+             style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8129" />
+        </g>
+        <g
+           id="g8131-4"
+           transform="translate(9,5)">
+          <path
+             d="M 0,0 C -0.553,0 -1,0.447 -1,0.999 -1,1.553 -0.553,2 0,2 0.551,2 1,1.553 1,0.999 1,0.447 0.551,0 0,0 M 0,4 -3,7 -7,7 -7,-3 7,-3 7,7 3,7 0,4 Z"
+             style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8133" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g8135">
+      <g
+         id="g8137-6"
+         clip-path="url(#clipPath8139)">
+        <g
+           id="g8143"
+           transform="translate(4,14)">
+          <path
+             d="M 0,0 0.5,0 C 0.313,0.209 0.155,0.44 0,0.673 L 0,0 Z"
+             style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8145" />
+        </g>
+        <g
+           id="g8147"
+           transform="translate(4,21.3145)">
+          <path
+             d="M 0,0 C 0.161,0.243 0.343,0.469 0.537,0.686 L 0,0.686 0,0 Z"
+             style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8149" />
+        </g>
+        <g
+           id="g8151"
+           transform="translate(13.4634,22)">
+          <path
+             d="m 0,0 c 0.953,-1.062 1.537,-2.461 1.537,-4 0,-1.539 -0.547,-2.938 -1.5,-4 l 4.5,0 0,-8 10,0 0,16 L 0,0 Z"
+             style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8153" />
+        </g>
+        <g
+           id="g8155"
+           transform="translate(9,7)">
+          <path
+             d="M 0,0 C -0.553,0 -1,-0.447 -1,-1.001 -1,-1.553 -0.553,-2 0,-2 0.551,-2 1,-1.553 1,-1.001 1,-0.447 0.551,0 0,0"
+             style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path8157" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

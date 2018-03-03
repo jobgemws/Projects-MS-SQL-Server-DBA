@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 15.999999 15.999999"
+   height="16"
+   width="16">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4164">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4166" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4176">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4178" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4188">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4190" />
+    </clipPath>
+    <clipPath
+       id="clipPath4166"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4168"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4178"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4180"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4219"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4221"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4231"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path4233"
+         d="M 0,32 32,32 32,0 0,0 0,32 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4167">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4169" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4179">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4181" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4191">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4193" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4232">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4234" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4244">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4246" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4256">
+      <path
+         d="M 0,16 16,16 16,0 0,0 0,16 Z"
+         id="path4258" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4185">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4187" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4199">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4201" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4189">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4191-5" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4201">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4203" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4217">
+      <path
+         d="M 0,32 32,32 32,0 0,0 0,32 Z"
+         id="path4219" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g4183-6"
+     transform="matrix(0.5000015,0,0,-0.5000015,-0.03540773,15.961428)">
+    <g
+       id="g4185">
+      <g
+         id="g4187"
+         clip-path="url(#clipPath4189)">
+        <g
+           id="g4193"
+           transform="translate(26.8281,23.1318)">
+          <path
+             d="m 0,0 -12.177,0 c -1.564,1.276 -3.538,2 -5.651,2 -4.963,0 -9,-4.037 -9,-9 0,-4.963 4.037,-9 9,-9 3.047,0 5.804,1.505 7.461,4 L 2,-12 l 3.172,3.172 0,3.656 L 0,0 Z"
+             style="fill:#f6f6f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path4195" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4197-2">
+      <g
+         id="g4199"
+         clip-path="url(#clipPath4201)">
+        <g
+           id="g4205"
+           transform="translate(28,15)">
+          <path
+             d="m 0,0 -14.102,0 c -0.462,-2.282 -2.478,-4 -4.898,-4 -2.762,0 -5,2.238 -5,5 0,2.762 2.238,5 5,5 2.42,0 4.436,-1.718 4.898,-4 l 3.102,0 0,2 1,0 2,-2 1,0 0,2 1,0 2,-2 1,0 0,2 1,0 2,-2 0,-2 z m -2,6 -2,0 0,-2 -2,2 -2,0 0,-2 -2,2 -2,0 0,-2 -0.699,0 c -1.127,2.358 -3.514,4 -6.301,4 -3.865,0 -7,-3.134 -7,-7 0,-3.866 3.135,-7 7,-7 2.787,0 5.174,1.642 6.301,4 L 0,-2 2,0 2,2 -2,6 Z"
+             style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path4207" />
+        </g>
+        <g
+           id="g4209"
+           transform="translate(8,19)">
+          <path
+             d="m 0,0 c -1.105,0 -2,-0.896 -2,-2 0,-1.104 0.895,-2 2,-2 1.105,0 2,0.896 2,2 0,1.104 -0.895,2 -2,2"
+             style="fill:#424242;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path4211-9" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4213">
+      <g
+         id="g4215"
+         clip-path="url(#clipPath4217)">
+        <g
+           id="g4221"
+           transform="translate(8,15)">
+          <path
+             d="M 0,0 C -1.105,0 -2,0.896 -2,2 -2,3.104 -1.105,4 0,4 1.105,4 2,3.104 2,2 2,0.896 1.105,0 0,0 M 18,4 17,4 17,2 16,2 14,4 13,4 13,2 12,2 10,4 9,4 9,2 5.898,2 C 5.436,4.282 3.42,6 1,6 -1.762,6 -4,3.762 -4,1 c 0,-2.762 2.238,-5 5,-5 2.42,0 4.436,1.718 4.898,4 L 20,0 20,2 18,4 Z"
+             style="fill:#f0eff1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path4223" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

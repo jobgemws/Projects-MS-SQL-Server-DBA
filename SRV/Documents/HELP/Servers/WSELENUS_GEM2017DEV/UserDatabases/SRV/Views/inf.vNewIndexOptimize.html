@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vNewIndexOptimize</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Представления</a></li>
+            <li class="active">inf.vNewIndexOptimize</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vNewIndexOptimize" />
+            <h1 class="inline-middle">inf.vNewIndexOptimize</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Сведения о возможных новых индексах и их степени полезности экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Столбцы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th class="column-description-60">Описание</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ServerName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Schema</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_advantage</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>group_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>unique_compiles</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_user_seek</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_user_scan</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_total_user_cost</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_user_impact</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>system_seeks</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_system_scan</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_system_seek</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_total_system_cost</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_system_impact</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_group_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>equality_columns</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>inequality_columns</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>K</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Keys</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>include</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sql_statement</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>user_seeks</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>user_scans</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>est_impact</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>SecondsUptime</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vNewIndexOptimize</font>&nbsp;<font color="Blue">as</font><br><font color="Gray">/*
+	ГЕМ: степень полезности новых индексов
+	index_advantage: >50 000 - очень выгодно создать индекс
+					 >10 000 - можно создать индекс, однако нужно анализировать и его поддержку
+					 <=10000 - индекс можно не создавать
+*/</font><br><font color="Blue">SELECT</font>&nbsp;<font color="Maroon">@@ServerName</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">ServerName</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Maroon">DB_Name</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[DBName]</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="Maroon">OBJECT_SCHEMA_NAME</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Schema]</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="Maroon">OBJECT_NAME</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Name]</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">user_seeks</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_total_user_cost</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_user_impact</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="Green">0.01</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">index_advantage</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">group_handle</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">unique_compiles</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">last_user_seek</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">last_user_scan</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_total_user_cost</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_user_impact</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">system_seeks</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">last_system_scan</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">last_system_seek</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_total_system_cost</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_system_impact</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmig</font><font color="buttontext">.</font><font color="buttontext">index_group_handle</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmig</font><font color="buttontext">.</font><font color="buttontext">index_handle</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">database_id</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><font color="buttontext">,</font><font color="buttontext">	  </font><font color="Gray">-- =</font><br><font color="buttontext">	   </font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font><font color="buttontext">,</font><br><font color="buttontext">	   </font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[statement]</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font>&nbsp;<font color="Maroon">LEN</font><font color="buttontext">(</font><font color="Maroon">ISNULL</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N''</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Blue">CASE</font>&nbsp;<font color="Blue">WHEN</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">THEN</font>&nbsp;<font color="Teal">','</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">ELSE</font>&nbsp;<font color="Teal">''</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">END</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">-</font>&nbsp;<font color="Maroon">LEN</font><font color="buttontext">(</font><font color="Maroon">REPLACE</font><font color="buttontext">(</font><font color="Maroon">ISNULL</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N''</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Blue">CASE</font>&nbsp;<font color="Blue">WHEN</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">THEN</font>&nbsp;<font color="Teal">','</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">ELSE</font>&nbsp;<font color="Teal">''</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">END</font><font color="buttontext">,</font>&nbsp;<font color="Teal">','</font><font color="buttontext">,</font>&nbsp;<font color="Teal">''</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Green">1</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">K</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">''</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Blue">CASE</font>&nbsp;<font color="Blue">WHEN</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">THEN</font>&nbsp;<font color="Teal">','</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">ELSE</font>&nbsp;<font color="Teal">''</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">END</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">''</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">Keys</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">included_columns</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[include]</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">'Create NonClustered Index [IX_'</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">OBJECT_NAME</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Teal">'_missing_'</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">CAST</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">index_handle</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">VARCHAR</font><font color="buttontext">(</font><font color="Green">20</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Teal">'] On '</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">[statement]</font>&nbsp;<font color="Blue">COLLATE</font>&nbsp;<font color="Blue">database_default</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Teal">' ('</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">ISNULL</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">''</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Blue">CASE</font>&nbsp;<font color="Blue">WHEN</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">equality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">THEN</font>&nbsp;<font color="Teal">','</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">ELSE</font>&nbsp;<font color="Teal">''</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">END</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">ISNULL</font><font color="buttontext">(</font><font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">inequality_columns</font><font color="buttontext">,</font>&nbsp;<font color="Teal">''</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Teal">')'</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">ISNULL</font><font color="buttontext">(</font><font color="Teal">' Include ('</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">included_columns</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Teal">');'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">';'</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">sql_statement</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">user_seeks</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">user_scans</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Maroon">CAST</font><font color="buttontext">(</font><font color="buttontext">(</font>&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">user_seeks</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">user_scans</font>&nbsp;<font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">avg_user_impact</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">BIGINT</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Teal">'est_impact'</font>&nbsp;<font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font>&nbsp;<font color="Blue">SELECT</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="Maroon">DATEDIFF</font><font color="buttontext">(</font><font color="Maroon">Second</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">create_date</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">GETDATE</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">Seconds</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">databases</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">WHERE</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">name</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Teal">'tempdb'</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">)</font>&nbsp;<font color="buttontext">SecondsUptime</font>&nbsp;<br><font color="Blue">FROM</font><br><font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_db_missing_index_group_stats</font>&nbsp;<font color="buttontext">ddmigs</font><br><font color="Blue">INNER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_db_missing_index_groups</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">ddmig</font><br><font color="Blue">ON</font>&nbsp;<font color="buttontext">ddmigs</font><font color="buttontext">.</font><font color="buttontext">group_handle</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">ddmig</font><font color="buttontext">.</font><font color="buttontext">index_group_handle</font><br><font color="Blue">INNER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_db_missing_index_details</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">ddmid</font><br><font color="Blue">ON</font>&nbsp;<font color="buttontext">ddmig</font><font color="buttontext">.</font><font color="buttontext">index_handle</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">ddmid</font><font color="buttontext">.</font><font color="buttontext">index_handle</font><br><font color="Gray">--WHERE   mid.database_id = DB_ID()</font><br><font color="Gray">--ORDER BY migs_adv.index_advantage</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Сведения о возможных новых индексах и их степени полезности экземпляра MS SQL Server'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vNewIndexOptimize'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.ExcelGetNewIndexOptimize.html" data-mapping-enabled="true"><span>srv.ExcelGetNewIndexOptimize</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 2.286em;
+}
+h2 {
+  /*22px*/
+  font-size: 1.571em; 
+}
+h4 {
+  /*18px*/
+  font-size: 1.286em;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+td, th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+th {
+  text-align: left;
+}
+
+.items-list > li {
+  padding: 2px 0px;
+  list-style-type: none;
+}
+
+.items-list > li > a {
+  vertical-align: middle;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.nopadding {
+  padding: 0px;
+}
+
+.icon-small {
+  font-size: 1.143em;
+}
+.image-small {
+  width: 1.714em;
+  height: 1.714em;
+}
+.image-large {
+  width: 2.286em;
+  height: 2.286em;
+}
+
+.header {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  padding: 20px 20px 10px 20px;
+}
+.footer {
+  padding: 0px 20px 20px 20px;
+}
+
+.actions-btn-wrap  {
+  float: right;
+}
+.actions-btn {
+  padding: 0px;
+  width: 42px;
+  height: 34px;
+}
+.actions-btn-span {
+  vertical-align: middle;
+  line-height: initial;
+}
+
+.content-cover-page {
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  padding: 20px;
+  padding-top: 140px;
+}
+
+.page-wrap {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -54px;
+  padding: 0 0 54px;
+}
+
+.table {
+  margin-bottom: 0px;
+}
+.table-100 {
+  width : 100%;
+}
+.table-bordered-nested  {
+  border-right-style: hidden;
+  border-bottom-style: hidden;
+}
+.table-bordered-nested > tbody > tr:first-child {
+  border-top-style: hidden;
+}
+.panel {
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+}
+.panel-heading > h2,
+.panel-heading > h4,
+.panel-heading > span,
+.panel-heading > .toggle {
+  cursor: pointer;
+}
+.panel-heading > h2,
+.panel-heading > h4,
+.panel-heading > .toggle {
+  margin-left: 8px;
+}
+
+
+.panel-nested {
+  margin-bottom:0px;
+  border: 0px solid transparent;
+}
+.panel-nested > .panel-collapse > .panel-body {
+  padding: 0px 0px 0px 15px;
+}
+.panel-nested > .panel-heading {
+  border-radius: 0px;
+  padding-left: 8px;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-timing-function: ease;
+       -o-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .15s;
+       -o-transition-duration: .15s;
+          transition-duration: .15s;
+  -webkit-transition-property: height, visibility;
+       -o-transition-property: height, visibility;
+          transition-property: height, visibility;
+}
+
+.zero-clipboard {
+  position: relative;
+}
+
+.btn-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  padding: 5px 8px;
+  /*12px*/
+  font-size: 0.857em;
+  cursor: pointer;
+  background-color: transparent;
+  color: inherit;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.sqlscript {
+  font-family: Consolas, Monaco, Menlo, "Courier New", monospace;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 21px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.codescript {
+  font-family: Consolas, Monaco, Menlo, "Courier New", monospace;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 21px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.project-title {
+  overflow: hidden;
+  padding-left: 40px;
+  padding-right: 40px;
+  top: 30%;
+  position: relative;
+}
+
+.logo-area {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.title-area {
+  margin-left: 220px;
+}
+
+.title-main {
+  /*44px*/
+  font-size: 3.143em;
+  height: 70px;
+}
+
+.title-description {
+  margin-top: 20px;
+  display: block;
+}
+
+.title-image {
+  height: 100%;
+}
+
+.image-logo {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.column-description-35 {
+  width: 35%;
+}
+.column-description-60 {
+  width: 60%;
+}
+
+.badge-small {
+  /*10px*/
+  font-size: 0.714em;
+  font-weight: normal;
+  margin-left: 16px;
+  margin-top: -16px;
+  padding: 3px 5px;
+}
+
+.form-control {
+  -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+  font-size: 1em;
+}
+
+.badge {
+  font-size: 0.857em;
+}
+
+.value-true {
+  margin: 0px;
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.value-false {
+  margin: 0px;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+/*Icons*/
+@font-face {
+  font-family: 'dbforge';
+  src:  url('../fonts/dbforge.eot?kcdkm0');
+  src:  url('../fonts/dbforge.eot?kcdkm0#iefix') format('embedded-opentype'),
+        url('../fonts/dbforge.ttf?kcdkm0') format('truetype'),
+        url('../fonts/dbforge.woff?kcdkm0') format('woff'),
+        url('../fonts/dbforge.svg?kcdkm0#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'dbforge' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-actions:before {
+  content: "\e900";
+}
+.icon-bottom:before {
+  content: "\e901";
+}
+.icon-right:before {
+  content: "\e902";
+}

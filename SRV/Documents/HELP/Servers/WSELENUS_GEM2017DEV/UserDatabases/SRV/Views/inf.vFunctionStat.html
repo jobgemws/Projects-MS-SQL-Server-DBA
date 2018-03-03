@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vFunctionStat</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Представления</a></li>
+            <li class="active">inf.vFunctionStat</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vFunctionStat" />
+            <h1 class="inline-middle">inf.vFunctionStat</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Статистика по функциям</span>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Столбцы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th class="column-description-60">Описание</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DB_Name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Schema_Name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Object_Name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>schema_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>type</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>type_desc</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sql_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>plan_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>cached_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_execution_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>execution_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_worker_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_worker_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>min_worker_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>max_worker_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_physical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_physical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>min_physical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>max_physical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_logical_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_logical_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>min_logical_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>max_logical_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_logical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_logical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>min_logical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>max_logical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_elapsed_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_elapsed_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>min_elapsed_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>max_elapsed_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>encrypted</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TSQL</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_plan</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vFunctionStat</font>&nbsp;<font color="Blue">as</font>&nbsp;<br><font color="Blue">select</font>&nbsp;<font color="Maroon">DB_Name</font><font color="buttontext">(</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[DB_Name]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="Maroon">OBJECT_SCHEMA_NAME</font><font color="buttontext">(</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Schema_Name]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="Maroon">object_name</font><font color="buttontext">(</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Object_Name]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[database_id]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="Maroon">SCHEMA_ID</font><font color="buttontext">(</font><font color="Maroon">OBJECT_SCHEMA_NAME</font><font color="buttontext">(</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[database_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[dbid]</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[schema_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">coalesce</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[objectid]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[object_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[type]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[sql_handle]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[plan_handle]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[cached_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_execution_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[execution_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[total_worker_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_worker_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[min_worker_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[max_worker_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[total_physical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_physical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[min_physical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[max_physical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[total_logical_writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_logical_writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[min_logical_writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[max_logical_writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[total_logical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_logical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[min_logical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[max_logical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[total_elapsed_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[last_elapsed_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[min_elapsed_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[max_elapsed_time]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[encrypted]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">ST</font><font color="buttontext">.</font><font color="buttontext">[text]</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[TSQL]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">PT</font><font color="buttontext">.</font><font color="buttontext">[query_plan]</font><br><font color="Blue">FROM</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_function_stats</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">QS</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">CROSS</font>&nbsp;<font color="Blue">APPLY</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_sql_text</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[sql_handle]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">ST</font><br><font color="buttontext">	 </font><font color="Blue">CROSS</font>&nbsp;<font color="Blue">APPLY</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_query_plan</font><font color="buttontext">(</font><font color="buttontext">QS</font><font color="buttontext">.</font><font color="buttontext">[plan_handle]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">PT</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Статистика по функциям'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vFunctionStat'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

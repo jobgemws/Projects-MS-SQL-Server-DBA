@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.DBFile</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Tables\Tables.html" data-mapping-enabled="true">Таблицы</a></li>
+            <li class="active">srv.DBFile</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/table.svg" title="srv.DBFile" />
+            <h1 class="inline-middle">srv.DBFile</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация по файлам БД</span>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Столбцы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th>Тип данных</th>
+                  <th>Размер</th>
+                  <th>Точность</th>
+                  <th>Масштаб</th>
+                  <th>Not Null</th>
+                  <th>Идентичность</th>
+                  <th>Правило</th>
+                  <th>Значение по умолчанию</th>
+                  <th>Вычисляемые</th>
+                  <th>Сохраняемый</th>
+                  <th class="column-description-35">Описание</th>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Первичный ключ PK_DBFile" />
+                    </a></div><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Кластерный ключ PK_DBFile" />
+                    </a></div></td>
+                  <td>DBFile_GUID</td>
+                  <td>uniqueidentifier</td>
+                  <td>16</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(newsequentialid())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Идентификатор файла БД (глобальный)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Индексы IX_DBFile" />
+                    </a></div></td>
+                  <td>Server</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Сервер</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Name</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Название файла</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Drive</td>
+                  <td>nvarchar</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Диск, на котором расположен файл</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Physical_Name</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Полный путь к файлу</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Ext</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Расширение файла</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Growth</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Прирост</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>IsPercentGrowth</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Признак того, что прирост в процентах</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Индексы IX_DBFile" />
+                    </a></div></td>
+                  <td>DB_ID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Идентификатор БД</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DB_Name</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Название БД</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>SizeMb</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Размер в МБ</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DiffSizeMb</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Изменение размера в МБ</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>InsertUTCDate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(getutcdate())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Дата и время создания записи в UTC</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>UpdateUTCdate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(getutcdate())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Дата и время изменения записи в UTC</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Индексы IX_DBFile" />
+                    </a></div></td>
+                  <td>File_ID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Идентификатор файла БД</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Indexes" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Индексы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th>Столбцы</th>
+                  <th>Уникальный</th>
+                  <th>Тип</th>
+                  <th class="column-description-35">Описание</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>IX_DBFile</td>
+                  <td>DB_ID, File_ID, Server</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td>
+                    <span>Уникальный индекс (естественный ключ)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Первичный ключ PK_DBFile" />
+                    </a></div><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Кластерный ключ PK_DBFile" />
+                    </a></div></td>
+                  <td>PK_DBFile</td>
+                  <td>DBFile_GUID</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">CREATE</font>&nbsp;<font color="Blue">TABLE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">DBFile</font>&nbsp;<font color="buttontext">(</font><br>&nbsp;&nbsp;<font color="buttontext">DBFile_GUID</font>&nbsp;<font color="Blue">uniqueidentifier</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">DF_DBFile_DBFile_GUID</font>&nbsp;<font color="Blue">DEFAULT</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">newsequentialid</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">ROWGUIDCOL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">Server</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">Name</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">Drive</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">10</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">Physical_Name</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">Ext</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">Growth</font>&nbsp;<font color="Blue">int</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">IsPercentGrowth</font>&nbsp;<font color="Blue">int</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">DB_ID</font>&nbsp;<font color="Blue">int</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">DB_Name</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">SizeMb</font>&nbsp;<font color="Blue">float</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">DiffSizeMb</font>&nbsp;<font color="Blue">float</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">InsertUTCDate</font>&nbsp;<font color="Blue">datetime</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">DF_DBFile_InsertUTCDate</font>&nbsp;<font color="Blue">DEFAULT</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">getutcdate</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">UpdateUTCdate</font>&nbsp;<font color="Blue">datetime</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">DF_DBFile_UpdateUTCdate</font>&nbsp;<font color="Blue">DEFAULT</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">getutcdate</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">File_ID</font>&nbsp;<font color="Blue">int</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">PK_DBFile</font>&nbsp;<font color="Blue">PRIMARY</font>&nbsp;<font color="Blue">KEY</font>&nbsp;<font color="Blue">CLUSTERED</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">DBFile_GUID</font><font color="buttontext">)</font><br><font color="buttontext">)</font><br><font color="Blue">ON</font>&nbsp;<font color="buttontext">[PRIMARY]</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">UNIQUE</font>&nbsp;<font color="Blue">INDEX</font>&nbsp;<font color="buttontext">IX_DBFile</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">DBFile</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">DB_ID</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">File_ID</font><font color="buttontext">,</font>&nbsp;<font color="Blue">Server</font><font color="buttontext">)</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">[PRIMARY]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Информация по файлам БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор файла БД (глобальный)'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile_GUID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Сервер'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Server'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Название файла'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Name'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Диск, на котором расположен файл'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Drive'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Полный путь к файлу'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Physical_Name'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Расширение файла'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Ext'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Прирост'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Growth'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Признак того, что прирост в процентах'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IsPercentGrowth'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DB_ID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Название БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DB_Name'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Размер в МБ'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'SizeMb'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Изменение размера в МБ'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DiffSizeMb'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Дата и время создания записи в UTC'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'InsertUTCDate'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Дата и время изменения записи в UTC'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'UpdateUTCdate'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор файла БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'File_ID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Уникальный индекс (естественный ключ)'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBFile'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'INDEX'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IX_DBFile'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+          <span class="badge inline-middle">3</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\srv.vDBFiles.html" data-mapping-enabled="true"><span>srv.vDBFiles</span></a></li>
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.ClearFullInfo.html" data-mapping-enabled="true"><span>srv.ClearFullInfo</span></a></li>
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.MergeDBFileInfo.html" data-mapping-enabled="true"><span>srv.MergeDBFileInfo</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

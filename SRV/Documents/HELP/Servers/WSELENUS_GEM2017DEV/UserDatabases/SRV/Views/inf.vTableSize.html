@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vTableSize</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Представления</a></li>
+            <li class="active">inf.vTableSize</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vTableSize" />
+            <h1 class="inline-middle">inf.vTableSize</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Размеры таблиц</span>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Столбцы</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Ключ</th>
+                  <th>Название</th>
+                  <th class="column-description-60">Описание</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Server</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>SchemaName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TableName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>CountRows</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ReservedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DataKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>IndexSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>UnusedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TotalPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>UsedPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DataPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vTableSize</font>&nbsp;<font color="Blue">as</font><br><font color="Blue">with</font>&nbsp;<font color="buttontext">pagesizeKB</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">(</font><br><font color="buttontext">	</font><font color="Blue">SELECT</font>&nbsp;<font color="Blue">low</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Green">1024</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">PageSizeKB</font><br><font color="buttontext">	</font><font color="Blue">FROM</font>&nbsp;<font color="Blue">master</font><font color="buttontext">.</font><font color="buttontext">dbo</font><font color="buttontext">.</font><font color="buttontext">spt_values</font><br><font color="buttontext">	</font><font color="Blue">WHERE</font>&nbsp;<font color="buttontext">number</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">1</font>&nbsp;<font color="Blue">AND</font>&nbsp;<font color="Blue">type</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Teal">'E'</font><br><font color="buttontext">)</font><br><font color="buttontext">,</font><font color="buttontext">f_size</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">(</font><br><font color="buttontext">	</font><font color="Blue">select</font>&nbsp;<font color="buttontext">p</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<br><font color="buttontext">		   </font><font color="Maroon">sum</font><font color="buttontext">(</font><font color="buttontext">[total_pages]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">TotalPageSize</font><font color="buttontext">,</font><br><font color="buttontext">		   </font><font color="Maroon">sum</font><font color="buttontext">(</font><font color="buttontext">[used_pages]</font><font color="buttontext">)</font>&nbsp;&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">UsedPageSize</font><font color="buttontext">,</font><br><font color="buttontext">		   </font><font color="Maroon">sum</font><font color="buttontext">(</font><font color="buttontext">[data_pages]</font><font color="buttontext">)</font>&nbsp;&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">DataPageSize</font><br><font color="buttontext">	</font><font color="Blue">from</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Blue">partitions</font>&nbsp;<font color="buttontext">p</font>&nbsp;<font color="Blue">join</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">allocation_units</font>&nbsp;<font color="buttontext">a</font>&nbsp;<font color="Blue">on</font>&nbsp;<font color="buttontext">p</font><font color="buttontext">.</font><font color="buttontext">partition_id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">a</font><font color="buttontext">.</font><font color="buttontext">container_id</font><br><font color="buttontext">	</font><font color="Blue">left</font>&nbsp;<font color="Blue">join</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">internal_tables</font>&nbsp;<font color="buttontext">it</font>&nbsp;<font color="Blue">on</font>&nbsp;<font color="buttontext">p</font><font color="buttontext">.</font><font color="Maroon">object_id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">it</font><font color="buttontext">.</font><font color="Maroon">object_id</font><br><font color="buttontext">	</font><font color="Blue">WHERE</font>&nbsp;<font color="Maroon">OBJECTPROPERTY</font><font color="buttontext">(</font><font color="buttontext">p</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IsUserTable'</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">1</font><br><font color="buttontext">	</font><font color="Blue">group</font>&nbsp;<font color="Blue">by</font>&nbsp;<font color="buttontext">p</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><br><font color="buttontext">)</font><br><font color="buttontext">,</font><font color="buttontext">tbl</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">(</font><br><font color="buttontext">	</font><font color="Blue">SELECT</font><br><font color="buttontext">	  </font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[schema_id]</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">rowcnt</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">CountRows</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">reserved</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="buttontext">reserved</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">ReservedKB</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">dpages</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">DataKB</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="buttontext">(</font><font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font><br><font color="buttontext">	    </font><font color="buttontext">-</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">dpages</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">IndexSizeKB</font><font color="buttontext">,</font><br><font color="buttontext">	  </font><font color="buttontext">(</font><font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">reserved</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="buttontext">reserved</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font><br><font color="buttontext">	    </font><font color="buttontext">-</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i1</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Maroon">COALESCE</font><font color="buttontext">(</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">i2</font><font color="buttontext">.</font><font color="Blue">used</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Green">0</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">UnusedKB</font><br><font color="buttontext">	</font><font color="Blue">FROM</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">tables</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Blue">t</font><br><font color="buttontext">	</font><font color="Blue">LEFT</font>&nbsp;<font color="Blue">OUTER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="buttontext">sysindexes</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">i1</font>&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font>&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">indid</font>&nbsp;<font color="buttontext"><</font>&nbsp;<font color="Green">2</font><br><font color="buttontext">	</font><font color="Blue">LEFT</font>&nbsp;<font color="Blue">OUTER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="buttontext">sysindexes</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">i2</font>&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">i2</font><font color="buttontext">.</font><font color="buttontext">id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font>&nbsp;<font color="Blue">AND</font>&nbsp;<font color="buttontext">i2</font><font color="buttontext">.</font><font color="buttontext">indid</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">255</font><br><font color="buttontext">	</font><font color="Blue">WHERE</font>&nbsp;<font color="Maroon">OBJECTPROPERTY</font><font color="buttontext">(</font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IsUserTable'</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">1</font><br><font color="buttontext">	</font><font color="Blue">OR</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">OBJECTPROPERTY</font><font color="buttontext">(</font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IsView'</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">1</font>&nbsp;<font color="Blue">AND</font>&nbsp;<font color="Maroon">OBJECTPROPERTY</font><font color="buttontext">(</font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'IsIndexed'</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Green">1</font><font color="buttontext">)</font><br><font color="buttontext">	</font><font color="Blue">GROUP</font>&nbsp;<font color="Blue">BY</font>&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[schema_id]</font><font color="buttontext">,</font>&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">i1</font><font color="buttontext">.</font><font color="buttontext">rowcnt</font><br><font color="buttontext">)</font><br><font color="Blue">SELECT</font><br>&nbsp;&nbsp;<font color="Maroon">@@Servername</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">Server</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">DB_NAME</font><font color="buttontext">(</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">DBName</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">SCHEMA_NAME</font><font color="buttontext">(</font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[schema_id]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">SchemaName</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Maroon">OBJECT_NAME</font><font color="buttontext">(</font><font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">TableName</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">CountRows</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">ReservedKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">DataKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">IndexSizeKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">UnusedKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">f</font><font color="buttontext">.</font><font color="buttontext">TotalPageSize</font><font color="buttontext">*</font><font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">TotalPageSizeKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">f</font><font color="buttontext">.</font><font color="buttontext">UsedPageSize</font><font color="buttontext">*</font><font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">UsedPageSizeKB</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">f</font><font color="buttontext">.</font><font color="buttontext">DataPageSize</font><font color="buttontext">*</font><font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">PageSizeKB</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">pagesizeKB</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">DataPageSizeKB</font><br><font color="Blue">FROM</font>&nbsp;<font color="buttontext">f_size</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">f</font><br><font color="Blue">inner</font>&nbsp;<font color="Blue">join</font>&nbsp;<font color="buttontext">tbl</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Blue">t</font>&nbsp;<font color="Blue">on</font>&nbsp;<font color="Blue">t</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><font color="buttontext">=</font><font color="buttontext">f</font><font color="buttontext">.</font><font color="buttontext">[object_id]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Размеры таблиц'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vTableSize'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\inf.vDataSize.html" data-mapping-enabled="true"><span>inf.vDataSize</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

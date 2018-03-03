@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.SendDBMail</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Программные объекты</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Хранимые процедуры</a></li>
+            <li class="active">srv.SendDBMail</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.SendDBMail" />
+            <h1 class="inline-middle">srv.SendDBMail</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Отправка сообщения на почту</span>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Параметры</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Название</th>
+                  <th>Тип данных</th>
+                  <th>Размер</th>
+                  <th class="column-description-35">Описание</th>
+                </tr>
+                <tr>
+                  <td>@recipients</td>
+                  <td>nvarchar</td>
+                  <td>-1</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@srr_title</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@srr_mess</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@isHTML</td>
+                  <td>bit</td>
+                  <td>1</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">PROCEDURE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">SendDBMail</font><br><font color="buttontext">	</font><font color="buttontext">@recipients</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">@srr_title</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">@srr_mess</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">@isHTML</font>&nbsp;<font color="Blue">bit</font><font color="buttontext">=</font><font color="Green">0</font><br><font color="Blue">AS</font><br><font color="Blue">BEGIN</font><br><font color="buttontext">	</font><br><font color="Gray">/*
+		отправка сообщения на почту
+	*/</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@dt</font>&nbsp;<font color="Blue">datetime</font><font color="buttontext">=</font><font color="Maroon">getdate</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@recipient</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@result</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">=</font><font color="Teal">''</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@recp</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@ind</font>&nbsp;<font color="Blue">int</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@recipients_key</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	 </font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@rec_body</font>&nbsp;<font color="Blue">table</font><font color="buttontext">(</font><font color="buttontext">Body</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	 </font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@body</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	 </font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@query</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipients_key</font><font color="buttontext">=</font><font color="buttontext">@recipients</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@result</font><font color="buttontext">=</font><font color="Teal">''</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">while</font><font color="buttontext">(</font><font color="Maroon">len</font><font color="buttontext">(</font><font color="buttontext">@recipients</font><font color="buttontext">)</font><font color="buttontext">></font><font color="Green">0</font><font color="buttontext">)</font><br><font color="buttontext">	</font><font color="Blue">begin</font><br><font color="buttontext">		</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@ind</font><font color="buttontext">=</font><font color="Maroon">CHARINDEX</font><font color="buttontext">(</font><font color="Teal">';'</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">@recipients</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">if</font><font color="buttontext">(</font><font color="buttontext">@ind</font><font color="buttontext">></font><font color="Green">0</font><font color="buttontext">)</font><br><font color="buttontext">		</font><font color="Blue">begin</font><br><font color="buttontext">			</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipient</font><font color="buttontext">=</font><font color="Maroon">substring</font><font color="buttontext">(</font><font color="buttontext">@recipients</font><font color="buttontext">,</font><font color="Green">1</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">@ind</font><font color="buttontext">-</font><font color="Green">1</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">			</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipients</font><font color="buttontext">=</font><font color="Maroon">substring</font><font color="buttontext">(</font><font color="buttontext">@recipients</font><font color="buttontext">,</font><font color="buttontext">@ind</font><font color="buttontext">+</font><font color="Green">1</font><font color="buttontext">,</font><font color="Maroon">len</font><font color="buttontext">(</font><font color="buttontext">@recipients</font><font color="buttontext">)</font><font color="buttontext">-</font><font color="buttontext">@ind</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">end</font><br><font color="buttontext">		</font><font color="Blue">else</font><br><font color="buttontext">		</font><font color="Blue">begin</font><br><font color="buttontext">			</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipient</font><font color="buttontext">=</font><font color="buttontext">@recipients</font><font color="buttontext">;</font><br><font color="buttontext">			</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipients</font><font color="buttontext">=</font><font color="Teal">''</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">end</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">exec</font>&nbsp;<font color="buttontext">[srv]</font><font color="buttontext">.</font><font color="buttontext">[GetRecipients]</font><br><font color="buttontext">		</font><font color="buttontext">@Recipient_Code</font><font color="buttontext">=</font><font color="buttontext">@recipient</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="buttontext">@Recipients</font><font color="buttontext">=</font><font color="buttontext">@recp</font>&nbsp;<font color="Blue">out</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">if</font><font color="buttontext">(</font><font color="Maroon">len</font><font color="buttontext">(</font><font color="buttontext">@recp</font><font color="buttontext">)</font><font color="buttontext">=</font><font color="Green">0</font><font color="buttontext">)</font><br><font color="buttontext">		</font><font color="Blue">begin</font><br><font color="buttontext">			</font><font color="Blue">exec</font>&nbsp;<font color="buttontext">[srv]</font><font color="buttontext">.</font><font color="buttontext">[GetRecipients]</font><br><font color="buttontext">			</font><font color="buttontext">@Recipient_Name</font><font color="buttontext">=</font><font color="buttontext">@recipient</font><font color="buttontext">,</font><br><font color="buttontext">			</font><font color="buttontext">@Recipients</font><font color="buttontext">=</font><font color="buttontext">@recp</font>&nbsp;<font color="Blue">out</font><font color="buttontext">;</font><br><font color="buttontext">			</font><font color="Blue">if</font><font color="buttontext">(</font><font color="Maroon">len</font><font color="buttontext">(</font><font color="buttontext">@recp</font><font color="buttontext">)</font><font color="buttontext">=</font><font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="Blue">set</font>&nbsp;<font color="buttontext">@recp</font><font color="buttontext">=</font><font color="buttontext">@recipient</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">end</font><br><font color="buttontext">		</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@result</font><font color="buttontext">=</font><font color="buttontext">@result</font><font color="buttontext">+</font><font color="buttontext">@recp</font><font color="buttontext">+</font><font color="Teal">';'</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">end</font><br><font color="buttontext">	</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@result</font><font color="buttontext">=</font><font color="Maroon">substring</font><font color="buttontext">(</font><font color="buttontext">@result</font><font color="buttontext">,</font><font color="Green">1</font><font color="buttontext">,</font><font color="Maroon">len</font><font color="buttontext">(</font><font color="buttontext">@result</font><font color="buttontext">)</font><font color="buttontext">-</font><font color="Green">1</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@recipients</font><font color="buttontext">=</font><font color="buttontext">@result</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">declare</font>&nbsp;<font color="buttontext">@body_format</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">32</font><font color="buttontext">)</font><font color="buttontext">=</font><font color="Blue">case</font>&nbsp;<font color="Blue">when</font>&nbsp;<font color="buttontext">@isHTML</font><font color="buttontext">=</font><font color="Green">1</font>&nbsp;<font color="Blue">then</font>&nbsp;<font color="Teal">'HTML'</font>&nbsp;<font color="Blue">else</font>&nbsp;<font color="Teal">'TEXT'</font>&nbsp;<font color="Blue">end</font><font color="buttontext">;</font><br><font color="buttontext">	 </font><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">msdb</font><font color="buttontext">.</font><font color="buttontext">dbo</font><font color="buttontext">.</font><font color="buttontext">sp_send_dbmail</font><br><font color="buttontext">	</font><font color="Gray">-- Созданный нами профиль администратора почтовых рассылок</font><br><font color="buttontext">		</font><font color="buttontext">@profile_name</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Teal">'profile_name'</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Gray">-- Адрес получателя</font><br><font color="buttontext">		</font><font color="buttontext">@recipients</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">@recipients</font><font color="buttontext">,</font><font color="Gray">--'Gribkov@ggg.ru',</font><br><font color="buttontext">	</font><font color="Gray">-- Текст письма</font><br><font color="buttontext">		</font><font color="buttontext">@body</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">@srr_mess</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Gray">-- Тема</font><br><font color="buttontext">		</font><font color="buttontext">@subject</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">@srr_title</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="buttontext">@body_format</font><font color="buttontext">=</font><font color="buttontext">@body_format</font><font color="Gray">--,</font><br><font color="buttontext">	</font><font color="Gray">-- Для примера добавим к письму результаты произвольного SQL-запроса</font><br><font color="buttontext">		</font><font color="Gray">--@query = @query--'SELECT TOP 10 name FROM sys.objects';</font><br><font color="Blue">END</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Отправка сообщения на почту'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PROCEDURE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'SendDBMail'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.GetRecipients.html" data-mapping-enabled="true"><span>srv.GetRecipients</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>dbo.GetPlansObject</title>
+<script src="../../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Программные объекты</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Functions\Functions.html" data-mapping-enabled="true">Функции</a></li>
+            <li><a href="../../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Functions\TableValuedFunctions\TableValuedFunctions.html" data-mapping-enabled="true">Табличные функции</a></li>
+            <li class="active">dbo.GetPlansObject</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../../images/tablefunction.svg" title="dbo.GetPlansObject" />
+            <h1 class="inline-middle">dbo.GetPlansObject</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Возвращает все планы заданного объекта</span>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Параметры</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Название</th>
+                  <th>Тип данных</th>
+                  <th>Размер</th>
+                  <th class="column-description-35">Описание</th>
+                </tr>
+                <tr>
+                  <td>@ObjectID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span>Идентификатор объекта</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@DBID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span>Идентификатор БД</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Gray">-- =============================================</font><br><font color="Gray">-- Author:		<Author,,Name></font><br><font color="Gray">-- Create date: <Create Date,,></font><br><font color="Gray">-- Description:	<Description,,></font><br><font color="Gray">-- =============================================</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">FUNCTION</font>&nbsp;<font color="buttontext">dbo</font><font color="buttontext">.</font><font color="buttontext">GetPlansObject</font><br><font color="buttontext">(</font><font color="buttontext">	</font><br><font color="buttontext">	</font><font color="buttontext">@ObjectID</font>&nbsp;<font color="Blue">int</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">@DBID</font>&nbsp;<font color="Blue">int</font><br><font color="buttontext">)</font><br><font color="Blue">RETURNS</font>&nbsp;<font color="Blue">TABLE</font>&nbsp;<br><font color="Blue">AS</font><br><font color="Gray">/*
+	09.08.2017 ГЕМ: возвращает все планы заданного объекта
+*/</font><br><font color="Blue">RETURN</font>&nbsp;<br><font color="buttontext">(</font><br><font color="buttontext">	</font><font color="Blue">select</font>&nbsp;<br><font color="buttontext">	</font><font color="buttontext">creation_time</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">last_execution_time</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">execution_count</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">total_worker_time</font><font color="buttontext">/</font><font color="Green">1000</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Blue">CPU</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Maroon">convert</font><font color="buttontext">(</font><font color="Blue">money</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">total_worker_time</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="buttontext">(</font><font color="buttontext">execution_count</font><font color="buttontext">*</font><font color="Green">1000</font><font color="buttontext">)</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgCPUTime]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">total_elapsed_time</font><font color="buttontext">/</font><font color="Green">1000</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">TotDuration</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Maroon">convert</font><font color="buttontext">(</font><font color="Blue">money</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">total_elapsed_time</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="buttontext">(</font><font color="buttontext">execution_count</font><font color="buttontext">*</font><font color="Green">1000</font><font color="buttontext">)</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgDur]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">total_logical_reads</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Reads]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">total_logical_writes</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Writes]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">total_logical_reads</font><font color="buttontext">+</font><font color="buttontext">total_logical_writes</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[AggIO]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Maroon">convert</font><font color="buttontext">(</font><font color="Blue">money</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">total_logical_reads</font><font color="buttontext">+</font><font color="buttontext">total_logical_writes</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="buttontext">(</font><font color="buttontext">execution_count</font>&nbsp;<font color="buttontext">+</font>&nbsp;<font color="Green">0.0</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgIO]</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Blue">case</font>&nbsp;<br><font color="buttontext">		</font><font color="Blue">when</font>&nbsp;<font color="buttontext">sql_handle</font>&nbsp;<font color="Blue">IS</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">then</font>&nbsp;<font color="Teal">' '</font><br><font color="buttontext">		</font><font color="Blue">else</font><font color="buttontext">(</font><font color="Maroon">substring</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="Blue">text</font><font color="buttontext">,</font><font color="buttontext">(</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_start_offset</font><font color="buttontext">+</font><font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="Green">2</font><font color="buttontext">,</font><font color="buttontext">(</font><br><font color="buttontext">			</font><font color="Blue">case</font><br><font color="buttontext">				</font><font color="Blue">when</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_end_offset</font>&nbsp;<font color="buttontext">=</font><font color="buttontext">-</font><font color="Green">1</font>&nbsp;<font color="Blue">then</font>&nbsp;<font color="Maroon">len</font><font color="buttontext">(</font><font color="Maroon">convert</font><font color="buttontext">(</font><font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">MAX</font><font color="buttontext">)</font><font color="buttontext">,</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="Blue">text</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">*</font><font color="Green">2</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><font color="buttontext">				</font><font color="Blue">else</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_end_offset</font>&nbsp;&nbsp;&nbsp;&nbsp;<br><font color="buttontext">			</font><font color="Blue">end</font>&nbsp;<font color="buttontext">-</font>&nbsp;<font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">statement_start_offset</font><font color="buttontext">)</font><font color="buttontext">/</font><font color="Green">2</font>&nbsp;&nbsp;<font color="buttontext">)</font><font color="buttontext">)</font><br><font color="buttontext">	</font><font color="Blue">end</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">query_text</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Maroon">db_name</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">dbid</font><font color="buttontext">)</font><font color="Blue">as</font>&nbsp;<font color="Blue">database_name</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="Maroon">object_schema_name</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">objectid</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">dbid</font><font color="buttontext">)</font><font color="buttontext">+</font><font color="Teal">'.'</font><font color="buttontext">+</font><font color="Maroon">object_name</font><font color="buttontext">(</font><font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">objectid</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">dbid</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Maroon">object_name</font><font color="buttontext">,</font><br><font color="buttontext">	</font><font color="buttontext">qp</font><font color="buttontext">.</font><font color="buttontext">query_plan</font><br><font color="buttontext">	</font><font color="Blue">from</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_query_stats</font>&nbsp;&nbsp;<font color="buttontext">qs</font><br><font color="buttontext">	</font><font color="Blue">cross</font>&nbsp;<font color="Blue">apply</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_sql_text</font><font color="buttontext">(</font><font color="buttontext">sql_handle</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">st</font><br><font color="buttontext">	</font><font color="Blue">cross</font>&nbsp;<font color="Blue">apply</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_exec_query_plan</font><font color="buttontext">(</font><font color="buttontext">qs</font><font color="buttontext">.</font><font color="buttontext">plan_handle</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">qp</font><br><font color="buttontext">	</font><font color="Blue">where</font>&nbsp;<font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">objectid</font><font color="buttontext">=</font><font color="buttontext">@ObjectID</font>&nbsp;<font color="Blue">and</font>&nbsp;<font color="buttontext">st</font><font color="buttontext">.</font><font color="buttontext">dbid</font><font color="buttontext">=</font><font color="buttontext">@DBID</font><br><font color="buttontext">)</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Возвращает все планы заданного объекта'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'dbo'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'FUNCTION'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'GetPlansObject'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор объекта'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'dbo'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'FUNCTION'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'GetPlansObject'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PARAMETER'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'@ObjectID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'dbo'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'FUNCTION'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'GetPlansObject'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PARAMETER'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'@DBID'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

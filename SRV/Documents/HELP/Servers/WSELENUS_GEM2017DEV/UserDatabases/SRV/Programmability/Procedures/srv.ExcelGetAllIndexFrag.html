@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.ExcelGetAllIndexFrag</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Программные объекты</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Хранимые процедуры</a></li>
+            <li class="active">srv.ExcelGetAllIndexFrag</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.ExcelGetAllIndexFrag" />
+            <h1 class="inline-middle">srv.ExcelGetAllIndexFrag</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Возвращает информацию по всем индексам, которые занимают не менее 20 страниц</span>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">PROCEDURE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ExcelGetAllIndexFrag</font><br><font color="Blue">as</font><br><font color="Blue">begin</font><br><font color="buttontext">	</font><br><font color="Gray">/*
+		возвращает информацию по всем индексам, которые занимают не менее 20 страниц
+	*/</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">TRANSACTION</font>&nbsp;<font color="Blue">ISOLATION</font>&nbsp;<font color="Blue">LEVEL</font>&nbsp;<font color="Blue">READ</font>&nbsp;<font color="Blue">UNCOMMITTED</font><font color="buttontext">;</font><br><font color="buttontext">	</font><br><font color="buttontext">	</font><font color="Blue">SELECT</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">0</font><font color="buttontext">)</font>&nbsp;<font color="Maroon">@@SERVERNAME</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Schema]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[index_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[avg_fragmentation_in_percent]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[page_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[avg_fragment_size_in_pages]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[database_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[object_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[index_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[partition_number]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[index_type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[alloc_unit_type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[index_depth]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[index_level]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[fragment_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[FullTable]</font><br><font color="buttontext">	  </font><font color="Blue">into</font>&nbsp;<font color="buttontext">#ttt</font><br>&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">[inf]</font><font color="buttontext">.</font><font color="buttontext">[AllIndexFrag]</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">select</font>&nbsp;<font color="buttontext">[name]</font><br>&nbsp;&nbsp;<font color="Blue">into</font>&nbsp;<font color="buttontext">#dbs</font><br>&nbsp;&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">databases</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">declare</font>&nbsp;<font color="buttontext">@dbs</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">declare</font>&nbsp;<font color="buttontext">@sql</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Maroon">max</font><font color="buttontext">)</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">while</font><font color="buttontext">(</font><font color="Blue">exists</font><font color="buttontext">(</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font>&nbsp;<font color="Green">1</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">#dbs</font><font color="buttontext">)</font><font color="buttontext">)</font><br>&nbsp;&nbsp;<font color="Blue">begin</font><br><font color="buttontext">	</font><font color="Blue">select</font>&nbsp;<font color="Blue">top</font><font color="buttontext">(</font><font color="Green">1</font><font color="buttontext">)</font><br><font color="buttontext">	</font><font color="buttontext">@dbs</font><font color="buttontext">=</font><font color="buttontext">[name]</font><br><font color="buttontext">	</font><font color="Blue">from</font>&nbsp;<font color="buttontext">#dbs</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">set</font>&nbsp;<font color="buttontext">@sql</font><font color="buttontext">=</font><br><font color="buttontext">	</font><br><font color="Teal">N'insert into #ttt([ServerName]
+      ,[DBName]
+      ,[Schema]
+      ,[Name]
+      ,[index_name]
+      ,[avg_fragmentation_in_percent]
+      ,[page_count]
+      ,[avg_fragment_size_in_pages]
+      ,[database_id]
+      ,[object_id]
+      ,[index_id]
+      ,[partition_number]
+      ,[index_type_desc]
+      ,[alloc_unit_type_desc]
+      ,[index_depth]
+      ,[index_level]
+      ,[fragment_count]
+      ,[FullTable])
+	select @@SERVERNAME as [ServerName]
+      ,[DBName]
+      ,[Schema]
+      ,[Name]
+      ,[index_name]
+      ,[avg_fragmentation_in_percent]
+      ,[page_count]
+      ,[avg_fragment_size_in_pages]
+      ,[database_id]
+      ,[object_id]
+      ,[index_id]
+      ,[partition_number]
+      ,[index_type_desc]
+      ,[alloc_unit_type_desc]
+      ,[index_depth]
+      ,[index_level]
+      ,[fragment_count]
+      ,[FullTable]
+	from ['</font><font color="buttontext">+</font><font color="buttontext">@dbs</font><font color="buttontext">+</font><font color="Teal">'].[inf].[AllIndexFrag];'</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">exec</font>&nbsp;<font color="buttontext">sp_executesql</font>&nbsp;<font color="buttontext">@sql</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">delete</font>&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">#dbs</font><br><font color="buttontext">	</font><font color="Blue">where</font>&nbsp;<font color="buttontext">[name]</font><font color="buttontext">=</font><font color="buttontext">@dbs</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">end</font><br>&nbsp;&nbsp;<font color="Blue">select</font>&nbsp;<font color="buttontext">*</font><br>&nbsp;&nbsp;<font color="Blue">from</font>&nbsp;<font color="buttontext">#ttt</font><br>&nbsp;&nbsp;<font color="Blue">where</font>&nbsp;<font color="buttontext">[page_count]</font><font color="buttontext">></font><font color="buttontext">=</font><font color="Green">20</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">drop</font>&nbsp;<font color="Blue">table</font>&nbsp;<font color="buttontext">#ttt</font><font color="buttontext">;</font><br>&nbsp;&nbsp;<font color="Blue">drop</font>&nbsp;<font color="Blue">table</font>&nbsp;<font color="buttontext">#dbs</font><font color="buttontext">;</font><br><font color="Blue">end</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Возвращает информацию по всем индексам, которые занимают не менее 20 страниц'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PROCEDURE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ExcelGetAllIndexFrag'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\inf.AllIndexFrag.html" data-mapping-enabled="true"><span>inf.AllIndexFrag</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>

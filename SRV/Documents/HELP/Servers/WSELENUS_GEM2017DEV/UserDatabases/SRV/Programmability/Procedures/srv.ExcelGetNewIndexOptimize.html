@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.ExcelGetNewIndexOptimize</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-8">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Проект</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Серверы</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\WSELENUS_GEM2017DEV.html" data-mapping-enabled="true">WSELENUS\GEM2017DEV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">Пользовательские базы данных</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Программные объекты</a></li>
+            <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Хранимые процедуры</a></li>
+            <li class="active">srv.ExcelGetNewIndexOptimize</li>
+          </ol>
+        </div>
+        <div class="align-right col-xs-4">БД SRV</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.ExcelGetNewIndexOptimize" />
+            <h1 class="inline-middle">srv.ExcelGetNewIndexOptimize</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Свернуть все</a></li>
+                <li><a id="ExpandAll" href="#">Развернуть все</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Описание</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Возвращает рекомендуемые индексы для создания</span>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL скрипт</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">PROCEDURE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ExcelGetNewIndexOptimize</font><br><font color="Blue">as</font><br><font color="Blue">begin</font><br><font color="buttontext">	</font><br><font color="Gray">/*
+		возвращает рекомендуемые индексы для создания
+	*/</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">TRANSACTION</font>&nbsp;<font color="Blue">ISOLATION</font>&nbsp;<font color="Blue">LEVEL</font>&nbsp;<font color="Blue">READ</font>&nbsp;<font color="Blue">UNCOMMITTED</font><font color="buttontext">;</font>&nbsp;<br><font color="buttontext">	</font><br><font color="buttontext">	</font><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[ServerName]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[DBName]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[Schema]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[Name]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[index_advantage]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[group_handle]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[unique_compiles]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[last_user_seek]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[last_user_scan]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[avg_total_user_cost]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[avg_user_impact]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[system_seeks]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[last_system_scan]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[last_system_seek]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[avg_total_system_cost]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[avg_system_impact]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[index_group_handle]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[index_handle]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[database_id]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[object_id]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[equality_columns]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[inequality_columns]</font>&nbsp;<br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[statement]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[K]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[Keys]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[include]</font>&nbsp;<br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[sql_statement]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[user_seeks]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[user_scans]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[est_impact]</font><br><font color="buttontext">		  </font><font color="buttontext">,</font><font color="buttontext">[SecondsUptime]</font>&nbsp;<br><font color="buttontext">	  </font><font color="Blue">FROM</font>&nbsp;<font color="buttontext">[inf]</font><font color="buttontext">.</font><font color="buttontext">[vNewIndexOptimize]</font><br><font color="buttontext">	  </font><font color="Blue">where</font>&nbsp;<font color="buttontext">[index_advantage]</font><font color="buttontext">></font><font color="buttontext">=</font><font color="Green">30000</font><font color="buttontext">;</font><br><font color="Blue">end</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Возвращает рекомендуемые индексы для создания'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PROCEDURE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ExcelGetNewIndexOptimize'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Зависит от</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Views\inf.vNewIndexOptimize.html" data-mapping-enabled="true"><span>inf.vNewIndexOptimize</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Используется</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">Элементы не найдены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4 align-center">Все права сохранены</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+  </div>
+</body>
+</html>
