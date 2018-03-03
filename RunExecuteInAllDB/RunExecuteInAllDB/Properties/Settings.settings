@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RunExecuteInAllDB.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Servers" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_1;sql_server_2;...</Value>
+    </Setting>
+    <Setting Name="FileQuery" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FileQuery.sql</Value>
+    </Setting>
+    <Setting Name="FileLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FileLog.log</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

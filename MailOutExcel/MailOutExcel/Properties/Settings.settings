@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MailOutExcel.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FullNameFileExcel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Полный путь к файлу с расширением</Value>
+    </Setting>
+    <Setting Name="ColumnIndexCounterparty" Type="System.Byte" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="ColumnIndexFinishDate" Type="System.Byte" Scope="Application">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="MailServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Название почтового сервера</Value>
+    </Setting>
+    <Setting Name="FullNameFileSaveTemp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Полный путь к результирующему файлу с расширением</Value>
+    </Setting>
+    <Setting Name="OldDay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="IsSendEmptyBody" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MainSendNotEmptyBodyMess" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Заголовок если письмо не пусто</Value>
+    </Setting>
+    <Setting Name="MainSendEmptyBodyMess" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Заголовок если письмо пусто</Value>
+    </Setting>
+    <Setting Name="MailAddressFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовый адрес отправителя</Value>
+    </Setting>
+    <Setting Name="MailAddressTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовые адреса получателя через ;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

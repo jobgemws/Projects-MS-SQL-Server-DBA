@@ -1,0 +1,11 @@
+D:\GEM\MailOutExcel\ExcelBiblio\bin\Debug\ExcelBiblio.dll
+D:\GEM\MailOutExcel\ExcelBiblio\bin\Debug\ExcelBiblio.pdb
+D:\GEM\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.dll
+D:\GEM\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.pdb
+D:\GEM\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.csprojResolveAssemblyReference.cache
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\bin\Debug\ExcelBiblio.dll
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\bin\Debug\ExcelBiblio.pdb
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.csprojResolveAssemblyReference.cache
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.csproj.CoreCompileInputs.cache
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.dll
+C:\Users\WSELENUS\Downloads\Проекты\MailOutExcel\ExcelBiblio\obj\Debug\ExcelBiblio.pdb

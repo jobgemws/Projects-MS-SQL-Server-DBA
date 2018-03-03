@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailOutExcel", "MailOutExcel\MailOutExcel.csproj", "{1D020C78-4D8B-4714-990B-C0C8D87718F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelBiblio", "ExcelBiblio\ExcelBiblio.csproj", "{A9163ECC-A123-47BE-96F7-383969DFC780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailBiblio", "MailBiblio\MailBiblio.csproj", "{E2FB46A6-267C-4FE1-AE62-C5EDCBFD40E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D020C78-4D8B-4714-990B-C0C8D87718F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D020C78-4D8B-4714-990B-C0C8D87718F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D020C78-4D8B-4714-990B-C0C8D87718F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D020C78-4D8B-4714-990B-C0C8D87718F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9163ECC-A123-47BE-96F7-383969DFC780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9163ECC-A123-47BE-96F7-383969DFC780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9163ECC-A123-47BE-96F7-383969DFC780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9163ECC-A123-47BE-96F7-383969DFC780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FB46A6-267C-4FE1-AE62-C5EDCBFD40E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FB46A6-267C-4FE1-AE62-C5EDCBFD40E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FB46A6-267C-4FE1-AE62-C5EDCBFD40E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FB46A6-267C-4FE1-AE62-C5EDCBFD40E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

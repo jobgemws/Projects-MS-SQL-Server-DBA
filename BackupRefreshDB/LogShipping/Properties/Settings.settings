@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LogShipping.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SourceServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_source</Value>
+    </Setting>
+    <Setting Name="TargetServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_target</Value>
+    </Setting>
+    <Setting Name="SourceFolderShared" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">расшаренная папка источника</Value>
+    </Setting>
+    <Setting Name="TargetFolderShared" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">расшаренная папка приемника</Value>
+    </Setting>
+    <Setting Name="IsSourceServer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SourceFile" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ListDB" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FileLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FileLog.log</Value>
+    </Setting>
+    <Setting Name="IsDeleteSourceBackup" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MoveTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsDeleteTargetBackup" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsMail" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MailAddressFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовый адрес отправителя</Value>
+    </Setting>
+    <Setting Name="MailAddressTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовые адреса получателя через ;</Value>
+    </Setting>
+    <Setting Name="MailServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовый сервер</Value>
+    </Setting>
+    <Setting Name="IsCopySource" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsRestoreTarget" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsLogShipping" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FileRetentionPeriodMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">240</Value>
+    </Setting>
+    <Setting Name="ThresholdMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="HistoryRetentionPeriodMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2880</Value>
+    </Setting>
+    <Setting Name="MonitorServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Login" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RunMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="IsSQLLogin" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

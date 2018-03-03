@@ -1,0 +1,78 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BackupRefreshDB.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SourceServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_source</Value>
+    </Setting>
+    <Setting Name="TargetServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_target</Value>
+    </Setting>
+    <Setting Name="SourceFolderShared" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">расшаренная папка источника</Value>
+    </Setting>
+    <Setting Name="TargetFolderShared" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">расшаренная папка приемника</Value>
+    </Setting>
+    <Setting Name="IsSourceServer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SourceFile" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TargetServerMirror" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sql_server_target_mirror</Value>
+    </Setting>
+    <Setting Name="TargetFolderSharedMirror" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Расшаренная папка приемника для зеркалирования</Value>
+    </Setting>
+    <Setting Name="IsMirror" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ListDB" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FileLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FileLog.log</Value>
+    </Setting>
+    <Setting Name="IsDeleteSourceBackup" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MoveTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MoveToMirror" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsDeleteTargetBackup" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsMail" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MailAddressFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовый адрес отправителя</Value>
+    </Setting>
+    <Setting Name="MailAddressTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовые адреса получателя через ;</Value>
+    </Setting>
+    <Setting Name="MailServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Почтовый сервер</Value>
+    </Setting>
+    <Setting Name="SourceStringTCP_Mirror" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TCP://сервер.домен.local:5022</Value>
+    </Setting>
+    <Setting Name="TargeStringTCP_Mirror" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TCP://сервер.домен.local:5022</Value>
+    </Setting>
+    <Setting Name="IsMirrorAsync" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsCopySource" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsRestoreTarget" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

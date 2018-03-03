@@ -1,0 +1,12 @@
+D:\GEM\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.dll
+D:\GEM\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.pdb
+D:\GEM\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.dll
+D:\GEM\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.pdb
+D:\GEM\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.XML
+D:\GEM\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.csprojResolveAssemblyReference.cache
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.XML
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.dll
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\bin\Debug\DBFileFunctions.pdb
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.dll
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.pdb
+D:\GEM\Проекты\BackupRefreshDB\DBFileFunctions\obj\Debug\DBFileFunctions.csprojResolveAssemblyReference.cache
