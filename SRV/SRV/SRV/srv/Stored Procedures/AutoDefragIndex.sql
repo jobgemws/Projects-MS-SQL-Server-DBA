@@ -281,7 +281,7 @@ BEGIN
 			
 			if(@frag>=30 and @isrebuild=1 and @isRebuildOnline=1)
 			begin
-				set @SQL_Str = @SQL_Str+'ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE);'
+				set @SQL_Str = @SQL_Str+'ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON);'
 			end
 			else
 			begin
