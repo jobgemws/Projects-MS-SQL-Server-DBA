@@ -258,48 +258,48 @@ begin
 	set @iscreated=1;
 
 	set @str='CREATE view [inf].[vCountRows] as
--- Метод получения количества записей с использованием DMV dm_db_partition_stats 
-SELECT  @@ServerName AS ServerName ,
-        DB_NAME() AS DBName ,
-        OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
-        OBJECT_NAME(ddps.object_id) AS TableName ,
-        i.Type_Desc ,
-        i.Name AS IndexUsedForCounts ,
-        SUM(ddps.row_count) AS Rows
-FROM    sys.dm_db_partition_stats ddps
-        JOIN sys.indexes i ON i.object_id = ddps.object_id
-                              AND i.index_id = ddps.index_id
-WHERE   i.type_desc IN ( ''CLUSTERED'', ''HEAP'' )
-                              -- This is key (1 index per table) 
-        AND OBJECT_SCHEMA_NAME(ddps.object_id) <> ''sys''
-GROUP BY ddps.object_id ,
-        i.type_desc ,
-        i.Name
---ORDER BY SchemaName ,
---        TableName;';
+	-- Метод получения количества записей с использованием DMV dm_db_partition_stats 
+	SELECT  @@ServerName AS ServerName ,
+	        DB_NAME() AS DBName ,
+	        OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
+	        OBJECT_NAME(ddps.object_id) AS TableName ,
+	        i.Type_Desc ,
+	        i.Name AS IndexUsedForCounts ,
+	        SUM(ddps.row_count) AS Rows
+	FROM    sys.dm_db_partition_stats ddps
+	        JOIN sys.indexes i ON i.object_id = ddps.object_id
+	                              AND i.index_id = ddps.index_id
+	WHERE   i.type_desc IN ( ''CLUSTERED'', ''HEAP'' )
+	                              -- This is key (1 index per table) 
+	        AND OBJECT_SCHEMA_NAME(ddps.object_id) <> ''sys''
+	GROUP BY ddps.object_id ,
+	        i.type_desc ,
+	        i.Name
+	--ORDER BY SchemaName ,
+	--        TableName;';
 end
 else
 begin
 	set @str='ALTER view [inf].[vCountRows] as
--- Метод получения количества записей с использованием DMV dm_db_partition_stats 
-SELECT  @@ServerName AS ServerName ,
-        DB_NAME() AS DBName ,
-        OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
-        OBJECT_NAME(ddps.object_id) AS TableName ,
-        i.Type_Desc ,
-        i.Name AS IndexUsedForCounts ,
-        SUM(ddps.row_count) AS Rows
-FROM    sys.dm_db_partition_stats ddps
-        JOIN sys.indexes i ON i.object_id = ddps.object_id
-                              AND i.index_id = ddps.index_id
-WHERE   i.type_desc IN ( ''CLUSTERED'', ''HEAP'' )
-                              -- This is key (1 index per table) 
-        AND OBJECT_SCHEMA_NAME(ddps.object_id) <> ''sys''
-GROUP BY ddps.object_id ,
-        i.type_desc ,
-        i.Name
---ORDER BY SchemaName ,
---        TableName;';
+	-- Метод получения количества записей с использованием DMV dm_db_partition_stats 
+	SELECT  @@ServerName AS ServerName ,
+	        DB_NAME() AS DBName ,
+	        OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
+	        OBJECT_NAME(ddps.object_id) AS TableName ,
+	        i.Type_Desc ,
+	        i.Name AS IndexUsedForCounts ,
+	        SUM(ddps.row_count) AS Rows
+	FROM    sys.dm_db_partition_stats ddps
+	        JOIN sys.indexes i ON i.object_id = ddps.object_id
+	                              AND i.index_id = ddps.index_id
+	WHERE   i.type_desc IN ( ''CLUSTERED'', ''HEAP'' )
+	                              -- This is key (1 index per table) 
+	        AND OBJECT_SCHEMA_NAME(ddps.object_id) <> ''sys''
+	GROUP BY ddps.object_id ,
+	        i.type_desc ,
+	        i.Name
+	--ORDER BY SchemaName ,
+	--        TableName;';
 end
 
 if(@str is not null)
@@ -319,146 +319,146 @@ begin
 	set @iscreated=1;
 
 	set @str='CREATE view [inf].[vIndexUsageStats] as
-SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
-		 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
-		 i.name AS [INDEX NAME], 
-		 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
-         s.USER_SEEKS, 
-         s.USER_SCANS, 
-         s.USER_LOOKUPS, 
-         s.USER_UPDATES,
-		 s.Last_User_Seek,
-		 s.Last_User_Scan,
-		 s.Last_User_Lookup,
-		 s.Last_User_Update,
-		 s.System_Seeks,
-		 s.System_Scans,
-		 s.System_Lookups,
-		 s.System_Updates,
-		 s.Last_System_Seek,
-		 s.Last_System_Scan,
-		 s.Last_System_Lookup,
-		 s.Last_System_Update,
-		 obj.schema_id,
-		 i.object_id,
-		 i.index_id,
-		 obj.[type] as [ObjectType],
-		 obj.[type_desc] as TYPE_DESC_OBJECT,
-		 i.[type] as [IndexType],
-		 i.[type_desc] as TYPE_DESC_INDEX,
-		 i.Is_Unique,
-		 i.Data_Space_ID,
-		 i.[Ignore_Dup_Key],
-		 i.Is_Primary_Key,
-		 i.Is_Unique_Constraint,
-		 i.Fill_Factor,
-		 i.Is_Padded,
-		 i.Is_Disabled,
-		 i.Is_Hypothetical,
-		 i.[Allow_Row_Locks],
-		 i.[Allow_Page_Locks],
-		 i.Has_Filter,
-		 i.Filter_Definition,
-		 STUFF(
-				(
-					SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
-								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
-					WHERE ic.[object_id] = obj.[object_id]
-					  and ic.[index_id]=i.[index_id]
-					  and ic.[is_included_column]=0
-					order by ic.[key_ordinal] asc
-					FOR XML PATH(''''),TYPE
-				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
-			  ) as [Columns],
-		STUFF(
-				(
-					SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
-								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
-					WHERE ic.[object_id] = obj.[object_id]
-					  and ic.[index_id]=i.[index_id]
-					  and ic.[is_included_column]=1
-					order by ic.[key_ordinal] asc
-					FOR XML PATH(''''),TYPE
-				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
-			  ) as [IncludeColumns]
-FROM     sys.dm_db_index_usage_stats AS s 
-         INNER JOIN sys.indexes AS i 
-           ON i.object_id = s.object_id 
-              AND i.index_id = s.index_id
-		 inner join sys.objects as obj on obj.object_id=i.object_id
---WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
+	SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
+			 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
+			 i.name AS [INDEX NAME], 
+			 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
+	         s.USER_SEEKS, 
+	         s.USER_SCANS, 
+	         s.USER_LOOKUPS, 
+	         s.USER_UPDATES,
+			 s.Last_User_Seek,
+			 s.Last_User_Scan,
+			 s.Last_User_Lookup,
+			 s.Last_User_Update,
+			 s.System_Seeks,
+			 s.System_Scans,
+			 s.System_Lookups,
+			 s.System_Updates,
+			 s.Last_System_Seek,
+			 s.Last_System_Scan,
+			 s.Last_System_Lookup,
+			 s.Last_System_Update,
+			 obj.schema_id,
+			 i.object_id,
+			 i.index_id,
+			 obj.[type] as [ObjectType],
+			 obj.[type_desc] as TYPE_DESC_OBJECT,
+			 i.[type] as [IndexType],
+			 i.[type_desc] as TYPE_DESC_INDEX,
+			 i.Is_Unique,
+			 i.Data_Space_ID,
+			 i.[Ignore_Dup_Key],
+			 i.Is_Primary_Key,
+			 i.Is_Unique_Constraint,
+			 i.Fill_Factor,
+			 i.Is_Padded,
+			 i.Is_Disabled,
+			 i.Is_Hypothetical,
+			 i.[Allow_Row_Locks],
+			 i.[Allow_Page_Locks],
+			 i.Has_Filter,
+			 i.Filter_Definition,
+			 STUFF(
+					(
+						SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
+									   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+						WHERE ic.[object_id] = obj.[object_id]
+						  and ic.[index_id]=i.[index_id]
+						  and ic.[is_included_column]=0
+						order by ic.[key_ordinal] asc
+						FOR XML PATH(''''),TYPE
+					).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+				  ) as [Columns],
+			STUFF(
+					(
+						SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
+									   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+						WHERE ic.[object_id] = obj.[object_id]
+						  and ic.[index_id]=i.[index_id]
+						  and ic.[is_included_column]=1
+						order by ic.[key_ordinal] asc
+						FOR XML PATH(''''),TYPE
+					).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+				  ) as [IncludeColumns]
+	FROM     sys.dm_db_index_usage_stats AS s 
+	         INNER JOIN sys.indexes AS i 
+	           ON i.object_id = s.object_id 
+	              AND i.index_id = s.index_id
+			 inner join sys.objects as obj on obj.object_id=i.object_id
+	--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
 end
 else
 begin
 	set @str='ALTER view [inf].[vIndexUsageStats] as
-SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
-		 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
-		 i.name AS [INDEX NAME], 
-		 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
-         s.USER_SEEKS, 
-         s.USER_SCANS, 
-         s.USER_LOOKUPS, 
-         s.USER_UPDATES,
-		 s.Last_User_Seek,
-		 s.Last_User_Scan,
-		 s.Last_User_Lookup,
-		 s.Last_User_Update,
-		 s.System_Seeks,
-		 s.System_Scans,
-		 s.System_Lookups,
-		 s.System_Updates,
-		 s.Last_System_Seek,
-		 s.Last_System_Scan,
-		 s.Last_System_Lookup,
-		 s.Last_System_Update,
-		 obj.schema_id,
-		 i.object_id,
-		 i.index_id,
-		 obj.[type] as [ObjectType],
-		 obj.[type_desc] as TYPE_DESC_OBJECT,
-		 i.[type] as [IndexType],
-		 i.[type_desc] as TYPE_DESC_INDEX,
-		 i.Is_Unique,
-		 i.Data_Space_ID,
-		 i.[Ignore_Dup_Key],
-		 i.Is_Primary_Key,
-		 i.Is_Unique_Constraint,
-		 i.Fill_Factor,
-		 i.Is_Padded,
-		 i.Is_Disabled,
-		 i.Is_Hypothetical,
-		 i.[Allow_Row_Locks],
-		 i.[Allow_Page_Locks],
-		 i.Has_Filter,
-		 i.Filter_Definition,
-		 STUFF(
-				(
-					SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
-								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
-					WHERE ic.[object_id] = obj.[object_id]
-					  and ic.[index_id]=i.[index_id]
-					  and ic.[is_included_column]=0
-					order by ic.[key_ordinal] asc
-					FOR XML PATH(''''),TYPE
-				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
-			  ) as [Columns],
-		STUFF(
-				(
-					SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
-								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
-					WHERE ic.[object_id] = obj.[object_id]
-					  and ic.[index_id]=i.[index_id]
-					  and ic.[is_included_column]=1
-					order by ic.[key_ordinal] asc
-					FOR XML PATH(''''),TYPE
-				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
-			  ) as [IncludeColumns]
-FROM     sys.dm_db_index_usage_stats AS s 
-         INNER JOIN sys.indexes AS i 
-           ON i.object_id = s.object_id 
-              AND i.index_id = s.index_id
-		 inner join sys.objects as obj on obj.object_id=i.object_id
---WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
+	SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
+			 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
+			 i.name AS [INDEX NAME], 
+			 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
+	         s.USER_SEEKS, 
+	         s.USER_SCANS, 
+	         s.USER_LOOKUPS, 
+	         s.USER_UPDATES,
+			 s.Last_User_Seek,
+			 s.Last_User_Scan,
+			 s.Last_User_Lookup,
+			 s.Last_User_Update,
+			 s.System_Seeks,
+			 s.System_Scans,
+			 s.System_Lookups,
+			 s.System_Updates,
+			 s.Last_System_Seek,
+			 s.Last_System_Scan,
+			 s.Last_System_Lookup,
+			 s.Last_System_Update,
+			 obj.schema_id,
+			 i.object_id,
+			 i.index_id,
+			 obj.[type] as [ObjectType],
+			 obj.[type_desc] as TYPE_DESC_OBJECT,
+			 i.[type] as [IndexType],
+			 i.[type_desc] as TYPE_DESC_INDEX,
+			 i.Is_Unique,
+			 i.Data_Space_ID,
+			 i.[Ignore_Dup_Key],
+			 i.Is_Primary_Key,
+			 i.Is_Unique_Constraint,
+			 i.Fill_Factor,
+			 i.Is_Padded,
+			 i.Is_Disabled,
+			 i.Is_Hypothetical,
+			 i.[Allow_Row_Locks],
+			 i.[Allow_Page_Locks],
+			 i.Has_Filter,
+			 i.Filter_Definition,
+			 STUFF(
+					(
+						SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
+									   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+						WHERE ic.[object_id] = obj.[object_id]
+						  and ic.[index_id]=i.[index_id]
+						  and ic.[is_included_column]=0
+						order by ic.[key_ordinal] asc
+						FOR XML PATH(''''),TYPE
+					).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+				  ) as [Columns],
+			STUFF(
+					(
+						SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
+									   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+						WHERE ic.[object_id] = obj.[object_id]
+						  and ic.[index_id]=i.[index_id]
+						  and ic.[is_included_column]=1
+						order by ic.[key_ordinal] asc
+						FOR XML PATH(''''),TYPE
+					).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+				  ) as [IncludeColumns]
+	FROM     sys.dm_db_index_usage_stats AS s 
+	         INNER JOIN sys.indexes AS i 
+	           ON i.object_id = s.object_id 
+	              AND i.index_id = s.index_id
+			 inner join sys.objects as obj on obj.object_id=i.object_id
+	--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
 end
 
 if(@str is not null)
@@ -478,176 +478,176 @@ begin
 	set @iscreated=1;
 
 	set @str='CREATE view [inf].[vOldStatisticsState] as
-with st AS(
-select DISTINCT 
-obj.[object_id]
-, obj.[create_date]
-, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
-, obj.[name] as [ObjectName]
-, CAST(
-		(
-		   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
-			SELECT SUM(ps2.[reserved_page_count])/128.
-			from sys.dm_db_partition_stats as ps2
-			where ps2.[object_id] = obj.[object_id]
-		) as numeric (38,2)
-	  ) as [ObjectSizeMB] --размер объекта в МБ
-, s.[stats_id]
-, s.[name] as [StatName]
-, sp.[last_updated]
-, i.[index_id]
-, i.[type_desc]
-, i.[name] as [IndexName]
-, ps.[row_count]
-, s.[has_filter]
-, s.[no_recompute]
-, sp.[rows]
-, sp.[rows_sampled]
---кол-во изменений вычисляется как:
---сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
---и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
-, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
---% количества строк, выбранных для статистических вычислений,
---к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
-, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
---% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
---к приблизительному количество строк в секции
-, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
---Вес объекта:
---[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
-, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
-							* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
---было ли сканирование:
---общее количество строк, выбранных для статистических вычислений, не равно
---общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
-, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
-, tbl.[name] as [ColumnType]
-, s.[auto_created]	
-from sys.objects as obj
-inner join sys.stats as s on s.[object_id] = obj.[object_id]
-left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
-				and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
-left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
-outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
-left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
-left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
-left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
-where obj.[type_desc] <> ''SYSTEM_TABLE''
-)
-SELECT
-	st.[object_id]
-	, st.[SchemaName]
-	, st.[ObjectName]
-	, st.[stats_id]
-	, st.[StatName]
-	, st.[row_count]
-	, st.[ProcModified]
-	, st.[ObjectSizeMB]
-	, st.[type_desc]
-	, st.[create_date]
-	, st.[last_updated]
-	, st.[ModificationCounter]
-	, st.[ProcSampled]
-	, st.[Func]
-	, st.[IsScanned]
-	, st.[ColumnType]
-	, st.[auto_created]
-	, st.[IndexName]
-	, st.[has_filter]
-	--INTO #tbl
-FROM st
-WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
-	--если нечего обновлять
-	AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
-	--если есть что обновлять (и данные существенно менялись)
-	AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
+	with st AS(
+	select DISTINCT 
+	obj.[object_id]
+	, obj.[create_date]
+	, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
+	, obj.[name] as [ObjectName]
+	, CAST(
+			(
+			   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
+				SELECT SUM(ps2.[reserved_page_count])/128.
+				from sys.dm_db_partition_stats as ps2
+				where ps2.[object_id] = obj.[object_id]
+			) as numeric (38,2)
+		  ) as [ObjectSizeMB] --размер объекта в МБ
+	, s.[stats_id]
+	, s.[name] as [StatName]
+	, sp.[last_updated]
+	, i.[index_id]
+	, i.[type_desc]
+	, i.[name] as [IndexName]
+	, ps.[row_count]
+	, s.[has_filter]
+	, s.[no_recompute]
+	, sp.[rows]
+	, sp.[rows_sampled]
+	--кол-во изменений вычисляется как:
+	--сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+	--и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
+	, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
+	--% количества строк, выбранных для статистических вычислений,
+	--к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+	, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
+	--% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+	--к приблизительному количество строк в секции
+	, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
+	--Вес объекта:
+	--[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
+	, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
+								* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
+	--было ли сканирование:
+	--общее количество строк, выбранных для статистических вычислений, не равно
+	--общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+	, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
+	, tbl.[name] as [ColumnType]
+	, s.[auto_created]	
+	from sys.objects as obj
+	inner join sys.stats as s on s.[object_id] = obj.[object_id]
+	left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
+					and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
+	left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
+	outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
+	left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
+	left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
+	left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
+	where obj.[type_desc] <> ''SYSTEM_TABLE''
+	)
+	SELECT
+		st.[object_id]
+		, st.[SchemaName]
+		, st.[ObjectName]
+		, st.[stats_id]
+		, st.[StatName]
+		, st.[row_count]
+		, st.[ProcModified]
+		, st.[ObjectSizeMB]
+		, st.[type_desc]
+		, st.[create_date]
+		, st.[last_updated]
+		, st.[ModificationCounter]
+		, st.[ProcSampled]
+		, st.[Func]
+		, st.[IsScanned]
+		, st.[ColumnType]
+		, st.[auto_created]
+		, st.[IndexName]
+		, st.[has_filter]
+		--INTO #tbl
+	FROM st
+	WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
+		--если нечего обновлять
+		AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
+		--если есть что обновлять (и данные существенно менялись)
+		AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
 end
 else
 begin
 	set @str='ALTER view [inf].[vOldStatisticsState] as
-with st AS(
-select DISTINCT 
-obj.[object_id]
-, obj.[create_date]
-, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
-, obj.[name] as [ObjectName]
-, CAST(
-		(
-		   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
-			SELECT SUM(ps2.[reserved_page_count])/128.
-			from sys.dm_db_partition_stats as ps2
-			where ps2.[object_id] = obj.[object_id]
-		) as numeric (38,2)
-	  ) as [ObjectSizeMB] --размер объекта в МБ
-, s.[stats_id]
-, s.[name] as [StatName]
-, sp.[last_updated]
-, i.[index_id]
-, i.[type_desc]
-, i.[name] as [IndexName]
-, ps.[row_count]
-, s.[has_filter]
-, s.[no_recompute]
-, sp.[rows]
-, sp.[rows_sampled]
---кол-во изменений вычисляется как:
---сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
---и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
-, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
---% количества строк, выбранных для статистических вычислений,
---к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
-, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
---% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
---к приблизительному количество строк в секции
-, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
---Вес объекта:
---[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
-, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
-							* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
---было ли сканирование:
---общее количество строк, выбранных для статистических вычислений, не равно
---общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
-, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
-, tbl.[name] as [ColumnType]
-, s.[auto_created]	
-from sys.objects as obj
-inner join sys.stats as s on s.[object_id] = obj.[object_id]
-left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
-				and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
-left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
-outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
-left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
-left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
-left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
-where obj.[type_desc] <> ''SYSTEM_TABLE''
-)
-SELECT
-	st.[object_id]
-	, st.[SchemaName]
-	, st.[ObjectName]
-	, st.[stats_id]
-	, st.[StatName]
-	, st.[row_count]
-	, st.[ProcModified]
-	, st.[ObjectSizeMB]
-	, st.[type_desc]
-	, st.[create_date]
-	, st.[last_updated]
-	, st.[ModificationCounter]
-	, st.[ProcSampled]
-	, st.[Func]
-	, st.[IsScanned]
-	, st.[ColumnType]
-	, st.[auto_created]
-	, st.[IndexName]
-	, st.[has_filter]
-	--INTO #tbl
-FROM st
-WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
-	--если нечего обновлять
-	AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
-	--если есть что обновлять (и данные существенно менялись)
-	AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
+	with st AS(
+	select DISTINCT 
+	obj.[object_id]
+	, obj.[create_date]
+	, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
+	, obj.[name] as [ObjectName]
+	, CAST(
+			(
+			   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
+				SELECT SUM(ps2.[reserved_page_count])/128.
+				from sys.dm_db_partition_stats as ps2
+				where ps2.[object_id] = obj.[object_id]
+			) as numeric (38,2)
+		  ) as [ObjectSizeMB] --размер объекта в МБ
+	, s.[stats_id]
+	, s.[name] as [StatName]
+	, sp.[last_updated]
+	, i.[index_id]
+	, i.[type_desc]
+	, i.[name] as [IndexName]
+	, ps.[row_count]
+	, s.[has_filter]
+	, s.[no_recompute]
+	, sp.[rows]
+	, sp.[rows_sampled]
+	--кол-во изменений вычисляется как:
+	--сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+	--и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
+	, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
+	--% количества строк, выбранных для статистических вычислений,
+	--к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+	, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
+	--% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+	--к приблизительному количество строк в секции
+	, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
+	--Вес объекта:
+	--[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
+	, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
+								* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
+	--было ли сканирование:
+	--общее количество строк, выбранных для статистических вычислений, не равно
+	--общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+	, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
+	, tbl.[name] as [ColumnType]
+	, s.[auto_created]	
+	from sys.objects as obj
+	inner join sys.stats as s on s.[object_id] = obj.[object_id]
+	left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
+					and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
+	left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
+	outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
+	left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
+	left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
+	left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
+	where obj.[type_desc] <> ''SYSTEM_TABLE''
+	)
+	SELECT
+		st.[object_id]
+		, st.[SchemaName]
+		, st.[ObjectName]
+		, st.[stats_id]
+		, st.[StatName]
+		, st.[row_count]
+		, st.[ProcModified]
+		, st.[ObjectSizeMB]
+		, st.[type_desc]
+		, st.[create_date]
+		, st.[last_updated]
+		, st.[ModificationCounter]
+		, st.[ProcSampled]
+		, st.[Func]
+		, st.[IsScanned]
+		, st.[ColumnType]
+		, st.[auto_created]
+		, st.[IndexName]
+		, st.[has_filter]
+		--INTO #tbl
+	FROM st
+	WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
+		--если нечего обновлять
+		AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
+		--если есть что обновлять (и данные существенно менялись)
+		AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
 end
 
 if(@str is not null)
@@ -657,5 +657,300 @@ begin
 	if(@iscreated=1)
 	begin
 		EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Устаревшие статистики' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vOldStatisticsState';
+	end
+end
+
+set @str=null;
+set @iscreated=0;
+if(not exists(select top(1) 1 from sys.views where [name]=N'vDelIndexInclude' and [schema_id]=SCHEMA_ID(N'srv')))
+begin
+	set @iscreated=1;
+
+	set @str='CREATE view [srv].[vDelIndexInclude] as
+	/*
+	  Погорелов А.А.
+	  Поиск перекрывающихся(лишних) индексов.
+	  Если поля индекса перекрываются более широким индексом в том же порядке следования полей начиная с первого поля, то 
+	  этот индекс считается лишним, так как запросы могут использовать более широкий индекс.
+	
+	  http://www.sql.ru/blogs/andraptor/1218
+	*/
+	WITH cte_index_info AS (
+	SELECT
+	tSS.[name] AS [SchemaName]
+	,tSO.[name] AS [ObjectName]
+	,tSO.[type_desc] AS [ObjectType]
+	,tSO.[create_date] AS [ObjectCreateDate]
+	,tSI.[name] AS [IndexName]
+	,tSI.[is_primary_key] AS [IndexIsPrimaryKey]
+	,d.[index_type_desc] AS [IndexType]
+	,d.[avg_fragmentation_in_percent] AS [IndexFragmentation]
+	,d.[fragment_count] AS [IndexFragmentCount]
+	,d.[avg_fragment_size_in_pages] AS [IndexAvgFragmentSizeInPages]
+	,d.[page_count] AS [IndexPages]
+	,c.key_columns AS [IndexKeyColumns]
+	,COALESCE(ic.included_columns, '''') AS [IndexIncludedColumns]
+	,tSI.is_unique_constraint
+	FROM
+	(
+	SELECT
+	tSDDIPS.[object_id] AS [object_id]
+	,tSDDIPS.[index_id] AS [index_id]
+	,tSDDIPS.[index_type_desc] AS [index_type_desc]
+	,MAX(tSDDIPS.[avg_fragmentation_in_percent]) AS [avg_fragmentation_in_percent]
+	,MAX(tSDDIPS.[fragment_count]) AS [fragment_count]
+	,MAX(tSDDIPS.[avg_fragment_size_in_pages]) AS [avg_fragment_size_in_pages]
+	,MAX(tSDDIPS.[page_count]) AS [page_count]
+	FROM
+	[sys].[dm_db_index_physical_stats] (DB_ID(), NULL, NULL , NULL, N''LIMITED'') tSDDIPS
+	GROUP BY
+	tSDDIPS.[object_id]
+	,tSDDIPS.[index_id]
+	,tSDDIPS.[index_type_desc]
+	) d
+	INNER JOIN [sys].[indexes] tSI ON
+	tSI.[object_id] = d.[object_id]
+	AND tSI.[index_id] = d.[index_id]
+	INNER JOIN [sys].[objects] tSO ON
+	tSO.[object_id] = d.[object_id]
+	INNER JOIN [sys].[schemas] tSS ON
+	tSS.[schema_id] = tSO.[schema_id]
+	CROSS APPLY (
+	SELECT
+	STUFF((
+	SELECT
+	'', '' + c.[name] +
+	CASE ic.[is_descending_key]
+	WHEN 1 THEN
+	''(-)''
+	ELSE
+	''''
+	END
+	FROM
+	[sys].[index_columns] ic
+	INNER JOIN [sys].[columns] c ON
+	c.[object_id] = ic.[object_id]
+	and c.[column_id] = ic.[column_id]
+	WHERE
+	ic.[index_id] = tSI.[index_id]
+	AND ic.[object_id] = tSI.[object_id]
+	AND ic.[is_included_column] = 0
+	ORDER BY
+	ic.[key_ordinal]
+	FOR XML
+	PATH('''')
+	)
+	,1, 2, ''''
+	) AS [key_columns]
+	) c
+	CROSS APPLY (
+	SELECT
+	STUFF((
+	SELECT
+	'', '' + c.[name]
+	FROM
+	[sys].[index_columns] ic
+	INNER JOIN [sys].[columns] c ON
+	c.[object_id] = ic.[object_id]
+	AND c.[column_id] = ic.[column_id]
+	WHERE
+	ic.[index_id] = tSI.[index_id]
+	AND ic.[object_id] = tSI.[object_id]
+	AND ic.[is_included_column] = 1
+	FOR XML
+	PATH('''')
+	)
+	,1, 2, ''''
+	) AS [included_columns]
+	) ic
+	WHERE
+	tSO.[type_desc] IN (
+	N''USER_TABLE''
+	)
+	AND OBJECTPROPERTY(tSO.[object_id], N''IsMSShipped'') = 0
+	AND d.[index_type_desc] NOT IN (
+	''HEAP''
+	)
+	)
+	SELECT
+	t1.[SchemaName]
+	,t1.[ObjectName]
+	,t1.[ObjectType]
+	,t1.[ObjectCreateDate]
+	,t1.[IndexName] as [DelIndexName]
+	,t1.[IndexIsPrimaryKey]
+	,t1.[IndexType]
+	,t1.[IndexFragmentation]
+	,t1.[IndexFragmentCount]
+	,t1.[IndexAvgFragmentSizeInPages]
+	,t1.[IndexPages]
+	,t1.[IndexKeyColumns]
+	,t1.[IndexIncludedColumns]
+	,t2.[IndexName] as [ActualIndexName]
+	FROM
+	cte_index_info t1
+	INNER JOIN cte_index_info t2 ON
+	t2.[SchemaName] = t1.[SchemaName]
+	AND t2.[ObjectName] = t1.[ObjectName]
+	AND t2.[IndexName] <> t1.[IndexName]
+	AND PATINDEX(REPLACE(t1.[IndexKeyColumns], ''_'', ''[_]'') + '',%'', t2.[IndexKeyColumns] + '','') > 0
+	WHERE
+	t1.[IndexIncludedColumns] = '''' -- don''t check indexes with INCLUDE columns
+	AND t1.[IndexIsPrimaryKey] = 0 -- don''t check primary keys
+	AND t1.is_unique_constraint=0  -- don''t check unique constraint
+	AND t1.[IndexType] NOT IN (
+	N''CLUSTERED INDEX''
+	,N''UNIQUE CLUSTERED INDEX''
+	) -- don''t check clustered indexes
+	';
+end
+else
+begin
+	set @str='ALTER view [srv].[vDelIndexInclude] as
+	/*
+	  Погорелов А.А.
+	  Поиск перекрывающихся(лишних) индексов.
+	  Если поля индекса перекрываются более широким индексом в том же порядке следования полей начиная с первого поля, то 
+	  этот индекс считается лишним, так как запросы могут использовать более широкий индекс.
+	
+	  http://www.sql.ru/blogs/andraptor/1218
+	*/
+	WITH cte_index_info AS (
+	SELECT
+	tSS.[name] AS [SchemaName]
+	,tSO.[name] AS [ObjectName]
+	,tSO.[type_desc] AS [ObjectType]
+	,tSO.[create_date] AS [ObjectCreateDate]
+	,tSI.[name] AS [IndexName]
+	,tSI.[is_primary_key] AS [IndexIsPrimaryKey]
+	,d.[index_type_desc] AS [IndexType]
+	,d.[avg_fragmentation_in_percent] AS [IndexFragmentation]
+	,d.[fragment_count] AS [IndexFragmentCount]
+	,d.[avg_fragment_size_in_pages] AS [IndexAvgFragmentSizeInPages]
+	,d.[page_count] AS [IndexPages]
+	,c.key_columns AS [IndexKeyColumns]
+	,COALESCE(ic.included_columns, '''') AS [IndexIncludedColumns]
+	,tSI.is_unique_constraint
+	FROM
+	(
+	SELECT
+	tSDDIPS.[object_id] AS [object_id]
+	,tSDDIPS.[index_id] AS [index_id]
+	,tSDDIPS.[index_type_desc] AS [index_type_desc]
+	,MAX(tSDDIPS.[avg_fragmentation_in_percent]) AS [avg_fragmentation_in_percent]
+	,MAX(tSDDIPS.[fragment_count]) AS [fragment_count]
+	,MAX(tSDDIPS.[avg_fragment_size_in_pages]) AS [avg_fragment_size_in_pages]
+	,MAX(tSDDIPS.[page_count]) AS [page_count]
+	FROM
+	[sys].[dm_db_index_physical_stats] (DB_ID(), NULL, NULL , NULL, N''LIMITED'') tSDDIPS
+	GROUP BY
+	tSDDIPS.[object_id]
+	,tSDDIPS.[index_id]
+	,tSDDIPS.[index_type_desc]
+	) d
+	INNER JOIN [sys].[indexes] tSI ON
+	tSI.[object_id] = d.[object_id]
+	AND tSI.[index_id] = d.[index_id]
+	INNER JOIN [sys].[objects] tSO ON
+	tSO.[object_id] = d.[object_id]
+	INNER JOIN [sys].[schemas] tSS ON
+	tSS.[schema_id] = tSO.[schema_id]
+	CROSS APPLY (
+	SELECT
+	STUFF((
+	SELECT
+	'', '' + c.[name] +
+	CASE ic.[is_descending_key]
+	WHEN 1 THEN
+	''(-)''
+	ELSE
+	''''
+	END
+	FROM
+	[sys].[index_columns] ic
+	INNER JOIN [sys].[columns] c ON
+	c.[object_id] = ic.[object_id]
+	and c.[column_id] = ic.[column_id]
+	WHERE
+	ic.[index_id] = tSI.[index_id]
+	AND ic.[object_id] = tSI.[object_id]
+	AND ic.[is_included_column] = 0
+	ORDER BY
+	ic.[key_ordinal]
+	FOR XML
+	PATH('''')
+	)
+	,1, 2, ''''
+	) AS [key_columns]
+	) c
+	CROSS APPLY (
+	SELECT
+	STUFF((
+	SELECT
+	'', '' + c.[name]
+	FROM
+	[sys].[index_columns] ic
+	INNER JOIN [sys].[columns] c ON
+	c.[object_id] = ic.[object_id]
+	AND c.[column_id] = ic.[column_id]
+	WHERE
+	ic.[index_id] = tSI.[index_id]
+	AND ic.[object_id] = tSI.[object_id]
+	AND ic.[is_included_column] = 1
+	FOR XML
+	PATH('''')
+	)
+	,1, 2, ''''
+	) AS [included_columns]
+	) ic
+	WHERE
+	tSO.[type_desc] IN (
+	N''USER_TABLE''
+	)
+	AND OBJECTPROPERTY(tSO.[object_id], N''IsMSShipped'') = 0
+	AND d.[index_type_desc] NOT IN (
+	''HEAP''
+	)
+	)
+	SELECT
+	t1.[SchemaName]
+	,t1.[ObjectName]
+	,t1.[ObjectType]
+	,t1.[ObjectCreateDate]
+	,t1.[IndexName] as [DelIndexName]
+	,t1.[IndexIsPrimaryKey]
+	,t1.[IndexType]
+	,t1.[IndexFragmentation]
+	,t1.[IndexFragmentCount]
+	,t1.[IndexAvgFragmentSizeInPages]
+	,t1.[IndexPages]
+	,t1.[IndexKeyColumns]
+	,t1.[IndexIncludedColumns]
+	,t2.[IndexName] as [ActualIndexName]
+	FROM
+	cte_index_info t1
+	INNER JOIN cte_index_info t2 ON
+	t2.[SchemaName] = t1.[SchemaName]
+	AND t2.[ObjectName] = t1.[ObjectName]
+	AND t2.[IndexName] <> t1.[IndexName]
+	AND PATINDEX(REPLACE(t1.[IndexKeyColumns], ''_'', ''[_]'') + '',%'', t2.[IndexKeyColumns] + '','') > 0
+	WHERE
+	t1.[IndexIncludedColumns] = '''' -- don''t check indexes with INCLUDE columns
+	AND t1.[IndexIsPrimaryKey] = 0 -- don''t check primary keys
+	AND t1.is_unique_constraint=0  -- don''t check unique constraint
+	AND t1.[IndexType] NOT IN (
+	N''CLUSTERED INDEX''
+	,N''UNIQUE CLUSTERED INDEX''
+	) -- don''t check clustered indexes
+	';
+end
+
+if(@str is not null)
+begin
+	exec sp_executesql @str;
+
+	if(@iscreated=1)
+	begin
+		EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Поиск перекрывающихся(лишних) индексов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vDelIndexInclude';
 	end
 end
