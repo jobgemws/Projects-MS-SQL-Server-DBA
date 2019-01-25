@@ -311,3 +311,351 @@ begin
 		EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Метод получения количества записей с использованием DMV dm_db_partition_stats' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vCountRows';
 	end
 end
+
+set @str=null;
+set @iscreated=0;
+if(not exists(select top(1) 1 from sys.views where [name]=N'vIndexUsageStats' and [schema_id]=SCHEMA_ID(N'inf')))
+begin
+	set @iscreated=1;
+
+	set @str='CREATE view [inf].[vIndexUsageStats] as
+SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
+		 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
+		 i.name AS [INDEX NAME], 
+		 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
+         s.USER_SEEKS, 
+         s.USER_SCANS, 
+         s.USER_LOOKUPS, 
+         s.USER_UPDATES,
+		 s.Last_User_Seek,
+		 s.Last_User_Scan,
+		 s.Last_User_Lookup,
+		 s.Last_User_Update,
+		 s.System_Seeks,
+		 s.System_Scans,
+		 s.System_Lookups,
+		 s.System_Updates,
+		 s.Last_System_Seek,
+		 s.Last_System_Scan,
+		 s.Last_System_Lookup,
+		 s.Last_System_Update,
+		 obj.schema_id,
+		 i.object_id,
+		 i.index_id,
+		 obj.[type] as [ObjectType],
+		 obj.[type_desc] as TYPE_DESC_OBJECT,
+		 i.[type] as [IndexType],
+		 i.[type_desc] as TYPE_DESC_INDEX,
+		 i.Is_Unique,
+		 i.Data_Space_ID,
+		 i.[Ignore_Dup_Key],
+		 i.Is_Primary_Key,
+		 i.Is_Unique_Constraint,
+		 i.Fill_Factor,
+		 i.Is_Padded,
+		 i.Is_Disabled,
+		 i.Is_Hypothetical,
+		 i.[Allow_Row_Locks],
+		 i.[Allow_Page_Locks],
+		 i.Has_Filter,
+		 i.Filter_Definition,
+		 STUFF(
+				(
+					SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
+								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+					WHERE ic.[object_id] = obj.[object_id]
+					  and ic.[index_id]=i.[index_id]
+					  and ic.[is_included_column]=0
+					order by ic.[key_ordinal] asc
+					FOR XML PATH(''''),TYPE
+				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+			  ) as [Columns],
+		STUFF(
+				(
+					SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
+								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+					WHERE ic.[object_id] = obj.[object_id]
+					  and ic.[index_id]=i.[index_id]
+					  and ic.[is_included_column]=1
+					order by ic.[key_ordinal] asc
+					FOR XML PATH(''''),TYPE
+				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+			  ) as [IncludeColumns]
+FROM     sys.dm_db_index_usage_stats AS s 
+         INNER JOIN sys.indexes AS i 
+           ON i.object_id = s.object_id 
+              AND i.index_id = s.index_id
+		 inner join sys.objects as obj on obj.object_id=i.object_id
+--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
+end
+else
+begin
+	set @str='ALTER view [inf].[vIndexUsageStats] as
+SELECT   SCHEMA_NAME(obj.schema_id) as [SCHEMA_NAME],
+		 OBJECT_NAME(s.object_id) AS [OBJECT NAME], 
+		 i.name AS [INDEX NAME], 
+		 ([USER_SEEKS]+[USER_SCANS]+[USER_LOOKUPS])-([USER_UPDATES]+[System_Updates]) as [index_advantage],
+         s.USER_SEEKS, 
+         s.USER_SCANS, 
+         s.USER_LOOKUPS, 
+         s.USER_UPDATES,
+		 s.Last_User_Seek,
+		 s.Last_User_Scan,
+		 s.Last_User_Lookup,
+		 s.Last_User_Update,
+		 s.System_Seeks,
+		 s.System_Scans,
+		 s.System_Lookups,
+		 s.System_Updates,
+		 s.Last_System_Seek,
+		 s.Last_System_Scan,
+		 s.Last_System_Lookup,
+		 s.Last_System_Update,
+		 obj.schema_id,
+		 i.object_id,
+		 i.index_id,
+		 obj.[type] as [ObjectType],
+		 obj.[type_desc] as TYPE_DESC_OBJECT,
+		 i.[type] as [IndexType],
+		 i.[type_desc] as TYPE_DESC_INDEX,
+		 i.Is_Unique,
+		 i.Data_Space_ID,
+		 i.[Ignore_Dup_Key],
+		 i.Is_Primary_Key,
+		 i.Is_Unique_Constraint,
+		 i.Fill_Factor,
+		 i.Is_Padded,
+		 i.Is_Disabled,
+		 i.Is_Hypothetical,
+		 i.[Allow_Row_Locks],
+		 i.[Allow_Page_Locks],
+		 i.Has_Filter,
+		 i.Filter_Definition,
+		 STUFF(
+				(
+					SELECT N'', ['' + [name] +N''] ''+case ic.[is_descending_key] when 0 then N''ASC'' when 1 then N''DESC'' end FROM sys.index_columns ic
+								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+					WHERE ic.[object_id] = obj.[object_id]
+					  and ic.[index_id]=i.[index_id]
+					  and ic.[is_included_column]=0
+					order by ic.[key_ordinal] asc
+					FOR XML PATH(''''),TYPE
+				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+			  ) as [Columns],
+		STUFF(
+				(
+					SELECT N'', ['' + [name] +N'']'' FROM sys.index_columns ic
+								   INNER JOIN sys.columns c on c.[object_id] = obj.[object_id] and ic.[column_id] = c.[column_id]
+					WHERE ic.[object_id] = obj.[object_id]
+					  and ic.[index_id]=i.[index_id]
+					  and ic.[is_included_column]=1
+					order by ic.[key_ordinal] asc
+					FOR XML PATH(''''),TYPE
+				).value(''.'',''NVARCHAR(MAX)''),1,2,''''
+			  ) as [IncludeColumns]
+FROM     sys.dm_db_index_usage_stats AS s 
+         INNER JOIN sys.indexes AS i 
+           ON i.object_id = s.object_id 
+              AND i.index_id = s.index_id
+		 inner join sys.objects as obj on obj.object_id=i.object_id
+--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1 ';
+end
+
+if(@str is not null)
+begin
+	exec sp_executesql @str;
+
+	if(@iscreated=1)
+	begin
+		EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Использование индексов' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vIndexUsageStats';
+	end
+end
+
+set @str=null;
+set @iscreated=0;
+if(not exists(select top(1) 1 from sys.views where [name]=N'vOldStatisticsState' and [schema_id]=SCHEMA_ID(N'inf')))
+begin
+	set @iscreated=1;
+
+	set @str='CREATE view [inf].[vOldStatisticsState] as
+with st AS(
+select DISTINCT 
+obj.[object_id]
+, obj.[create_date]
+, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
+, obj.[name] as [ObjectName]
+, CAST(
+		(
+		   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
+			SELECT SUM(ps2.[reserved_page_count])/128.
+			from sys.dm_db_partition_stats as ps2
+			where ps2.[object_id] = obj.[object_id]
+		) as numeric (38,2)
+	  ) as [ObjectSizeMB] --размер объекта в МБ
+, s.[stats_id]
+, s.[name] as [StatName]
+, sp.[last_updated]
+, i.[index_id]
+, i.[type_desc]
+, i.[name] as [IndexName]
+, ps.[row_count]
+, s.[has_filter]
+, s.[no_recompute]
+, sp.[rows]
+, sp.[rows_sampled]
+--кол-во изменений вычисляется как:
+--сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+--и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
+, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
+--% количества строк, выбранных для статистических вычислений,
+--к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
+--% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+--к приблизительному количество строк в секции
+, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
+--Вес объекта:
+--[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
+, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
+							* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
+--было ли сканирование:
+--общее количество строк, выбранных для статистических вычислений, не равно
+--общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
+, tbl.[name] as [ColumnType]
+, s.[auto_created]	
+from sys.objects as obj
+inner join sys.stats as s on s.[object_id] = obj.[object_id]
+left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
+				and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
+left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
+outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
+left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
+left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
+left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
+where obj.[type_desc] <> ''SYSTEM_TABLE''
+)
+SELECT
+	st.[object_id]
+	, st.[SchemaName]
+	, st.[ObjectName]
+	, st.[stats_id]
+	, st.[StatName]
+	, st.[row_count]
+	, st.[ProcModified]
+	, st.[ObjectSizeMB]
+	, st.[type_desc]
+	, st.[create_date]
+	, st.[last_updated]
+	, st.[ModificationCounter]
+	, st.[ProcSampled]
+	, st.[Func]
+	, st.[IsScanned]
+	, st.[ColumnType]
+	, st.[auto_created]
+	, st.[IndexName]
+	, st.[has_filter]
+	--INTO #tbl
+FROM st
+WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
+	--если нечего обновлять
+	AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
+	--если есть что обновлять (и данные существенно менялись)
+	AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
+end
+else
+begin
+	set @str='ALTER view [inf].[vOldStatisticsState] as
+with st AS(
+select DISTINCT 
+obj.[object_id]
+, obj.[create_date]
+, OBJECT_SCHEMA_NAME(obj.[object_id]) as [SchemaName]
+, obj.[name] as [ObjectName]
+, CAST(
+		(
+		   --общее число страниц, зарезервированных в секции (по 8 КБ на 1024 поделить=поделить на 128)
+			SELECT SUM(ps2.[reserved_page_count])/128.
+			from sys.dm_db_partition_stats as ps2
+			where ps2.[object_id] = obj.[object_id]
+		) as numeric (38,2)
+	  ) as [ObjectSizeMB] --размер объекта в МБ
+, s.[stats_id]
+, s.[name] as [StatName]
+, sp.[last_updated]
+, i.[index_id]
+, i.[type_desc]
+, i.[name] as [IndexName]
+, ps.[row_count]
+, s.[has_filter]
+, s.[no_recompute]
+, sp.[rows]
+, sp.[rows_sampled]
+--кол-во изменений вычисляется как:
+--сумма общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+--и разности приблизительного кол-ва строк в секции и общего числа строк в таблице или индексированном представлении при последнем обновлении статистики
+, sp.[modification_counter]+ABS(ps.[row_count]-sp.[rows]) as [ModificationCounter]
+--% количества строк, выбранных для статистических вычислений,
+--к общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+, NULLIF(CAST( sp.[rows_sampled]*100./sp.[rows] as numeric(18,3)), 100.00) as [ProcSampled]
+--% общего кол-ва изменений в начальном столбце статистики с момента последнего обновления статистики
+--к приблизительному количество строк в секции
+, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3)) as [ProcModified]
+--Вес объекта:
+--[ProcModified]*десятичный логарифм от приблизительного кол-ва строк в секции
+, CAST(sp.[modification_counter]*100./(case when (ps.[row_count]=0) then 1 else ps.[row_count] end) as numeric (18,3))
+							* case when (ps.[row_count]<=10) THEN 1 ELSE LOG10 (ps.[row_count]) END as [Func]
+--было ли сканирование:
+--общее количество строк, выбранных для статистических вычислений, не равно
+--общему числу строк в таблице или индексированном представлении при последнем обновлении статистики
+, CASE WHEN sp.[rows_sampled]<>sp.[rows] THEN 0 ELSE 1 END as [IsScanned]
+, tbl.[name] as [ColumnType]
+, s.[auto_created]	
+from sys.objects as obj
+inner join sys.stats as s on s.[object_id] = obj.[object_id]
+left outer join sys.indexes as i on i.[object_id] = obj.[object_id] and (i.[name] = s.[name] or i.[index_id] in (0,1) 
+				and not exists(select top(1) 1 from sys.indexes i2 where i2.[object_id] = obj.[object_id] and i2.[name] = s.[name]))
+left outer join sys.dm_db_partition_stats as ps on ps.[object_id] = obj.[object_id] and ps.[index_id] = i.[index_id]
+outer apply sys.dm_db_stats_properties (s.[object_id], s.[stats_id]) as sp
+left outer join sys.stats_columns as sc on s.[object_id] = sc.[object_id] and s.[stats_id] = sc.[stats_id]
+left outer join sys.columns as col on col.[object_id] = s.[object_id] and col.[column_id] = sc.[column_id]
+left outer join sys.types as tbl on col.[system_type_id] = tbl.[system_type_id] and col.[user_type_id] = tbl.[user_type_id]
+where obj.[type_desc] <> ''SYSTEM_TABLE''
+)
+SELECT
+	st.[object_id]
+	, st.[SchemaName]
+	, st.[ObjectName]
+	, st.[stats_id]
+	, st.[StatName]
+	, st.[row_count]
+	, st.[ProcModified]
+	, st.[ObjectSizeMB]
+	, st.[type_desc]
+	, st.[create_date]
+	, st.[last_updated]
+	, st.[ModificationCounter]
+	, st.[ProcSampled]
+	, st.[Func]
+	, st.[IsScanned]
+	, st.[ColumnType]
+	, st.[auto_created]
+	, st.[IndexName]
+	, st.[has_filter]
+	--INTO #tbl
+FROM st
+WHERE NOT (st.[row_count] = 0 AND st.[last_updated] IS NULL)--если нет данных и статистика не обновлялась
+	--если нечего обновлять
+	AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
+	--если есть что обновлять (и данные существенно менялись)
+	AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))';
+end
+
+if(@str is not null)
+begin
+	exec sp_executesql @str;
+
+	if(@iscreated=1)
+	begin
+		EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Устаревшие статистики' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vOldStatisticsState';
+	end
+end
