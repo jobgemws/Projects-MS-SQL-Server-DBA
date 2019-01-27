@@ -18,7 +18,7 @@ namespace RunExecuteInAllDB
 
             using (Stream st_log = new FileStream(sett.FileLog, FileMode.Create, FileAccess.Write))
             {
-                using (TextWriter tw_log = new StreamWriter(st_log, Encoding.Default))
+                using (TextWriter tw_log = new StreamWriter(st_log, Encoding.UTF8))
                 {
 
                     using (Stream st = new FileStream(sett.FileQuery, FileMode.Open, FileAccess.Read))
