@@ -351,7 +351,8 @@ WITH [Waits] AS
         100.0 * [wait_time_ms] / SUM ([wait_time_ms]) OVER() AS [Percentage],
         ROW_NUMBER() OVER(ORDER BY [wait_time_ms] DESC) AS [RowNum]
     FROM sys.dm_os_wait_stats
-    WHERE [wait_type] NOT IN (
+    WHERE [waiting_tasks_count]>0
+		and [wait_type] NOT IN (
         N'BROKER_EVENTHANDLER',         N'BROKER_RECEIVE_WAITFOR',
         N'BROKER_TASK_STOP',            N'BROKER_TO_FLUSH',
         N'BROKER_TRANSMITTER',          N'CHECKPOINT_QUEUE',

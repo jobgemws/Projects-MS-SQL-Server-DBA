@@ -6,6 +6,7 @@
 
 
 
+
 CREATE view [inf].[vBigQuery]
 as
 /*
@@ -53,11 +54,32 @@ with s as (
 			total_logical_reads as [Reads],
 			total_logical_writes as [Writes],
 			total_logical_reads+total_logical_writes as [AggIO],
-			convert(money, (total_logical_reads+total_logical_writes)/(execution_count + 0.0))as [AvgIO],
+			convert(money, (total_logical_reads+total_logical_writes)/(execution_count + 0.0)) as [AvgIO],
 			[sql_handle],
 			plan_handle,
 			statement_start_offset,
-			statement_end_offset
+			statement_end_offset,
+			plan_generation_num,
+			total_physical_reads,
+			convert(money, total_physical_reads/(execution_count + 0.0)) as [AvgIOPhysicalReads],
+			convert(money, total_logical_reads/(execution_count + 0.0)) as [AvgIOLogicalReads],
+			convert(money, total_logical_writes/(execution_count + 0.0)) as [AvgIOLogicalWrites],
+			query_hash,
+			query_plan_hash,
+			total_rows,
+			convert(money, total_rows/(execution_count + 0.0)) as [AvgRows],
+			total_dop,
+			convert(money, total_dop/(execution_count + 0.0)) as [AvgDop],
+			total_grant_kb,
+			convert(money, total_grant_kb/(execution_count + 0.0)) as [AvgGrantKb],
+			total_used_grant_kb,
+			convert(money, total_used_grant_kb/(execution_count + 0.0)) as [AvgUsedGrantKb],
+			total_ideal_grant_kb,
+			convert(money, total_ideal_grant_kb/(execution_count + 0.0)) as [AvgIdealGrantKb],
+			total_reserved_threads,
+			convert(money, total_reserved_threads/(execution_count + 0.0)) as [AvgReservedThreads],
+			total_used_threads,
+			convert(money, total_used_threads/(execution_count + 0.0)) as [AvgUsedThreads]
 	from sys.dm_exec_query_stats as qs with(readuncommitted)
 	order by convert(money, (qs.total_elapsed_time))/(execution_count*1000) desc-->=100 --выполнялся запрос не менее 100 мс
 )
@@ -69,10 +91,19 @@ select
 	s.[AvgCPUTime],
 	s.TotDuration,
 	s.[AvgDur],
-	s.[Reads],
-	s.[Writes],
+	s.[AvgIOLogicalReads],
+	s.[AvgIOLogicalWrites],
 	s.[AggIO],
 	s.[AvgIO],
+	s.[AvgIOPhysicalReads],
+	s.plan_generation_num,
+	s.[AvgRows],
+	s.[AvgDop],
+	s.[AvgGrantKb],
+	s.[AvgUsedGrantKb],
+	s.[AvgIdealGrantKb],
+	s.[AvgReservedThreads],
+	s.[AvgUsedThreads],
 	--st.text as query_text,
 	case 
 		when sql_handle IS NULL then ' '
@@ -86,7 +117,9 @@ select
 	object_schema_name(st.objectid, st.dbid)+'.'+object_name(st.objectid, st.dbid) as [object_name],
 	sp.[query_plan],
 	s.[sql_handle],
-	s.plan_handle
+	s.plan_handle,
+	s.query_hash,
+	s.query_plan_hash
 from s
 cross apply sys.dm_exec_sql_text(s.[sql_handle]) as st
 cross apply sys.dm_exec_query_plan(s.[plan_handle]) as sp

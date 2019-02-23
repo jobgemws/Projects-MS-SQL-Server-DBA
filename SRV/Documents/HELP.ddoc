@@ -3,15 +3,16 @@
 <!-- Modifying this generated file will probably render it invalid -->
 <SerializationModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Settings>
-    <Autor>Грибков Евгений Михайлович</Autor>
+    <Autor>Грибков Евгений и группа DBA</Autor>
     <Copyright>Все права сохранены</Copyright>
-    <CreatedDateFormat>01.03.2018</CreatedDateFormat>
-    <Description>База данных для администирования СУБД</Description>
+    <CreatedDateFormat>dd/MM/yyyy</CreatedDateFormat>
+    <Description>База данных для обслуживания СУБД и проведения регламентных работ</Description>
     <EnableBreadcrumbs>true</EnableBreadcrumbs>
-    <Header>БД SRV</Header>
-    <Title>БД SRV</Title>
+    <Header>SRV</Header>
+    <Title>SRV</Title>
     <TitleImage>logo.svg</TitleImage>
     <Style>bootstrap/Default.css</Style>
+    <FileName>C:\Users\WSELENUS\Google Диск\ЗНАНИЯ\Projects\SRV\SRV\Documents\HELP</FileName>
     <FileFormat>Html</FileFormat>
     <OpenAfterGeneration>false</OpenAfterGeneration>
     <AppendTimestamp>false</AppendTimestamp>
@@ -26,30 +27,8 @@
   </Settings>
   <IncludedSection>
     <Section Uid="Root[Project].CoverPage[CoverPage]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Properties[ServerProperties]" Included="false" />
     <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Programmability].List[Functions].List[ScalarValuedFunctions].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Programmability].List[Functions].List[TableValuedFunctions].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Programmability].List[Procedures].Procedure[dbo.rsi]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Programmability].List[Procedures].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Programmability].List[Triggers].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Roles]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Roles].List[DatabaseRoles].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Schema[dll]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Schema[inf]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Schema[nav]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Schema[rep]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Security].List[Schemas].Schema[srv]" Included="true" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Tables].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].List[Views].Properties[Properties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].Properties[DatabaseFiles]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].Properties[DatabaseProperties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].Properties[ServerOptions]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Properties[UserDatabases]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].Properties[Databases]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].Properties[ServerProperties]" Included="false" />
-    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].Properties[ServerSettings]" Included="false" />
+    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].DatabaseProperties[ProductVersion]" Included="false" />
+    <Section Uid="Root[Project].List[Servers].Server[WSELENUS\GEM2017DEV].List[UserDatabases].Database[SRV].DatabaseProperties[Version]" Included="false" />
   </IncludedSection>
 </SerializationModel>

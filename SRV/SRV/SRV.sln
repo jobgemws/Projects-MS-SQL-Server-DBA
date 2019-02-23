@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SRV", "SRV\SRV.sqlproj", "{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SRV", "SRV\SRV.sqlproj", "{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +11,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ECA51DA1-0DB0-4BAF-B106-D1CD7F156F91}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AEF9F9-7C84-4F37-B2AC-961CF93C5545}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FF65A8F7-9FE2-41B4-8AC5-5CFADFB69D30}
+		SolutionGuid = {2E1F90F1-4058-48F6-A90E-FFF04E6B5F74}
 	EndGlobalSection
 EndGlobal

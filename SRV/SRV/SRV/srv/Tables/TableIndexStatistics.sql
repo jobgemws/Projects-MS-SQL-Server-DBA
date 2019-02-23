@@ -1,31 +1,21 @@
 ﻿CREATE TABLE [srv].[TableIndexStatistics] (
-    [Row_GUID]           UNIQUEIDENTIFIER CONSTRAINT [DF_TableIndexStatistics_Row_GUID] DEFAULT (newid()) NOT NULL,
-    [ServerName]         NVARCHAR (255)   NOT NULL,
-    [DBName]             NVARCHAR (255)   NULL,
-    [SchemaName]         NVARCHAR (255)   NULL,
-    [TableName]          NVARCHAR (255)   NULL,
-    [IndexUsedForCounts] NVARCHAR (255)   NULL,
-    [CountRows]          BIGINT           NULL,
-    [InsertUTCDate]      DATETIME         CONSTRAINT [DF_TableIndexStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_TableIndexStatistics] PRIMARY KEY CLUSTERED ([Row_GUID] ASC)
+    [ServerName]         NVARCHAR (255) NOT NULL,
+    [DBName]             NVARCHAR (255) NULL,
+    [SchemaName]         NVARCHAR (255) NULL,
+    [TableName]          NVARCHAR (255) NULL,
+    [IndexUsedForCounts] NVARCHAR (255) NULL,
+    [CountRows]          BIGINT         NULL,
+    [InsertUTCDate]      DATETIME       CONSTRAINT [DF_TableIndexStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL
 );
 
 
 GO
-CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[TableIndexStatistics]([InsertUTCDate] ASC);
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Индекс по InsertUTCDate', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableIndexStatistics', @level2type = N'INDEX', @level2name = N'indInsertUTCDate';
+CREATE CLUSTERED INDEX [indInsertUTCDate]
+    ON [srv].[TableIndexStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Информация о размерах индексов таблицы на каждый момент времени экземпляра MS SQL Server', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableIndexStatistics';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Идентификатор записи (глобальный)', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableIndexStatistics', @level2type = N'COLUMN', @level2name = N'Row_GUID';
 
 
 GO

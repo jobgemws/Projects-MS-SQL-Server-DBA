@@ -25,7 +25,7 @@
             <li class="active">inf.vServerProblemInCountFilesTempDB</li>
           </ol>
         </div>
-        <div class="align-right col-xs-4">БД SRV</div>
+        <div class="align-right col-xs-4">SRV</div>
       </div>
       <div class="row">
         <div class="title col-xs-12">
@@ -52,6 +52,53 @@
         <div class="panel-collapse collapse in">
           <div class="panel-body">
             <span>Информация о проблемах с количеством файлов БД tempdb экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Свойства</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Название</th>
+                  <th>Значение</th>
+                </tr>
+                <tr>
+                  <td>Имя параметров сортировки</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Идентификатор кавычек включен</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Зашифрованное</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Схема границ</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Созданный</td>
+                  <td>23.02.2019 21:55:13</td>
+                </tr>
+                <tr>
+                  <td>Последнее изменение</td>
+                  <td>23.02.2019 21:55:13</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -126,7 +173,8 @@
         <div class="panel-collapse collapse in">
           <div class="panel-body">
             <div class="sqlscript panel-default">
-              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">create</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vServerProblemInCountFilesTempDB</font><br><font color="Blue">as</font><br><font color="Gray">/*
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vServerProblemInCountFilesTempDB</font><br><font color="Blue">as</font><br><font color="Gray">/*
+	http://sqlcom.ru/dba-tools/tempdb-in-sql-server-2016/
 	Можно узнать есть ли у проблемы с количеством файлов tempdb.
 	Этим запросом пытаемся найти latch на системные страницы PFS, GAM, SGAM в базе данных tempdb.
 	Если запрос ничего не возвращает или возвращает строки только с «Is Not PFS, GAM, or SGAM page», то скорее всего текущая нагрузка не требует увеличения файлов tempdb
@@ -164,9 +212,9 @@
     </div>
   </div>
   <div class="footer">
-    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений и группа DBA</div>
     <div class="col-xs-4 align-center">Все права сохранены</div>
-    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;23.02.2019</div>
   </div>
 </body>
 </html>

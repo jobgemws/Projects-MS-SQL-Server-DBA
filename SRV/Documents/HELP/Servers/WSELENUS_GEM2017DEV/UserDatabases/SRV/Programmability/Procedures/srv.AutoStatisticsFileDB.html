@@ -26,7 +26,7 @@
             <li class="active">srv.AutoStatisticsFileDB</li>
           </ol>
         </div>
-        <div class="align-right col-xs-4">БД SRV</div>
+        <div class="align-right col-xs-4">SRV</div>
       </div>
       <div class="row">
         <div class="title col-xs-12">
@@ -56,6 +56,45 @@
           </div>
         </div>
       </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Свойства</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Название</th>
+                  <th>Значение</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Идентификатор кавычек включен</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Зашифрованное</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Выполнить как</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Сборка</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
       <div id="SqlScript" class="panel panel-default">
         <div class="panel-heading">
           <span class="icon-bottom inline-middle expanded icon-small"></span>
@@ -67,7 +106,7 @@
             <div class="sqlscript panel-default">
               <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Gray">-- =============================================</font><br><font color="Gray">-- Author:		<Author,,Name></font><br><font color="Gray">-- Create date: <Create Date,,></font><br><font color="Gray">-- Description:	<Description,,></font><br><font color="Gray">-- =============================================</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">PROCEDURE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">AutoStatisticsFileDB</font><br><font color="Blue">AS</font><br><font color="Blue">BEGIN</font><br><font color="buttontext">	</font><br><font color="Gray">/*
 		Автосбор статистики роста файлов БД
-	*/</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">TRANSACTION</font>&nbsp;<font color="Blue">ISOLATION</font>&nbsp;<font color="Blue">LEVEL</font>&nbsp;<font color="Blue">READ</font>&nbsp;<font color="Blue">UNCOMMITTED</font><font color="buttontext">;</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">INSERT</font>&nbsp;<font color="Blue">INTO</font>&nbsp;<font color="buttontext">[SRV]</font><font color="buttontext">.</font><font color="buttontext">[srv]</font><font color="buttontext">.</font><font color="buttontext">[ServerDBFileInfoStatistics]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font><font color="buttontext">[ServerName]</font><br><font color="buttontext">		   </font><font color="buttontext">,</font><font color="buttontext">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[File_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[FileName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Drive]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Ext]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[CountPage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeMb]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeGb]</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[Server]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">[DB_Name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[File_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[FileName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Drive]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Ext]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[CountPage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeMb]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeGb]</font><br><font color="buttontext">	</font><font color="Blue">FROM</font>&nbsp;<font color="buttontext">[SRV]</font><font color="buttontext">.</font><font color="buttontext">[inf]</font><font color="buttontext">.</font><font color="buttontext">[ServerDBFileInfo]</font><font color="buttontext">;</font><br><font color="Blue">END</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Автосбор статистики роста файлов БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PROCEDURE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'AutoStatisticsFileDB'</font><br><font color="Blue">GO</font></div>
+	*/</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">TRANSACTION</font>&nbsp;<font color="Blue">ISOLATION</font>&nbsp;<font color="Blue">LEVEL</font>&nbsp;<font color="Blue">READ</font>&nbsp;<font color="Blue">UNCOMMITTED</font><font color="buttontext">;</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">INSERT</font>&nbsp;<font color="Blue">INTO</font>&nbsp;<font color="buttontext">[srv]</font><font color="buttontext">.</font><font color="buttontext">[ServerDBFileInfoStatistics]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font><font color="buttontext">[ServerName]</font><br><font color="buttontext">		   </font><font color="buttontext">,</font><font color="buttontext">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[File_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[FileName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Drive]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Ext]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[CountPage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeMb]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeGb]</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[Server]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">[DB_Name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[File_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Type_desc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[FileName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Drive]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[Ext]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[CountPage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeMb]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[SizeGb]</font><br><font color="buttontext">	</font><font color="Blue">FROM</font>&nbsp;<font color="buttontext">[inf]</font><font color="buttontext">.</font><font color="buttontext">[ServerDBFileInfo]</font><font color="buttontext">;</font><br><font color="Blue">END</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Автосбор статистики роста файлов БД'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'PROCEDURE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'AutoStatisticsFileDB'</font><br><font color="Blue">GO</font></div>
           </div>
         </div>
       </div>
@@ -93,19 +132,22 @@
           <span class="icon-bottom inline-middle expanded icon-small"></span>
           <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
           <h2 class="inline-middle">Используется</h2>
+          <span class="badge inline-middle">1</span>
         </div>
         <div class="panel-collapse collapse in">
           <div class="panel-body">
-            <span class="text-muted">Элементы не найдены</span>
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoDataCollection.html" data-mapping-enabled="true"><span>srv.AutoDataCollection</span></a></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений и группа DBA</div>
     <div class="col-xs-4 align-center">Все права сохранены</div>
-    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;23.02.2019</div>
   </div>
 </body>
 </html>

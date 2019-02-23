@@ -3,6 +3,7 @@
 
 
 
+
 CREATE view [inf].[vJobRunShortInfo] as
 SELECT sj.[job_id] as Job_GUID
       ,j.name as Job_Name
@@ -49,6 +50,7 @@ SELECT sj.[job_id] as Job_GUID
 	  ,sj.last_run_duration as LastRunDurationInt
 	  ,sj.[last_outcome_message] as LastOutcomeMessage
 	  ,j.enabled as [Enabled]
+	  ,sj.[trg_server] as [TargetServer]
   FROM [inf].[vJobServers] as sj
   inner join [inf].[vJOBS] as j on j.job_id=sj.job_id
 

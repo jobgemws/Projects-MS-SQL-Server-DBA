@@ -25,7 +25,7 @@
             <li class="active">inf.vJobServers</li>
           </ol>
         </div>
-        <div class="align-right col-xs-4">БД SRV</div>
+        <div class="align-right col-xs-4">SRV</div>
       </div>
       <div class="row">
         <div class="title col-xs-12">
@@ -52,6 +52,53 @@
         <div class="panel-collapse collapse in">
           <div class="panel-body">
             <span>Задания Агента экземпляра MS SQL Server по таблице [msdb].[dbo].[sysjobservers]</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Свойства</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Название</th>
+                  <th>Значение</th>
+                </tr>
+                <tr>
+                  <td>Имя параметров сортировки</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Идентификатор кавычек включен</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Зашифрованное</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Схема границ</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Созданный</td>
+                  <td>23.02.2019 21:55:12</td>
+                </tr>
+                <tr>
+                  <td>Последнее изменение</td>
+                  <td>23.02.2019 21:55:12</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -119,6 +166,13 @@
                     <span></span>
                   </td>
                 </tr>
+                <tr>
+                  <td></td>
+                  <td>trg_server</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -133,7 +187,7 @@
         <div class="panel-collapse collapse in">
           <div class="panel-body">
             <div class="sqlscript panel-default">
-              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">create</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vJobServers</font>&nbsp;<font color="Blue">as</font><br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[job_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[server_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[last_run_outcome]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[last_outcome_message]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[last_run_date]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[last_run_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[last_run_duration]</font><br>&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">[msdb]</font><font color="buttontext">.</font><font color="buttontext">[dbo]</font><font color="buttontext">.</font><font color="buttontext">[sysjobservers]</font><font color="buttontext">;</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Задания Агента экземпляра MS SQL Server по таблице [msdb].[dbo].[sysjobservers]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vJobServers'</font><br><font color="Blue">GO</font></div>
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vJobServers</font>&nbsp;<font color="Blue">as</font><br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[job_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[server_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[last_run_outcome]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[last_outcome_message]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[last_run_date]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[last_run_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[last_run_duration]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="buttontext">serv</font><font color="buttontext">.</font><font color="buttontext">[name]</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[trg_server]</font><br>&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">[msdb]</font><font color="buttontext">.</font><font color="buttontext">[dbo]</font><font color="buttontext">.</font><font color="buttontext">[sysjobservers]</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">jobser</font><br>&nbsp;&nbsp;<font color="Blue">left</font>&nbsp;<font color="Blue">outer</font>&nbsp;<font color="Blue">join</font>&nbsp;<font color="buttontext">[sys]</font><font color="buttontext">.</font><font color="buttontext">[servers]</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">serv</font>&nbsp;<font color="Blue">on</font>&nbsp;<font color="buttontext">jobser</font><font color="buttontext">.</font><font color="buttontext">[server_id]</font><font color="buttontext">=</font><font color="buttontext">serv</font><font color="buttontext">.</font><font color="buttontext">[server_id]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Задания Агента экземпляра MS SQL Server по таблице [msdb].[dbo].[sysjobservers]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vJobServers'</font><br><font color="Blue">GO</font></div>
           </div>
         </div>
       </div>
@@ -170,9 +224,9 @@
     </div>
   </div>
   <div class="footer">
-    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений и группа DBA</div>
     <div class="col-xs-4 align-center">Все права сохранены</div>
-    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;23.02.2019</div>
   </div>
 </body>
 </html>

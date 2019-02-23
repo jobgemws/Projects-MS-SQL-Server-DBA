@@ -1,6 +1,8 @@
-﻿create view [inf].[vServerProblemInCountFilesTempDB]
+﻿
+CREATE view [inf].[vServerProblemInCountFilesTempDB]
 as
 /*
+	http://sqlcom.ru/dba-tools/tempdb-in-sql-server-2016/
 	Можно узнать есть ли у проблемы с количеством файлов tempdb.
 	Этим запросом пытаемся найти latch на системные страницы PFS, GAM, SGAM в базе данных tempdb.
 	Если запрос ничего не возвращает или возвращает строки только с «Is Not PFS, GAM, or SGAM page», то скорее всего текущая нагрузка не требует увеличения файлов tempdb

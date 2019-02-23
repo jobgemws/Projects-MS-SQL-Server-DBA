@@ -1,31 +1,25 @@
 ﻿CREATE TABLE [srv].[ServerDBFileInfoStatistics] (
-    [Row_GUID]      UNIQUEIDENTIFIER CONSTRAINT [DF_ServerDBFileInfoStatistics_Row_GUID] DEFAULT (newid()) NOT NULL,
-    [ServerName]    NVARCHAR (255)   NOT NULL,
-    [DBName]        NVARCHAR (128)   NULL,
-    [File_id]       INT              NOT NULL,
-    [Type_desc]     NVARCHAR (60)    NULL,
-    [FileName]      [sysname]        NOT NULL,
-    [Drive]         NVARCHAR (1)     NULL,
-    [Ext]           NVARCHAR (3)     NULL,
-    [CountPage]     INT              NOT NULL,
-    [SizeMb]        FLOAT (53)       NULL,
-    [SizeGb]        FLOAT (53)       NULL,
-    [InsertUTCDate] DATETIME         CONSTRAINT [DF_ServerDBFileInfoStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_ServerDBFileInfoStatistics] PRIMARY KEY CLUSTERED ([Row_GUID] ASC)
+    [ServerName]    NVARCHAR (255) NOT NULL,
+    [DBName]        NVARCHAR (128) NULL,
+    [File_id]       INT            NOT NULL,
+    [Type_desc]     NVARCHAR (60)  NULL,
+    [FileName]      [sysname]      NOT NULL,
+    [Drive]         NVARCHAR (1)   NULL,
+    [Ext]           NVARCHAR (3)   NULL,
+    [CountPage]     INT            NOT NULL,
+    [SizeMb]        FLOAT (53)     NULL,
+    [SizeGb]        FLOAT (53)     NULL,
+    [InsertUTCDate] DATETIME       CONSTRAINT [DF_ServerDBFileInfoStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL
 );
 
 
 GO
-CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ServerDBFileInfoStatistics]([InsertUTCDate] ASC);
+CREATE CLUSTERED INDEX [indInsertUTCDate]
+    ON [srv].[ServerDBFileInfoStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Информация о файлах всех БД на каждый момент времени экземпляра MS SQL Server', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'ServerDBFileInfoStatistics';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Идентификатор записи (глобальный)', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'ServerDBFileInfoStatistics', @level2type = N'COLUMN', @level2name = N'Row_GUID';
 
 
 GO

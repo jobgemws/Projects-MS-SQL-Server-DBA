@@ -42,6 +42,29 @@ BEGIN
       and LastDateTime>=DateAdd(day,-2,getdate());
 
 	  exec [srv].[GetHTMLTableShortInfoRunJobs] @body=@body OUTPUT;
+
+	  INSERT INTO [srv].[ShortInfoRunJobsServers]
+           ([Job_GUID]
+           ,[Job_Name]
+           ,[LastFinishRunState]
+           ,[LastDateTime]
+           ,[LastRunDurationString]
+           ,[LastRunDurationInt]
+           ,[LastOutcomeMessage]
+           ,[LastRunOutcome]
+           ,[Server]
+		   ,[TargetServer])
+	  SELECT [Job_GUID]
+           ,[Job_Name]
+           ,[LastFinishRunState]
+           ,[LastDateTime]
+           ,[LastRunDurationString]
+           ,[LastRunDurationInt]
+           ,[LastOutcomeMessage]
+           ,[LastRunOutcome]
+           ,@@SERVERNAME as [Server]
+		   ,[TargetServer]
+	  FROM [inf].[vJobRunShortInfo];
 END
 
 GO

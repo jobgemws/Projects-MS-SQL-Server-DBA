@@ -1,70 +1,60 @@
 ﻿CREATE TABLE [srv].[TableStatistics] (
-    [Row_GUID]            UNIQUEIDENTIFIER CONSTRAINT [DF_TableStatistics_Row_GUID] DEFAULT (newid()) NOT NULL,
-    [ServerName]          NVARCHAR (255)   NOT NULL,
-    [DBName]              NVARCHAR (255)   NOT NULL,
-    [SchemaName]          NVARCHAR (255)   NOT NULL,
-    [TableName]           NVARCHAR (255)   NOT NULL,
-    [CountRows]           BIGINT           NOT NULL,
-    [DataKB]              INT              NOT NULL,
-    [IndexSizeKB]         INT              NOT NULL,
-    [UnusedKB]            INT              NOT NULL,
-    [ReservedKB]          INT              NOT NULL,
-    [InsertUTCDate]       DATETIME         CONSTRAINT [DF_TableStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    [Date]                AS               (CONVERT([date],[InsertUTCDate])) PERSISTED,
-    [CountRowsBack]       BIGINT           NULL,
-    [CountRowsNext]       BIGINT           NULL,
-    [DataKBBack]          INT              NULL,
-    [DataKBNext]          INT              NULL,
-    [IndexSizeKBBack]     INT              NULL,
-    [IndexSizeKBNext]     INT              NULL,
-    [UnusedKBBack]        INT              NULL,
-    [UnusedKBNext]        INT              NULL,
-    [ReservedKBBack]      INT              NULL,
-    [ReservedKBNext]      INT              NULL,
-    [AvgCountRows]        AS               ((([CountRowsBack]+[CountRows])+[CountRowsNext])/(3)) PERSISTED,
-    [AvgDataKB]           AS               ((([DataKBBack]+[DataKB])+[DataKBNext])/(3)) PERSISTED,
-    [AvgIndexSizeKB]      AS               ((([IndexSizeKBBack]+[IndexSizeKB])+[IndexSizeKBNext])/(3)) PERSISTED,
-    [AvgUnusedKB]         AS               ((([UnusedKBBack]+[UnusedKB])+[UnusedKBNext])/(3)) PERSISTED,
-    [AvgReservedKB]       AS               ((([ReservedKBBack]+[ReservedKB])+[ReservedKBNext])/(3)) PERSISTED,
-    [DiffCountRows]       AS               (([CountRowsNext]+[CountRowsBack])-(2)*[CountRows]) PERSISTED,
-    [DiffDataKB]          AS               (([DataKBNext]+[DataKBBack])-(2)*[DataKB]) PERSISTED,
-    [DiffIndexSizeKB]     AS               (([IndexSizeKBNext]+[IndexSizeKBBack])-(2)*[IndexSizeKB]) PERSISTED,
-    [DiffUnusedKB]        AS               (([UnusedKBNext]+[UnusedKBBack])-(2)*[UnusedKB]) PERSISTED,
-    [DiffReservedKB]      AS               (([ReservedKBNext]+[ReservedKBBack])-(2)*[ReservedKB]) PERSISTED,
-    [TotalPageSizeKB]     INT              NULL,
-    [TotalPageSizeKBBack] INT              NULL,
-    [TotalPageSizeKBNext] INT              NULL,
-    [UsedPageSizeKB]      INT              NULL,
-    [UsedPageSizeKBBack]  INT              NULL,
-    [UsedPageSizeKBNext]  INT              NULL,
-    [DataPageSizeKB]      INT              NULL,
-    [DataPageSizeKBBack]  INT              NULL,
-    [DataPageSizeKBNext]  INT              NULL,
-    [AvgDataPageSizeKB]   AS               ((([DataPageSizeKBBack]+[DataPageSizeKB])+[DataPageSizeKBNext])/(3)) PERSISTED,
-    [AvgUsedPageSizeKB]   AS               ((([UsedPageSizeKBBack]+[UsedPageSizeKB])+[UsedPageSizeKBNext])/(3)) PERSISTED,
-    [AvgTotalPageSizeKB]  AS               ((([TotalPageSizeKBBack]+[TotalPageSizeKB])+[TotalPageSizeKBNext])/(3)) PERSISTED,
-    [DiffDataPageSizeKB]  AS               (([DataPageSizeKBNext]+[DataPageSizeKBBack])-(2)*[DataPageSizeKB]) PERSISTED,
-    [DiffUsedPageSizeKB]  AS               (([UsedPageSizeKBNext]+[UsedPageSizeKBBack])-(2)*[UsedPageSizeKB]) PERSISTED,
-    [DiffTotalPageSizeKB] AS               (([TotalPageSizeKBNext]+[TotalPageSizeKBBack])-(2)*[TotalPageSizeKB]) PERSISTED,
-    CONSTRAINT [PK_TableStatistics] PRIMARY KEY CLUSTERED ([Row_GUID] ASC)
+    [ServerName]          NVARCHAR (255) NOT NULL,
+    [DBName]              NVARCHAR (255) NOT NULL,
+    [SchemaName]          NVARCHAR (255) NOT NULL,
+    [TableName]           NVARCHAR (255) NOT NULL,
+    [CountRows]           BIGINT         NOT NULL,
+    [DataKB]              INT            NOT NULL,
+    [IndexSizeKB]         INT            NOT NULL,
+    [UnusedKB]            INT            NOT NULL,
+    [ReservedKB]          INT            NOT NULL,
+    [InsertUTCDate]       DATETIME       CONSTRAINT [DF_TableStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
+    [Date]                AS             (CONVERT([date],[InsertUTCDate])) PERSISTED,
+    [CountRowsBack]       BIGINT         NULL,
+    [CountRowsNext]       BIGINT         NULL,
+    [DataKBBack]          INT            NULL,
+    [DataKBNext]          INT            NULL,
+    [IndexSizeKBBack]     INT            NULL,
+    [IndexSizeKBNext]     INT            NULL,
+    [UnusedKBBack]        INT            NULL,
+    [UnusedKBNext]        INT            NULL,
+    [ReservedKBBack]      INT            NULL,
+    [ReservedKBNext]      INT            NULL,
+    [AvgCountRows]        AS             ((([CountRowsBack]+[CountRows])+[CountRowsNext])/(3)) PERSISTED,
+    [AvgDataKB]           AS             ((([DataKBBack]+[DataKB])+[DataKBNext])/(3)) PERSISTED,
+    [AvgIndexSizeKB]      AS             ((([IndexSizeKBBack]+[IndexSizeKB])+[IndexSizeKBNext])/(3)) PERSISTED,
+    [AvgUnusedKB]         AS             ((([UnusedKBBack]+[UnusedKB])+[UnusedKBNext])/(3)) PERSISTED,
+    [AvgReservedKB]       AS             ((([ReservedKBBack]+[ReservedKB])+[ReservedKBNext])/(3)) PERSISTED,
+    [DiffCountRows]       AS             (([CountRowsNext]+[CountRowsBack])-(2)*[CountRows]) PERSISTED,
+    [DiffDataKB]          AS             (([DataKBNext]+[DataKBBack])-(2)*[DataKB]) PERSISTED,
+    [DiffIndexSizeKB]     AS             (([IndexSizeKBNext]+[IndexSizeKBBack])-(2)*[IndexSizeKB]) PERSISTED,
+    [DiffUnusedKB]        AS             (([UnusedKBNext]+[UnusedKBBack])-(2)*[UnusedKB]) PERSISTED,
+    [DiffReservedKB]      AS             (([ReservedKBNext]+[ReservedKBBack])-(2)*[ReservedKB]) PERSISTED,
+    [TotalPageSizeKB]     INT            NULL,
+    [TotalPageSizeKBBack] INT            NULL,
+    [TotalPageSizeKBNext] INT            NULL,
+    [UsedPageSizeKB]      INT            NULL,
+    [UsedPageSizeKBBack]  INT            NULL,
+    [UsedPageSizeKBNext]  INT            NULL,
+    [DataPageSizeKB]      INT            NULL,
+    [DataPageSizeKBBack]  INT            NULL,
+    [DataPageSizeKBNext]  INT            NULL,
+    [AvgDataPageSizeKB]   AS             ((([DataPageSizeKBBack]+[DataPageSizeKB])+[DataPageSizeKBNext])/(3)) PERSISTED,
+    [AvgUsedPageSizeKB]   AS             ((([UsedPageSizeKBBack]+[UsedPageSizeKB])+[UsedPageSizeKBNext])/(3)) PERSISTED,
+    [AvgTotalPageSizeKB]  AS             ((([TotalPageSizeKBBack]+[TotalPageSizeKB])+[TotalPageSizeKBNext])/(3)) PERSISTED,
+    [DiffDataPageSizeKB]  AS             (([DataPageSizeKBNext]+[DataPageSizeKBBack])-(2)*[DataPageSizeKB]) PERSISTED,
+    [DiffUsedPageSizeKB]  AS             (([UsedPageSizeKBNext]+[UsedPageSizeKBBack])-(2)*[UsedPageSizeKB]) PERSISTED,
+    [DiffTotalPageSizeKB] AS             (([TotalPageSizeKBNext]+[TotalPageSizeKBBack])-(2)*[TotalPageSizeKB]) PERSISTED
 );
 
 
 GO
-CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[TableStatistics]([InsertUTCDate] ASC);
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Индекс по InsertUTCDate', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableStatistics', @level2type = N'INDEX', @level2name = N'indInsertUTCDate';
+CREATE CLUSTERED INDEX [indInsertUTCDate]
+    ON [srv].[TableStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Информация о размерах таблицы на каждый момент времени экземпляра MS SQL Server', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableStatistics';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Идентификатор записи (глобальный)', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'TableStatistics', @level2type = N'COLUMN', @level2name = N'Row_GUID';
 
 
 GO

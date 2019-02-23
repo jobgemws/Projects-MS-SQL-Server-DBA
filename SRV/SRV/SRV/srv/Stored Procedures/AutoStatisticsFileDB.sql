@@ -12,7 +12,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-    INSERT INTO [SRV].[srv].[ServerDBFileInfoStatistics]
+    INSERT INTO [srv].[ServerDBFileInfoStatistics]
            ([ServerName]
 		   ,[DBName]
            ,[File_id]
@@ -33,7 +33,7 @@ BEGIN
       ,[CountPage]
       ,[SizeMb]
       ,[SizeGb]
-	FROM [SRV].[inf].[ServerDBFileInfo];
+	FROM [inf].[ServerDBFileInfo];
 END
 
 GO

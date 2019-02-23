@@ -1,13 +1,16 @@
 ﻿
-create view [inf].[vJobServers] as
-SELECT [job_id]
-      ,[server_id]
-      ,[last_run_outcome]
-      ,[last_outcome_message]
-      ,[last_run_date]
-      ,[last_run_time]
-      ,[last_run_duration]
-  FROM [msdb].[dbo].[sysjobservers];
+
+CREATE view [inf].[vJobServers] as
+SELECT jobser.[job_id]
+      ,jobser.[server_id]
+      ,jobser.[last_run_outcome]
+      ,jobser.[last_outcome_message]
+      ,jobser.[last_run_date]
+      ,jobser.[last_run_time]
+      ,jobser.[last_run_duration]
+	  ,serv.[name] as [trg_server]
+  FROM [msdb].[dbo].[sysjobservers] as jobser
+  left outer join [sys].[servers] as serv on jobser.[server_id]=serv.[server_id]
 
 
 GO

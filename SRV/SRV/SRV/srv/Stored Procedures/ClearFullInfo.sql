@@ -41,6 +41,21 @@ BEGIN
 	truncate table [srv].[IndicatorStatistics];
 	truncate table [srv].[KillSession];
 	truncate table [srv].[SessionTran];
+
+	truncate table [srv].[WaitsStatistics];
+	truncate table [srv].[BigQueryStatistics];
+	truncate table [srv].[IndexDefragStatistics];
+	truncate table [srv].[DefragServers];
+	truncate table [srv].[ServerDBFileInfoStatistics];
+	truncate table [srv].[IndexUsageStatsStatistics];
+	truncate table [srv].[OldStatisticsStateStatistics];
+	truncate table [srv].[NewIndexOptimizeStatistics];
+	truncate table [srv].[StatisticsIOInTempDBStatistics];
+	truncate table [srv].[DelIndexIncludeStatistics];
+	truncate table [srv].[ShortInfoRunJobsServers];
+	truncate table [srv].[ReadWriteTablesStatistics];
+
+	truncate table [srv].[IndicatorServerDayStatistics];
 END
 
 GO

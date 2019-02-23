@@ -25,7 +25,7 @@
             <li class="active">Хранимые процедуры</li>
           </ol>
         </div>
-        <div class="align-right col-xs-4">БД SRV</div>
+        <div class="align-right col-xs-4">SRV</div>
       </div>
       <div class="row">
         <div class="title col-xs-12">
@@ -50,7 +50,7 @@
           <span class="icon-bottom inline-middle expanded icon-small"></span>
           <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
           <h2 class="inline-middle">Объекты</h2>
-          <span class="badge inline-middle">62</span>
+          <span class="badge inline-middle">75</span>
         </div>
         <div class="panel-collapse collapse in">
           <div class="panel-body">
@@ -85,6 +85,36 @@
                   </td>
                 </tr>
                 <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoBigQueryStatistics.html" data-mapping-enabled="true"><span>srv.AutoBigQueryStatistics</span></a></td>
+                  <td>
+                    <span>Сбор данных по самым длительным запросам MS SQL Server</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoCorrectScheduleBackUpsTemplates.html" data-mapping-enabled="true"><span>srv.AutoCorrectScheduleBackUpsTemplates</span></a></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoDataCollection.html" data-mapping-enabled="true"><span>srv.AutoDataCollection</span></a></td>
+                  <td>
+                    <span>Сбор данных</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoDataCollectionRemote.html" data-mapping-enabled="true"><span>srv.AutoDataCollectionRemote</span></a></td>
+                  <td>
+                    <span>Сбор данных с удаленных серверов</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoDBFile.html" data-mapping-enabled="true"><span>srv.AutoDBFile</span></a></td>
+                  <td>
+                    <span>Выполняет сбор данных о всех файлах всех БД</span>
+                  </td>
+                </tr>
+                <tr>
                   <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoDefragIndex.html" data-mapping-enabled="true"><span>srv.AutoDefragIndex</span></a></td>
                   <td>
                     <span>Выполняет оптимизацию индексов (поверхностный обход узлов)</span>
@@ -97,15 +127,46 @@
                   </td>
                 </tr>
                 <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoFlushLog.html" data-mapping-enabled="true"><span>srv.AutoFlushLog</span></a></td>
+                  <td>
+                    <span>Фиксирует все отложенные транзакции всех БД экземпляра MS SQL Server</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoIndexStatistics.html" data-mapping-enabled="true"><span>srv.AutoIndexStatistics</span></a></td>
+                  <td>
+                    <span>Сбор информацию по индексам и статистикам по всем помеченным БД экземпляра MS SQL Server</span>
+                  </td>
+                </tr>
+                <tr>
                   <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoKillSessionTranBegin.html" data-mapping-enabled="true"><span>srv.AutoKillSessionTranBegin</span></a></td>
                   <td>
                     <span>Определение зависших транзакций (забытых, у которых нет активных запросов) с последующим их удалением</span>
                   </td>
                 </tr>
                 <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoNewIndexOptimizeStatistics.html" data-mapping-enabled="true"><span>srv.AutoNewIndexOptimizeStatistics</span></a></td>
+                  <td>
+                    <span>Сбор данных по недостающим индексам MS SQL Server</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoReadWriteTablesStatistics.html" data-mapping-enabled="true"><span>srv.AutoReadWriteTablesStatistics</span></a></td>
+                  <td>
+                    <span>Сбор данных по чтению/записи таблицы (кучи не рассматриваются, т к у них нет индексов).
+		Только те таблицы, к которым обращались после запуска SQL Server</span>
+                  </td>
+                </tr>
+                <tr>
                   <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoShortInfoRunJobs.html" data-mapping-enabled="true"><span>srv.AutoShortInfoRunJobs</span></a></td>
                   <td>
                     <span>Возвращает сообщение о выполненных заданиях для последующей отправки на почту</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoShrinkLog.html" data-mapping-enabled="true"><span>srv.AutoShrinkLog</span></a></td>
+                  <td>
+                    <span>Выполняет автосжатие журналов транзакций БД</span>
                   </td>
                 </tr>
                 <tr>
@@ -121,9 +182,21 @@
                   </td>
                 </tr>
                 <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsDiskAndRAMSpace.html" data-mapping-enabled="true"><span>srv.AutoStatisticsDiskAndRAMSpace</span></a></td>
+                  <td>
+                    <span>Собирает информацию о емкостях логических дисков и ОЗУ</span>
+                  </td>
+                </tr>
+                <tr>
                   <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsFileDB.html" data-mapping-enabled="true"><span>srv.AutoStatisticsFileDB</span></a></td>
                   <td>
                     <span>Автосбор статистики роста файлов БД</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsIOInTempDBStatistics.html" data-mapping-enabled="true"><span>srv.AutoStatisticsIOInTempDBStatistics</span></a></td>
+                  <td>
+                    <span>Сбор данных по нагрузке на файлы данных БД tempdb MS SQL Server</span>
                   </td>
                 </tr>
                 <tr>
@@ -154,6 +227,12 @@
                   <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoUpdateStatisticsDB.html" data-mapping-enabled="true"><span>srv.AutoUpdateStatisticsDB</span></a></td>
                   <td>
                     <span>Выполняет тонкое обновление статистики выбранной БД</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="../../../../../../Servers\WSELENUS_GEM2017DEV\UserDatabases\SRV\Programmability\Procedures\srv.AutoWaitStatistics.html" data-mapping-enabled="true"><span>srv.AutoWaitStatistics</span></a></td>
+                  <td>
+                    <span>Сбор данных по ожиданиям MS SQL Server</span>
                   </td>
                 </tr>
                 <tr>
@@ -440,9 +519,9 @@
     </div>
   </div>
   <div class="footer">
-    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений Михайлович</div>
+    <div class="col-xs-4">Автор:&nbsp;Грибков Евгений и группа DBA</div>
     <div class="col-xs-4 align-center">Все права сохранены</div>
-    <div class="col-xs-4 align-right">Дата создания:&nbsp;01.03.2018</div>
+    <div class="col-xs-4 align-right">Дата создания:&nbsp;23.02.2019</div>
   </div>
 </body>
 </html>
