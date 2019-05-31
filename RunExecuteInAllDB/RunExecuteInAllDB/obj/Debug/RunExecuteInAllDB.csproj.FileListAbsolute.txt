@@ -17,3 +17,10 @@ C:\Users\WSELENUS\Downloads\Проекты\RunExecuteInAllDB\RunExecuteInAllDB\o
 C:\Users\WSELENUS\Downloads\Проекты\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.csproj.CoreCompileInputs.cache
 C:\Users\WSELENUS\Downloads\Проекты\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.exe
 C:\Users\WSELENUS\Downloads\Проекты\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.pdb
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\bin\Debug\RunExecuteInAllDB.exe.config
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\bin\Debug\RunExecuteInAllDB.exe
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\bin\Debug\RunExecuteInAllDB.pdb
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.csprojAssemblyReference.cache
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.csproj.CoreCompileInputs.cache
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.exe
+D:\GitHub\Projects-MS-SQL-Server-DBA\RunExecuteInAllDB\RunExecuteInAllDB\obj\Debug\RunExecuteInAllDB.pdb

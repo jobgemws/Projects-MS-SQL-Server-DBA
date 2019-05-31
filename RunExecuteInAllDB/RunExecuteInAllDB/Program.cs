@@ -13,7 +13,7 @@ namespace RunExecuteInAllDB
         static void Main(string[] args)
         {
             var sett = Properties.Settings.Default;
-            string[] servers = sett.Servers.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] servers = sett.Servers.Split(new string[] { ";", "\r", "\n", "\t", " " }, StringSplitOptions.RemoveEmptyEntries);
             string sql = null;
 
             using (Stream st_log = new FileStream(sett.FileLog, FileMode.Create, FileAccess.Write))
