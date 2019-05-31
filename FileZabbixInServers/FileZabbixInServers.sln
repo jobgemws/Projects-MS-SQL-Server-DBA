@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileZabbixInServers", "FileZabbixInServers\FileZabbixInServers.csproj", "{E9E3C6F0-7836-4616-AD12-62E8260C7838}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E3C6F0-7836-4616-AD12-62E8260C7838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E3C6F0-7836-4616-AD12-62E8260C7838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E3C6F0-7836-4616-AD12-62E8260C7838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E3C6F0-7836-4616-AD12-62E8260C7838}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D91B6391-AF0B-4391-BEF5-089ADA0588B9}
+	EndGlobalSection
+EndGlobal

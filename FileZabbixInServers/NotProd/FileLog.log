@@ -1,0 +1,143 @@
+﻿30.05.2019 16:08:07 Параметры: Каталог источника: \\backup-srv01\SQL_Backups\Zabbix\UserParameters конфигурационный файл источника: \\backup-srv01\SQL_Backups\Zabbix\userparams.conf
+30.05.2019 16:08:07 Server: TST-DBA-01 начало проверки каталога \\TST-DBA-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:08 Server: TST-DBA-01 успешное окончание проверки каталога \\TST-DBA-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:08 Server: TST-DBA-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-DBA-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:08 Server: TST-DBA-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-DBA-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:09 Server: TST-DBA-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:09 Server: hlt-sql-01.monopoly.su начало проверки каталога \\hlt-sql-01.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:09 Server: hlt-sql-01.monopoly.su успешное окончание проверки каталога \\hlt-sql-01.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:09 Server: hlt-sql-01.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-01.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:09 Server: hlt-sql-01.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-01.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:10 Server: hlt-sql-01.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:10 Server: hlt-sql-02.monopoly.su начало проверки каталога \\hlt-sql-02.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:11 Server: hlt-sql-02.monopoly.su успешное окончание проверки каталога \\hlt-sql-02.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:11 Server: hlt-sql-02.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-02.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:11 Server: hlt-sql-02.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-02.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:11 Server: hlt-sql-02.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:11 Server: hlt-sql-03.monopoly.su начало проверки каталога \\hlt-sql-03.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:12 Server: hlt-sql-03.monopoly.su успешное окончание проверки каталога \\hlt-sql-03.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:12 Server: hlt-sql-03.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-03.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:12 Server: hlt-sql-03.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-03.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:13 Server: hlt-sql-03.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:13 Server: hlt-sql-04.monopoly.su начало проверки каталога \\hlt-sql-04.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:13 Server: hlt-sql-04.monopoly.su успешное окончание проверки каталога \\hlt-sql-04.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:13 Server: hlt-sql-04.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-04.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:13 Server: hlt-sql-04.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-04.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:16 Server: hlt-sql-04.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:16 Server: hlt-sql-05.monopoly.su начало проверки каталога \\hlt-sql-05.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:17 Server: hlt-sql-05.monopoly.su успешное окончание проверки каталога \\hlt-sql-05.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:17 Server: hlt-sql-05.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-05.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:17 Server: hlt-sql-05.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-05.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:18 Server: hlt-sql-05.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:18 Server: hlt-sql-06.monopoly.su начало проверки каталога \\hlt-sql-06.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:18 Server: hlt-sql-06.monopoly.su успешное окончание проверки каталога \\hlt-sql-06.monopoly.su\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:18 Server: hlt-sql-06.monopoly.su всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\hlt-sql-06.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:18 Server: hlt-sql-06.monopoly.su успешное окончание процесса копирования конфигурационного файла с источника в \\hlt-sql-06.monopoly.su\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:19 Server: hlt-sql-06.monopoly.su успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:19 Server: STG-SQL-SRV01 начало проверки каталога \\STG-SQL-SRV01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:20 Server: STG-SQL-SRV01 успешное окончание проверки каталога \\STG-SQL-SRV01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:20 Server: STG-SQL-SRV01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:20 Server: STG-SQL-SRV01 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:21 Server: STG-SQL-SRV01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:21 Server: STG-SQL-SRV02 начало проверки каталога \\STG-SQL-SRV02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:21 Server: STG-SQL-SRV02 успешное окончание проверки каталога \\STG-SQL-SRV02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:21 Server: STG-SQL-SRV02 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV02\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:21 Server: STG-SQL-SRV02 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV02\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:22 Server: STG-SQL-SRV02 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:22 Server: STG-SQL-SRV03 начало проверки каталога \\STG-SQL-SRV03\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:23 Server: STG-SQL-SRV03 успешное окончание проверки каталога \\STG-SQL-SRV03\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:23 Server: STG-SQL-SRV03 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV03\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:23 Server: STG-SQL-SRV03 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV03\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:24 Server: STG-SQL-SRV03 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:24 Server: STG-SQL-SRV04 начало проверки каталога \\STG-SQL-SRV04\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:24 Server: STG-SQL-SRV04 успешное окончание проверки каталога \\STG-SQL-SRV04\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:24 Server: STG-SQL-SRV04 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV04\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:24 Server: STG-SQL-SRV04 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV04\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:25 Server: STG-SQL-SRV04 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:25 Server: STG-SQL-SRV05 начало проверки каталога \\STG-SQL-SRV05\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:26 Server: STG-SQL-SRV05 успешное окончание проверки каталога \\STG-SQL-SRV05\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:26 Server: STG-SQL-SRV05 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV05\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:26 Server: STG-SQL-SRV05 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV05\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:27 Server: STG-SQL-SRV05 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:27 Server: STG-SQL-SRV06 начало проверки каталога \\STG-SQL-SRV06\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:27 Server: STG-SQL-SRV06 успешное окончание проверки каталога \\STG-SQL-SRV06\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:27 Server: STG-SQL-SRV06 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV06\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:27 Server: STG-SQL-SRV06 успешное окончание процесса копирования конфигурационного файла с источника в \\STG-SQL-SRV06\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:28 Server: STG-SQL-SRV06 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:28 Server: TST-SQLCHECKDB-01 начало проверки каталога \\TST-SQLCHECKDB-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:29 Server: TST-SQLCHECKDB-01 успешное окончание проверки каталога \\TST-SQLCHECKDB-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:29 Server: TST-SQLCHECKDB-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLCHECKDB-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:29 Server: TST-SQLCHECKDB-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLCHECKDB-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:30 Server: TST-SQLCHECKDB-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:30 Server: test-1csrv-02 начало проверки каталога \\test-1csrv-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:30 Server: test-1csrv-02 успешное окончание проверки каталога \\test-1csrv-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:30 Server: test-1csrv-02 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\test-1csrv-02\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:30 Server: test-1csrv-02 успешное окончание процесса копирования конфигурационного файла с источника в \\test-1csrv-02\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:31 Server: test-1csrv-02 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:31 Server: TST-SQLMNL-02 начало проверки каталога \\TST-SQLMNL-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:31 Server: TST-SQLMNL-02 успешное окончание проверки каталога \\TST-SQLMNL-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:31 Server: TST-SQLMNL-02 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLMNL-02\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:31 Server: TST-SQLMNL-02 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLMNL-02\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:32 Server: TST-SQLMNL-02 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:32 Server: TST-SQLDEV-02 начало проверки каталога \\TST-SQLDEV-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:33 Server: TST-SQLDEV-02 успешное окончание проверки каталога \\TST-SQLDEV-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:33 Server: TST-SQLDEV-02 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLDEV-02\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:33 Server: TST-SQLDEV-02 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLDEV-02\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:34 Server: TST-SQLDEV-02 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:34 Server: TST-SQLMNL-01 начало проверки каталога \\TST-SQLMNL-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:35 Server: TST-SQLMNL-01 успешное окончание проверки каталога \\TST-SQLMNL-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:35 Server: TST-SQLMNL-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLMNL-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:36 Server: TST-SQLMNL-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLMNL-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:37 Server: TST-SQLMNL-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:37 Server: com-dbtempl-01 начало проверки каталога \\com-dbtempl-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:37 Server: com-dbtempl-01 успешное окончание проверки каталога \\com-dbtempl-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:37 Server: com-dbtempl-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\com-dbtempl-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:37 Server: com-dbtempl-01 успешное окончание процесса копирования конфигурационного файла с источника в \\com-dbtempl-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:38 Server: com-dbtempl-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:38 Server: TST-1CSQL-02 начало проверки каталога \\TST-1CSQL-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:39 Server: TST-1CSQL-02 успешное окончание проверки каталога \\TST-1CSQL-02\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:39 Server: TST-1CSQL-02 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-1CSQL-02\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:39 Server: TST-1CSQL-02 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-1CSQL-02\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:40 Server: TST-1CSQL-02 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:40 Server: TST-SQLDEV-01 начало проверки каталога \\TST-SQLDEV-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:40 Server: TST-SQLDEV-01 успешное окончание проверки каталога \\TST-SQLDEV-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:40 Server: TST-SQLDEV-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLDEV-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:40 Server: TST-SQLDEV-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLDEV-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:41 Server: TST-SQLDEV-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:41 Server: TST-1CSQL-01 начало проверки каталога \\TST-1CSQL-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:42 Server: TST-1CSQL-01 успешное окончание проверки каталога \\TST-1CSQL-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:42 Server: TST-1CSQL-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-1CSQL-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:42 Server: TST-1CSQL-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-1CSQL-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:43 Server: TST-1CSQL-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:43 Server: tst-sqlmsr-01 начало проверки каталога \\tst-sqlmsr-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:43 Server: tst-sqlmsr-01 успешное окончание проверки каталога \\tst-sqlmsr-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:43 Server: tst-sqlmsr-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\tst-sqlmsr-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:43 Server: tst-sqlmsr-01 успешное окончание процесса копирования конфигурационного файла с источника в \\tst-sqlmsr-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:45 Server: tst-sqlmsr-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:45 Server: TST-SQLREGR-01 начало проверки каталога \\TST-SQLREGR-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:45 Server: TST-SQLREGR-01 успешное окончание проверки каталога \\TST-SQLREGR-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:45 Server: TST-SQLREGR-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLREGR-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:45 Server: TST-SQLREGR-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLREGR-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:46 Server: TST-SQLREGR-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:46 Server: TST-SP1-SQL01 начало проверки каталога \\TST-SP1-SQL01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:47 Server: TST-SP1-SQL01 успешное окончание проверки каталога \\TST-SP1-SQL01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:47 Server: TST-SP1-SQL01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SP1-SQL01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:47 Server: TST-SP1-SQL01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SP1-SQL01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:48 Server: TST-SP1-SQL01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:48 Server: tst-sqldev-03 начало проверки каталога \\tst-sqldev-03\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:48 Server: tst-sqldev-03 успешное окончание проверки каталога \\tst-sqldev-03\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:48 Server: tst-sqldev-03 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\tst-sqldev-03\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:49 Server: tst-sqldev-03 успешное окончание процесса копирования конфигурационного файла с источника в \\tst-sqldev-03\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:49 Server: tst-sqldev-03 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:49 Server: TST-DBA-01 начало проверки каталога \\TST-DBA-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:49 Server: TST-DBA-01 успешное окончание проверки каталога \\TST-DBA-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:49 Server: TST-DBA-01 не было выявлено различий в каталоге \\TST-DBA-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:49 Server: TST-SQLATEST-01 начало проверки каталога \\TST-SQLATEST-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:50 Server: TST-SQLATEST-01 успешное окончание проверки каталога \\TST-SQLATEST-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:50 Server: TST-SQLATEST-01 всего произведено изменений не менее 15. Старт процесса копирования конфигурационного файла с источника в \\TST-SQLATEST-01\C$\zabbix_agent\conf.d\userparams.conf
+30.05.2019 16:08:50 Server: TST-SQLATEST-01 успешное окончание процесса копирования конфигурационного файла с источника в \\TST-SQLATEST-01\C$\zabbix_agent\conf.d\userparams.conf. Старт процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:51 Server: TST-SQLATEST-01 успешное окончание процесса перезапуска службы Zabbix Agent
+30.05.2019 16:08:51 Server: com-dbtempl-01 начало проверки каталога \\com-dbtempl-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:51 Server: com-dbtempl-01 успешное окончание проверки каталога \\com-dbtempl-01\C$\zabbix_agent\conf.d\UserParameters
+30.05.2019 16:08:51 Server: com-dbtempl-01 не было выявлено различий в каталоге \\com-dbtempl-01\C$\zabbix_agent\conf.d\UserParameters
+Конец 30.05.2019 16:08:51

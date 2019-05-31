@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileZabbixInServers.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Servers" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TST-DBA-01;</Value>
+    </Setting>
+    <Setting Name="FileLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FileLog.log</Value>
+    </Setting>
+    <Setting Name="SourceDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\backup-srv01\SQL_Backups\Zabbix\UserParameters</Value>
+    </Setting>
+    <Setting Name="SourceFileConf" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\backup-srv01\SQL_Backups\Zabbix\userparams.conf</Value>
+    </Setting>
+    <Setting Name="TargetDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C$\zabbix_agent\conf.d\UserParameters</Value>
+    </Setting>
+    <Setting Name="TargetFileConf" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C$\zabbix_agent\conf.d\userparams.conf</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
