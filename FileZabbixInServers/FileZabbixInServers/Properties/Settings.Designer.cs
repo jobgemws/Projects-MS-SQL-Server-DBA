@@ -25,7 +25,7 @@ namespace FileZabbixInServers.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TST-DBA-01;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server_name;")]
         public string Servers {
             get {
                 return ((string)(this["Servers"]));
@@ -43,7 +43,7 @@ namespace FileZabbixInServers.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\backup-srv01\\SQL_Backups\\Zabbix\\UserParameters")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\...\\Zabbix\\UserParameters")]
         public string SourceDirectory {
             get {
                 return ((string)(this["SourceDirectory"]));
@@ -52,7 +52,7 @@ namespace FileZabbixInServers.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\backup-srv01\\SQL_Backups\\Zabbix\\userparams.conf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\...\\Zabbix\\userparams.conf")]
         public string SourceFileConf {
             get {
                 return ((string)(this["SourceFileConf"]));
