@@ -1,7 +1,7 @@
-﻿
-CREATE PROCEDURE [srv].[AutoDefragIndex]
+﻿CREATE PROCEDURE [srv].[AutoDefragIndex]
 	@count int=null --кол-во одновременно обрабатываемых индексов
 	,@isrebuild bit=0 --позволять ли перестраиваться индексам (фрагментация которых свыше 30%)
+	,@isclear bit=1 --очистить обработанные индексы (т е заново оптимизировать индексы)
 AS
 BEGIN
 	/*
@@ -10,14 +10,20 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	if(@isclear=1)
+	begin
+		delete from [FortisAdmin].[srv].[ListDefragIndex]
+		where [db_id]=DB_ID();
+	end
+
 	--определяем возможность перестраивать индекс в режиме ONLINE
 	declare @isRebuildOnline bit=CASE WHEN (CAST (SERVERPROPERTY ('Edition') AS nvarchar (max)) LIKE '%Enterprise%' OR CAST (SERVERPROPERTY ('Edition') AS nvarchar (max)) LIKE '%Developer%' OR CAST (SERVERPROPERTY ('Edition') AS nvarchar (max)) LIKE '%Evaluation%') THEN 1 ELSE 0 END;
 
-	declare @IndexName		nvarchar(100)
-			,@db			nvarchar(100)
+	declare @IndexName		nvarchar(255)
+			,@db			nvarchar(255)
 			,@db_id			int
-			,@Shema			nvarchar(100)
-			,@Table			nvarchar(100)
+			,@Shema			nvarchar(255)
+			,@Table			nvarchar(255)
 			,@SQL_Str		nvarchar (max)=N''
 			,@frag			decimal(6,2)
 			,@frag_after	decimal(6,2)
@@ -32,11 +38,11 @@ BEGIN
 
 	--для обработки
 	declare @tbl table (
-						IndexName		nvarchar(100)
-						,db				nvarchar(100)
+						IndexName		nvarchar(255)
+						,db				nvarchar(255)
 						,[db_id]		int
-						,Shema			nvarchar(100)
-						,[Table]		nvarchar(100)
+						,Shema			nvarchar(255)
+						,[Table]		nvarchar(255)
 						,frag			decimal(6,2)
 						,frag_num		int
 						,[page]			int
@@ -47,11 +53,11 @@ BEGIN
 
 	--для истории
 	declare @tbl_copy table (
-						IndexName		nvarchar(100)
-						,db				nvarchar(100)
+						IndexName		nvarchar(255)
+						,db				nvarchar(255)
 						,[db_id]		int
-						,Shema			nvarchar(100)
-						,[Table]		nvarchar(100)
+						,Shema			nvarchar(255)
+						,[Table]		nvarchar(255)
 						,frag			decimal(6,2)
 						,frag_num		int
 						,[page]			int
@@ -93,7 +99,7 @@ BEGIN
 							ind.rec
 		from  [inf].[vIndexDefrag] as ind
 		where not exists(
-							select top(1) 1 from [SRV].[srv].[ListDefragIndex] as lind
+							select top(1) 1 from [FortisAdmin].[srv].[ListDefragIndex] as lind
 							where lind.[db_id]=ind.database_id
 							  and lind.[idx]=ind.idx
 							  and lind.[object_id]=ind.[object_id]
@@ -129,7 +135,7 @@ BEGIN
 							ind.rec
 		from  [inf].[vIndexDefrag] as ind
 		where not exists(
-							select top(1) 1 from [SRV].[srv].[ListDefragIndex] as lind
+							select top(1) 1 from [FortisAdmin].[srv].[ListDefragIndex] as lind
 							where lind.[db_id]=ind.database_id
 							  and lind.[idx]=ind.idx
 							  and lind.[object_id]=ind.[object_id]
@@ -142,7 +148,7 @@ BEGIN
 	--и начинаем заново
 	if(not exists(select top(1) 1 from @tbl))
 	begin
-		delete from [SRV].[srv].[ListDefragIndex]
+		delete from [FortisAdmin].[srv].[ListDefragIndex]
 		where [db_id]=DB_ID();
 
 		if(@count is null)
@@ -173,7 +179,7 @@ BEGIN
 								ind.rec
 			from  [inf].[vIndexDefrag] as ind
 			where not exists(
-								select top(1) 1 from [SRV].[srv].[ListDefragIndex] as lind
+								select top(1) 1 from [FortisAdmin].[srv].[ListDefragIndex] as lind
 								where lind.[db_id]=ind.database_id
 								  and lind.[idx]=ind.idx
 								  and lind.[object_id]=ind.[object_id]
@@ -209,7 +215,7 @@ BEGIN
 								ind.rec
 			from  [inf].[vIndexDefrag] as ind
 			where not exists(
-								select top(1) 1 from [SRV].[srv].[ListDefragIndex] as lind
+								select top(1) 1 from [FortisAdmin].[srv].[ListDefragIndex] as lind
 								where lind.[db_id]=ind.database_id
 								  and lind.[idx]=ind.idx
 								  and lind.[object_id]=ind.[object_id]
@@ -222,7 +228,7 @@ BEGIN
 	if(exists(select top(1) 1 from @tbl))
 	begin
 		--запоминаем выбранные индексы
-		INSERT INTO [SRV].[srv].[ListDefragIndex]
+		INSERT INTO [FortisAdmin].[srv].[ListDefragIndex]
 		       (
 				 [db]
 				,[shema]
@@ -269,37 +275,42 @@ BEGIN
 						,rec	
 		from @tbl;
 		
+		DECLARE sql_cursor CURSOR LOCAL FOR
+		select replace([IndexName], N']', N']]'),
+			   replace([Shema], N']', N']]'),
+			   replace([Table], N']', N']]')
+		from @tbl;
+		
+		OPEN sql_cursor;
+		  
+		FETCH NEXT FROM sql_cursor   
+		INTO @IndexName, @Shema, @Table;
+		
 		--формируем запрос на оптимизацию выбранных индексов (в случае реорганизации-с последующим обновлением статистики по ним)
-		while(exists(select top(1) 1 from @tbl))
+		while (@@FETCH_STATUS = 0)
 		begin
-			select top(1)
-			@IndexName=[IndexName],
-			@Shema=[Shema],
-			@Table=[Table],
-			@frag=[frag]
-			from @tbl;
-			
 			if(@frag>=30 and @isrebuild=1 and @isRebuildOnline=1)
 			begin
-				set @SQL_Str = @SQL_Str+'ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON);'
+				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON); end try begin catch print 0; end catch '
 			end
 			else
 			begin
-				set @SQL_Str = @SQL_Str+'ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
-									   +'UPDATE STATISTICS ['+@Shema+'].['+@Table+'] ['+@IndexName+'];';
+				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
+									   +'UPDATE STATISTICS ['+@Shema+'].['+@Table+'] ['+@IndexName+']; end try begin catch print 0; end catch ';
 			end
 
-			delete from @tbl
-			where [IndexName]=@IndexName
-			and [Shema]=@Shema
-			and [Table]=@Table;
+			FETCH NEXT FROM sql_cursor   
+			INTO @IndexName, @Shema, @Table;
 		end
+
+		CLOSE sql_cursor;
+		DEALLOCATE sql_cursor;
 
 		--оптимизируем выбранные индексы
 		execute sp_executesql  @SQL_Str;
 
 		--записываем результат оптимизации индексов
-		insert into [SRV].srv.Defrag(
+		insert into [FortisAdmin].srv.Defrag(
 									[db],
 									[shema],
 									[table],
@@ -335,7 +346,6 @@ BEGIN
 						from	@tbl_copy;
 	end
 END
-
 
 
 

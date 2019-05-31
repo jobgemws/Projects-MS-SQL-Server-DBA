@@ -8,7 +8,7 @@
     [row_count]           BIGINT          NULL,
     [ProcModified]        NUMERIC (18, 3) NULL,
     [ObjectSizeMB]        NUMERIC (38, 2) NULL,
-    [type_desc]           NVARCHAR (60)   NULL,
+    [type_desc]           NVARCHAR (60)   COLLATE Latin1_General_CI_AS_KS_WS NULL,
     [create_date]         DATETIME        NOT NULL,
     [last_updated]        DATETIME2 (7)   NULL,
     [ModificationCounter] BIGINT          NULL,
@@ -19,7 +19,8 @@
     [auto_created]        BIT             NULL,
     [IndexName]           [sysname]       NULL,
     [has_filter]          BIT             NULL,
-    [InsertUTCDate]       DATETIME        CONSTRAINT [DF_OldStatisticsStateStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL
+    [InsertUTCDate]       DATETIME        CONSTRAINT [DF_OldStatisticsStateStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
+    [DataBase]            NVARCHAR (256)  NULL
 );
 
 

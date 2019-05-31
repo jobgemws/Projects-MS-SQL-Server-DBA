@@ -23,10 +23,10 @@
     [schema_id]            INT            NOT NULL,
     [object_id]            INT            NOT NULL,
     [index_id]             INT            NOT NULL,
-    [ObjectType]           CHAR (2)       NULL,
-    [TYPE_DESC_OBJECT]     NVARCHAR (60)  NULL,
+    [ObjectType]           CHAR (2)       COLLATE Latin1_General_CI_AS_KS_WS NULL,
+    [TYPE_DESC_OBJECT]     NVARCHAR (60)  COLLATE Latin1_General_CI_AS_KS_WS NULL,
     [IndexType]            TINYINT        NOT NULL,
-    [TYPE_DESC_INDEX]      NVARCHAR (60)  NULL,
+    [TYPE_DESC_INDEX]      NVARCHAR (60)  COLLATE Latin1_General_CI_AS_KS_WS NULL,
     [Is_Unique]            BIT            NULL,
     [Data_Space_ID]        INT            NULL,
     [Ignore_Dup_Key]       BIT            NULL,
@@ -42,7 +42,8 @@
     [Filter_Definition]    NVARCHAR (MAX) NULL,
     [Columns]              NVARCHAR (MAX) NULL,
     [IncludeColumns]       NVARCHAR (MAX) NULL,
-    [InsertUTCDate]        DATETIME       CONSTRAINT [DF_IndexUsageStatsStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL
+    [InsertUTCDate]        DATETIME       CONSTRAINT [DF_IndexUsageStatsStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
+    [DataBase]             NVARCHAR (256) NULL
 );
 
 

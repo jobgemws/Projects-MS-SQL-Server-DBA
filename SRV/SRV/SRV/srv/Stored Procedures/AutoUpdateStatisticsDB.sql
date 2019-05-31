@@ -10,6 +10,8 @@ BEGIN
 	/*
 		вызов тонкой оптимизации статистики для заданной БД
 	*/
+
+	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 
 	declare @db_name nvarchar(255);

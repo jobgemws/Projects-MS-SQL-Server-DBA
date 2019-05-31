@@ -8,11 +8,15 @@ BEGIN
 	/*
 		вызов оптимизации индексов для заданной БД
 	*/
+
+	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 
 	declare @db_name nvarchar(255);
 	declare @sql nvarchar(max);
 	declare @ParmDefinition nvarchar(255)= N'@count int';
+
+	truncate table [SRV].[srv].[ListDefragIndex];
 	
 	if(@DB is null)
 	begin

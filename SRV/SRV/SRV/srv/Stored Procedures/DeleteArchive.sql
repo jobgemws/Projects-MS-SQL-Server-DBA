@@ -9,6 +9,8 @@ BEGIN
 	/*
 		удаление старых архивных записей из архивов
 	*/
+
+	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 
 	while(exists(select top(1) 1 from [srv].[ErrorInfoArchive] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
@@ -155,6 +157,27 @@ BEGIN
 	begin
 		delete
 		from [srv].[ReadWriteTablesStatistics]
+		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
+	end
+
+	while(exists(select top(1) 1 from [srv].[DiskSpaceStatistics] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
+	begin
+		delete
+		from [srv].[DiskSpaceStatistics]
+		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
+	end
+
+	while(exists(select top(1) 1 from [srv].[RAMSpaceStatistics] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
+	begin
+		delete
+		from [srv].[RAMSpaceStatistics]
+		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
+	end
+
+	while(exists(select top(1) 1 from [srv].[DBFileStatistics] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
+	begin
+		delete
+		from [srv].[DBFileStatistics]
 		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
 	end
 END

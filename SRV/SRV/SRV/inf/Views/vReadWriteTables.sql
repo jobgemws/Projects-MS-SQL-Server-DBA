@@ -1,4 +1,4 @@
-﻿CREATE view [inf].[vReadWriteTables] as
+﻿create view [inf].[vReadWriteTables] as
 	-- Чтение/запись таблицы
 	-- Кучи не рассматриваются, у них нет индексов
 	-- Только те таблицы, к которым обращались после запуска SQL Server
@@ -29,7 +29,6 @@
 	        AND ddius.database_id = DB_ID()
 	GROUP BY s.name, OBJECT_NAME(ddius.object_id)
 	--ORDER BY [Reads&Writes] DESC
-
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Данные по чтению/записи таблицы (кучи не рассматриваются, т к у них нет индексов).
 Только те таблицы, к которым обращались после запуска SQL Server', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vReadWriteTables';

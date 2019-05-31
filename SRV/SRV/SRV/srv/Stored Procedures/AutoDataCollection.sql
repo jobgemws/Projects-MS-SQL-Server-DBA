@@ -10,9 +10,12 @@ BEGIN
 	/*
 		Сбор данных
 	*/
+
+	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	EXEC [srv].[AutoStatisticsDiskAndRAMSpace];
 	EXEC [srv].[AutoStatisticsFileDB];
     EXEC [srv].[AutoBigQueryStatistics];
 	EXEC [srv].[AutoIndexStatistics];
@@ -22,6 +25,7 @@ BEGIN
 	EXEC [srv].[AutoWaitStatistics];
 	EXEC [srv].[AutoReadWriteTablesStatistics];
 	EXEC [srv].[InsertTableStatistics];
+	EXEC [srv].[AutoDBFile];
 END
 
 GO

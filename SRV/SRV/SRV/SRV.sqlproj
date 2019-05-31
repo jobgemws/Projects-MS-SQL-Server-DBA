@@ -7,8 +7,8 @@
     <Name>SRV</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{67aef9f9-7c84-4f37-b2ac-961cf93c5545}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{d807b8b8-a2c8-4b8a-a74a-17aa64e52bb2}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -24,65 +24,6 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
-    <AnsiNulls>False</AnsiNulls>
-    <QuotedIdentifier>False</QuotedIdentifier>
-    <QueryStoreCaptureMode>All</QueryStoreCaptureMode>
-    <QueryStoreDesiredState>Off</QueryStoreDesiredState>
-    <QueryStoreFlushInterval>900</QueryStoreFlushInterval>
-    <QueryStoreStatsInterval>60</QueryStoreStatsInterval>
-    <QueryStoreMaxPlansPerQuery>200</QueryStoreMaxPlansPerQuery>
-    <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
-    <QueryStoreMaxStorageSize>100</QueryStoreMaxStorageSize>
-    <DbScopedConfigLegacyCardinalityEstimation>Off</DbScopedConfigLegacyCardinalityEstimation>
-    <DbScopedConfigMaxDOP>0</DbScopedConfigMaxDOP>
-    <DbScopedConfigParameterSniffing>On</DbScopedConfigParameterSniffing>
-    <DbScopedConfigOptimizerHotfixes>Off</DbScopedConfigOptimizerHotfixes>
-    <DelayedDurability>DISABLED</DelayedDurability>
-    <AutoCreateStatisticsIncremental>True</AutoCreateStatisticsIncremental>
-    <MemoryOptimizedElevateToSnapshot>False</MemoryOptimizedElevateToSnapshot>
-    <Containment>None</Containment>
-    <IsNestedTriggersOn>True</IsNestedTriggersOn>
-    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
-    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
-    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
-    <TargetRecoveryTimePeriod>0</TargetRecoveryTimePeriod>
-    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
-    <IsChangeTrackingOn>False</IsChangeTrackingOn>
-    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
-    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
-    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
-    <IsEncryptionOn>False</IsEncryptionOn>
-    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
-    <Trustworthy>False</Trustworthy>
-    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
-    <PageVerify>NONE</PageVerify>
-    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
-    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
-    <Parameterization>SIMPLE</Parameterization>
-    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
-    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
-    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
-    <SupplementalLoggingOn>False</SupplementalLoggingOn>
-    <CompatibilityMode>140</CompatibilityMode>
-    <AnsiNullDefault>False</AnsiNullDefault>
-    <AnsiPadding>False</AnsiPadding>
-    <AnsiWarnings>False</AnsiWarnings>
-    <ArithAbort>False</ArithAbort>
-    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
-    <NumericRoundAbort>False</NumericRoundAbort>
-    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
-    <DatabaseChaining>False</DatabaseChaining>
-    <DatabaseState>ONLINE</DatabaseState>
-    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
-    <DefaultCursor>GLOBAL</DefaultCursor>
-    <AutoClose>False</AutoClose>
-    <AutoCreateStatistics>True</AutoCreateStatistics>
-    <AutoShrink>False</AutoShrink>
-    <AutoUpdateStatistics>True</AutoUpdateStatistics>
-    <TornPageDetection>False</TornPageDetection>
-    <DatabaseAccess>MULTI_USER</DatabaseAccess>
-    <Recovery>SIMPLE</Recovery>
-    <EnableFullTextSearch>True</EnableFullTextSearch>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -122,910 +63,285 @@
     <Folder Include="srv\Tables\" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="srv\Views\" />
     <Folder Include="inf\" />
     <Folder Include="inf\Views\" />
-    <Folder Include="srv\Views\" />
     <Folder Include="rep\" />
     <Folder Include="rep\Functions\" />
     <Folder Include="srv\Functions\" />
+    <Folder Include="inf\Functions\" />
     <Folder Include="dbo\Functions\" />
+    <Folder Include="zabbix\" />
+    <Folder Include="zabbix\Stored Procedures\" />
+    <Folder Include="srv\Stored Procedures\" />
     <Folder Include="inf\Stored Procedures\" />
     <Folder Include="nav\" />
     <Folder Include="nav\Stored Procedures\" />
-    <Folder Include="srv\Stored Procedures\" />
     <Folder Include="Database Triggers\" />
     <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="srv\Tables\Defrag.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="dbo\Tables\AuditQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\TableStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="dbo\Tables\TEST.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ddl_log.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\QueryRequestGroupStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ddl_log_all.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\Deadlocks.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\BackupSettings.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\DefragRun.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\DefragServers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\RestoreSettings.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\DelIndexIncludeStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ErrorInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\TableIndexStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ErrorInfoArchive.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\PlanQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\IndexDefragStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\IndexUsageStatsStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\TSQL_DAY_Statistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\IndicatorServerDayStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\SQLQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\KillSession.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\QueryStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ListDefragIndex.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\NewIndexOptimizeStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ActiveConnectionStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\OldStatisticsStateStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ReadWriteTablesStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\RestoreSettingsDetail.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\IndicatorStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\SessionTran.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ShortInfoRunJobs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ShortInfoRunJobsServers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\StatisticsIOInTempDBStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\WaitsStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\Drivers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\RequestStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\RequestStatisticsArchive.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\DBFile.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\Address.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\Recipient.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\ServerDBFileInfoStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Tables\BigQueryStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vBlockingQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vBlockRequest.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vColumns.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vColumnsStatisticsCount.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vColumnTableDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vColumnViewDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vComputedColumns.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vCountRows.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vDBFileInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vDefaultsConstraints.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vDelIndexOptimize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vFK_Keys.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vFK_KeysIndexes.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vFuncs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vFunctionStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vHeaps.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vIdentityColumns.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vIndexDefrag.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vIndexesUser.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vIndexUsageStats.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vInnerTableSize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobActivity.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobHistory.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobSteps.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobStepsLogs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vLocks.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vNewIndexOptimize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vObjectDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vObjectInParentDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vOldStatisticsState.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vParameterDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vPerformanceObject.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vProcedures.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vProcedureStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vProcesses.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vQueryResourse.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vQueryStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vReadWriteTables.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vRecomendateIndex.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vRequestDetail.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vRequestLockDetail.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vRequests.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSchedulersOS.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSchemaDescription.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerBackupDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerConfigurations.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerFilesDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerLastBackupDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerOnlineDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerProblemInCountFilesTempDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerRunTime.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vServerShortInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSessionThreadOS.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSizeCache.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSuspendedRequest.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vSynonyms.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vTables.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vTriggers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vTriggerStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vTypesRunStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vViews.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vWaits.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vDelIndexInclude.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vStatisticsIOInTempDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vStatisticDefrag.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vTableStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vDBSizeStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\ServerDBFileInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vDBSizeShortStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vQueryRequestGroupStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vBackupSettings.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vRestoreSettings.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vTableIndexStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vTSQL_DAY_Statistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vQueryStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vActiveConnectionStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vActiveConnectionShortStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vIndicatorStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vDBFilesOperationsStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vPlanQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vSQLQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vTableSize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vDataSize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vTableStatisticsShort.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobSchedules.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vScheduleMultiJobs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vDrivers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vRequestStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vDBFiles.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobServers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJOBS.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vJobRunShortInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vRecipientAddress.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vServerDBFileInfoStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Views\vBigQueryStatisticsRemote.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\AllIndexFrag.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\SqlLogins.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\SysLogins.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vActiveConnect.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Views\vBigQuery.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="rep\Functions\GetDateFormat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="rep\Functions\GetNameMonth.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="rep\Functions\GetNumMonth.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="rep\Functions\GetTimeFormat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Functions\GetNumericNormalize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="dbo\Functions\GetPlansObject.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Stored Procedures\InfoAgentJobs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Stored Procedures\RunAsyncExecute.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="inf\Stored Procedures\sp_WhoIsActive.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="nav\Stored Procedures\ZabbixGetCountRequestStatus.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoBigQueryStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoDataCollection.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoDataCollectionRemote.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoDefragIndex.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoDefragIndexDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoIndexStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoKillSessionTranBegin.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoNewIndexOptimizeStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoReadWriteTablesStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoShortInfoRunJobs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsActiveConnections.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsActiveRequests.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsFileDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsIOInTempDBStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsQuerys.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoStatisticsTimeRequests.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoUpdateStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoUpdateStatisticsCache.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoUpdateStatisticsDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\AutoWaitStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ClearFullInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ConnectValid.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\DeleteArchive.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\DeleteArchiveInProductDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ErrorInfoIncUpd.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetActiveConnectionStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetAllIndexFrag.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetColumns.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetDBFilesOperationsStat.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetDefaultsConstraints.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetDelIndexOptimize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetFK_Keys.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetFuncs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetHeaps.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetIdentityColumns.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetNewIndexOptimize.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetProcedures.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetQueryRequestGroupStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetSqlLogins.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetSynonyms.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetSysLogins.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetTableStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetTriggers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetViews.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\ExcelGetWaits.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\GetHTMLTable.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\GetHTMLTableShortInfoDrivers.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\GetHTMLTableShortInfoRunJobs.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\GetRecipients.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\InsertTableStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\KillConnect.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\KillFullOldConnect.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\MergeDBFileInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\MergeDriverInfo.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunDiffBackupDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunErrorInfoProc.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunFullBackupDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunFullRestoreDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunLogBackupDB.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunLogShippingFailover.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\RunRequestGroupStatistics.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\SelectErrorInfoArchive.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\SendDBMail.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\sp_DriveSpace.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\usp_Find_Problems.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="srv\Stored Procedures\XPDeleteFile.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="Database Triggers\SchemaLog.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
+    <Build Include="srv\Tables\RequestStatistics.sql" />
+    <Build Include="srv\Tables\RequestStatisticsArchive.sql" />
+    <Build Include="srv\Tables\RestoreSettings.sql" />
+    <Build Include="srv\Tables\RestoreSettingsDetail.sql" />
+    <Build Include="srv\Tables\ServerDBFileInfoStatistics.sql" />
+    <Build Include="srv\Tables\SessionTran.sql" />
+    <Build Include="srv\Tables\ShortInfoRunJobs.sql" />
+    <Build Include="srv\Tables\ShortInfoRunJobsServers.sql" />
+    <Build Include="srv\Tables\SQLQuery.sql" />
+    <Build Include="srv\Tables\RAMSpaceStatistics.sql" />
+    <Build Include="srv\Tables\StatisticsIOInTempDBStatistics.sql" />
+    <Build Include="srv\Tables\TableIndexStatistics.sql" />
+    <Build Include="srv\Tables\TableStatistics.sql" />
+    <Build Include="srv\Tables\TSQL_DAY_Statistics.sql" />
+    <Build Include="srv\Tables\WaitsStatistics.sql" />
+    <Build Include="srv\Tables\DiskSpaceStatistics.sql" />
+    <Build Include="srv\Tables\DBListNotDelete.sql" />
+    <Build Include="srv\Tables\DBFileStatistics.sql" />
+    <Build Include="srv\Tables\BigQueryGroupStatistics.sql" />
+    <Build Include="dbo\Tables\AuditQuery.sql" />
+    <Build Include="dbo\Tables\TEST.sql" />
+    <Build Include="srv\Tables\ActiveConnectionStatistics.sql" />
+    <Build Include="srv\Tables\Address.sql" />
+    <Build Include="srv\Tables\BackupSettings.sql" />
+    <Build Include="srv\Tables\BigQueryStatistics.sql" />
+    <Build Include="srv\Tables\DBFile.sql" />
+    <Build Include="srv\Tables\ddl_log.sql" />
+    <Build Include="srv\Tables\ddl_log_all.sql" />
+    <Build Include="srv\Tables\Deadlocks.sql" />
+    <Build Include="srv\Tables\Defrag.sql" />
+    <Build Include="srv\Tables\DefragRun.sql" />
+    <Build Include="srv\Tables\DefragServers.sql" />
+    <Build Include="srv\Tables\DelIndexIncludeStatistics.sql" />
+    <Build Include="srv\Tables\Drivers.sql" />
+    <Build Include="srv\Tables\ErrorInfo.sql" />
+    <Build Include="srv\Tables\ErrorInfoArchive.sql" />
+    <Build Include="srv\Tables\IndexDefragStatistics.sql" />
+    <Build Include="srv\Tables\IndexUsageStatsStatistics.sql" />
+    <Build Include="srv\Tables\IndicatorServerDayStatistics.sql" />
+    <Build Include="srv\Tables\IndicatorStatistics.sql" />
+    <Build Include="srv\Tables\KillSession.sql" />
+    <Build Include="srv\Tables\ListDefragIndex.sql" />
+    <Build Include="srv\Tables\NewIndexOptimizeStatistics.sql" />
+    <Build Include="srv\Tables\OldStatisticsStateStatistics.sql" />
+    <Build Include="srv\Tables\PlanQuery.sql" />
+    <Build Include="srv\Tables\QueryRequestGroupStatistics.sql" />
+    <Build Include="srv\Tables\QueryStatistics.sql" />
+    <Build Include="srv\Tables\ReadWriteTablesStatistics.sql" />
+    <Build Include="srv\Tables\Recipient.sql" />
+    <Build Include="srv\Views\vTableStatistics.sql" />
+    <Build Include="srv\Views\vDBSizeStatistics.sql" />
+    <Build Include="inf\Views\ServerDBFileInfo.sql" />
+    <Build Include="srv\Views\vDBSizeShortStatistics.sql" />
+    <Build Include="srv\Views\vActiveConnectionStatistics.sql" />
+    <Build Include="srv\Views\vActiveConnectionShortStatistics.sql" />
+    <Build Include="inf\Views\vDBFilesOperationsStat.sql" />
+    <Build Include="inf\Views\vDataSize.sql" />
+    <Build Include="inf\Views\vJobSchedules.sql" />
+    <Build Include="inf\Views\vScheduleMultiJobs.sql" />
+    <Build Include="inf\Views\vJOBS.sql" />
+    <Build Include="inf\Views\vJobServers.sql" />
+    <Build Include="inf\Views\vJobRunShortInfo.sql" />
+    <Build Include="srv\Views\vBigQueryGroupStatisticsRemote.sql" />
+    <Build Include="inf\Views\AllIndexFrag.sql" />
+    <Build Include="srv\Views\vIndicatorServerPred4DaysStatistics.sql" />
+    <Build Include="inf\Views\SqlLogins.sql" />
+    <Build Include="inf\Views\SysLogins.sql" />
+    <Build Include="inf\Views\vActiveConnect.sql" />
+    <Build Include="inf\Views\vBigQuery.sql" />
+    <Build Include="inf\Views\vRAM.sql" />
+    <Build Include="inf\Views\vBlockingQuery.sql" />
+    <Build Include="inf\Views\vDisk.sql" />
+    <Build Include="inf\Views\vBlockRequest.sql" />
+    <Build Include="inf\Views\vDBSizeDrive.sql" />
+    <Build Include="inf\Views\vColumns.sql" />
+    <Build Include="inf\Views\vColumnsStatisticsCount.sql" />
+    <Build Include="srv\Views\vDelIndexInclude.sql" />
+    <Build Include="inf\Views\vColumnTableDescription.sql" />
+    <Build Include="inf\Views\vColumnViewDescription.sql" />
+    <Build Include="inf\Views\vTableSize.sql" />
+    <Build Include="inf\Views\vComputedColumns.sql" />
+    <Build Include="inf\Views\vIndexDefrag.sql" />
+    <Build Include="inf\Views\vJobStepRunShortInfo.sql" />
+    <Build Include="inf\Views\vCountRows.sql" />
+    <Build Include="inf\Views\vDBFileInfo.sql" />
+    <Build Include="inf\Views\vIndexUsageStats.sql" />
+    <Build Include="inf\Views\vDefaultsConstraints.sql" />
+    <Build Include="inf\Views\vOldStatisticsState.sql" />
+    <Build Include="inf\Views\vDelIndexOptimize.sql" />
+    <Build Include="inf\Views\vReadWriteTables.sql" />
+    <Build Include="inf\Views\vFK_Keys.sql" />
+    <Build Include="inf\Views\vFK_KeysIndexes.sql" />
+    <Build Include="inf\Views\vFuncs.sql" />
+    <Build Include="inf\Views\vHeaps.sql" />
+    <Build Include="inf\Views\vIdentityColumns.sql" />
+    <Build Include="inf\Views\vIndexesUser.sql" />
+    <Build Include="inf\Views\vInnerTableSize.sql" />
+    <Build Include="inf\Views\vJobActivity.sql" />
+    <Build Include="inf\Views\vJobHistory.sql" />
+    <Build Include="inf\Views\vJobSteps.sql" />
+    <Build Include="inf\Views\vJobStepsLogs.sql" />
+    <Build Include="inf\Views\vLocks.sql" />
+    <Build Include="inf\Views\vNewIndexOptimize.sql" />
+    <Build Include="inf\Views\vObjectDescription.sql" />
+    <Build Include="inf\Views\vObjectInParentDescription.sql" />
+    <Build Include="inf\Views\vParameterDescription.sql" />
+    <Build Include="inf\Views\vPerformanceObject.sql" />
+    <Build Include="inf\Views\vProcedures.sql" />
+    <Build Include="inf\Views\vProcedureStat.sql" />
+    <Build Include="inf\Views\vProcesses.sql" />
+    <Build Include="inf\Views\vQueryResourse.sql" />
+    <Build Include="inf\Views\vQueryStat.sql" />
+    <Build Include="inf\Views\vRecomendateIndex.sql" />
+    <Build Include="inf\Views\vRequestDetail.sql" />
+    <Build Include="inf\Views\vRequestLockDetail.sql" />
+    <Build Include="inf\Views\vRequests.sql" />
+    <Build Include="inf\Views\vSchedulersOS.sql" />
+    <Build Include="inf\Views\vSchemaDescription.sql" />
+    <Build Include="inf\Views\vServerBackupDB.sql" />
+    <Build Include="inf\Views\vServerConfigurations.sql" />
+    <Build Include="inf\Views\vServerFilesDB.sql" />
+    <Build Include="inf\Views\vServerLastBackupDB.sql" />
+    <Build Include="inf\Views\vServerOnlineDB.sql" />
+    <Build Include="inf\Views\vServerProblemInCountFilesTempDB.sql" />
+    <Build Include="inf\Views\vServerRunTime.sql" />
+    <Build Include="inf\Views\vServerShortInfo.sql" />
+    <Build Include="inf\Views\vSessionThreadOS.sql" />
+    <Build Include="inf\Views\vSizeCache.sql" />
+    <Build Include="inf\Views\vSuspendedRequest.sql" />
+    <Build Include="inf\Views\vSynonyms.sql" />
+    <Build Include="inf\Views\vTables.sql" />
+    <Build Include="inf\Views\vTriggers.sql" />
+    <Build Include="inf\Views\vTriggerStat.sql" />
+    <Build Include="inf\Views\vTypesRunStatistics.sql" />
+    <Build Include="inf\Views\vViews.sql" />
+    <Build Include="inf\Views\vWaits.sql" />
+    <Build Include="srv\Views\vBackupSettings.sql" />
+    <Build Include="srv\Views\vBigQueryStatisticsRemote.sql" />
+    <Build Include="srv\Views\vDBFiles.sql" />
+    <Build Include="srv\Views\vDrivers.sql" />
+    <Build Include="srv\Views\vIndicatorStatistics.sql" />
+    <Build Include="srv\Views\vPlanQuery.sql" />
+    <Build Include="srv\Views\vQueryRequestGroupStatistics.sql" />
+    <Build Include="srv\Views\vQueryStatistics.sql" />
+    <Build Include="srv\Views\vRecipientAddress.sql" />
+    <Build Include="srv\Views\vRequestStatistics.sql" />
+    <Build Include="srv\Views\vRestoreSettings.sql" />
+    <Build Include="srv\Views\vServerDBFileInfoStatistics.sql" />
+    <Build Include="srv\Views\vSQLQuery.sql" />
+    <Build Include="srv\Views\vStatisticDefrag.sql" />
+    <Build Include="srv\Views\vStatisticsIOInTempDB.sql" />
+    <Build Include="srv\Views\vTableIndexStatistics.sql" />
+    <Build Include="srv\Views\vTableStatisticsShort.sql" />
+    <Build Include="srv\Views\vTSQL_DAY_Statistics.sql" />
+    <Build Include="inf\Views\vFunctionStat.sql" />
+    <Build Include="rep\Functions\GetDateFormat.sql" />
+    <Build Include="rep\Functions\GetNameMonth.sql" />
+    <Build Include="rep\Functions\GetNumMonth.sql" />
+    <Build Include="rep\Functions\GetTimeFormat.sql" />
+    <Build Include="srv\Functions\GetNumericNormalize.sql" />
+    <Build Include="inf\Functions\SpaceusedDB.sql" />
+    <Build Include="dbo\Functions\GetPlansObject.sql" />
+    <Build Include="zabbix\Stored Procedures\GetSpaceusedDBServer.sql" />
+    <Build Include="zabbix\Stored Procedures\GetExistsErrorInLog.sql" />
+    <Build Include="zabbix\Stored Procedures\GetActiveUserTransaction.sql" />
+    <Build Include="zabbix\Stored Procedures\GetActiveRequestProblemCount.sql" />
+    <Build Include="srv\Stored Procedures\SpaceusedDBServer.sql" />
+    <Build Include="srv\Stored Procedures\AutoShrinkLog.sql" />
+    <Build Include="srv\Stored Procedures\AutoFlushLog.sql" />
+    <Build Include="srv\Stored Procedures\AutoDeleteSnapshotNotDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoDeleteFileNotDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoCHECKDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoAllDBForDurabilityForced.sql" />
+    <Build Include="zabbix\Stored Procedures\GetWriteStallMSTempDB.sql" />
+    <Build Include="zabbix\Stored Procedures\GetReadStallMSTempDB.sql" />
+    <Build Include="zabbix\Stored Procedures\GetForecastDiskMinAvailable_Mb.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsDiskAndRAMSpace.sql" />
+    <Build Include="srv\Stored Procedures\GetHTMLTableShortInfoRunJobsServers.sql" />
+    <Build Include="srv\Stored Procedures\AutoDefragIndex.sql" />
+    <Build Include="srv\Stored Procedures\AutoUpdateStatistics.sql" />
+    <Build Include="zabbix\Stored Procedures\GetValRAMTypeWait.sql" />
+    <Build Include="zabbix\Stored Procedures\GetPercRAMTypeWait.sql" />
+    <Build Include="zabbix\Stored Procedures\GetOldBackupsCount.sql" />
+    <Build Include="zabbix\Stored Procedures\GetRunnableTasksCount.sql" />
+    <Build Include="zabbix\Stored Procedures\GetJobAgentProblemCount.sql" />
+    <Build Include="srv\Stored Procedures\AutoDBFile.sql" />
+    <Build Include="inf\Stored Procedures\InfoAgentJobs.sql" />
+    <Build Include="inf\Stored Procedures\RunAsyncExecute.sql" />
+    <Build Include="inf\Stored Procedures\sp_WhoIsActive.sql" />
+    <Build Include="nav\Stored Procedures\ZabbixGetCountRequestStatus.sql" />
+    <Build Include="srv\Stored Procedures\AutoBigQueryStatistics.sql" />
+    <Build Include="srv\Stored Procedures\AutoDataCollection.sql" />
+    <Build Include="srv\Stored Procedures\AutoDataCollectionRemote.sql" />
+    <Build Include="srv\Stored Procedures\AutoDefragIndexDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoIndexStatistics.sql" />
+    <Build Include="srv\Stored Procedures\AutoKillSessionTranBegin.sql" />
+    <Build Include="srv\Stored Procedures\AutoNewIndexOptimizeStatistics.sql" />
+    <Build Include="srv\Stored Procedures\AutoReadWriteTablesStatistics.sql" />
+    <Build Include="srv\Stored Procedures\AutoShortInfoRunJobs.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsActiveConnections.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsActiveRequests.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsFileDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsIOInTempDBStatistics.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsQuerys.sql" />
+    <Build Include="srv\Stored Procedures\AutoStatisticsTimeRequests.sql" />
+    <Build Include="srv\Stored Procedures\AutoUpdateStatisticsCache.sql" />
+    <Build Include="srv\Stored Procedures\AutoUpdateStatisticsDB.sql" />
+    <Build Include="srv\Stored Procedures\AutoWaitStatistics.sql" />
+    <Build Include="srv\Stored Procedures\ClearFullInfo.sql" />
+    <Build Include="srv\Stored Procedures\ConnectValid.sql" />
+    <Build Include="srv\Stored Procedures\DeleteArchive.sql" />
+    <Build Include="srv\Stored Procedures\DeleteArchiveInProductDB.sql" />
+    <Build Include="srv\Stored Procedures\ErrorInfoIncUpd.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetActiveConnectionStatistics.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetAllIndexFrag.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetColumns.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetDBFilesOperationsStat.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetDefaultsConstraints.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetDelIndexOptimize.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetFK_Keys.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetFuncs.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetHeaps.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetIdentityColumns.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetNewIndexOptimize.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetProcedures.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetQueryRequestGroupStatistics.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetSqlLogins.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetSynonyms.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetSysLogins.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetTableStatistics.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetTriggers.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetViews.sql" />
+    <Build Include="srv\Stored Procedures\ExcelGetWaits.sql" />
+    <Build Include="srv\Stored Procedures\GetHTMLTable.sql" />
+    <Build Include="srv\Stored Procedures\GetHTMLTableShortInfoDrivers.sql" />
+    <Build Include="srv\Stored Procedures\GetHTMLTableShortInfoRunJobs.sql" />
+    <Build Include="srv\Stored Procedures\GetRecipients.sql" />
+    <Build Include="srv\Stored Procedures\InsertTableStatistics.sql" />
+    <Build Include="srv\Stored Procedures\KillConnect.sql" />
+    <Build Include="srv\Stored Procedures\KillFullOldConnect.sql" />
+    <Build Include="srv\Stored Procedures\MergeDBFileInfo.sql" />
+    <Build Include="srv\Stored Procedures\MergeDriverInfo.sql" />
+    <Build Include="srv\Stored Procedures\RunDiffBackupDB.sql" />
+    <Build Include="srv\Stored Procedures\RunErrorInfoProc.sql" />
+    <Build Include="srv\Stored Procedures\RunFullBackupDB.sql" />
+    <Build Include="srv\Stored Procedures\RunFullRestoreDB.sql" />
+    <Build Include="srv\Stored Procedures\RunLogBackupDB.sql" />
+    <Build Include="srv\Stored Procedures\RunLogShippingFailover.sql" />
+    <Build Include="srv\Stored Procedures\RunRequestGroupStatistics.sql" />
+    <Build Include="srv\Stored Procedures\SelectErrorInfoArchive.sql" />
+    <Build Include="srv\Stored Procedures\SendDBMail.sql" />
+    <Build Include="srv\Stored Procedures\sp_DriveSpace.sql" />
+    <Build Include="srv\Stored Procedures\usp_Find_Problems.sql" />
+    <Build Include="srv\Stored Procedures\XPDeleteFile.sql" />
+    <Build Include="Database Triggers\SchemaLog.sql" />
     <Build Include="Security\dll.sql" />
     <Build Include="Security\inf.sql" />
     <Build Include="Security\nav.sql" />
     <Build Include="Security\rep.sql" />
     <Build Include="Security\srv.sql" />
+    <Build Include="Security\zabbix.sql" />
     <Build Include="ExtendedProperties.sql" />
   </ItemGroup>
 </Project>

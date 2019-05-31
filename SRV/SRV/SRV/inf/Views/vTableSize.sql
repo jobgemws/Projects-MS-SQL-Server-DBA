@@ -47,7 +47,6 @@
 	  f.DataPageSize*(select top(1) PageSizeKB from pagesizeKB) as DataPageSizeKB
 	FROM f_size as f
 	inner join tbl as t on t.[object_id]=f.[object_id]
-
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Размеры таблиц', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vTableSize';
 

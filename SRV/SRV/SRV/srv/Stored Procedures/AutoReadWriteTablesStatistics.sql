@@ -8,26 +8,58 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-	INSERT INTO [srv].[ReadWriteTablesStatistics]
-         ([ServerName]
-         ,[DBName]
-         ,[SchemaTableName]
-         ,[TableName]
-         ,[Reads]
-         ,[Writes]
-         ,[Reads&Writes]
-         ,[SampleDays]
-         ,[SampleSeconds])
-	SELECT [ServerName]
-         ,[DBName]
-         ,[SchemaTableName]
-         ,[TableName]
-         ,[Reads]
-         ,[Writes]
-         ,[Reads&Writes]
-         ,[SampleDays]
-         ,[SampleSeconds]
-	FROM [inf].[vReadWriteTables];
+	declare @dt date=CAST(GetUTCDate() as date);
+    declare @dbs nvarchar(255);
+	declare @sql nvarchar(max);
+
+	select [name]
+	into #dbs3
+	from [master].sys.databases;
+
+	DECLARE sql_cursor CURSOR LOCAL FOR
+	select [name]
+	from #dbs3;
+	
+	OPEN sql_cursor;
+	  
+	FETCH NEXT FROM sql_cursor   
+	INTO @dbs;
+
+	while (@@FETCH_STATUS = 0 )
+	begin
+		set @sql=N'USE ['+@dbs+N'];
+		if(exists(select top(1) 1 from sys.views where [name]=''vReadWriteTables'' and [schema_id]=schema_id(''inf'')))
+		begin
+			INSERT INTO [SRV].[srv].[ReadWriteTablesStatistics]
+			([ServerName]
+		     ,[DBName]
+		     ,[SchemaTableName]
+		     ,[TableName]
+		     ,[Reads]
+		     ,[Writes]
+		     ,[Reads&Writes]
+		     ,[SampleDays]
+		     ,[SampleSeconds])
+			SELECT [ServerName]
+		     ,[DBName]
+		     ,[SchemaTableName]
+		     ,[TableName]
+		     ,[Reads]
+		     ,[Writes]
+		     ,[Reads&Writes]
+		     ,[SampleDays]
+		     ,[SampleSeconds]
+			FROM ['+@dbs+N'].[inf].[vReadWriteTables];
+		end';
+
+		exec sp_executesql @sql;
+
+		FETCH NEXT FROM sql_cursor
+		INTO @dbs;
+	end
+
+	CLOSE sql_cursor;
+	DEALLOCATE sql_cursor;
 END
 
 GO

@@ -1,20 +1,20 @@
 ﻿CREATE TABLE [srv].[ListDefragIndex] (
-    [db]            NVARCHAR (100) NOT NULL,
-    [shema]         NVARCHAR (100) NOT NULL,
-    [table]         NVARCHAR (100) NOT NULL,
-    [IndexName]     NVARCHAR (100) NOT NULL,
+    [db]            NVARCHAR (255) NOT NULL,
+    [shema]         NVARCHAR (255) NOT NULL,
+    [table]         NVARCHAR (255) NOT NULL,
+    [IndexName]     NVARCHAR (255) NOT NULL,
     [object_id]     INT            NOT NULL,
     [idx]           INT            NOT NULL,
     [db_id]         INT            NOT NULL,
     [frag]          DECIMAL (6, 2) NOT NULL,
     [InsertUTCDate] DATETIME       CONSTRAINT [DF_ListDefragIndex_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_ListDefragIndex] PRIMARY KEY CLUSTERED ([object_id] ASC, [idx] ASC, [db_id] ASC)
+    CONSTRAINT [PK_ListDefragIndex] PRIMARY KEY CLUSTERED ([object_id] ASC, [idx] ASC, [db_id] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ListDefragIndex]([InsertUTCDate] ASC);
+    ON [srv].[ListDefragIndex]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

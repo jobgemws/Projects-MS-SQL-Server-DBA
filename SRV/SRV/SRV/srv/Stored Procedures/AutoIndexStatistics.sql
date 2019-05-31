@@ -91,6 +91,7 @@ BEGIN
 		+N'IF(object_id('+N''''+N'[inf].[vIndexUsageStats]'+N''''+N') is not null) BEGIN '
 		+N'INSERT INTO [SRV].[srv].[IndexUsageStatsStatistics]
 	         ([SERVER]
+			,[DataBase]
 			,[SCHEMA_NAME]
 			,[OBJECT NAME]
 			,[INDEX NAME]
@@ -134,6 +135,7 @@ BEGIN
 			,[Columns]
 			,[IncludeColumns])
 	   SELECT @@SERVERNAME AS [Server]
+			,DB_Name()
 			,[SCHEMA_NAME]
 			,[OBJECT NAME]
 			,[INDEX NAME]
@@ -200,6 +202,7 @@ BEGIN
 		+N'IF(object_id('+N''''+N'[srv].[vDelIndexInclude]'+N''''+N') is not null) BEGIN '
 		+N'INSERT INTO [SRV].[srv].[DelIndexIncludeStatistics]
 	         ([Server]
+			,[DataBase]
 			,[SchemaName]
 			,[ObjectName]
 			,[ObjectType]
@@ -215,6 +218,7 @@ BEGIN
 			,[IndexIncludedColumns]
 			,[ActualIndexName])
 	   SELECT @@SERVERNAME AS [Server]
+			,DB_Name()
 			,[SchemaName]
 			,[ObjectName]
 			,[ObjectType]
@@ -253,6 +257,7 @@ BEGIN
 		+N'IF(object_id('+N''''+N'[inf].[vOldStatisticsState]'+N''''+N') is not null) BEGIN '
 		+N'INSERT INTO [SRV].[srv].[OldStatisticsStateStatistics]
 	         ([Server]
+			,[DataBase]
 			,[object_id]
 			,[SchemaName]
 			,[ObjectName]
@@ -273,6 +278,7 @@ BEGIN
 			,[IndexName]
 			,[has_filter])
 	   SELECT @@SERVERNAME AS [Server]
+			,DB_Name()
 			,[object_id]
 			,[SchemaName]
 			,[ObjectName]

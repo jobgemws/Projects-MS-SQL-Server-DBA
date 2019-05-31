@@ -67,7 +67,6 @@
 	              AND i.index_id = s.index_id
 			 inner join sys.objects as obj on obj.object_id=i.object_id
 	--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],'IsUserTable') = 1 
-
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Использование индексов', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vIndexUsageStats';
 

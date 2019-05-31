@@ -54,8 +54,11 @@ BEGIN
 	truncate table [srv].[DelIndexIncludeStatistics];
 	truncate table [srv].[ShortInfoRunJobsServers];
 	truncate table [srv].[ReadWriteTablesStatistics];
+	truncate table [srv].[DiskSpaceStatistics];
+	truncate table [srv].[RAMSpaceStatistics];
 
 	truncate table [srv].[IndicatorServerDayStatistics];
+	truncate table [srv].[DBFileStatistics];
 END
 
 GO

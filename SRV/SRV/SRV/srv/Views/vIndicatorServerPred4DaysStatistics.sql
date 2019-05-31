@@ -1,0 +1,46 @@
+﻿create view [srv].[vIndicatorServerPred4DaysStatistics] as
+with tbl as (
+SELECT [Server]
+      ,[ExecutionCount]
+      ,[AvgDur]
+      ,[AvgCPUTime]
+      ,[AvgIOLogicalReads]
+      ,[AvgIOLogicalWrites]
+      ,[AvgIOPhysicalReads]
+      ,[DATE]
+	  ,row_number() over(partition by [Server] order by [DATE] asc) as Num
+  FROM [srv].[IndicatorServerDayStatistics]
+)
+select t1.[Server]
+      ,t1.[ExecutionCount]		as [ExecutionCountPred4Days]
+	  ,t2.[ExecutionCount]		as [ExecutionCountPred3Days]
+	  ,t3.[ExecutionCount]		as [ExecutionCountPred2Days]
+	  ,t4.[ExecutionCount]		as [ExecutionCountPred1Days]
+      ,t1.[AvgDur]				as [AvgDurPred4Days]
+	  ,t2.[AvgDur]				as [AvgDurPred3Days]
+	  ,t3.[AvgDur]				as [AvgDurPred2Days]
+	  ,t4.[AvgDur]				as [AvgDurPred1Days]
+      ,t1.[AvgCPUTime]			as [AvgCPUTimePred4Days]
+	  ,t2.[AvgCPUTime]			as [AvgCPUTimePred3Days]
+	  ,t3.[AvgCPUTime]			as [AvgCPUTimePred2Days]
+	  ,t4.[AvgCPUTime]			as [AvgCPUTimePred1Days]
+      ,t1.[AvgIOLogicalReads]	as [AvgIOLogicalReadsPred4Days]
+	  ,t2.[AvgIOLogicalReads]	as [AvgIOLogicalReadsPred3Days]
+	  ,t3.[AvgIOLogicalReads]	as [AvgIOLogicalReadsPred2Days]
+	  ,t4.[AvgIOLogicalReads]	as [AvgIOLogicalReadsPred1Days]
+      ,t1.[AvgIOLogicalWrites]	as [AvgIOLogicalWritesPred4Days]
+	  ,t2.[AvgIOLogicalWrites]	as [AvgIOLogicalWritesPred3Days]
+	  ,t3.[AvgIOLogicalWrites]	as [AvgIOLogicalWritesPred2Days]
+	  ,t4.[AvgIOLogicalWrites]	as [AvgIOLogicalWritesPred1Days]
+      ,t1.[AvgIOPhysicalReads]	as [AvgIOPhysicalReadsPred4Days]
+	  ,t2.[AvgIOPhysicalReads]	as [AvgIOPhysicalReadsPred3Days]
+	  ,t3.[AvgIOPhysicalReads]	as [AvgIOPhysicalReadsPred2Days]
+	  ,t4.[AvgIOPhysicalReads]	as [AvgIOPhysicalReadsPred1Days]
+      ,t1.[DATE]				as [DATEPred4Days]
+	  ,t2.[DATE]				as [DATEPred3Days]
+	  ,t3.[DATE]				as [DATEPred2Days]
+	  ,t4.[DATE]				as [DATEPred1Days]
+from tbl as t1
+inner join tbl as t2 on t1.[Server]=t2.[Server] and t1.[Num]=t2.[Num]-1 and t2.[DATE]=cast(DateAdd(day,-3,GetUTCDate()) as DATE)
+inner join tbl as t3 on t2.[Server]=t3.[Server] and t2.[Num]=t3.[Num]-1 and t3.[DATE]=cast(DateAdd(day,-2,GetUTCDate()) as DATE)
+inner join tbl as t4 on t3.[Server]=t4.[Server] and t3.[Num]=t4.[Num]-1 and t4.[DATE]=cast(DateAdd(day,-1,GetUTCDate()) as DATE);

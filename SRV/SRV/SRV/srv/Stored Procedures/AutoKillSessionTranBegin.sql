@@ -1,4 +1,4 @@
-﻿CREATE   PROCEDURE [srv].[AutoKillSessionTranBegin]
+﻿CREATE PROCEDURE [srv].[AutoKillSessionTranBegin]
 	@minuteOld int=30, --старость запущенной транзакции
 	@countIsNotRequests int=5 --кол-во попаданий в таблицу
 AS
@@ -41,8 +41,8 @@ BEGIN
 		update set [UpdateUTCDate]			= getUTCDate()
 				 , [CountTranNotRequest]	= st.[CountTranNotRequest]+1			
 				 , [CountSessionNotRequest]	= case when (t.[IsSessionNotRequest]=1) then (st.[CountSessionNotRequest]+1) else 0 end
-				 , [TransactionBeginTime]	= t.[TransactionBeginTime]
-	when not matched by target then
+				 , [TransactionBeginTime]	= coalesce(t.[TransactionBeginTime], st.[TransactionBeginTime])
+	when not matched by target and (t.[TransactionBeginTime] is not null) then
 		insert (
 				[SessionID]
 				,[TransactionID]

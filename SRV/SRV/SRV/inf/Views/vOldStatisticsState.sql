@@ -82,7 +82,6 @@
 		AND NOT (st.[row_count] = st.[rows] AND st.[row_count] = st.[rows_sampled] AND st.[ModificationCounter]=0)
 		--если есть что обновлять (и данные существенно менялись)
 		AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))
-
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Устаревшие статистики', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vOldStatisticsState';
 
