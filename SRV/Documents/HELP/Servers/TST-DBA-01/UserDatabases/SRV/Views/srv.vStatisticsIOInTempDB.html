@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.vStatisticsIOInTempDB</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="align-center col-xs-12">&#8199;</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="srv.vStatisticsIOInTempDB" />
+            <h1 class="inline-middle">srv.vStatisticsIOInTempDB</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация о времени записи в файлы БД tempdb экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:40:56</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:40:56</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>physical_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>num_of_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_write_stall_ms</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>num_of_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_read_stall_ms</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">create</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">vStatisticsIOInTempDB</font>&nbsp;<font color="Blue">as</font><br><font color="Gray">/*
+	Если время записи данных (avg_write_stall_ms) меньше 5 мс, то это значит хороший уровень производительности. 
+	Между 5 и 10 мс  — приемлемый уровень. 
+	Более 10 мс — низкая производительность, необходимо сделать детальный анализ, имеются проблемы с вводом-выводом для временной базы данных
+	https://minyurov.com/2016/07/24/mssql-tempdb-opt/
+*/</font><br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">files</font><font color="buttontext">.</font><font color="buttontext">physical_name</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">files</font><font color="buttontext">.</font><font color="Blue">name</font><font color="buttontext">,</font><br><font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">num_of_writes</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="Green">1.0</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">io_stall_write_ms</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">num_of_writes</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">avg_write_stall_ms</font><font color="buttontext">,</font><br><font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">num_of_reads</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">(</font><font color="Green">1.0</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">io_stall_read_ms</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">num_of_reads</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">avg_read_stall_ms</font><br><font color="Blue">FROM</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_io_virtual_file_stats</font><font color="buttontext">(</font><font color="Green">2</font><font color="buttontext">,</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="Maroon">stats</font><br><font color="Blue">INNER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="Blue">master</font><font color="buttontext">.</font><font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">master_files</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">files</font>&nbsp;<br><font color="Blue">ON</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="buttontext">database_id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">files</font><font color="buttontext">.</font><font color="buttontext">database_id</font><br><font color="Blue">AND</font>&nbsp;<font color="Maroon">stats</font><font color="buttontext">.</font><font color="Maroon">file_id</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="buttontext">files</font><font color="buttontext">.</font><font color="Maroon">file_id</font><br><font color="Blue">WHERE</font>&nbsp;<font color="buttontext">files</font><font color="buttontext">.</font><font color="buttontext">type_desc</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Teal">'ROWS'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Информация о времени записи в файлы БД tempdb экземпляра MS SQL Server'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vStatisticsIOInTempDB'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">3</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsIOInTempDBStatistics.html" data-mapping-enabled="true"><span>srv.AutoStatisticsIOInTempDBStatistics</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\zabbix.GetReadStallMSTempDB.html" data-mapping-enabled="true"><span>zabbix.GetReadStallMSTempDB</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\zabbix.GetWriteStallMSTempDB.html" data-mapping-enabled="true"><span>zabbix.GetWriteStallMSTempDB</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;31.05.2019</div>
+  </div>
+</body>
+</html>

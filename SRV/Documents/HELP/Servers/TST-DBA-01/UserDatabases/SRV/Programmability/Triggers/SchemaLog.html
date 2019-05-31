@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>SchemaLog</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="align-center col-xs-12">&#8199;</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/DdlTrigger.svg" title="SchemaLog" />
+            <h1 class="inline-middle">SchemaLog</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Запись изменений БД (DDL)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Disabled</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>On</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">TRIGGER</font>&nbsp;<font color="buttontext">SchemaLog</font>&nbsp;<br><font color="Blue">ON</font>&nbsp;<font color="Blue">DATABASE</font>&nbsp;<font color="Gray">--ALL SERVER </font><br><font color="Blue">FOR</font>&nbsp;<font color="Blue">DDL_DATABASE_LEVEL_EVENTS</font>&nbsp;<br><font color="Blue">AS</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">NOCOUNT</font>&nbsp;<font color="Blue">ON</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">SET</font>&nbsp;<font color="Blue">TRANSACTION</font>&nbsp;<font color="Blue">ISOLATION</font>&nbsp;<font color="Blue">LEVEL</font>&nbsp;<font color="Blue">READ</font>&nbsp;<font color="Blue">UNCOMMITTED</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">DECLARE</font>&nbsp;<font color="buttontext">@data</font>&nbsp;<font color="Blue">XML</font><br><font color="buttontext">	</font><font color="Blue">begin</font>&nbsp;<font color="Blue">try</font><br><font color="buttontext">	</font><font color="Blue">if</font><font color="buttontext">(</font><font color="Maroon">CURRENT_USER</font><font color="buttontext"><</font><font color="buttontext">></font><font color="Teal">'NT AUTHORITY\NETWORK SERVICE'</font>&nbsp;<font color="Blue">and</font>&nbsp;<font color="Maroon">SYSTEM_USER</font><font color="buttontext"><</font><font color="buttontext">></font><font color="Teal">'NT AUTHORITY\NETWORK SERVICE'</font><font color="buttontext">)</font><br><font color="buttontext">	</font><font color="Blue">begin</font><br><font color="buttontext">		</font><font color="Blue">SET</font>&nbsp;<font color="buttontext">@data</font>&nbsp;<font color="buttontext">=</font>&nbsp;<font color="Maroon">EVENTDATA</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">;</font><br><font color="buttontext">		</font><font color="Blue">INSERT</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ddl_log</font><font color="buttontext">(</font><br><font color="buttontext">					</font><font color="buttontext">PostTime</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="buttontext">DB_Login</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="buttontext">DB_User</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="Blue">Event</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="Blue">TSQL</font><br><font color="buttontext">				  </font><font color="buttontext">)</font>&nbsp;<br><font color="buttontext">		</font><font color="Blue">select</font>&nbsp;<br><font color="buttontext">					</font><font color="Maroon">GETUTCDATE</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="Maroon">CONVERT</font><font color="buttontext">(</font><font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">SYSTEM_USER</font><font color="buttontext">)</font><font color="buttontext">,</font><br><font color="buttontext">					</font><font color="Maroon">CONVERT</font><font color="buttontext">(</font><font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<font color="Maroon">CURRENT_USER</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<br><font color="buttontext">					</font><font color="buttontext">@data</font><font color="buttontext">.</font><font color="Blue">value</font><font color="buttontext">(</font><font color="Teal">'(/EVENT_INSTANCE/EventType)[1]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'nvarchar(255)'</font><font color="buttontext">)</font><font color="buttontext">,</font>&nbsp;<br><font color="buttontext">					</font><font color="buttontext">@data</font><font color="buttontext">.</font><font color="Blue">value</font><font color="buttontext">(</font><font color="Teal">'(/EVENT_INSTANCE/TSQLCommand)[1]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'nvarchar(max)'</font><font color="buttontext">)</font><br><font color="buttontext">		</font><font color="Blue">where</font><font color="buttontext">		</font><font color="buttontext">@data</font><font color="buttontext">.</font><font color="Blue">value</font><font color="buttontext">(</font><font color="Teal">'(/EVENT_INSTANCE/EventType)[1]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'nvarchar(255)'</font><font color="buttontext">)</font>&nbsp;<font color="Blue">not</font>&nbsp;<font color="Blue">in</font><font color="buttontext">(</font><font color="Teal">'UPDATE_STATISTICS'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'ALTER_INDEX'</font><font color="buttontext">)</font><br><font color="buttontext">				</font><font color="Blue">and</font><font color="buttontext">	</font><font color="buttontext">@data</font><font color="buttontext">.</font><font color="Blue">value</font><font color="buttontext">(</font><font color="Teal">'(/EVENT_INSTANCE/TSQLCommand)[1]'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'nvarchar(max)'</font><font color="buttontext">)</font>&nbsp;<font color="Blue">not</font>&nbsp;<font color="Blue">like</font>&nbsp;<font color="Teal">'%Msmerge%'</font><font color="buttontext">;</font><br><font color="buttontext">	</font><font color="Blue">end</font><br><font color="buttontext">	</font><font color="Blue">end</font>&nbsp;<font color="Blue">try</font><br><font color="buttontext">	</font><font color="Blue">begin</font>&nbsp;<font color="Blue">catch</font><br><font color="buttontext">	</font><font color="Blue">end</font>&nbsp;<font color="Blue">catch</font><br><font color="Blue">GO</font><br><font color="Blue">DISABLE</font>&nbsp;<font color="Blue">TRIGGER</font>&nbsp;<font color="buttontext">SchemaLog</font>&nbsp;<font color="Blue">ON</font>&nbsp;<font color="Blue">DATABASE</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Запись изменений БД (DDL)'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TRIGGER'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'SchemaLog'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;31.05.2019</div>
+  </div>
+</body>
+</html>

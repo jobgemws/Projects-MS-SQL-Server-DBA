@@ -1,0 +1,566 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vWaits</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="align-center col-xs-12">&#8199;</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vWaits" />
+            <h1 class="inline-middle">inf.vWaits</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация по ожиданиям (по статистикам) экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:38</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>17.04.2019 10:53:58</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>WaitType</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Wait_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Resource_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Signal_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>WaitCount</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Percentage</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgWait_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgRes_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgSig_S</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">inf</font><font color="buttontext">.</font><font color="buttontext">vWaits</font>&nbsp;<font color="Blue">as</font><br><font color="Gray">/*
+	2014-08-22 ГЕМ:
+		SQL Server отслеживает время, которое проходит между выходом потока из состояния «выполняется» и его возвращением в это состояние, 
+		определяя его как «время ожидания» (wait time) и время, потраченное в состоянии «готов к выполнению», 
+		определяя его как «время ожидания сигнала» (signal wait time), 
+		т.е. сколько времени требуется потоку после получения сигнала о доступности ресурсов для того, 
+		чтобы получить доступ к процессору. 
+		Мы должны понять, сколько времени тратит поток в состоянии «приостановлен», 
+		называемом «временем ожидания ресурсов» (resource wait time), вычитая время ожидания сигнала из общего времени ожидания.
+
+		http://habrahabr.ru/post/216309/
+
+		505: CXPACKET 
+			Означает параллелизм, но не обязательно в нем проблема. 
+			Поток-координатор в параллельном запросе всегда накапливает эти ожидания. 
+			Если параллельные потоки не заняты работой или один из потоков заблокирован, то ожидающие потоки также накапливают ожидание CXPACKET, 
+			что приводит к более быстрому накоплению статистики по этому типу — в этом и проблема. 
+			Один поток может иметь больше работы, чем остальные, и по этой причине весь запрос блокируется, пока долгий поток не закончит свою работу. 
+			Если этот тип ожидания совмещен с большими цифрами ожидания PAGEIOLATCH_XX, то это может быть сканирование больших таблиц 
+			по причине некорректных некластерных индексов или из-за плохого плана выполнения запроса. 
+			Если это не является причиной, вы можете попробовать применение опции MAXDOP со значениями 4, 2, или 1 для проблемных запросов 
+			или для всего экземпляра сервера (устанавливается на сервере параметром «max degree of parallelism»). 
+			Если ваша система основана на схеме NUMA, попробуйте установить MAXDOP в значение, равное количеству процессоров в одном узле NUMA для того, 
+			чтобы определить, не в этом ли проблема. Вам также нужно определить эффект от установки MAXDOP на системах со смешанной нагрузкой. 
+			Если честно, я бы поиграл с параметром «cost threshold for parallelism» (поднял его до 25 для начала), прежде чем снижать значение MAXDOP для всего экземпляра. 
+			И не забывайте про регулятор ресурсов (Resource Governor) в Enterprise версии SQL Server 2008, который позволяет установить количество процессоров 
+			для конкретной группы соединений с сервером.
+
+		304: PAGEIOLATCH_XX
+			Вот тут SQL Server ждет чтения страницы данных с диска в память. 
+			Этот тип ожидания может указывать на проблему в системе ввода/вывода (что является первой реакцией на этот тип ожидания), 
+			но почему система ввода/вывода должна обслуживать такое количество чтений? 
+			Возможно, давление оказывает буферный пул/память (недостаточно памяти для типичной нагрузки), внезапное изменение в планах выполнения, 
+			приводящее к большим параллельным сканированиям вместо поиска, раздувание кэша планов или некоторые другие причины. 
+			Не стоит считать, что основная проблема в системе ввода/вывода.
+
+		275: ASYNC_NETWORK_IO
+			Здесь SQL Server ждет, пока клиент закончит получать данные. 
+			Причина может быть в том, что клиент запросил слишком большое количество данных или просто получает их ооочень медленно из-за плохого кода — я почти никогда не не видел, 
+			чтобы проблема заключалась в сети. 
+			Клиенты часто читают по одной строке за раз — так называемый RBAR или «строка за агонизирующей строкой»(Row-By-Agonizing-Row) — вместо того, 
+			чтобы закешировать данные на клиенте и уведомить SQL Server об окончании чтения немедленно.
+
+		112: WRITELOG
+			Подсистема управления логом ожидает записи лога на диск. 
+			Как правило, означает, что система ввода/ввода не может обеспечить своевременную запись всего объема лога, 
+			но на высоконагруженных системах это может быть вызвано общими ограничениями записи лога, что может означать, 
+			что вам следует разделить нагрузку между несколькими базами, или даже сделать ваши транзакции чуть более долгими, 
+			чтобы уменьшить количество записей лога на диск. Для того, чтобы убедиться, что причина в системе ввода/вывода, 
+			используйте DMV sys.dm_io_virtual_file_stats для того, чтобы изучить задержку ввода/вывода для файла лога и увидеть, 
+			совпадает ли она с временем задержки WRITELOG. Если WRITELOG длится дольше, вы получили внутреннюю конкуренцию за запись на диск и должны разделить нагрузку. 
+			Если нет, выясняйте, почему вы создаете такой большой лог транзакций. 
+			Здесь (https://sqlperformance.com/2012/12/io-subsystem/trimming-t-log-fat) 
+			и здесь (https://sqlperformance.com/2013/01/io-subsystem/trimming-more-transaction-log-fat) можно почерпнуть некоторые идеи.
+			(прим переводчика: следующий запрос позволяет в простом и удобном виде получить статистику задержек ввода/вывода для каждого файла каждой базы данных на сервере:
+				-- Плохо: Ср.задержка одной операции > 20 мсек
+				USE master
+				GO
+				SELECT cast(db_name(a.database_id) AS VARCHAR) AS Database_Name
+					 , b.physical_name
+					 --, a.io_stall
+					 , a.size_on_disk_bytes
+					 , a.io_stall_read_ms / a.num_of_reads 'Ср.задержка одной операции чтения'
+					 , a.io_stall_write_ms / a.num_of_writes 'Ср.задержка одной операции записи'
+					 --, *
+				FROM
+					sys.dm_io_virtual_file_stats(NULL, NULL) a
+					INNER JOIN sys.master_files b
+						ON a.database_id = b.database_id AND a.file_id = b.file_id
+				where num_of_writes > 0 and num_of_reads > 0
+				ORDER BY
+					Database_Name
+				  , a.io_stall DESC
+
+		109: BROKER_RECEIVE_WAITFOR
+			Здесь Service Broker ждет новые сообщения. 
+			Я бы рекомендовал добавить это ожидание в список исключаемых и заново выполнить запрос со статистикой ожидания.
+
+		086: MSQL_XP
+			Здесь SQL Server ждет выполнения расширенных хранимых процедур. 
+			Это может означать наличие проблем в коде ваших расширенных хранимых процедур.
+
+		074: OLEDB
+			Как и предполагается из названия, это ожидание взаимодействия с использованием OLEDB — например, со связанным сервером. 
+			Однако, OLEDB также используется в DMV и командой DBCC CHECKDB, так что не думайте, 
+			что проблема обязательно в связанных серверах — это может быть внешняя система мониторинга, чрезмерно использующая вызовы DMV. 
+			Если это и в самом деле связанный сервер — тогда проведите анализ ожиданий на связанном сервере и определите, в чем проблема с производительностью на нем.
+
+		054: BACKUPIO
+			Показывает, когда вы делаете бэкап напрямую на ленту, что ооочень медленно. 
+			Я бы предпочел отфильтровать это ожидание. 
+			(прим. переводчика: я встречался с этим типом ожиданий при записи бэкапа на диск, при этом бэкап небольшой базы выполнялся очень долго, 
+			не успевая выполниться в технологический перерыв и вызывая проблемы с производительностью у пользователей. 
+			Если это ваш случай, возможно дело в системе ввода/вывода, используемой для бэкапирования, 
+			необходимо рассмотреть возможность увеличения ее производительности либо пересмотреть план обслуживания 
+			(не выполнять полные бэкапы в короткие технологические перерывы, заменив их дифференциальными))
+
+		041: LCK_M_XX
+			Здесь поток просто ждет доступа для наложения блокировки на объект и означает проблемы с блокировками. 
+			Это может быть вызвано нежелательной эскалацией блокировок или плохим кодом, но также может быть вызвано тем, 
+			что операции ввода/вывода занимают слишком долгое время и держат блокировки дольше, чем обычно. 
+			Посмотрите на ресурсы, связанные с блокировками, используя DMV sys.dm_os_waiting_tasks. 
+			Не стоит считать, что основная проблема в блокировках.
+
+		032: ONDEMAND_TASK_QUEUE
+			Это нормально и является частью системы фоновых задач (таких как отложенный сброс, очистка в фоне). 
+			Я бы добавил это ожидание в список исключаемых и заново выполнил запрос со статистикой ожидания.
+
+		031: BACKUPBUFFER
+			Показывает, когда вы делаете бэкап напрямую на ленту, что ооочень медленно. 
+			Я бы предпочел отфильтровать это ожидание.
+
+		027: IO_COMPLETION
+			SQL Server ждет завершения ввода/вывода и этот тип ожидания может быть индикатором проблемы с системой ввода/вывода.
+
+		024: SOS_SCHEDULER_YIELD
+			Чаще всего это код, который не попадает в другие типы ожидания, но иногда это может быть конкуренция в циклической блокировке.
+
+		022: DBMIRROR_EVENTS_QUEUE
+		022: DBMIRRORING_CMD
+			Эти два типа показывают, что система управления зеркальным отображением (database mirroring) сидит и ждет, чем бы ей заняться. 
+			Я бы добавил эти ожидания в список исключаемых и заново выполнил запрос со статистикой ожидания.
+
+		018: PAGELATCH_XX
+			Это конкуренция за доступ к копиям страниц в памяти. 
+			Наиболее известные случаи — это конкуренция PFS, SGAM, и GAM, возникающие в базе tempdb 
+			при определенных типах нагрузок (https://www.sqlskills.com/blogs/paul/a-sql-server-dba-myth-a-day-1230-tempdb-should-always-have-one-data-file-per-processor-core/). 
+			Для того, чтобы выяснить, за какие страницы идет конкуренция, вам нужно использовать DMV sys.dm_os_waiting_tasks для того, 
+			чтобы выяснить, из-за каких страниц возникают блокировки. 
+			По проблемам с базой tempdb Роберт Дэвис (его блог http://www.sqlservercentral.com/blogs/robert_davis/) написал хорошую статью, показывающую, 
+			как их решать (http://www.sqlservercentral.com/blogs/robert_davis/2010/03/05/Breaking-Down-TempDB-Contention/).
+			Другая частая причина, которую я видел — часто обновляемый индекс с конкурирующими вставками в индекс, использующий последовательный ключ (IDENTITY).
+
+		016: LATCH_XX
+			Это конкуренция за какие либо не страничные структуры в SQL Server'е — так что это не связано с вводом/выводом и данными вообще. 
+			Причину такого типа задержки может быть достаточно сложно понять и вам необходимо использовать DMV sys.dm_os_latch_stats.
+
+		013: PREEMPTIVE_OS_PIPEOPS
+			Здесь SQL Server переключается в режим упреждающего планирования для того, чтобы запросить о чем-то Windows. 
+			Этот тип ожидания был добавлен в 2008 версии и еще не был документирован. 
+			Самый простой способ выяснить, что он означает — это убрать начальные PREEMPTIVE_OS_ и поискать то, что осталось, в MSDN — это будет название API Windows.
+
+		013: THREADPOOL
+			Такой тип говорит, что недостаточно рабочих потоков в системе для того, чтобы удовлетворить запрос. 
+			Обычно причина в большом количестве сильно параллелизованных запросов, пытающихся выполниться. 
+			(прим. переводчика: также это может быть намеренно урезанное значение параметра сервера «max worker threads»)
+
+		009: BROKER_TRANSMITTER
+			Здесь Service Broker ждет новых сообщений для отправки. 
+			Я бы рекомендовал добавить это ожидание в список исключаемых и заново выполнить запрос со статистикой ожидания.
+
+		006: SQLTRACE_WAIT_ENTRIES
+			Часть слушателя (trace) SQL Server'а. 
+			Я бы рекомендовал добавить это ожидание в список исключаемых и заново выполнить запрос со статистикой ожидания.
+
+		005: DBMIRROR_DBM_MUTEX
+			Это один из недокументированных типов и в нем конкуренция возникает за отправку буфера, который делится между сессиями зеркального отображения (database mirroring). 
+			Может означать, что у вас слишком много сессий зеркального отображения.
+
+		005: RESOURCE_SEMAPHORE
+			Здесь запрос ждет память для исполнения (память, используемая для обработки операторов запроса — таких, как сортировка). 
+			Это может быть недостаток памяти при конкурентной нагрузке.
+
+		003: PREEMPTIVE_OS_AUTHENTICATIONOPS
+		003: PREEMPTIVE_OS_GENERICOPS
+			Здесь SQL Server переключается в режим упреждающего планирования для того, чтобы запросить о чем-то Windows. 
+			Этот тип ожидания был добавлен в 2008 версии и еще не был документирован. 
+			Самый простой способ выяснить, что он означает — это убрать начальные PREEMPTIVE_OS_ и поискать то, что осталось, в MSDN — это будет название API Windows.
+
+		003: SLEEP_BPOOL_FLUSH
+			Это ожидание можно часто увидеть и оно означает, что контрольная точка ограничивает себя для того, чтобы избежать перегрузки системы ввода/вывода. 
+			Я бы рекомендовал добавить это ожидание в список исключаемых и заново выполнить запрос со статистикой ожидания.
+
+		002: MSQL_DQ
+			Здесь SQL Server ожидает, пока выполнится распределенный запрос. 
+			Это может означать проблемы с распределенными запросами или может быть просто нормой.
+
+		002: RESOURCE_SEMAPHORE_QUERY_COMPILE
+			Когда в системе происходит слишком много конкурирующих перекомпиляций запросов, SQL Server ограничивает их выполнение. 
+			Я не помню уровня ограничения, но это ожидание может означать излишнюю перекомпиляцию или, возможно, слишком частое использование одноразовых планов.
+
+		001: DAC_INIT
+			Я никогда раньше этого не видел и BOL говорит, что причина в инициализации административного подключения. 
+			Я не могу представить, как это может быть преимущественным ожиданием на чьей либо системе...
+
+		001: MSSEARCH
+			Этот тип является нормальным при полнотекстовых операциях. 
+			Если это преимущественное ожидание, это может означать, что ваша система тратит больше всего времени на выполнение полнотекстовых запросов. 
+			Вы можете рассмотреть возможность добавить этот тип ожидания в список исключаемых.
+
+		001: PREEMPTIVE_OS_FILEOPS
+		001: PREEMPTIVE_OS_LIBRARYOPS
+		001: PREEMPTIVE_OS_LOOKUPACCOUNTSID
+		001: PREEMPTIVE_OS_QUERYREGISTRY
+			Здесь SQL Server переключается в режим упреждающего планирования для того, чтобы запросить о чем-то Windows. 
+			Этот тип ожидания был добавлен в 2008 версии и еще не был документирован. 
+			Самый простой способ выяснить, что он означает — это убрать начальные PREEMPTIVE_OS_ и поискать то, что осталось, в MSDN — это будет название API Windows.
+
+		001: SQLTRACE_LOCK
+			Часть слушателя (trace) SQL Server'а. 
+			Я бы рекомендовал добавить это ожидание в список исключаемых и заново выполнить запрос со статистикой ожидания.
+
+		LCK_M_XXX
+		http://sqlcom.ru/waitstats-and-waittypes/lck_m_xxx/
+		Это механизм ядра SQL Server, позволяющий организовать одновременную работу с данными в одно и то же время. 
+		Другими словами этот механизм поддерживает целостность данных, защищая доступ к объекту базы данных.
+		
+		ИЗ Book On-Line:
+		LCK_M_BU
+		Имеет место, когда задача ожидает получения блокировки для массового обновления (BU). 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_IS
+		Имеет место, когда задача ожидает получения блокировки с намерением коллективного доступа (IS). 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_IU
+		Имеет место, когда задача ожидает получения блокировки с намерением обновления (IU). 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks 
+		
+		LCK_M_IX
+		Имеет место, когда задача ожидает получения блокировки с намерением монопольного доступа (IX). 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_S
+		Имеет место, когда задача ожидает получения совмещаемой блокировки. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_SCH_M
+		Имеет место, когда задача ожидает получения блокировки на изменение схемы. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_SCH_S
+		Имеет место, когда задача ожидает получения совмещаемой блокировки схемы. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_SIU
+		Имеет место, когда задача ожидает получения совмещаемой блокировки с намерением обновления. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_SIX
+		Имеет место, когда задача ожидает получения совмещаемой блокировки с намерением монопольного доступа. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks 
+		
+		LCK_M_U
+		Имеет место, когда задача ожидает получения блокировки на обновление. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		LCK_M_UIX
+		Имеет место, когда задача ожидает получения блокировки на обновление с намерением монопольного доступа. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks 
+		
+		LCK_M_X
+		Имеет место, когда задача ожидает получения блокировки на монопольный доступ. 
+		Матрицу совместимости блокировок см. в представлении sys.dm_tran_locks
+		
+		Объяснение:
+		
+		Я считаю, что объяснение этого вида ожиданий очень лёгкое. 
+		Когда любое задание ожидает наложения блокировки на любой ресурс, происходит этот вид ожиданий. 
+		Основная причина сложности наложения блокировки состоит в том, что на необходимый ресурс уже наложена блокировка и другая операция производится с этими данными. 
+		Это вид ожиданий сообщает, что ресурсы не доступны или заняты в данный момент.
+
+		Вы можете использовать следующие методы, чтобы обнаружить блокировки
+
+		EXEC sp_who2
+		Быстрый способ найти заблокированные запросы-[srv].[vBlockingQuery]
+		DMV – sys.dm_tran_locks
+		DMV – sys.dm_os_waiting_tasks
+		Устранение LCK_M_XXX:
+		
+		Проверьте долгие транзакции, постарайтесь разбить их на более мелкие
+		Уровень изоляции Serialization может создавать этот вид ожиданий. 
+		Изначальный уровень изоляции SQL Server — ‘Read Committed’
+		Один из моих клиентов решил этот вопрос с помощью уровня изоляции ‘Read Uncommitted’. 
+		Я настоятельно не рекомендую такое решение, так как будет очень много грязного чтения в базе данных
+		Найдите заблокированные запросы, изучите почему так происходит и исправьте их
+		Секционирование может быть источником проблемы
+		Проверьте нет ли проблем с памятью и IO операциями
+		Проверить память можно с помощью следующих счётчиков производительности (Perfomance Monitor):
+		
+		SQLServer: Memory Manager\Memory Grants Pending (Постоянное значение более чем 0-2 свидетельствует о проблеме)
+		SQLServer: Memory Manager\Memory Grants Outstanding
+		SQLServer: Buffer Manager\Buffer Hit Cache Ratio (Чем больше, тем лучше. Обычно значение долго превышать 90%)
+		SQLServer: Buffer Manager\Page Life Expectancy (плохо, когда ниже 300)
+		Memory: Available Mbytes
+		Memory: Page Faults/sec
+		Memory: Pages/sec
+		Проверить диск можно с помощью:
+		
+		Average Disk sec/Read (Постоянное значение более чем 4-8 мс свидетельствует о проблеме)
+		Average Disk sec/Write (Постоянное значение более чем 4-8 мс свидетельствует о проблеме)
+		Average Disk Read/Write Queue Length
+		Заметка: Представленная тут информация является только моим опытом. 
+		Я настраиваю, чтобы вы читали Books On-Line. 
+		Все мои обсуждения ожиданий здесь носят общий характер и изменяются от системы к системе. 
+		Я рекомендую сначала тестировать всё на сервере разработки, прежде чем применять это на рабочем сервере.
+
+		ASYNC_IO_COMPLETION
+		http://sqlcom.ru/waitstats-and-waittypes/async_io_completion/
+
+		Для любой хорошей системы есть 3 важные вещи: Процессор, Диск, Память. 
+		Из этих трёх, Диск является наиболее критичным для SQL Server. 
+		Смотря на случаи из реального мира, я не вижу людей, которые улучшают Процессоры или Память часто, однако Диски меняются достаточно часть 
+		(увеличение дискового пространства, пропускной способности). 
+		Сегодня мы рассмотрим ещё одно ожидание, которое относится к Диску.
+
+		Из Book On-Line:
+		Имеет место, когда для своего завершения задача ожидает ввода-вывода.
+		
+		Объяснение:
+		Любые задания ожидают завершения I/O. 
+		Если SQL Server очень медленно обрабатывает данные и клиенты ожидают их, то счётчик ASYNC_IO_COMPLETION будет увеличиваться. 
+		Так же это ожидание провоцируется Backup, созданием и редактированием баз данных.
+		
+		Уменьшение ASYNC_IO_COMPLETION ожиданий:
+		
+		1. Посмотрите на код и найдите там не оптимальные участки, по возможности перепишите их
+		2. Надлежащим образом, на разных дисках, разместите файлы журналов (LDF) и файлы данных (MDF), 
+			Tempdb на другом отдельном диске, часто используемые таблицы в разных файловых группах и на разных дисках.
+		3. Проверьте статистику использования файлов баз данных, обратите внимание на IO Read Stall и IO Write Stall (fn_virtualfilestats)
+		4. Проверьте файл логов на наличие ошибок Диска
+		5. Если вы используете SAN (сетевое хранилище данных), то необходимо правильно настроить параметр HBA Queue Depth, почитать о котором можно в интернете
+		6. Проверьте наличие нужных индексов
+		7. Проверьте показания следующих счётчиков Perfomance Monitor
+		SQLServer: Memory Manager\Memory Grants Pending (Постоянное значение более чем 0-2 свидетельствует о проблеме)
+		SQLServer: Memory Manager\Memory Grants Outstanding
+		SQLServer: Buffer Manager\Buffer Hit Cache Ratio (Чем больше, тем лучше. Обычно значение долго превышать 90%)
+		SQLServer: Buffer Manager\Page Life Expectancy (плохо, когда ниже 300)
+		Memory: Available Mbytes
+		Memory: Page Faults/sec
+		Memory: Pages/sec
+		Average Disk sec/Read (Постоянное значение более чем 4-8 мс свидетельствует о проблеме)
+		Average Disk sec/Write (Постоянное значение более чем 4-8 мс свидетельствует о проблеме)
+		Average Disk Read/Write Queue Length
+*/</font><br><font color="Blue">WITH</font>&nbsp;<font color="buttontext">[Waits]</font>&nbsp;<font color="Blue">AS</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font><font color="Blue">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">[wait_type]</font><font color="buttontext">,</font>&nbsp;<font color="Gray">--имя типа ожидания</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">[wait_time_ms]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Green">1000.0</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[WaitS]</font><font color="buttontext">,</font><font color="Gray">--Общее время ожидания данного типа в миллисекундах. Это время включает signal_wait_time_ms</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">(</font><font color="buttontext">[wait_time_ms]</font>&nbsp;<font color="buttontext">-</font>&nbsp;<font color="buttontext">[signal_wait_time_ms]</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Green">1000.0</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[ResourceS]</font><font color="buttontext">,</font><font color="Gray">--Общее время ожидания данного типа в миллисекундах без signal_wait_time_ms</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">[signal_wait_time_ms]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Green">1000.0</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[SignalS]</font><font color="buttontext">,</font><font color="Gray">--Разница между временем сигнализации ожидающего потока и временем начала его выполнения</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">[waiting_tasks_count]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[WaitCount]</font><font color="buttontext">,</font><font color="Gray">--Число ожиданий данного типа. Этот счетчик наращивается каждый раз при начале ожидания</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Green">100.0</font>&nbsp;<font color="buttontext">*</font>&nbsp;<font color="buttontext">[wait_time_ms]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="Maroon">SUM</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[wait_time_ms]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">OVER</font><font color="buttontext">(</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Percentage]</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Maroon">ROW_NUMBER</font><font color="buttontext">(</font><font color="buttontext">)</font>&nbsp;<font color="Blue">OVER</font><font color="buttontext">(</font><font color="Blue">ORDER</font>&nbsp;<font color="Blue">BY</font>&nbsp;<font color="buttontext">[wait_time_ms]</font>&nbsp;<font color="Blue">DESC</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[RowNum]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="buttontext">dm_os_wait_stats</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="Blue">WHERE</font>&nbsp;<font color="buttontext">[waiting_tasks_count]</font><font color="buttontext">></font><font color="Green">0</font><br><font color="buttontext">		</font><font color="Blue">and</font>&nbsp;<font color="buttontext">[wait_type]</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">IN</font>&nbsp;<font color="buttontext">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'BROKER_EVENTHANDLER'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'BROKER_RECEIVE_WAITFOR'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'BROKER_TASK_STOP'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'BROKER_TO_FLUSH'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'BROKER_TRANSMITTER'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'CHECKPOINT_QUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'CHKPT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'CLR_AUTO_EVENT'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'CLR_MANUAL_EVENT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'CLR_SEMAPHORE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DBMIRROR_DBM_EVENT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DBMIRROR_EVENTS_QUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DBMIRROR_WORKER_QUEUE'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DBMIRRORING_CMD'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DIRTY_PAGE_POLL'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'DISPATCHER_QUEUE_SEMAPHORE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'EXECSYNC'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'FSAGENT'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'FT_IFTS_SCHEDULER_IDLE_WAIT'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'FT_IFTSHC_MUTEX'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_CLUSAPI_CALL'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_FILESTREAM_IOMGR_IOCOMPLETION'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_LOGCAPTURE_WAIT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_NOTIFICATION_DEQUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_TIMER_TASK'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'HADR_WORK_QUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'KSOURCE_WAKEUP'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'LAZYWRITER_SLEEP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'LOGMGR_QUEUE'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'ONDEMAND_TASK_QUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'PWAIT_ALL_COMPONENTS_INITIALIZED'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'QDS_PERSIST_TASK_MAIN_LOOP_SLEEP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'REQUEST_FOR_DEADLOCK_SEARCH'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'RESOURCE_QUEUE'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SERVER_IDLE_CHECK'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_BPOOL_FLUSH'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_DBSTARTUP'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_DCOMSTARTUP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_MASTERDBREADY'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_MASTERMDREADY'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_MASTERUPGRADED'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_MSDBSTARTUP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_SYSTEMTASK'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_TASK'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SLEEP_TEMPDBSTARTUP'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SNI_HTTP_ACCEPT'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SP_SERVER_DIAGNOSTICS_SLEEP'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'SQLTRACE_BUFFER_FLUSH'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SQLTRACE_INCREMENTAL_FLUSH_SLEEP'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'SQLTRACE_WAIT_ENTRIES'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAIT_FOR_RESULTS'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAITFOR'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAITFOR_TASKSHUTDOWN'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAIT_XTP_HOST_WAIT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAIT_XTP_OFFLINE_CKPT_NEW_LOG'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'WAIT_XTP_CKPT_CLOSE'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'XE_DISPATCHER_JOIN'</font><font color="buttontext">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'XE_DISPATCHER_WAIT'</font><font color="buttontext">,</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="Teal">N'XE_TIMER_EVENT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'XE_LIVE_TARGET_TVF'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_DISPATCHER'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_ENCRYPTMESSAGE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_AUTHENTICATIONOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_CRYPTOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DECRYPTMESSAGE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_CRYPTACQUIRECONTEXT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_CRYPTIMPORTKEY'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DELETESECURITYCONTEXT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DEVICEOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_AUTHORIZATIONOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_CLOSEHANDLE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_COMOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_CREATEFILE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_CLOSEBACKUPVDIDEVICE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_COCREATEINSTANCE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_QUERYINTERFACE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_FILESIZEGET'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OLEDBOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DISCONNECTNAMEDPIPE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DOMAINSERVICESOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DELETEFILE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_FILEOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_FLUSHFILEBUFFERS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GENERICOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETDISKFREESPACE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETFILEATTRIBUTES'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETPROCADDRESS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETVOLUMEPATHNAME'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_LIBRARYOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_LOADLIBRARY'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_LOOKUPACCOUNTSID'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_NETVALIDATEPASSWORDPOLICY'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_PIPEOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_QUERYCONTEXTATTRIBUTES'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_QUERYREGISTRY'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_REPORTEVENT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_REVERTTOSELF'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_SECURITYOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_SQMLAUNCH'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_WAITFORSINGLEOBJECT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_WRITEFILE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_WRITEFILEGATHER'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_CALLBACKEXECUTE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_SESSIONCOMMIT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_TARGETFINALIZE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_TARGETINIT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_AUTHZINITIALIZECONTEXTFROMSID'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETVOLUMENAMEFORVOLUMEMOUNTPOINT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_MOVEFILE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_NETVALIDATEPASSWORDPOLICYFREE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_SETFILEVALIDDATA'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_TRANSIMPORT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_XE_GETTARGETSTATE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETCOMPRESSEDFILESIZE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DEVICEIOCONTROL'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_VERIFYTRUST'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_SETNAMEDSECURITYINFO'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OLE_UNINIT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_DTC_BEGINTRANSACTION'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_DTC_ENLIST'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OLE_UNINIT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_DTCOPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_SB_STOPENDPOINT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_DTC_COMMITREQUESTDONE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_DTC_PREPAREREQUESTDONE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_AUTHZINITIALIZERESOURCEMANAGER'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_AUTHZGETINFORMATIONFROMCONTEXT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_CREATEPARAM'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_WSASETLASTERROR'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_SQLCLROPS'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_INITIALIZESECURITYCONTEXT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_GETADDRINFO'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_CREATEACCESSOR'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_SETPARAMETERINFO'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_SETPARAMETERPROPERTIES'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_ACCEPTSECURITYCONTEXT'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_OS_ACQUIRECREDENTIALSHANDLE'</font><font color="buttontext">,</font><br><font color="buttontext">		</font><font color="Teal">N'PREEMPTIVE_COM_GETDATA'</font><br><font color="buttontext">		</font><font color="buttontext">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">)</font><br><font color="buttontext">,</font>&nbsp;<font color="buttontext">ress</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">(</font><br><font color="buttontext">	</font><font color="Blue">SELECT</font><br><font color="buttontext">	    </font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[wait_type]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[WaitType]</font><font color="buttontext">,</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitS]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Wait_S]</font><font color="buttontext">,</font><font color="Gray">--Общее время ожидания данного типа в миллисекундах. Это время включает signal_wait_time_ms</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[ResourceS]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Resource_S]</font><font color="buttontext">,</font><font color="Gray">--Общее время ожидания данного типа в миллисекундах без signal_wait_time_ms</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[SignalS]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Signal_S]</font><font color="buttontext">,</font><font color="Gray">--Разница между временем сигнализации ожидающего потока и временем начала его выполнения</font><br><font color="buttontext">	    </font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitCount]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[WaitCount]</font><font color="buttontext">,</font><font color="Gray">--Число ожиданий данного типа. Этот счетчик наращивается каждый раз при начале ожидания</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[Percentage]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">5</font><font color="buttontext">,</font>&nbsp;<font color="Green">2</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[Percentage]</font><font color="buttontext">,</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitS]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitCount]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">4</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[AvgWait_S]</font><font color="buttontext">,</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[ResourceS]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitCount]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">4</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[AvgRes_S]</font><font color="buttontext">,</font><br><font color="buttontext">	    </font><font color="Maroon">CAST</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">(</font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[SignalS]</font>&nbsp;<font color="buttontext">/</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitCount]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="Blue">DECIMAL</font>&nbsp;<font color="buttontext">(</font><font color="Green">16</font><font color="buttontext">,</font>&nbsp;<font color="Green">4</font><font color="buttontext">)</font><font color="buttontext">)</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[AvgSig_S]</font><br><font color="buttontext">	</font><font color="Blue">FROM</font>&nbsp;<font color="buttontext">[Waits]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[W1]</font><br><font color="buttontext">	</font><font color="Blue">INNER</font>&nbsp;<font color="Blue">JOIN</font>&nbsp;<font color="buttontext">[Waits]</font>&nbsp;<font color="Blue">AS</font>&nbsp;<font color="buttontext">[W2]</font><br><font color="buttontext">	    </font><font color="Blue">ON</font>&nbsp;<font color="buttontext">[W2]</font><font color="buttontext">.</font><font color="buttontext">[RowNum]</font>&nbsp;<font color="buttontext"><</font><font color="buttontext">=</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[RowNum]</font><br><font color="buttontext">	</font><font color="Blue">GROUP</font>&nbsp;<font color="Blue">BY</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[RowNum]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[wait_type]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitS]</font><font color="buttontext">,</font><br><font color="buttontext">	    </font><font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[ResourceS]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[SignalS]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[WaitCount]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[Percentage]</font><br><font color="buttontext">	</font><font color="Blue">HAVING</font>&nbsp;<font color="Maroon">SUM</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">[W2]</font><font color="buttontext">.</font><font color="buttontext">[Percentage]</font><font color="buttontext">)</font>&nbsp;<font color="buttontext">-</font>&nbsp;<font color="buttontext">[W1]</font><font color="buttontext">.</font><font color="buttontext">[Percentage]</font>&nbsp;<font color="buttontext"><</font>&nbsp;<font color="Green">95</font>&nbsp;<font color="Gray">-- percentage threshold</font><br><font color="buttontext">)</font><br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[WaitType]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[Wait_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Wait_S]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[Resource_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Resource_S]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[Signal_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Signal_S]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[WaitCount]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[WaitCount]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[Percentage]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[Percentage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[AvgWait_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgWait_S]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[AvgRes_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgRes_S]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[AvgSig_S]</font><font color="buttontext">)</font>&nbsp;<font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgSig_S]</font><br>&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">ress</font><br>&nbsp;&nbsp;<font color="Blue">group</font>&nbsp;<font color="Blue">by</font>&nbsp;<font color="buttontext">[WaitType]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Информация по ожиданиям (по статистикам) экземпляра MS SQL Server'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'inf'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vWaits'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">4</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.AutoWaitStatistics.html" data-mapping-enabled="true"><span>srv.AutoWaitStatistics</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.ExcelGetWaits.html" data-mapping-enabled="true"><span>srv.ExcelGetWaits</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\zabbix.GetPercRAMTypeWait.html" data-mapping-enabled="true"><span>zabbix.GetPercRAMTypeWait</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\zabbix.GetValRAMTypeWait.html" data-mapping-enabled="true"><span>zabbix.GetValRAMTypeWait</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;31.05.2019</div>
+  </div>
+</body>
+</html>

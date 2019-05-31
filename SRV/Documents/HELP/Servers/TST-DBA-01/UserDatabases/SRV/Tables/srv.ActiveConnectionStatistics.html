@@ -1,0 +1,450 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.ActiveConnectionStatistics</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="align-center col-xs-12">&#8199;</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/table.svg" title="srv.ActiveConnectionStatistics" />
+            <h1 class="inline-middle">srv.ActiveConnectionStatistics</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>История активных подключений</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Is Partitioned</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Partitioned Column</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Heap</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Full Text Catalog</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Full Text</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Compression</td>
+                  <td>NONE</td>
+                </tr>
+                <tr>
+                  <td>Row Count (~)</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:34</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>31.05.2019 17:20:05</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th>Precision</th>
+                  <th>Scale</th>
+                  <th>Not Null</th>
+                  <th>Identity</th>
+                  <th>Rule</th>
+                  <th>Default</th>
+                  <th>Computed</th>
+                  <th>Persisted</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Primary Key PK_ActiveConnectionStatistics" />
+                    </a></div><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key PK_ActiveConnectionStatistics" />
+                    </a></div></td>
+                  <td>Row_GUID</td>
+                  <td>uniqueidentifier</td>
+                  <td>16</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(newid())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Идентификатор записи (глобальный)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indSession" />
+                    </a></div></td>
+                  <td>ServerName</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Название сервера</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indSession" />
+                    </a></div></td>
+                  <td>SessionID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Идентификатор сессии</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indSession" />
+                    </a></div></td>
+                  <td>LoginName</td>
+                  <td>nchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Логин</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indSession" />
+                    </a></div></td>
+                  <td>DBName</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>База данных</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ProgramName</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Программа</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Status</td>
+                  <td>nchar</td>
+                  <td>30</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Состояние сеанса
+sys.dm_exec_sessions </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indSession" />
+                    </a></div></td>
+                  <td>LoginTime</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Время подключения</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>EndRegUTCDate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Время зарегистрированного окончания подключения</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indInsertUTCDate" />
+                    </a></div></td>
+                  <td>InsertUTCDate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(getutcdate())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Дата и время создания записи в UTC</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Indexes" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Indexes</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Columns</th>
+                  <th>Unique</th>
+                  <th>Type</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>indInsertUTCDate</td>
+                  <td>InsertUTCDate</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>indSession</td>
+                  <td>ServerName, SessionID, LoginName, DBName, LoginTime</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Primary Key PK_ActiveConnectionStatistics" />
+                    </a></div><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key PK_ActiveConnectionStatistics" />
+                    </a></div></td>
+                  <td>PK_ActiveConnectionStatistics</td>
+                  <td>Row_GUID</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">CREATE</font>&nbsp;<font color="Blue">TABLE</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ActiveConnectionStatistics</font>&nbsp;<font color="buttontext">(</font><br>&nbsp;&nbsp;<font color="buttontext">Row_GUID</font>&nbsp;<font color="Blue">uniqueidentifier</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">DF_ActiveConnectionStatistics_Row_GUID</font>&nbsp;<font color="Blue">DEFAULT</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">newid</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">ServerName</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">SessionID</font>&nbsp;<font color="Blue">int</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">LoginName</font>&nbsp;<font color="Blue">nchar</font><font color="buttontext">(</font><font color="Green">128</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">DBName</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">128</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">ProgramName</font>&nbsp;<font color="Blue">nvarchar</font><font color="buttontext">(</font><font color="Green">255</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">Status</font>&nbsp;<font color="Blue">nchar</font><font color="buttontext">(</font><font color="Green">30</font><font color="buttontext">)</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">LoginTime</font>&nbsp;<font color="Blue">datetime</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">EndRegUTCDate</font>&nbsp;<font color="Blue">datetime</font>&nbsp;<font color="Blue">NULL</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="buttontext">InsertUTCDate</font>&nbsp;<font color="Blue">datetime</font>&nbsp;<font color="Blue">NOT</font>&nbsp;<font color="Blue">NULL</font>&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">DF_ActiveConnectionStatistics_InsertUTCDate</font>&nbsp;<font color="Blue">DEFAULT</font>&nbsp;<font color="buttontext">(</font><font color="Maroon">getutcdate</font><font color="buttontext">(</font><font color="buttontext">)</font><font color="buttontext">)</font><font color="buttontext">,</font><br>&nbsp;&nbsp;<font color="Blue">CONSTRAINT</font>&nbsp;<font color="buttontext">PK_ActiveConnectionStatistics</font>&nbsp;<font color="Blue">PRIMARY</font>&nbsp;<font color="Blue">KEY</font>&nbsp;<font color="Blue">CLUSTERED</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">Row_GUID</font><font color="buttontext">)</font><br><font color="buttontext">)</font><br><font color="Blue">ON</font>&nbsp;<font color="buttontext">[PRIMARY]</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">INDEX</font>&nbsp;<font color="buttontext">indInsertUTCDate</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ActiveConnectionStatistics</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">InsertUTCDate</font><font color="buttontext">)</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">[PRIMARY]</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">UNIQUE</font>&nbsp;<font color="Blue">INDEX</font>&nbsp;<font color="buttontext">indSession</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">ActiveConnectionStatistics</font>&nbsp;<font color="buttontext">(</font><font color="buttontext">ServerName</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">SessionID</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">LoginName</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">DBName</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">LoginTime</font><font color="buttontext">)</font><br>&nbsp;&nbsp;<font color="Blue">ON</font>&nbsp;<font color="buttontext">[PRIMARY]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'История активных подключений'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор записи (глобальный)'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Row_GUID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Название сервера'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ServerName'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Идентификатор сессии'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'SessionID'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Логин'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'LoginName'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'База данных'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'DBName'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Программа'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ProgramName'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<br><font color="Teal">N'Состояние сеанса
+sys.dm_exec_sessions '</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Status'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Время подключения'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'LoginTime'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Время зарегистрированного окончания подключения'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'EndRegUTCDate'</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Дата и время создания записи в UTC'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'TABLE'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'ActiveConnectionStatistics'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'COLUMN'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'InsertUTCDate'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">5</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Views\srv.vActiveConnectionStatistics.html" data-mapping-enabled="true"><span>srv.vActiveConnectionStatistics</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsActiveConnections.html" data-mapping-enabled="true"><span>srv.AutoStatisticsActiveConnections</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.ClearFullInfo.html" data-mapping-enabled="true"><span>srv.ClearFullInfo</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.DeleteArchive.html" data-mapping-enabled="true"><span>srv.DeleteArchive</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Programmability\Procedures\srv.ExcelGetActiveConnectionStatistics.html" data-mapping-enabled="true"><span>srv.ExcelGetActiveConnectionStatistics</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;31.05.2019</div>
+  </div>
+</body>
+</html>

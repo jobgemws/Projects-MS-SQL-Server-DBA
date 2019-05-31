@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.vDBSizeStatistics</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="align-center col-xs-12">&#8199;</div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="srv.vDBSizeStatistics" />
+            <h1 class="inline-middle">srv.vDBSizeStatistics</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация по размерам всех БД по собранным данным экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:01</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:01</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ServerName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinCountRows</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxCountRows</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgCountRows</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinDataKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxDataKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgDataKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinIndexSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxIndexSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIndexSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinUnusedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxUnusedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgUnusedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinReservedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxReservedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgReservedKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinTotalPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MaxTotalPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgTotalPageSizeKB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>CountRowsStatistic</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>StartInsertUTCDate</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>FinishInsertUTCDate</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="Blue">SET</font>&nbsp;<font color="Blue">QUOTED_IDENTIFIER</font><font color="buttontext">,</font>&nbsp;<font color="Blue">ANSI_NULLS</font>&nbsp;<font color="Blue">ON</font><br><font color="Blue">GO</font><br><font color="Blue">CREATE</font>&nbsp;<font color="Blue">OR</font>&nbsp;<font color="Blue">ALTER</font>&nbsp;<font color="Blue">view</font>&nbsp;<font color="buttontext">srv</font><font color="buttontext">.</font><font color="buttontext">vDBSizeStatistics</font>&nbsp;<font color="Blue">as</font>&nbsp;<br><font color="Blue">SELECT</font>&nbsp;<font color="buttontext">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="buttontext">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinCountRows]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinCountRows]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxCountRows]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxCountRows]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgCountRows]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgCountRows]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinDataKB]</font><font color="buttontext">)</font><font color="buttontext">				</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinDataKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxDataKB]</font><font color="buttontext">)</font><font color="buttontext">				</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxDataKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgDataKB]</font><font color="buttontext">)</font><font color="buttontext">				</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgDataKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinIndexSizeKB]</font><font color="buttontext">)</font><font color="buttontext">		</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinIndexSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxIndexSizeKB]</font><font color="buttontext">)</font><font color="buttontext">		</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxIndexSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgIndexSizeKB]</font><font color="buttontext">)</font><font color="buttontext">		</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgIndexSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinUnusedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinUnusedKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxUnusedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxUnusedKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgUnusedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgUnusedKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinReservedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinReservedKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxReservedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxReservedKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgReservedKB]</font><font color="buttontext">)</font><font color="buttontext">			</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgReservedKB]</font><br><font color="buttontext">	  </font><font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MinTotalPageSizeKB]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MinTotalPageSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[MaxTotalPageSizeKB]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[MaxTotalPageSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[AvgTotalPageSizeKB]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[AvgTotalPageSizeKB]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">SUM</font><font color="buttontext">(</font><font color="buttontext">[CountRowsStatistic]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[CountRowsStatistic]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MIN</font><font color="buttontext">(</font><font color="buttontext">[StartInsertUTCDate]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[StartInsertUTCDate]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="buttontext">,</font><font color="Maroon">MAX</font><font color="buttontext">(</font><font color="buttontext">[FinishInsertUTCDate]</font><font color="buttontext">)</font><font color="buttontext">	</font><font color="Blue">as</font>&nbsp;<font color="buttontext">[FinishInsertUTCDate]</font><br>&nbsp;&nbsp;<font color="Blue">FROM</font>&nbsp;<font color="buttontext">[srv]</font><font color="buttontext">.</font><font color="buttontext">[vTableStatistics]</font><br>&nbsp;&nbsp;<font color="Blue">group</font>&nbsp;<font color="Blue">by</font>&nbsp;<font color="buttontext">[ServerName]</font><font color="buttontext">,</font>&nbsp;<font color="buttontext">[DBName]</font><br><font color="Blue">GO</font><br><font color="Blue">EXEC</font>&nbsp;<font color="buttontext">sys</font><font color="buttontext">.</font><font color="Maroon">sp_addextendedproperty</font>&nbsp;<font color="Teal">N'MS_Description'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'Информация по размерам всех БД по собранным данным экземпляра MS SQL Server'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'SCHEMA'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'srv'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">'VIEW'</font><font color="buttontext">,</font>&nbsp;<font color="Teal">N'vDBSizeStatistics'</font><br><font color="Blue">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Views\srv.vTableStatistics.html" data-mapping-enabled="true"><span>srv.vTableStatistics</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\TST-DBA-01\UserDatabases\SRV\Views\srv.vDBSizeShortStatistics.html" data-mapping-enabled="true"><span>srv.vDBSizeShortStatistics</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;31.05.2019</div>
+  </div>
+</body>
+</html>
