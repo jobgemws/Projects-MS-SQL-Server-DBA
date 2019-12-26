@@ -18,23 +18,23 @@
     [database_name]          NVARCHAR (128) NULL,
     [object_name]            NVARCHAR (257) NULL,
     [InsertUTCDate]          DATETIME       CONSTRAINT [DF_QueryStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_QueryStatistics] PRIMARY KEY NONCLUSTERED ([ID] ASC)
+    CONSTRAINT [PK_QueryStatistics] PRIMARY KEY NONCLUSTERED ([ID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE CLUSTERED INDEX [indClustQueryStatistics]
-    ON [srv].[QueryStatistics]([creation_time] ASC);
+    ON [srv].[QueryStatistics]([creation_time] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[QueryStatistics]([InsertUTCDate] ASC);
+    ON [srv].[QueryStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 CREATE NONCLUSTERED INDEX [indPlanQuery]
-    ON [srv].[QueryStatistics]([plan_handle] ASC, [sql_handle] ASC);
+    ON [srv].[QueryStatistics]([plan_handle] ASC, [sql_handle] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

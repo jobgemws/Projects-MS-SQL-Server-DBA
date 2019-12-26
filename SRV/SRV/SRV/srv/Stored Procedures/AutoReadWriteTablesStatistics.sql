@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [srv].[AutoReadWriteTablesStatistics]
+﻿CREATE   PROCEDURE [srv].[AutoReadWriteTablesStatistics]
 AS
 BEGIN
 	/*
@@ -30,7 +30,7 @@ BEGIN
 		set @sql=N'USE ['+@dbs+N'];
 		if(exists(select top(1) 1 from sys.views where [name]=''vReadWriteTables'' and [schema_id]=schema_id(''inf'')))
 		begin
-			INSERT INTO [SRV].[srv].[ReadWriteTablesStatistics]
+			INSERT INTO [FortisAdmin].[srv].[ReadWriteTablesStatistics]
 			([ServerName]
 		     ,[DBName]
 		     ,[SchemaTableName]

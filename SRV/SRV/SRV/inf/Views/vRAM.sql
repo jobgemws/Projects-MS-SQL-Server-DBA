@@ -28,3 +28,7 @@ select a.[TotalAvailOSRam_Mb]						--сколько свободно ОЗУ на
 		cross join sys.dm_os_sys_memory as v
 	) as a
 	;
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Информация по использованию ОЗУ', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vRAM';
+

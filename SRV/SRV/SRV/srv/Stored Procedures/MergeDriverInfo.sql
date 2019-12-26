@@ -1,7 +1,8 @@
 ﻿
 
 
-CREATE PROCEDURE [srv].[MergeDriverInfo]
+
+CREATE   PROCEDURE [srv].[MergeDriverInfo]
 AS
 BEGIN
 	/*
@@ -9,6 +10,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @Drivers table (
 							[Server] nvarchar(255),
@@ -28,7 +31,7 @@ BEGIN
 							TotalSpace,
 							FreeSpace
 	from				srv.Drivers
-	where [Server]=@@SERVERNAME;
+	where [Server]=@servername;
 
 	declare @TotalSpace float;
     declare @FreeSpace float;

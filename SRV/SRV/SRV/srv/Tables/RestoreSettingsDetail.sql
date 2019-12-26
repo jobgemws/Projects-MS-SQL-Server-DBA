@@ -5,7 +5,7 @@
     [TargetPathRestore] NVARCHAR (255)   NOT NULL,
     [Ext]               NVARCHAR (255)   NOT NULL,
     [InsertUTCDate]     DATETIME         CONSTRAINT [DF_RestoreSettingsDetail_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_RestoreSettingsDetail_1] PRIMARY KEY CLUSTERED ([Row_GUID] ASC)
+    CONSTRAINT [PK_RestoreSettingsDetail_1] PRIMARY KEY CLUSTERED ([Row_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 

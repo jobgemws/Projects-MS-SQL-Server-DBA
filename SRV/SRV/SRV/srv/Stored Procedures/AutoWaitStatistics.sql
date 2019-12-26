@@ -1,10 +1,4 @@
-﻿
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [srv].[AutoWaitStatistics]
+﻿CREATE   PROCEDURE [srv].[AutoWaitStatistics]
 AS
 BEGIN
 	/*
@@ -12,6 +6,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	INSERT INTO [srv].[WaitsStatistics]
            ([Server]
@@ -24,7 +20,7 @@ BEGIN
            ,[AvgWait_S]
            ,[AvgRes_S]
            ,[AvgSig_S])
-	 SELECT @@SERVERNAME AS [Server]
+	 SELECT @servername AS [Server]
            ,[WaitType]
            ,[Wait_S]
            ,[Resource_S]

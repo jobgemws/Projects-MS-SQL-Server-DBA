@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [srv].[AutoDefragIndex]
+﻿CREATE   PROCEDURE [srv].[AutoDefragIndex]
 	@count int=null --кол-во одновременно обрабатываемых индексов
 	,@isrebuild bit=0 --позволять ли перестраиваться индексам (фрагментация которых свыше 30%)
 	,@isclear bit=1 --очистить обработанные индексы (т е заново оптимизировать индексы)
@@ -291,11 +291,11 @@ BEGIN
 		begin
 			if(@frag>=30 and @isrebuild=1 and @isRebuildOnline=1)
 			begin
-				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON); end try begin catch print 0; end catch '
+				set @SQL_Str = @SQL_Str+'begin try SET LOCK_TIMEOUT 4000;  ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON); end try begin catch print 0; end catch '
 			end
 			else
 			begin
-				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
+				set @SQL_Str = @SQL_Str+'begin try SET LOCK_TIMEOUT 4000;  ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
 									   +'UPDATE STATISTICS ['+@Shema+'].['+@Table+'] ['+@IndexName+']; end try begin catch print 0; end catch ';
 			end
 
@@ -346,8 +346,6 @@ BEGIN
 						from	@tbl_copy;
 	end
 END
-
-
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Выполняет оптимизацию индексов (поверхностный обход узлов)', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'PROCEDURE', @level1name = N'AutoDefragIndex';

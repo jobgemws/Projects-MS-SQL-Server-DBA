@@ -1,6 +1,7 @@
-﻿create view [inf].[vIdentityColumns] as
+﻿
+CREATE   view [inf].[vIdentityColumns] as
 --Колонки identity
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(object_id) AS SchemaName ,
         OBJECT_NAME(object_id) AS TableName ,

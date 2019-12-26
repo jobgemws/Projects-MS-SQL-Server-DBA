@@ -1,7 +1,8 @@
 ﻿
 
 
-CREATE PROCEDURE [srv].[MergeDBFileInfo]
+
+CREATE   PROCEDURE [srv].[MergeDBFileInfo]
 AS
 BEGIN
 	/*
@@ -9,6 +10,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	;merge [srv].[DBFile] as f
 	using [inf].[ServerDBFileInfo] as ff
@@ -52,7 +55,7 @@ BEGIN
 				,ff.[File_id]
 				,0
 			   )
-	when not matched by source and f.[Server]=@@SERVERNAME then delete;
+	when not matched by source and f.[Server]=@servername then delete;
 END
 
 

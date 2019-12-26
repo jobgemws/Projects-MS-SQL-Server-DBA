@@ -14,7 +14,7 @@
     [object_id]     INT            NOT NULL,
     [idx]           INT            NOT NULL,
     [InsertUTCDate] DATETIME       CONSTRAINT [DF_Defrag_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    [Server]        NVARCHAR (255) CONSTRAINT [DF_Defrag_Server] DEFAULT (@@servername) NOT NULL,
+    [Server]        NVARCHAR (255) CONSTRAINT [DF_Defrag_Server] DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) NOT NULL,
     CONSTRAINT [PK_Defrag] PRIMARY KEY CLUSTERED ([ID] ASC) WITH (FILLFACTOR = 95)
 );
 

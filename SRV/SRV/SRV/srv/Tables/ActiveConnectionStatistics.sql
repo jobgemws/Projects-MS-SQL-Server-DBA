@@ -9,18 +9,18 @@
     [LoginTime]     DATETIME         NOT NULL,
     [EndRegUTCDate] DATETIME         NULL,
     [InsertUTCDate] DATETIME         CONSTRAINT [DF_ActiveConnectionStatistics_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_ActiveConnectionStatistics] PRIMARY KEY CLUSTERED ([Row_GUID] ASC)
+    CONSTRAINT [PK_ActiveConnectionStatistics] PRIMARY KEY CLUSTERED ([Row_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
-CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ActiveConnectionStatistics]([InsertUTCDate] ASC);
+CREATE UNIQUE NONCLUSTERED INDEX [indSession]
+    ON [srv].[ActiveConnectionStatistics]([ServerName] ASC, [SessionID] ASC, [LoginName] ASC, [DBName] ASC, [LoginTime] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
-CREATE UNIQUE NONCLUSTERED INDEX [indSession]
-    ON [srv].[ActiveConnectionStatistics]([ServerName] ASC, [SessionID] ASC, [LoginName] ASC, [DBName] ASC, [LoginTime] ASC);
+CREATE NONCLUSTERED INDEX [indInsertUTCDate]
+    ON [srv].[ActiveConnectionStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

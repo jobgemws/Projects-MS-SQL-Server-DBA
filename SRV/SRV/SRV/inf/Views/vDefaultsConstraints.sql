@@ -1,8 +1,9 @@
 ﻿
-CREATE view [inf].[vDefaultsConstraints] as
+
+CREATE   view [inf].[vDefaultsConstraints] as
 -- Column Defaults 
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         OBJECT_SCHEMA_NAME(t.object_id) AS SchemaName ,
         t.Name AS TableName ,

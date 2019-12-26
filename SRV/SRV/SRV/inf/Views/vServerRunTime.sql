@@ -1,6 +1,7 @@
-﻿create view [inf].[vServerRunTime] as
+﻿
+CREATE   view [inf].[vServerRunTime] as
 --время работы сервера
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         create_date AS  ServerStarted ,
         DATEDIFF(s, create_date, GETDATE()) / 86400.0 AS DaysRunning ,
         DATEDIFF(s, create_date, GETDATE()) AS SecondsRunnig

@@ -99,13 +99,13 @@
     [max_last_used_threads]     BIGINT         NULL,
     [min_used_threads]          BIGINT         NULL,
     [max_used_threads]          BIGINT         NULL,
-    CONSTRAINT [PK_PlanQuery] PRIMARY KEY CLUSTERED ([SQLHandle] ASC, [PlanHandle] ASC)
+    CONSTRAINT [PK_PlanQuery] PRIMARY KEY CLUSTERED ([SQLHandle] ASC, [PlanHandle] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[PlanQuery]([InsertUTCDate] ASC);
+    ON [srv].[PlanQuery]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

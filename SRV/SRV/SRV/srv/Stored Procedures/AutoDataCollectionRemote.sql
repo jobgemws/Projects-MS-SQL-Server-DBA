@@ -1,11 +1,12 @@
 ﻿
 
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoDataCollectionRemote]
+CREATE     PROCEDURE [srv].[AutoDataCollectionRemote]
 AS
 BEGIN
 	/*
@@ -15,6 +16,8 @@ BEGIN
 	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @sql nvarchar(max);
 	declare @server sysname;
@@ -28,7 +31,7 @@ BEGIN
 	from sys.servers
 	where [is_system]=0
 	  and [is_linked]=1
-	  and [name]<>N'sql_services';
+	  and [name]<>@servername;
 
 	DECLARE sql_cursor CURSOR LOCAL FOR
 	select [name]
@@ -44,7 +47,7 @@ BEGIN
 		delete from @existsSRV;
 		
 		set @sql=N'
-		if(exists(select top(1) 1 from ['+@server+N'].master.sys.databases where [name]=''SRV''))
+		if(exists(select top(1) 1 from ['+@server+N'].master.sys.databases where [name]=''FortisAdmin''))
 		begin
 			select 1;
 		end
@@ -84,7 +87,7 @@ BEGIN
 					   ,[AvgRes_S]
 					   ,[AvgSig_S]
 					   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[WaitsStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[WaitsStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -109,7 +112,7 @@ BEGIN
 				   ,[SampleDays]
 				   ,[SampleSeconds]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[ReadWriteTablesStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ReadWriteTablesStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -158,7 +161,7 @@ BEGIN
 				   ,[IndexName]
 				   ,[has_filter]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[OldStatisticsStateStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[OldStatisticsStateStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -232,7 +235,7 @@ BEGIN
 				   ,[est_impact]
 				   ,[SecondsUptime]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[NewIndexOptimizeStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[NewIndexOptimizeStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -253,7 +256,7 @@ BEGIN
 				   ,[AvgIOLogicalWrites]
 				   ,[AvgIOPhysicalReads]
 				   ,[DATE]
-				FROM ['+@server+N'].[SRV].[srv].[IndicatorServerDayStatistics] as t_src
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndicatorServerDayStatistics] as t_src
 				WHERE [DATE]>='''+cast(cast(DateAdd(day,-1,@dt0) as date) as nvarchar(255))+N'''
 				and not exists (select top(1) 1 from [srv].[IndicatorServerDayStatistics] as t_trg where t_src.[DATE]=t_trg.[DATE] and t_src.[Server]=t_trg.[Server]);
 			end';
@@ -353,7 +356,7 @@ BEGIN
 				   ,[Columns]
 				   ,[IncludeColumns]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[IndexUsageStatsStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndexUsageStatsStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -394,7 +397,7 @@ BEGIN
 				   ,[ghost]
 				   ,[func]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[IndexDefragStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndexDefragStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -438,7 +441,7 @@ BEGIN
 				   ,[IndexIncludedColumns]
 				   ,[ActualIndexName]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DelIndexIncludeStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DelIndexIncludeStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -508,7 +511,7 @@ BEGIN
 				   ,[query_hash]
 				   ,[query_plan_hash]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[vBigQueryStatisticsRemote]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[vBigQueryStatisticsRemote]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -576,7 +579,7 @@ BEGIN
 				   ,[DataPageSizeKB]
 				   ,[DataPageSizeKBBack]
 				   ,[DataPageSizeKBNext]
-				FROM ['+@server+N'].[SRV].[srv].[TableStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[TableStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -595,7 +598,7 @@ BEGIN
 				   ,[IndexUsedForCounts]
 				   ,[CountRows]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[TableIndexStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[TableIndexStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -627,7 +630,7 @@ BEGIN
 				   ,[SizeMb]
 				   ,[SizeGb]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[ServerDBFileInfoStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ServerDBFileInfoStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -662,7 +665,7 @@ BEGIN
 				   ,[object_id]
 				   ,[idx]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[Defrag]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[Defrag]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -694,7 +697,7 @@ BEGIN
 				   ,[InsertUTCDate]
 				   ,[TargetServer]
 				   ,[LastDateTime]
-				FROM ['+@server+N'].[SRV].[srv].[ShortInfoRunJobsServers]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ShortInfoRunJobsServers]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -715,7 +718,7 @@ BEGIN
 				   ,[num_of_reads]
 				   ,[avg_read_stall_ms]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[StatisticsIOInTempDBStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[StatisticsIOInTempDBStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -739,7 +742,7 @@ BEGIN
 				   ,[Available_Percent]
 				   ,[State]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DiskSpaceStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DiskSpaceStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -760,7 +763,7 @@ BEGIN
 				   ,[SQL_server_physical_memory_in_use_Mb]
 				   ,[State]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[RAMSpaceStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[RAMSpaceStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -830,7 +833,7 @@ BEGIN
 				   ,[query_hash]
 				   ,[query_plan_hash]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[vBigQueryGroupStatisticsRemote];
+				FROM ['+@server+N'].[FortisAdmin].[srv].[vBigQueryGroupStatisticsRemote];
 			end';
 
 			exec sp_executesql @sql;
@@ -930,7 +933,7 @@ BEGIN
 				   ,[RedoTargetForkGuid]
 				   ,[BackupLsn]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DBFileStatistics];
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DBFileStatistics];
 			end';
 
 			exec sp_executesql @sql;--,
@@ -963,7 +966,7 @@ BEGIN
 			   ,[object_id]
 			   ,[idx]
 			   ,[InsertUTCDate])
-		SELECT @@SERVERNAME AS [Server]
+		SELECT @servername AS [Server]
 			   ,[db]
 			   ,[shema]
 			   ,[table]

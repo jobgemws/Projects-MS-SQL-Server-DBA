@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE   PROCEDURE [srv].[InsertTableStatistics]
+CREATE     PROCEDURE [srv].[InsertTableStatistics]
 AS
 BEGIN
 	/*
@@ -29,7 +29,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vCountRows]'+N''''+N') is not null) BEGIN '
-		+N'insert into [SRV].[srv].[TableIndexStatistics]
+		+N'insert into [FortisAdmin].[srv].[TableIndexStatistics]
 	         ([ServerName]
 				   ,[DBName]
 		           ,[SchemaName]
@@ -64,7 +64,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vTableSize]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[TableStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[TableStatistics]
 	         ([ServerName]
 			   ,[DBName]
 	         ,[SchemaName]

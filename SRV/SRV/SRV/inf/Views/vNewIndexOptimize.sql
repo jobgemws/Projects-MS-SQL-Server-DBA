@@ -1,11 +1,12 @@
-﻿CREATE view [inf].[vNewIndexOptimize] as
+﻿
+CREATE   view [inf].[vNewIndexOptimize] as
 /*
 	ГЕМ: степень полезности новых индексов
 	index_advantage: >50 000 - очень выгодно создать индекс
 					 >10 000 - можно создать индекс, однако нужно анализировать и его поддержку
 					 <=10000 - индекс можно не создавать
 */
-SELECT @@ServerName AS ServerName,
+SELECT cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName,
        DB_Name(ddmid.[database_id]) as [DBName],
 	   OBJECT_SCHEMA_NAME(ddmid.[object_id], ddmid.[database_id]) as [Schema],
 	   OBJECT_NAME(ddmid.[object_id], ddmid.[database_id]) as [Name],

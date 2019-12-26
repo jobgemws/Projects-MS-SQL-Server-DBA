@@ -1,9 +1,10 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoStatisticsActiveConnections]
+CREATE   PROCEDURE [srv].[AutoStatisticsActiveConnections]
 AS
 BEGIN
 	/*
@@ -12,8 +13,10 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	;with conn as (
-		select @@SERVERNAME as [ServerName]
+		select @servername as [ServerName]
 		   ,[SessionID]
            ,[LoginName]
 		   ,[DBName]           

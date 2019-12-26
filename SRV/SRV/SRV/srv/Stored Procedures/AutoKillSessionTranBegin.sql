@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [srv].[AutoKillSessionTranBegin]
+﻿CREATE   PROCEDURE [srv].[AutoKillSessionTranBegin]
 	@minuteOld int=30, --старость запущенной транзакции
 	@countIsNotRequests int=5 --кол-во попаданий в таблицу
 AS

@@ -1,10 +1,11 @@
 ﻿
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoStatisticsIOInTempDBStatistics]
+CREATE   PROCEDURE [srv].[AutoStatisticsIOInTempDBStatistics]
 AS
 BEGIN
 	/*
@@ -12,6 +13,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	INSERT INTO [srv].[StatisticsIOInTempDBStatistics]
            ([Server]
@@ -21,7 +24,7 @@ BEGIN
            ,[avg_write_stall_ms]
            ,[num_of_reads]
            ,[avg_read_stall_ms])
-	SELECT @@SERVERNAME AS [ServerName]
+	SELECT @servername AS [ServerName]
 		  ,[physical_name]
           ,[name]
           ,[num_of_writes]

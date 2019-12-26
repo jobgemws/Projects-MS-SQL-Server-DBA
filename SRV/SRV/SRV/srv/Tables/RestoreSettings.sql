@@ -4,13 +4,13 @@
     [DiffPathRestore] NVARCHAR (255) NOT NULL,
     [LogPathRestore]  NVARCHAR (255) NOT NULL,
     [InsertUTCDate]   DATETIME       CONSTRAINT [DF_RestoreSettings_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_RestoreSettings_1] PRIMARY KEY CLUSTERED ([DBName] ASC)
+    CONSTRAINT [PK_RestoreSettings_1] PRIMARY KEY CLUSTERED ([DBName] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[RestoreSettings]([InsertUTCDate] ASC);
+    ON [srv].[RestoreSettings]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

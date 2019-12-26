@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [srv].[DBFileStatistics] (
-    [Server]               NVARCHAR (128)   CONSTRAINT [DF_DBFileStatistics_Server] DEFAULT (@@servername) NOT NULL,
+    [Server]               NVARCHAR (128)   CONSTRAINT [DF_DBFileStatistics_Server] DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) NOT NULL,
     [DBName]               NVARCHAR (128)   NOT NULL,
     [FileId]               SMALLINT         NOT NULL,
     [NumberReads]          BIGINT           NOT NULL,
@@ -51,4 +51,8 @@
 GO
 CREATE CLUSTERED INDEX [indInsertUTCDate]
     ON [srv].[DBFileStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Статистика по файлам БД', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'DBFileStatistics';
 

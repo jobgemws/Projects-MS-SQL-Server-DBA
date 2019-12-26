@@ -1,6 +1,7 @@
-﻿create view [inf].[vServerOnlineDB] as
+﻿
+CREATE   view [inf].[vServerOnlineDB] as
 -- какие БД сейчас используются
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME(database_id) AS DatabaseName ,
         COUNT(database_id) AS Connections ,
         Login_name AS  LoginName ,

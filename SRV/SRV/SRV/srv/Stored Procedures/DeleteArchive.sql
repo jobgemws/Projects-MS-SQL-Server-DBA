@@ -2,7 +2,7 @@
 
 
 
-CREATE PROCEDURE [srv].[DeleteArchive]
+CREATE   PROCEDURE [srv].[DeleteArchive]
 	@day int=14 -- кол-во дней, по которым определяется старость записи
 AS
 BEGIN
@@ -178,6 +178,13 @@ BEGIN
 	begin
 		delete
 		from [srv].[DBFileStatistics]
+		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
+	END
+
+	while(exists(select top(1) 1 from [srv].[KillSessionArchive] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
+	begin
+		delete
+		from [srv].[KillSessionArchive]
 		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
 	end
 END

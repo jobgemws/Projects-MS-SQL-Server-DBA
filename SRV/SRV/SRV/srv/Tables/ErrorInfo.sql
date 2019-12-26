@@ -15,13 +15,13 @@
     [UpdateDate]         DATETIME         CONSTRAINT [DF__ErrorInfo__Updat__5FFEE747] DEFAULT (getdate()) NOT NULL,
     [IsRealTime]         BIT              CONSTRAINT [DF_ErrorInfo_IsRealTime] DEFAULT ((0)) NOT NULL,
     [InsertUTCDate]      DATETIME         CONSTRAINT [DF_ErrorInfo_InsertUTCDate] DEFAULT (getutcdate()) NULL,
-    CONSTRAINT [PK_ErrorInfo] PRIMARY KEY CLUSTERED ([ErrorInfo_GUID] ASC)
+    CONSTRAINT [PK_ErrorInfo] PRIMARY KEY CLUSTERED ([ErrorInfo_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ErrorInfo]([InsertUTCDate] ASC);
+    ON [srv].[ErrorInfo]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

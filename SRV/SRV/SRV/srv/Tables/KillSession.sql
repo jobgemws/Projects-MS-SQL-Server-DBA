@@ -76,13 +76,13 @@
     [CountTranNotRequest]         TINYINT          NOT NULL,
     [CountSessionNotRequest]      TINYINT          NOT NULL,
     [InsertUTCDate]               DATETIME         CONSTRAINT [DF_KillSession_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_KillSession] PRIMARY KEY CLUSTERED ([ID] ASC)
+    CONSTRAINT [PK_KillSession] PRIMARY KEY CLUSTERED ([ID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[KillSession]([InsertUTCDate] ASC);
+    ON [srv].[KillSession]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

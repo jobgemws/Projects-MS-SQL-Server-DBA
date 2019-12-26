@@ -1,7 +1,8 @@
 ﻿
 
-CREATE view [inf].[ServerDBFileInfo] as
-SELECT  @@Servername AS Server ,
+
+CREATE   view [inf].[ServerDBFileInfo] as
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         File_id ,--Идентификатор файла в базе данных. Основное значение file_id всегда равно 1
         Type_desc ,--Описание типа файла
         Name as [FileName] ,--Логическое имя файла в базе данных

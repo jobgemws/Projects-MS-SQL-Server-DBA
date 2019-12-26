@@ -1,9 +1,10 @@
 ﻿
-CREATE view [inf].[vColumnsStatisticsCount] as
+
+CREATE   view [inf].[vColumnsStatisticsCount] as
 -- Имена столбцов и количество повторов
 -- Используется для поиска одноимённых столбцов с разными типами данных/длиной
 
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         Column_Name ,
         Data_Type ,

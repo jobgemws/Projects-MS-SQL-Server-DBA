@@ -1,10 +1,11 @@
 ﻿
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoBigQueryStatistics]
+CREATE   PROCEDURE [srv].[AutoBigQueryStatistics]
 AS
 BEGIN
 	/*
@@ -13,7 +14,9 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-	SELECT @@SERVERNAME AS [Server]
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
+	SELECT @servername AS [Server]
             ,[creation_time]
 			,[last_execution_time]
 			,[execution_count]
@@ -116,7 +119,7 @@ BEGIN
            ,[AvgIOLogicalWrites]
            ,[AvgIOPhysicalReads]
            ,[DATE])
-	SELECT	@@SERVERNAME AS [Server],
+	SELECT	@servername AS [Server],
 			SUM([execution_count]),
 			AVG([AvgDur]),
 			AVG([AvgCPUTime]),

@@ -1,5 +1,5 @@
 ﻿
-CREATE PROCEDURE [srv].[AutoDefragIndexDB]
+CREATE   PROCEDURE [srv].[AutoDefragIndexDB]
 	@DB nvarchar(255)=NULL, --по конкретной БД или по всем
 	@count int=NULL, --кол-во индексов для рассмотрения в каждой БД
 	@IsTempdb bit=0 --включать ли БД tempdb
@@ -16,7 +16,7 @@ BEGIN
 	declare @sql nvarchar(max);
 	declare @ParmDefinition nvarchar(255)= N'@count int';
 
-	truncate table [SRV].[srv].[ListDefragIndex];
+	truncate table [srv].[ListDefragIndex];
 	
 	if(@DB is null)
 	begin

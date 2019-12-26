@@ -32,3 +32,7 @@ SELECT [Server]
       ,[query_plan_hash]
       ,[InsertUTCDate]
   FROM [srv].[BigQueryStatistics]
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Тяжелые запросы для удаленного сбора', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'VIEW', @level1name = N'vBigQueryStatisticsRemote';
+

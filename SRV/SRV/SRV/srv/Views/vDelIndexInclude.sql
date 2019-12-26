@@ -135,6 +135,7 @@
 	,N'UNIQUE CLUSTERED INDEX'
 	) -- don't check clustered indexes
 	
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Поиск перекрывающихся(лишних) индексов', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'VIEW', @level1name = N'vDelIndexInclude';
 

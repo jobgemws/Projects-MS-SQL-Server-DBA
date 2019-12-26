@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [srv].[Drivers] (
     [Driver_GUID]   UNIQUEIDENTIFIER CONSTRAINT [DF_Drivers_Driver_GUID] DEFAULT (newsequentialid()) ROWGUIDCOL NOT NULL,
-    [Server]        NVARCHAR (255)   CONSTRAINT [DF_Drivers_Server] DEFAULT (@@servername) NOT NULL,
+    [Server]        NVARCHAR (255)   CONSTRAINT [DF_Drivers_Server] DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) NOT NULL,
     [Name]          NVARCHAR (8)     NOT NULL,
     [TotalSpace]    FLOAT (53)       CONSTRAINT [DF_Drivers_TotalSpace] DEFAULT ((0)) NOT NULL,
     [FreeSpace]     FLOAT (53)       CONSTRAINT [DF_Drivers_FreeSpace] DEFAULT ((0)) NOT NULL,

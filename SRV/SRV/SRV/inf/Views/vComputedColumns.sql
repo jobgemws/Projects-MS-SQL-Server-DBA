@@ -1,9 +1,10 @@
 ﻿
 
-CREATE view [inf].[vComputedColumns] as
+
+CREATE   view [inf].[vComputedColumns] as
 -- Вычисляемые столбцы
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(t.object_id) AS SchemaName ,
         OBJECT_NAME(t.object_id) AS Tablename ,

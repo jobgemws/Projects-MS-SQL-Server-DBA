@@ -28,3 +28,7 @@ GO
 CREATE CLUSTERED INDEX [indInsertUTCDate]
     ON [srv].[OldStatisticsStateStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Устаревшая статистика', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'OldStatisticsStateStatistics';
+

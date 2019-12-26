@@ -1,11 +1,13 @@
 ﻿
 
+
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoIndexStatistics]
+CREATE   PROCEDURE [srv].[AutoIndexStatistics]
 AS
 BEGIN
 	/*
@@ -14,9 +16,12 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	declare @dt date=CAST(GetUTCDate() as date);
     declare @dbs nvarchar(255);
 	declare @sql nvarchar(max);
+	declare @paramdef nvarchar(255)=N'@servername nvarchar(255)';
 
 	--сбор фрагментации индексов
 	select [name]
@@ -32,7 +37,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vIndexDefrag]'+N''''+N') is not null) BEGIN '
-		+N'insert into [SRV].[srv].[IndexDefragStatistics]
+		+N'insert into [FortisAdmin].[srv].[IndexDefragStatistics]
 	         ([Server]
 			 ,[db]
 			 ,[shema]
@@ -50,7 +55,7 @@ BEGIN
 			 ,[rec]
 			 ,[ghost]
 			 ,[func])
-		SELECT @@SERVERNAME AS [Server]
+		SELECT @servername AS [Server]
 		     ,[db]
 			 ,[shema]
 			 ,[tb]
@@ -69,7 +74,7 @@ BEGIN
 			 ,[func]
 		  FROM [inf].[vIndexDefrag]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs3
 		where [name]=@dbs;
@@ -89,7 +94,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vIndexUsageStats]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[IndexUsageStatsStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[IndexUsageStatsStatistics]
 	         ([SERVER]
 			,[DataBase]
 			,[SCHEMA_NAME]
@@ -134,7 +139,7 @@ BEGIN
 			,[Filter_Definition]
 			,[Columns]
 			,[IncludeColumns])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[SCHEMA_NAME]
 			,[OBJECT NAME]
@@ -180,7 +185,7 @@ BEGIN
 			,[IncludeColumns]
 		FROM ['+@dbs+'].[inf].[vIndexUsageStats]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs
 		where [name]=@dbs;
@@ -200,7 +205,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[srv].[vDelIndexInclude]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[DelIndexIncludeStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[DelIndexIncludeStatistics]
 	         ([Server]
 			,[DataBase]
 			,[SchemaName]
@@ -217,7 +222,7 @@ BEGIN
 			,[IndexKeyColumns]
 			,[IndexIncludedColumns]
 			,[ActualIndexName])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[SchemaName]
 			,[ObjectName]
@@ -235,7 +240,7 @@ BEGIN
 			,[ActualIndexName]
 		FROM ['+@dbs+'].[srv].[vDelIndexInclude]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs4
 		where [name]=@dbs;
@@ -255,7 +260,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vOldStatisticsState]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[OldStatisticsStateStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[OldStatisticsStateStatistics]
 	         ([Server]
 			,[DataBase]
 			,[object_id]
@@ -277,7 +282,7 @@ BEGIN
 			,[auto_created]
 			,[IndexName]
 			,[has_filter])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[object_id]
 			,[SchemaName]
@@ -300,7 +305,7 @@ BEGIN
 			,[has_filter]
 		FROM ['+@dbs+'].[inf].[vOldStatisticsState]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs5
 		where [name]=@dbs;

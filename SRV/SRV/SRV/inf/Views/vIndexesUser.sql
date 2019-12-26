@@ -1,6 +1,7 @@
-﻿CREATE view [inf].[vIndexesUser] as
+﻿
+CREATE   view [inf].[vIndexesUser] as
 -- Пользовательские индексы
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         obj.Name AS TableName ,
         i.Name AS IndexName ,

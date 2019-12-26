@@ -5,7 +5,7 @@
     [DB_User]      NVARCHAR (255)   NULL,
     [Event]        NVARCHAR (255)   NULL,
     [TSQL]         NVARCHAR (MAX)   NULL,
-    CONSTRAINT [PK_ddl_log] PRIMARY KEY CLUSTERED ([DDL_Log_GUID] ASC)
+    CONSTRAINT [PK_ddl_log] PRIMARY KEY CLUSTERED ([DDL_Log_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 

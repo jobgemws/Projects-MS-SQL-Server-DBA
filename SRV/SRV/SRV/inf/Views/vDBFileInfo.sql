@@ -1,6 +1,7 @@
-﻿create view [inf].[vDBFileInfo] as
+﻿
+CREATE   view [inf].[vDBFileInfo] as
 --информация о файлах БД
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DB_Name ,
         File_id ,
         Type_desc ,

@@ -1,0 +1,85 @@
+26.12.2019 11:41:12	This log contains information about the import schema operation into project 'SRV' on computer 'ZVEZD-PC391' by user 'evgeny.gribkov'.
+26.12.2019 11:41:12	Import of database schema has started.
+26.12.2019 11:41:20	Gathering database credentials
+26.12.2019 11:41:20	Gathering database options
+26.12.2019 11:41:20	Gathering generic database scoped configuration option
+26.12.2019 11:41:20	Gathering users
+26.12.2019 11:41:20	Gathering roles
+26.12.2019 11:41:20	Gathering application roles
+26.12.2019 11:41:20	Gathering role memberships
+26.12.2019 11:41:20	Gathering filegroups
+26.12.2019 11:41:20	Gathering full-text catalogs
+26.12.2019 11:41:20	Gathering assemblies
+26.12.2019 11:41:20	Gathering certificates
+26.12.2019 11:41:20	Gathering asymmetric keys
+26.12.2019 11:41:20	Gathering symmetric keys
+26.12.2019 11:41:20	Gathering encrypted symmetric keys
+26.12.2019 11:41:20	Gathering schemas
+26.12.2019 11:41:20	Gathering XML schema collections
+26.12.2019 11:41:20	Gathering user-defined data types
+26.12.2019 11:41:20	Gathering user-defined types
+26.12.2019 11:41:20	Gathering table types
+26.12.2019 11:41:20	Gathering unique keys for table types
+26.12.2019 11:41:20	Gathering primary keys for table types
+26.12.2019 11:41:20	Gathering indexes for table types
+26.12.2019 11:41:20	Gathering check constraints for table types
+26.12.2019 11:41:20	Gathering default constraints for table types
+26.12.2019 11:41:20	Gathering partition functions
+26.12.2019 11:41:20	Gathering partition schemes
+26.12.2019 11:41:20	Gathering functions
+26.12.2019 11:41:20	Gathering encrypted functions
+26.12.2019 11:41:20	Gathering aggregates
+26.12.2019 11:41:20	Gathering procedures
+26.12.2019 11:41:20	Gathering encrypted procedures
+26.12.2019 11:41:20	Gathering tables
+26.12.2019 11:41:20	Gathering primary keys
+26.12.2019 11:41:20	Gathering unique constraints
+26.12.2019 11:41:20	Gathering foreign keys
+26.12.2019 11:41:20	Gathering default constraints
+26.12.2019 11:41:20	Gathering check constraints
+26.12.2019 11:41:20	Gathering views
+26.12.2019 11:41:21	Gathering encrypted views
+26.12.2019 11:41:21	Gathering indexes
+26.12.2019 11:41:21	Gathering statistics
+26.12.2019 11:41:21	Gathering full-text index stoplists
+26.12.2019 11:41:21	Gathering search property lists
+26.12.2019 11:41:21	Gathering search properties
+26.12.2019 11:41:21	Gathering full-text indexes
+26.12.2019 11:41:21	Gathering column store indexes
+26.12.2019 11:41:21	Gathering spatial indexes
+26.12.2019 11:41:21	Gathering XML indexes
+26.12.2019 11:41:21	Gathering Selective XML indexes
+26.12.2019 11:41:21	Gathering encrypted triggers
+26.12.2019 11:41:21	Gathering triggers
+26.12.2019 11:41:21	Gathering encrypted and clr ddl triggers
+26.12.2019 11:41:21	Gathering ddl triggers
+26.12.2019 11:41:21	Gathering synonyms
+26.12.2019 11:41:21	Gathering defaults
+26.12.2019 11:41:21	Gathering data constraint uddt bindings
+26.12.2019 11:41:21	Gathering rules
+26.12.2019 11:41:21	Gathering data constraint uddt bindings
+26.12.2019 11:41:21	Gathering message types
+26.12.2019 11:41:21	Gathering queues
+26.12.2019 11:41:21	Gathering contracts
+26.12.2019 11:41:21	Gathering services
+26.12.2019 11:41:21	Gathering event notifications
+26.12.2019 11:41:21	Gathering remote service bindings
+26.12.2019 11:41:21	Gathering broker priorities
+26.12.2019 11:41:21	Gathering signatures
+26.12.2019 11:41:21	Gathering data compression options
+26.12.2019 11:41:21	Gathering sequence types
+26.12.2019 11:41:21	Gathering security policies
+26.12.2019 11:41:21	Gather column encryption keys
+26.12.2019 11:41:21	Gathering column master keys
+26.12.2019 11:41:21	Gathering external data sources
+26.12.2019 11:41:21	Gathering external file formats
+26.12.2019 11:41:21	Gathering external tables
+26.12.2019 11:41:21	Gathering extended properties
+26.12.2019 11:41:21	Gathering credentials
+26.12.2019 11:41:21	Gathering logins
+26.12.2019 11:41:21	Gathering server audits
+26.12.2019 11:41:22	Scanning project for duplicate elements
+26.12.2019 11:41:22	Finished duplicate element processing
+26.12.2019 11:41:23	Finished importing database.
+26.12.2019 11:41:23	A summary of the import was saved to the following location: D:\ProjectSSDT\SRV\SRV\Import Schema Logs\SRV_20191226084112.log
+26.12.2019 11:41:23	Click Finish to continue...

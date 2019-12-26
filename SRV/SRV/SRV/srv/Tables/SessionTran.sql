@@ -6,13 +6,13 @@
     [TransactionBeginTime]   DATETIME NOT NULL,
     [InsertUTCDate]          DATETIME CONSTRAINT [DF_SessionTran_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
     [UpdateUTCDate]          DATETIME CONSTRAINT [DF_SessionTran_UpdateUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_SessionTran] PRIMARY KEY CLUSTERED ([SessionID] ASC, [TransactionID] ASC)
+    CONSTRAINT [PK_SessionTran] PRIMARY KEY CLUSTERED ([SessionID] ASC, [TransactionID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[SessionTran]([InsertUTCDate] ASC);
+    ON [srv].[SessionTran]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

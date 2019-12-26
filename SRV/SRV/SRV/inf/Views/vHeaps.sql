@@ -1,7 +1,8 @@
-﻿create view [inf].[vHeaps] as
+﻿
+CREATE   view [inf].[vHeaps] as
 -- Кучи + количество записей
 
-SELECT  @@ServerName AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
         OBJECT_NAME(ddps.object_id) AS TableName ,

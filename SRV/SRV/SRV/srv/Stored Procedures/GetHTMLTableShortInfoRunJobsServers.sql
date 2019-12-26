@@ -1,9 +1,10 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[GetHTMLTableShortInfoRunJobsServers]
+CREATE   PROCEDURE [srv].[GetHTMLTableShortInfoRunJobsServers]
 	@Path nvarchar(255),
 	@Filename nvarchar(255),
 	@second int=60
@@ -14,6 +15,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	DECLARE  @objFileSystem int
         ,@objTextStream int,
@@ -214,7 +217,7 @@ BEGIN
 	begin
 		set @body='В ходе анализа последних выполнений заданий, задания с ошибочным завершением, а также те, что выполнились по времени более '
 				 +cast(@second as nvarchar(255))
-				 +' секунд, не выявлены на сервере '+@@SERVERNAME;
+				 +' секунд, не выявлены на сервере '+@servername;
 	end
 	
 	set @body=@body+'<br><br>Для более детальной информации обратитесь к таблице SRV.srv.ShortInfoRunJobs';
@@ -242,4 +245,8 @@ BEGIN
 	EXECUTE  sp_OADestroy @objTextStream
 	EXECUTE sp_OADestroy @objFileSystem
 END
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Возвращает HTML-код для таблицы выполненных заданий', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'PROCEDURE', @level1name = N'GetHTMLTableShortInfoRunJobsServers';
 

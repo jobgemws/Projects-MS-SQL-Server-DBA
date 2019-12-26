@@ -1,10 +1,11 @@
 ﻿
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoDataCollection]
+CREATE   PROCEDURE [srv].[AutoDataCollection]
 AS
 BEGIN
 	/*
@@ -15,10 +16,14 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	EXEC [srv].[AutoStatisticsDiskAndRAMSpace];
 	EXEC [srv].[AutoStatisticsFileDB];
     EXEC [srv].[AutoBigQueryStatistics];
-	EXEC [srv].[AutoIndexStatistics];
+
+	if(@servername<>N'PRD-1CSQL-01') EXEC [srv].[AutoIndexStatistics];
+
 	EXEC [srv].[AutoShortInfoRunJobs];
 	EXEC [srv].[AutoStatisticsIOInTempDBStatistics];
 	EXEC [srv].[AutoNewIndexOptimizeStatistics];

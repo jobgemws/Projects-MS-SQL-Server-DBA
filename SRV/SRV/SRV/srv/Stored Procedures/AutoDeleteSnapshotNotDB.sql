@@ -1,7 +1,7 @@
 ﻿
 
-CREATE PROCEDURE [srv].[AutoDeleteSnapshotNotDB]
-	@path varchar(2000)='E:\DB\'
+CREATE   PROCEDURE [srv].[AutoDeleteSnapshotNotDB]
+	@path nvarchar(2000)='E:\DB\'
 AS
 BEGIN
 	/*
@@ -14,15 +14,15 @@ BEGIN
 
 	set xact_abort on;
 	 
-	declare @table table(a varchar(4000), b int, c int);
+	declare @table table(a nvarchar(4000), b int, c int);
 	 
 	insert into @table(a,b,c)
 	exec xp_dirtree @path, 1, 1;
 	 
-	declare @SQL varchar(max)='';
+	declare @SQL nvarchar(max)=N'';
 	 
-	select @SQL=@SQL+'
-	exec xp_cmdshell ''del '+@path+''+b.a+'''
+	select @SQL=@SQL+N'
+	exec xp_cmdshell ''del '+@path+N''+b.a+N'''
 	'
 	from
 	(select b.physical_name as physical_name
@@ -30,7 +30,7 @@ BEGIN
 	where a.source_database_id is not null) as a
 	full outer join @table as b on (a.physical_name=@path+b.a )
 	where a.physical_name is null
-	and b.a like '%.ss';
+	and b.a like N'%.ss';
 	 
 	--заменить print на exec
 	--print @SQL;

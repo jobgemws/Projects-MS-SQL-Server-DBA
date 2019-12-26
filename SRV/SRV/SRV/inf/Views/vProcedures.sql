@@ -1,7 +1,9 @@
-﻿CREATE view [inf].[vProcedures] as
--- Дополнительная информация о ХП 
+﻿
 
-SELECT  @@Servername AS ServerName ,
+CREATE   view [inf].[vProcedures] as
+-- Additional information about SP 
+
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
 		s.name as SchemaName,
         o.name AS 'ViewName' ,
@@ -21,5 +23,5 @@ WHERE   o.[type] in ('P', 'PC') -- Stored Procedures
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Хранимые процедуры с их определениями', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vProcedures';
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Stored procedures with their definitions', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vProcedures';
 

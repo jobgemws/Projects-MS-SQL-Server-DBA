@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[ClearFullInfo]
+CREATE     PROCEDURE [srv].[ClearFullInfo]
 AS
 BEGIN
 	/*
@@ -59,6 +59,7 @@ BEGIN
 
 	truncate table [srv].[IndicatorServerDayStatistics];
 	truncate table [srv].[DBFileStatistics];
+	truncate table [srv].[KillSessionArchive];
 END
 
 GO

@@ -1,9 +1,10 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[GetHTMLTableShortInfoRunJobs]
+CREATE   PROCEDURE [srv].[GetHTMLTableShortInfoRunJobs]
 	@body nvarchar(max) OUTPUT,
 	@second int=60
 AS
@@ -13,6 +14,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @tbl table (
 						Job_GUID				uniqueidentifier
@@ -154,7 +157,7 @@ BEGIN
 	begin
 		set @body='В ходе анализа последних выполнений заданий, задания с ошибочным завершением, а также те, что выполнились по времени более '
 				 +cast(@second as nvarchar(255))
-				 +' секунд, не выявлены на сервере '+@@SERVERNAME;
+				 +' секунд, не выявлены на сервере '+@servername;
 	end
 	
 	set @body=@body+'<br><br>Для более детальной информации обратитесь к таблице SRV.srv.ShortInfoRunJobs';

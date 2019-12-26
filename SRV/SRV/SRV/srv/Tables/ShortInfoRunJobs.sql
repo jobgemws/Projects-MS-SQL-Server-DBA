@@ -10,13 +10,13 @@
     [Server]                NVARCHAR (255)   NOT NULL,
     [InsertUTCDate]         DATETIME         CONSTRAINT [DF_ShortInfoRunJobs_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
     [ID]                    INT              IDENTITY (1, 1) NOT NULL,
-    CONSTRAINT [PK_ShortInfoRunJobs] PRIMARY KEY CLUSTERED ([ID] ASC)
+    CONSTRAINT [PK_ShortInfoRunJobs] PRIMARY KEY CLUSTERED ([ID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ShortInfoRunJobs]([InsertUTCDate] ASC);
+    ON [srv].[ShortInfoRunJobs]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

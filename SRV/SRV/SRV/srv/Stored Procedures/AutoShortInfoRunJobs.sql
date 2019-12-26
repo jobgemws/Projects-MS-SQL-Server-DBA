@@ -1,18 +1,23 @@
-﻿-- =============================================
+﻿
+
+-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoShortInfoRunJobs]
+CREATE   PROCEDURE [srv].[AutoShortInfoRunJobs]
 	@second int=60,
 	@body nvarchar(max)=NULL OUTPUT
 AS
 BEGIN
 	/*
-		Возвращает сообщение о выполненных заданиях для последующей отправки на почту
+		Returns a message about completed tasks 
+		for later sending to the mail
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
     truncate table [srv].[ShortInfoRunJobs];
 
@@ -34,14 +39,12 @@ BEGIN
           ,[LastRunDurationInt]
           ,[LastOutcomeMessage]
           ,LastRunOutcome
-          ,@@SERVERNAME
+          ,@servername
       FROM [inf].[vJobRunShortInfo]
       where [Enabled]=1
       and ([LastRunOutcome]=0
       or [LastRunDurationInt]>=@second)
       and LastDateTime>=DateAdd(day,-2,getdate());
-
-	  exec [srv].[GetHTMLTableShortInfoRunJobs] @body=@body OUTPUT;
 
 	  INSERT INTO [srv].[ShortInfoRunJobsServers]
            ([Job_GUID]
@@ -62,11 +65,11 @@ BEGIN
            ,[LastRunDurationInt]
            ,[LastOutcomeMessage]
            ,[LastRunOutcome]
-           ,@@SERVERNAME as [Server]
+           ,@servername as [Server]
 		   ,[TargetServer]
 	  FROM [inf].[vJobRunShortInfo];
 END
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Возвращает сообщение о выполненных заданиях для последующей отправки на почту', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'PROCEDURE', @level1name = N'AutoShortInfoRunJobs';
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Returns a message about completed tasks for later sending to the mail', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'PROCEDURE', @level1name = N'AutoShortInfoRunJobs';
 

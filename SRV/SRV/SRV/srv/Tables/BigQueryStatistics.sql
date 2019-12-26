@@ -36,3 +36,7 @@ GO
 CREATE CLUSTERED INDEX [indInsertUTCDate]
     ON [srv].[BigQueryStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Статистика тяжелых запросов', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'TABLE', @level1name = N'BigQueryStatistics';
+

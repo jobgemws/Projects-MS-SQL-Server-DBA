@@ -4,15 +4,15 @@
     [Recipient_Code] NVARCHAR (10)    NOT NULL,
     [IsDeleted]      BIT              CONSTRAINT [DF_Recipient_IsDeleted] DEFAULT ((0)) NOT NULL,
     [InsertUTCDate]  DATETIME         CONSTRAINT [DF_Recipient_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_Recipient] PRIMARY KEY CLUSTERED ([Recipient_GUID] ASC),
-    CONSTRAINT [AK_Recipient_Code] UNIQUE NONCLUSTERED ([Recipient_Code] ASC),
-    CONSTRAINT [AK_Recipient_Name] UNIQUE NONCLUSTERED ([Recipient_Name] ASC)
+    CONSTRAINT [PK_Recipient] PRIMARY KEY CLUSTERED ([Recipient_GUID] ASC) WITH (FILLFACTOR = 95),
+    CONSTRAINT [AK_Recipient_Code] UNIQUE NONCLUSTERED ([Recipient_Code] ASC) WITH (FILLFACTOR = 95),
+    CONSTRAINT [AK_Recipient_Name] UNIQUE NONCLUSTERED ([Recipient_Name] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[Recipient]([InsertUTCDate] ASC);
+    ON [srv].[Recipient]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

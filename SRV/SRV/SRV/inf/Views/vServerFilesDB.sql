@@ -1,7 +1,8 @@
 ﻿
-CREATE view [inf].[vServerFilesDB] as
+
+CREATE   view [inf].[vServerFilesDB] as
 --основная информация о файлах БД
-SELECT  @@SERVERNAME AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         d.name AS DBName ,
         create_date ,
         compatibility_level ,

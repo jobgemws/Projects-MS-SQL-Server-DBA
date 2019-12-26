@@ -14,13 +14,13 @@
     [InsertUTCDate]   DATETIME         CONSTRAINT [DF_DBFile_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
     [UpdateUTCdate]   DATETIME         CONSTRAINT [DF_DBFile_UpdateUTCdate] DEFAULT (getutcdate()) NOT NULL,
     [File_ID]         INT              NOT NULL,
-    CONSTRAINT [PK_DBFile] PRIMARY KEY CLUSTERED ([DBFile_GUID] ASC)
+    CONSTRAINT [PK_DBFile] PRIMARY KEY CLUSTERED ([DBFile_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [IX_DBFile]
-    ON [srv].[DBFile]([DB_ID] ASC, [File_ID] ASC, [Server] ASC);
+    ON [srv].[DBFile]([DB_ID] ASC, [File_ID] ASC, [Server] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

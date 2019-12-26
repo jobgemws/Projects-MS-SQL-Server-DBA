@@ -3,12 +3,13 @@
 
 
 
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [zabbix].[GetForecastDiskMinAvailable_Mb]
+CREATE   PROCEDURE [zabbix].[GetForecastDiskMinAvailable_Mb]
 AS
 BEGIN
 	/*
@@ -21,6 +22,8 @@ BEGIN
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 	SET XACT_ABORT ON;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	declare @tbl table ([DATE] date, [MinAvailable_Mb] decimal(18,6), [MinAvailable_Percent] decimal(18,6), [Disk] nvarchar(255));
 	declare @tbl_res table ([DiffMinAvailable_Mb] decimal(18,6), [DiffMinAvailable_Percent] decimal(18,6), [Disk] nvarchar(255));
 	declare @curr table ([Disk] nvarchar (255), [MinAvailable_Mb] decimal(18,6));
@@ -32,7 +35,7 @@ BEGIN
 	      ,min([Available_Percent])		 as [MinAvailable_Percent]
 		  ,[Disk]
 	  FROM [srv].[DiskSpaceStatistics]
-	  where [Server]=@@SERVERNAME
+	  where [Server]=@servername
 	  group by cast([InsertUTCDate] as date), [Disk];
 	
 	;with tbl as (

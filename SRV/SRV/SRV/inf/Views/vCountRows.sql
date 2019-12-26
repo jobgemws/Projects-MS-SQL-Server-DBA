@@ -1,6 +1,6 @@
 ﻿CREATE view [inf].[vCountRows] as
 	-- Метод получения количества записей с использованием DMV dm_db_partition_stats 
-	SELECT  @@ServerName AS ServerName ,
+	SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
 	        DB_NAME() AS DBName ,
 	        OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
 	        OBJECT_NAME(ddps.object_id) AS TableName ,
@@ -18,6 +18,8 @@
 	        i.Name
 	--ORDER BY SchemaName ,
 	--        TableName;
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Метод получения количества записей с использованием DMV dm_db_partition_stats', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vCountRows';
 

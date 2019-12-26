@@ -4,14 +4,15 @@
 
 
 
-CREATE view [inf].[vJobRunShortInfo] as
+
+CREATE   view [inf].[vJobRunShortInfo] as
 SELECT sj.[job_id] as Job_GUID
       ,j.name as Job_Name
       ,case sj.[last_run_outcome]
-		when 0 then 'Ошибка'
-		when 1 then 'Успешно'
-		when 3 then 'Отменено'
-		else case when sj.[last_run_date] is not null and len(sj.[last_run_date])=8 then 'Неопределенное состояние'
+		when 0 then 'Error'
+		when 1 then 'Success'
+		when 3 then 'Canceled'
+		else case when sj.[last_run_date] is not null and len(sj.[last_run_date])=8 then 'Indefinite state'
 				else NULL
 				end
 	   end as LastFinishRunState
@@ -59,5 +60,5 @@ SELECT sj.[job_id] as Job_GUID
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Краткая информация о последних выполнениях заданий Агента экземпляра MS SQL Server', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vJobRunShortInfo';
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Summary of the latest tasks of the MS SQL Server Instance Agent jobs', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vJobRunShortInfo';
 

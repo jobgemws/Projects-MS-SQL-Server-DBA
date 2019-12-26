@@ -1,7 +1,8 @@
-﻿CREATE view [inf].[vFuncs] as
+﻿
+CREATE   view [inf].[vFuncs] as
 -- Дополнительная информация о функциях
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         o.name AS 'FunctionName' ,
         o.[type] ,

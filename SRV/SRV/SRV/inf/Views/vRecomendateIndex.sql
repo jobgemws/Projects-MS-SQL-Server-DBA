@@ -1,9 +1,10 @@
 ﻿
-CREATE view [inf].[vRecomendateIndex] as
+
+CREATE   view [inf].[vRecomendateIndex] as
 
 -- Отсутствующие индексы из DMV
 
-SELECT  @@ServerName AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_Name(ddmid.[database_id]) as [DBName] ,
         t.name AS 'Affected_table' ,
 		ddmigs.user_seeks * ddmigs.avg_total_user_cost * (ddmigs.avg_user_impact * 0.01) AS index_advantage,

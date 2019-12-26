@@ -33,7 +33,7 @@
 		GROUP BY t.[schema_id], t.[object_id], i1.rowcnt
 	)
 	SELECT
-	  @@Servername AS Server,
+	  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server],
 	  DB_NAME() AS DBName,
 	  SCHEMA_NAME(t.[schema_id]) as SchemaName,
 	  OBJECT_NAME(t.[object_id]) as TableName,
@@ -47,6 +47,9 @@
 	  f.DataPageSize*(select top(1) PageSizeKB from pagesizeKB) as DataPageSizeKB
 	FROM f_size as f
 	inner join tbl as t on t.[object_id]=f.[object_id]
+
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Размеры таблиц', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vTableSize';
 

@@ -1,7 +1,8 @@
-﻿create view [inf].[vSynonyms] as
+﻿
+CREATE   view [inf].[vSynonyms] as
 -- дополнительная информация о синонимах
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
 		sch.name as SchemaName,
         s.name AS [Synonyms] ,

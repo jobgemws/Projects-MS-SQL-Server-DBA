@@ -3,8 +3,12 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[RunFullBackupDB]
-	@ClearLog bit=1 --усекать ли журнал транзакций
+CREATE   PROCEDURE [srv].[RunFullBackupDB]
+	@ClearLog   bit=1 --усекать ли журнал транзакций
+	,@IsExtName bit=1 --добавлять ли к имени дату
+	,@IsCHECKDB bit=0 --проверять ли резервную копию
+	,@IsAllDB	bit=0 --брать ли в обработку все БД
+	,@FullPathBackup nvarchar(4000)='\\backup-srv01\SQL_Backups\1C\CHECKDB\'--полный путь к каталогу для создания резервных копий (работает при @IsAllDB=1)
 AS
 BEGIN
 	/*
@@ -37,13 +41,30 @@ BEGIN
 		[FullPathBackup] [nvarchar](255) NOT NULL
 	);
 	
-	insert into @tbl (
-	           [DBName]
-	           ,[FullPathBackup]
-	)
-	select		DB_NAME([DBID])
-	           ,[FullPathBackup]
-	from [srv].[BackupSettings];
+	if(@IsAllDB=1)
+	begin
+		insert into @tbl (
+		           [DBName]
+		           ,[FullPathBackup]
+		)
+		select		[name] as [DBName]
+		           ,@FullPathBackup
+		from sys.databases
+		where [database_id]>4
+		and [name]<>N'FortisAdmin'
+		and [state]=0
+		and [user_access]=0;
+	end
+	else
+	begin
+		insert into @tbl (
+		           [DBName]
+		           ,[FullPathBackup]
+		)
+		select		DB_NAME([DBID])
+		           ,[FullPathBackup]
+		from [srv].[BackupSettings];
+	end
 
 	insert into @tbllog([DBName], [FileNameLog])
 	select t.[DBName], tt.[FileName] as [FileNameLog]
@@ -59,14 +80,25 @@ BEGIN
 		@DBName=[DBName],
 		@pathBackup=[FullPathBackup]
 		from @tbl;
-	
-		set @backupName=@DBName+N'_Full_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))--+N'_'
-						--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+		
+		if(@IsExtName=1)
+		begin
+			set @backupName=@DBName+N'_Full_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))--+N'_'
+							--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+		end
+		else
+		begin
+			set @backupName=@DBName;
+		end
+
 		set @pathstr=@pathBackup+@backupName+N'.bak';
 
-		set @sql=N'DBCC CHECKDB(N'+N''''+@DBName+N''''+N')  WITH NO_INFOMSGS';
+		if(@IsCHECKDB=1)
+		begin
+			set @sql=N'DBCC CHECKDB(N'+N''''+@DBName+N''''+N')  WITH NO_INFOMSGS';
 
-		exec(@sql);
+			exec(@sql);
+		end
 	
 		set @sql=N'BACKUP DATABASE ['+@DBName+N'] TO DISK = N'+N''''+@pathstr+N''''+
 				 N' WITH NOFORMAT, NOINIT, NAME = N'+N''''+@backupName+N''''+
@@ -80,7 +112,10 @@ BEGIN
 
 		set @sql=N'Ошибка верификации. Сведения о резервном копировании для базы данных "'+@DBName+'" не найдены.';
 
-		if @backupSetId is null begin raiserror(@sql, 16, 1) end
+		if (@backupSetId is null)
+		begin
+			raiserror(@sql, 16, 1);
+		end
 		else
 		begin
 			set @sql=N'RESTORE VERIFYONLY FROM DISK = N'+''''+@pathstr+N''''+N' WITH FILE = '+cast(@backupSetId as nvarchar(255));

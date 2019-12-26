@@ -8,13 +8,13 @@
     [Event]         NVARCHAR (255)   NULL,
     [TSQL]          NVARCHAR (MAX)   NULL,
     [InsertUTCDate] DATETIME         CONSTRAINT [DF_ddl_log_all_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_ddl_log_all] PRIMARY KEY CLUSTERED ([DDL_Log_GUID] ASC)
+    CONSTRAINT [PK_ddl_log_all] PRIMARY KEY CLUSTERED ([DDL_Log_GUID] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[ddl_log_all]([InsertUTCDate] ASC);
+    ON [srv].[ddl_log_all]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

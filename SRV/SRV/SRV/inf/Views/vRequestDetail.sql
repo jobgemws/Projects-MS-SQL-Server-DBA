@@ -3,7 +3,7 @@
 
 
 
-CREATE view [inf].[vRequestDetail] as
+CREATE   view [inf].[vRequestDetail] as
 /*Активные, готовые к выполнению и ожидающие запросы, а также те, что явно блокируют другие сеансы*/
 with tbl0 as (
 	select ES.[session_id]
@@ -18,7 +18,7 @@ with tbl0 as (
 	      ,(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])) as [TSQL]
 		  ,(select top(1) [objectid] from sys.dm_exec_sql_text(ER.[sql_handle])) as [objectid]
 		  ,(select top(1) [query_plan] from sys.dm_exec_query_plan(ER.[plan_handle])) as [QueryPlan]
-		  ,(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
+		  ,NULL as [event_info]--(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
 	      ,ER.[wait_type]
 	      ,ES.[login_time]
 		  ,ES.[host_name]
@@ -103,7 +103,7 @@ with tbl0 as (
 	      ,ER.[statement_start_offset]
 	      ,ER.[statement_end_offset]
 	      ,ER.[plan_handle]
-		  ,ER.[dop]
+		  ,NULL as [dop]--ER.[dop]
 	      ,coalesce(ER.[database_id], ES.[database_id]) as [database_id]
 	      ,ER.[user_id]
 	      ,ER.[connection_id]
@@ -484,36 +484,36 @@ select tbl0.[session_id]
 		  ,max(qs.[last_rows])						as [max_last_rows]
 		  ,min(qs.[min_rows])						as [min_rows]
 		  ,max(qs.[max_rows])						as [max_rows]
-		  ,max(qs.[total_dop])						as [total_dop]
-		  ,min(qs.[last_dop])						as [min_last_dop]
-		  ,max(qs.[last_dop])						as [max_last_dop]
-		  ,min(qs.[min_dop])						as [min_dop]
-		  ,max(qs.[max_dop])						as [max_dop]
-		  ,max(qs.[total_grant_kb])					as [total_grant_kb]
-		  ,min(qs.[last_grant_kb])					as [min_last_grant_kb]
-		  ,max(qs.[last_grant_kb])					as [max_last_grant_kb]
-		  ,min(qs.[min_grant_kb])					as [min_grant_kb]
-		  ,max(qs.[max_grant_kb])					as [max_grant_kb]
-		  ,max(qs.[total_used_grant_kb])			as [total_used_grant_kb]
-		  ,min(qs.[last_used_grant_kb])				as [min_last_used_grant_kb]
-		  ,max(qs.[last_used_grant_kb])				as [max_last_used_grant_kb]
-		  ,min(qs.[min_used_grant_kb])				as [min_used_grant_kb]
-		  ,max(qs.[max_used_grant_kb])				as [max_used_grant_kb]
-		  ,max(qs.[total_ideal_grant_kb])			as [total_ideal_grant_kb]
-		  ,min(qs.[last_ideal_grant_kb])			as [min_last_ideal_grant_kb]
-		  ,max(qs.[last_ideal_grant_kb])			as [max_last_ideal_grant_kb]
-		  ,min(qs.[min_ideal_grant_kb])				as [min_ideal_grant_kb]
-		  ,max(qs.[max_ideal_grant_kb])				as [max_ideal_grant_kb]
-		  ,max(qs.[total_reserved_threads])			as [total_reserved_threads]
-		  ,min(qs.[last_reserved_threads])			as [min_last_reserved_threads]
-		  ,max(qs.[last_reserved_threads])			as [max_last_reserved_threads]
-		  ,min(qs.[min_reserved_threads])			as [min_reserved_threads]
-		  ,max(qs.[max_reserved_threads])			as [max_reserved_threads]
-		  ,max(qs.[total_used_threads])				as [total_used_threads]
-		  ,min(qs.[last_used_threads])				as [min_last_used_threads]
-		  ,max(qs.[last_used_threads])				as [max_last_used_threads]
-		  ,min(qs.[min_used_threads])				as [min_used_threads]
-		  ,max(qs.[max_used_threads])				as [max_used_threads]
+		  ,/*max(qs.[total_dop])			 */NULL as [total_dop]
+		  ,/*min(qs.[last_dop])				 */NULL as [min_last_dop]
+		  ,/*max(qs.[last_dop])				 */NULL as [max_last_dop]
+		  ,/*min(qs.[min_dop])				 */NULL as [min_dop]
+		  ,/*max(qs.[max_dop])				 */NULL as [max_dop]
+		  ,/*max(qs.[total_grant_kb])		 */NULL as [total_grant_kb]
+		  ,/*min(qs.[last_grant_kb])		 */NULL as [min_last_grant_kb]
+		  ,/*max(qs.[last_grant_kb])		 */NULL as [max_last_grant_kb]
+		  ,/*min(qs.[min_grant_kb])			 */NULL as [min_grant_kb]
+		  ,/*max(qs.[max_grant_kb])			 */NULL as [max_grant_kb]
+		  ,/*max(qs.[total_used_grant_kb])	 */NULL as [total_used_grant_kb]
+		  ,/*min(qs.[last_used_grant_kb])	 */NULL as [min_last_used_grant_kb]
+		  ,/*max(qs.[last_used_grant_kb])	 */NULL as [max_last_used_grant_kb]
+		  ,/*min(qs.[min_used_grant_kb])	 */NULL as [min_used_grant_kb]
+		  ,/*max(qs.[max_used_grant_kb])	 */NULL as [max_used_grant_kb]
+		  ,/*max(qs.[total_ideal_grant_kb])	 */NULL as [total_ideal_grant_kb]
+		  ,/*min(qs.[last_ideal_grant_kb])	 */NULL as [min_last_ideal_grant_kb]
+		  ,/*max(qs.[last_ideal_grant_kb])	 */NULL as [max_last_ideal_grant_kb]
+		  ,/*min(qs.[min_ideal_grant_kb])	 */NULL as [min_ideal_grant_kb]
+		  ,/*max(qs.[max_ideal_grant_kb])	 */NULL as [max_ideal_grant_kb]
+		  ,/*max(qs.[total_reserved_threads])*/NULL as [total_reserved_threads]
+		  ,/*min(qs.[last_reserved_threads]) */NULL as [min_last_reserved_threads]
+		  ,/*max(qs.[last_reserved_threads]) */NULL as [max_last_reserved_threads]
+		  ,/*min(qs.[min_reserved_threads])	 */NULL as [min_reserved_threads]
+		  ,/*max(qs.[max_reserved_threads])	 */NULL as [max_reserved_threads]
+		  ,/*max(qs.[total_used_threads])	 */NULL as [total_used_threads]
+		  ,/*min(qs.[last_used_threads])	 */NULL as [min_last_used_threads]
+		  ,/*max(qs.[last_used_threads])	 */NULL as [max_last_used_threads]
+		  ,/*min(qs.[min_used_threads])		 */NULL as [min_used_threads]
+		  ,/*max(qs.[max_used_threads])		 */NULL as [max_used_threads]
 	from tbl_res_rec_g as t
 	inner join sys.dm_exec_query_stats as qs with(readuncommitted) on t.[plan_handle]=qs.[plan_handle] 
 																  and t.[sql_handle]=qs.[sql_handle] 
@@ -720,10 +720,10 @@ select t.[session_id] --Сессия
 		  ,mg.[ideal_memory_kb] --Объем, в килобайтах (КБ), предоставленной памяти, необходимый для размещения всех данных в физической памяти.
 								--Основывается на оценке количества элементов
 		  
-		  ,mg.[reserved_worker_count] --Число рабочих процессов, зарезервированной с помощью параллельных запросов, а также число основных рабочих процессов, используемых всеми запросами
-		  ,mg.[used_worker_count] --Число рабочих процессов, используемых параллельных запросов
-		  ,mg.[max_used_worker_count] --???
-		  ,mg.[reserved_node_bitmap] --???
+		  ,NULL as [reserved_worker_count]--mg.[reserved_worker_count] --Число рабочих процессов, зарезервированной с помощью параллельных запросов, а также число основных рабочих процессов, используемых всеми запросами
+		  ,NULL as [used_worker_count]--mg.[used_worker_count] --Число рабочих процессов, используемых параллельных запросов
+		  ,NULL as [max_used_worker_count]--mg.[max_used_worker_count] --???
+		  ,NULL as [reserved_node_bitmap]--mg.[reserved_node_bitmap] --???
 		  ,pl.[bucketid] --Идентификатор сегмента хэша, в который кэшируется запись.
 						 --Значение указывает диапазон от 0 до значения размера хэш-таблицы для типа кэша.
 						 --Для кэшей SQL Plans и Object Plans размер хэш-таблицы может достигать 10007 на 32-разрядных версиях систем и 40009 — на 64-разрядных.

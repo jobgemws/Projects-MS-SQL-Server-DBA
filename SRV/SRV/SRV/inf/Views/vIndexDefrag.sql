@@ -1,4 +1,4 @@
-﻿CREATE view [inf].[vIndexDefrag]
+﻿CREATE   view [inf].[vIndexDefrag]
 	as
 	with info as 
 	(SELECT
@@ -41,7 +41,8 @@
 		i.ghost_record_count as ghost,
 		round(i.avg_fragmentation_in_percent*i.page_count,0) as func
 	FROM info as i
-	inner join [sys].[all_objects]	as t	on i.[object_id] = t.[object_id]
+	inner join [sys].[all_objects]	as t	on i.[object_id] = t.[object_id];
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Уровень фрагментации тех индексов, размер которых не менее 1 экстента (8 страниц) и фрагментация которых более 10% (детальный обход узлов) и только для таблиц-не куч (т е определен кластерный индекс). Берутся в расчёт только корневые индексы', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vIndexDefrag';
 

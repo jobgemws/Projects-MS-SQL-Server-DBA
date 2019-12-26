@@ -13,3 +13,7 @@ select [Disk]
 		CROSS APPLY sys.dm_os_volume_stats(f.database_id, f.file_id) as s
 		GROUP BY volume_mount_point
 	) as a;
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Данные о размерах всей емкости и свободного места по логическим дискам', @level0type = N'SCHEMA', @level0name = N'inf', @level1type = N'VIEW', @level1name = N'vDisk';
+

@@ -1,5 +1,6 @@
-﻿CREATE view [inf].[vColumns] as
-SELECT  @@Servername AS Server ,
+﻿
+CREATE   view [inf].[vColumns] as
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         isc.Table_Name AS TableName ,
         isc.Table_Schema AS SchemaName ,

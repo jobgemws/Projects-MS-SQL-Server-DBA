@@ -1,9 +1,4 @@
-﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE   PROCEDURE [inf].[InfoAgentJobs]
+﻿CREATE   PROCEDURE [inf].[InfoAgentJobs]
 AS
 BEGIN
 	--Необходимые типовые задания
@@ -62,8 +57,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных о выполненных заданиях на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных о выполненных заданиях';
+		            @str_title nvarchar(max)=N'Автосбор данных о выполненных заданиях на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных о выполненных заданиях';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -91,8 +86,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных о дисках и файлов баз данных на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных о дисках и файлов баз данных';
+		            @str_title nvarchar(max)=N'Автосбор данных о дисках и файлов баз данных на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных о дисках и файлов баз данных';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -119,8 +114,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об активных запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об активных запросах';
+		            @str_title nvarchar(max)=N'Автосбор данных об активных запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об активных запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -147,8 +142,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об активных подключениях на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об активных подключениях';
+		            @str_title nvarchar(max)=N'Автосбор данных об активных подключениях на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об активных подключениях';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -175,8 +170,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об производительности СУБД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об производительности СУБД';
+		            @str_title nvarchar(max)=N'Автосбор данных об производительности СУБД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об производительности СУБД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -203,8 +198,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор кол-ва строк кластерных структур  и размер таблиц на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора кол-ва строк кластерных структур и размера таблиц';
+		            @str_title nvarchar(max)=N'Автосбор кол-ва строк кластерных структур  и размер таблиц на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора кол-ва строк кластерных структур и размера таблиц';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -231,8 +226,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор статистики роста файлов БД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора статистики роста файлов БД';
+		            @str_title nvarchar(max)=N'Автосбор статистики роста файлов БД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора статистики роста файлов БД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -260,8 +255,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление зависших неактивных подключений на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления зависших подключений';
+		            @str_title nvarchar(max)=N'Автоудаление зависших неактивных подключений на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления зависших подключений';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -288,8 +283,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление старых записей на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления старых записей';
+		            @str_title nvarchar(max)=N'Автоудаление старых записей на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления старых записей';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -331,8 +326,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоочистка кеша с последующим обновлением статистики по всем несистемным БД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка авточистки кеша с последующим обновлением статистики по всем несистемным БД';
+		            @str_title nvarchar(max)=N'Автоочистка кеша с последующим обновлением статистики по всем несистемным БД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка авточистки кеша с последующим обновлением статистики по всем несистемным БД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -359,8 +354,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Оптимизация индексов на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка оптимизации индексов';
+		            @str_title nvarchar(max)=N'Оптимизация индексов на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка оптимизации индексов';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -387,8 +382,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Создание полных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка создания полных резервных копий';
+		            @str_title nvarchar(max)=N'Создание полных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка создания полных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -429,8 +424,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Удаление старых файлов на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка удаления старых файлов';
+		            @str_title nvarchar(max)=N'Удаление старых файлов на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка удаления старых файлов';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -457,8 +452,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Сбор данных о запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка сбора данных о запросах';
+		            @str_title nvarchar(max)=N'Сбор данных о запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка сбора данных о запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -485,8 +480,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Сбор данных об активных запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка сбора данных об активных запросах';
+		            @str_title nvarchar(max)=N'Сбор данных об активных запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка сбора данных об активных запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -513,8 +508,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Создание разностных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка создания разностных резервных копий';
+		            @str_title nvarchar(max)=N'Создание разностных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка создания разностных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -541,8 +536,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Восстановление БД из их полных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка восстановления БД из их полных резервных копий';
+		            @str_title nvarchar(max)=N'Восстановление БД из их полных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка восстановления БД из их полных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -569,8 +564,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление забытых транзакций на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления забытых транзакций';
+		            @str_title nvarchar(max)=N'Автоудаление забытых транзакций на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления забытых транзакций';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,

@@ -1,16 +1,15 @@
 ﻿
-CREATE FUNCTION [rep].[GetTimeFormat] 
+CREATE   FUNCTION [rep].[GetTimeFormat] 
 (
-	@dt datetime, -- входное время
-	@format int=0 -- заданный формат
+	@dt datetime, -- input time
+	@format int=0 -- specified format
 )
 RETURNS nvarchar(255)
 AS
 /*
-	15.04.2014 ГЕМ:
-	Возвращает время в виде строки по заданному формату и входному времени
-	Проставляет необходимые нули:
-	формат	входное время	результат
+	Returns the time as a string according to the specified format and input time.
+	Dumps the necessary zeros:
+	format 	input time		result
 	0		17:04			"17:04:00"
 	1		17:04			"17:04"
 	1		8:04			"08:04"
@@ -24,18 +23,18 @@ BEGIN
 
 	if(@format=0)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)))+':';
-		set @res=@res+IIF(@min<10,'0'+cast(@min as nvarchar(1)), cast(@min as nvarchar(2)))+':';
-		set @res=@res+IIF(@sec<10,'0'+cast(@sec as nvarchar(1)), cast(@sec as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2))+':' end;
+		set @res=@res+case when(@min<10) then '0'+cast(@min as nvarchar(1)) else cast(@min as nvarchar(2))+':' end;
+		set @res=@res+case when(@sec<10) then '0'+cast(@sec as nvarchar(1)) else cast(@sec as nvarchar(2)) end;
 	end
 	else if(@format=1)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)))+':';
-		set @res=@res+IIF(@min<10,'0'+cast(@min as nvarchar(1)), cast(@min as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2))+':' end;
+		set @res=@res+case when(@min<10) then '0'+cast(@min as nvarchar(1)) else cast(@min as nvarchar(2)) end;
 	end
 	else if(@format=2)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2)) end;
 	end
 
 	RETURN @res;
@@ -44,5 +43,5 @@ END
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Возвращает время в виде строки по заданному формату и входному времени', @level0type = N'SCHEMA', @level0name = N'rep', @level1type = N'FUNCTION', @level1name = N'GetTimeFormat';
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Returns the time as a string according to the specified format and input time', @level0type = N'SCHEMA', @level0name = N'rep', @level1type = N'FUNCTION', @level1name = N'GetTimeFormat';
 

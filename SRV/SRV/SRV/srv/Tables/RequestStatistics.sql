@@ -197,17 +197,17 @@
 
 GO
 CREATE CLUSTERED INDEX [indRequest]
-    ON [srv].[RequestStatistics]([session_id] ASC, [request_id] ASC, [database_id] ASC, [user_id] ASC, [start_time] ASC, [command] ASC, [sql_handle] ASC, [plan_handle] ASC, [transaction_id] ASC, [connection_id] ASC);
+    ON [srv].[RequestStatistics]([session_id] ASC, [request_id] ASC, [database_id] ASC, [user_id] ASC, [start_time] ASC, [command] ASC, [sql_handle] ASC, [plan_handle] ASC, [transaction_id] ASC, [connection_id] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[RequestStatistics]([InsertUTCDate] ASC);
+    ON [srv].[RequestStatistics]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO
 CREATE NONCLUSTERED INDEX [indPlanQuery]
-    ON [srv].[RequestStatistics]([sql_handle] ASC, [plan_handle] ASC);
+    ON [srv].[RequestStatistics]([sql_handle] ASC, [plan_handle] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

@@ -2,13 +2,13 @@
     [SQLHandle]     VARBINARY (64) NOT NULL,
     [TSQL]          NVARCHAR (MAX) NULL,
     [InsertUTCDate] DATETIME       CONSTRAINT [DF_SQLQuery_InsertUTCDate] DEFAULT (getutcdate()) NOT NULL,
-    CONSTRAINT [PK_SQLQuery] PRIMARY KEY CLUSTERED ([SQLHandle] ASC)
+    CONSTRAINT [PK_SQLQuery] PRIMARY KEY CLUSTERED ([SQLHandle] ASC) WITH (FILLFACTOR = 95)
 );
 
 
 GO
 CREATE NONCLUSTERED INDEX [indInsertUTCDate]
-    ON [srv].[SQLQuery]([InsertUTCDate] ASC);
+    ON [srv].[SQLQuery]([InsertUTCDate] ASC) WITH (FILLFACTOR = 95);
 
 
 GO

@@ -1,71 +1,148 @@
 ﻿
-
-
-
-
-
-
-	CREATE view [inf].[vRequests] as
+CREATE   view [inf].[vRequests] as
 /*
 	ГЕМ: Сведения о запросах
 */
-SELECT session_id
-	  ,status
-	  ,blocking_session_id
-	  ,database_id
-	  ,DB_NAME(database_id) as DBName
-	  ,(select top(1) text from sys.dm_exec_sql_text([sql_handle])) as [TSQL]
-	  ,(select top(1) [query_plan] from sys.dm_exec_query_plan([plan_handle])) as [QueryPlan]
-	  ,[sql_handle]
-      ,[statement_start_offset]--Количество символов в выполняемом в настоящий момент пакете или хранимой процедуре, в которой запущена текущая инструкция. Может применяться вместе с функциями динамического управления sql_handle, statement_end_offset и sys.dm_exec_sql_text для получения исполняемой в настоящий момент инструкции для запроса. Допускаются значения NULL.
-      ,[statement_end_offset]--Количество символов в выполняемом в настоящий момент пакете или хранимой процедуре, в которой завершилась текущая инструкция. Может применяться вместе с функциями динамического управления sql_handle, statement_end_offset и sys.dm_exec_sql_text для получения исполняемой в настоящий момент инструкции для запроса. Допускаются значения NULL.
-      ,[plan_handle]
-      ,[user_id]
-      ,[connection_id]
-      ,[wait_type]--тип ожидания
-      ,[wait_time]--Если запрос в настоящий момент блокирован, в столбце содержится продолжительность текущего ожидания (в миллисекундах). Не допускает значение NULL.
-	  ,round(cast([wait_time] as decimal(18,3))/1000, 3) as [wait_timeSec]
-      ,[last_wait_type]--Если запрос был блокирован ранее, в столбце содержится тип последнего ожидания. Не допускает значение NULL.
-      ,[wait_resource]--Если запрос в настоящий момент блокирован, в столбце указан ресурс, освобождения которого ожидает запрос. Не допускает значение NULL.
-      ,[open_transaction_count]--Число транзакций, открытых для данного запроса. Не допускает значение NULL.
-      ,[open_resultset_count]--Число результирующих наборов, открытых для данного запроса. Не допускает значение NULL.
-      ,[transaction_id]--Идентификатор транзакции, в которой выполняется запрос. Не допускает значение NULL.
-      ,[context_info]
-      ,[percent_complete]
-      ,[estimated_completion_time]
-      ,[cpu_time]--Время ЦП (в миллисекундах), затраченное на выполнение запроса. Не допускает значение NULL.
-	  ,round(cast([cpu_time] as decimal(18,3))/1000, 3) as [cpu_timeSec]
-      ,[total_elapsed_time]--Общее время, истекшее с момента поступления запроса (в миллисекундах). Не допускает значение NULL.
-	  ,round(cast([total_elapsed_time] as decimal(18,3))/1000, 3) as [total_elapsed_timeSec]
-      ,[scheduler_id]--Идентификатор планировщика, который планирует данный запрос. Не допускает значение NULL.
-      ,[task_address]--Адрес блока памяти, выделенного для задачи, связанной с этим запросом. Допускаются значения NULL.
-      ,[reads]--Число операций чтения, выполненных данным запросом. Не допускает значение NULL.
-      ,[writes]--Число операций записи, выполненных данным запросом. Не допускает значение NULL.
-      ,[logical_reads]--Число логических операций чтения, выполненных данным запросом. Не допускает значение NULL.
-      ,[text_size]--Установка параметра TEXTSIZE для данного запроса. Не допускает значение NULL.
-      ,[language]--Установка языка для данного запроса. Допускаются значения NULL.
-      ,[date_format]--Установка параметра DATEFORMAT для данного запроса. Допускаются значения NULL.
-      ,[date_first]--Установка параметра DATEFIRST для данного запроса. Не допускает значение NULL.
-      ,[quoted_identifier]
-      ,[arithabort]
-      ,[ansi_null_dflt_on]
-      ,[ansi_defaults]
-      ,[ansi_warnings]
-      ,[ansi_padding]
-      ,[ansi_nulls]
-      ,[concat_null_yields_null]
-      ,[transaction_isolation_level]--Уровень изоляции, с которым создана транзакция для данного запроса. Не допускает значение NULL (0-не задан, от 1 до 5 поувеличению уровня изоляции транзакции)
-      ,[lock_timeout]--Время ожидания блокировки для данного запроса (в миллисекундах). Не допускает значение NULL.
-      ,[deadlock_priority]--Значение параметра DEADLOCK_PRIORITY для данного запроса. Не допускает значение NULL.
-      ,[row_count]--Число строк, возвращенных клиенту по данному запросу. Не допускает значение NULL.
-      ,[prev_error]--Последняя ошибка, происшедшая при выполнении запроса. Не допускает значение NULL.
-      ,[nest_level]--Текущий уровень вложенности кода, выполняемого для данного запроса. Не допускает значение NULL.
-      ,[granted_query_memory]--Число страниц, выделенных для выполнения поступившего запроса. Не допускает значение NULL.
-      ,[executing_managed_code]--Указывает, выполняет ли данный запрос в настоящее время код объекта среды CLR (например, процедуры, типа или триггера). Этот флаг установлен в течение всего времени, когда объект среды CLR находится в стеке, даже когда из среды вызывается код Transact-SQL. Не допускает значение NULL.
-      ,[group_id]--Идентификатор группы рабочей нагрузки, которой принадлежит этот запрос. Не допускает значение NULL.
-      ,[query_hash]--Двоичное хэш-значение рассчитывается для запроса и используется для идентификации запросов с аналогичной логикой. Можно использовать хэш запроса для определения использования статистических ресурсов для запросов, которые отличаются только своими литеральными значениями.
-      ,[query_plan_hash]--Двоичное хэш-значение рассчитывается для плана выполнения запроса и используется для идентификации аналогичных планов выполнения запросов. Можно использовать хэш плана запроса для нахождения совокупной стоимости запросов со схожими планами выполнения.
-FROM sys.dm_exec_requests
+select ES.[session_id]
+	      ,ER.[blocking_session_id]
+		  ,ER.[request_id]
+	      ,ER.[start_time]
+		  ,DateDiff(second, ER.[start_time], GetDate()) as [date_diffSec] --Сколько в сек прошло времени от момента поступления запроса
+		  , COALESCE(
+						CAST(NULLIF(ER.[total_elapsed_time] / 1000, 0) as BIGINT)
+					   ,CASE WHEN (ES.[status] <> 'running' and isnull(ER.[status], '')  <> 'running') 
+								THEN  DATEDIFF(ss,0,getdate() - nullif(ES.[last_request_end_time], '1900-01-01T00:00:00.000'))
+						END
+					) as [total_time, sec] --Время всей работы запроса в сек
+		  , CAST(NULLIF((CAST(ER.[total_elapsed_time] as BIGINT) - CAST(ER.[wait_time] AS BIGINT)) / 1000, 0 ) as bigint) as [work_time, sec] --Время работы запроса в сек без учета времени ожиданий
+		  , CASE WHEN (ER.[status] <> 'running' AND ISNULL(ER.[status],'') <> 'running') 
+		  			THEN  DATEDIFF(ss,0,getdate() - nullif(ES.[last_request_end_time], '1900-01-01T00:00:00.000'))
+			END as [sleep_time, sec] --Время сна в сек
+		  , NULLIF( CAST((ER.[logical_reads] + ER.[writes]) * 8 / 1024 as numeric(38,2)), 0) as [IO, MB] --операций чтения и записи в МБ
+		  , CASE  ER.transaction_isolation_level
+			WHEN 0 THEN 'Unspecified'
+			WHEN 1 THEN 'ReadUncommited'
+			WHEN 2 THEN 'ReadCommited'
+			WHEN 3 THEN 'Repetable'
+			WHEN 4 THEN 'Serializable'
+			WHEN 5 THEN 'Snapshot'
+			END as [transaction_isolation_level_desc] --уровень изоляции транзакции (расшифровка)
+	      ,ER.[status]
+		  ,ES.[status] as [status_session]
+	      ,ER.[command]
+		  ,ER.[percent_complete]
+		  ,DB_Name(coalesce(ER.[database_id], ES.[database_id])) as [DBName]
+		  , SUBSTRING(
+						(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle]))
+					  , ER.[statement_start_offset]/2+1
+					  ,	(
+							CASE WHEN ((ER.[statement_start_offset]<0) OR (ER.[statement_end_offset]<0))
+									THEN DATALENGTH ((select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])))
+								 ELSE ER.[statement_end_offset]
+							END
+							- ER.[statement_start_offset]
+						)/2 +1
+					 ) as [CURRENT_REQUEST] --Текущий выполняемый запрос в пакете
+	      ,(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])) as [TSQL]
+		  ,(select top(1) [objectid] from sys.dm_exec_sql_text(ER.[sql_handle])) as [objectid]
+		  ,(select top(1) [query_plan] from sys.dm_exec_query_plan(ER.[plan_handle])) as [QueryPlan]
+		  ,NULL as [event_info]--(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
+	      ,ER.[wait_type]
+	      ,ES.[login_time]
+		  ,ES.[host_name]
+		  ,ES.[program_name]
+		  ,cast(ER.[wait_time]/1000 as decimal(18,3)) as [wait_timeSec] --Если запрос в настоящий момент блокирован, в столбце содержится продолжительность текущего ожидания (в секундах)
+	      ,ER.[wait_time]
+	      ,ER.[last_wait_type]
+	      ,ER.[wait_resource]
+	      ,ER.[open_transaction_count]
+	      ,ER.[open_resultset_count]
+	      ,ER.[transaction_id]
+	      ,ER.[context_info]
+	      ,ER.[estimated_completion_time]
+	      ,ER.[cpu_time]
+	      ,ER.[total_elapsed_time]
+	      ,ER.[scheduler_id]
+	      ,ER.[task_address]
+	      ,ER.[reads]
+	      ,ER.[writes]
+	      ,ER.[logical_reads]
+	      ,ER.[text_size]
+	      ,ER.[language]
+	      ,ER.[date_format]
+	      ,ER.[date_first]
+	      ,ER.[quoted_identifier]
+	      ,ER.[arithabort]
+	      ,ER.[ansi_null_dflt_on]
+	      ,ER.[ansi_defaults]
+	      ,ER.[ansi_warnings]
+	      ,ER.[ansi_padding]
+	      ,ER.[ansi_nulls]
+	      ,ER.[concat_null_yields_null]
+	      ,ER.[transaction_isolation_level]
+	      ,ER.[lock_timeout]
+	      ,ER.[deadlock_priority]
+	      ,ER.[row_count]
+	      ,ER.[prev_error]
+	      ,ER.[nest_level]
+	      ,ER.[granted_query_memory]
+	      ,ER.[executing_managed_code]
+	      ,ER.[group_id]
+	      ,ER.[query_hash]
+	      ,ER.[query_plan_hash]
+		  ,EC.[most_recent_session_id]
+	      ,EC.[connect_time]
+	      ,EC.[net_transport]
+	      ,EC.[protocol_type]
+	      ,EC.[protocol_version]
+	      ,EC.[endpoint_id]
+	      ,EC.[encrypt_option]
+	      ,EC.[auth_scheme]
+	      ,EC.[node_affinity]
+	      ,EC.[num_reads]
+	      ,EC.[num_writes]
+	      ,EC.[last_read]
+	      ,EC.[last_write]
+	      ,EC.[net_packet_size]
+	      ,EC.[client_net_address]
+	      ,EC.[client_tcp_port]
+	      ,EC.[local_net_address]
+	      ,EC.[local_tcp_port]
+	      ,EC.[parent_connection_id]
+	      ,EC.[most_recent_sql_handle]
+		  ,ES.[host_process_id]
+		  ,ES.[client_version]
+		  ,ES.[client_interface_name]
+		  ,ES.[security_id]
+		  ,ES.[login_name]
+		  ,ES.[nt_domain]
+		  ,ES.[nt_user_name]
+		  ,ES.[memory_usage]
+		  ,ES.[total_scheduled_time]
+		  ,ES.[last_request_start_time]
+		  ,ES.[last_request_end_time]
+		  ,ES.[is_user_process]
+		  ,ES.[original_security_id]
+		  ,ES.[original_login_name]
+		  ,ES.[last_successful_logon]
+		  ,ES.[last_unsuccessful_logon]
+		  ,ES.[unsuccessful_logons]
+		  ,ES.[authenticating_database_id]
+		  ,ER.[sql_handle]
+	      ,ER.[statement_start_offset]
+	      ,ER.[statement_end_offset]
+	      ,ER.[plan_handle]
+		  ,NULL as [dop]--ER.[dop]
+	      ,coalesce(ER.[database_id], ES.[database_id]) as [database_id]
+	      ,ER.[user_id]
+	      ,ER.[connection_id]
+	from sys.dm_exec_requests ER with(readuncommitted)
+	right join sys.dm_exec_sessions ES with(readuncommitted)
+	on ES.session_id = ER.session_id 
+	left join sys.dm_exec_connections EC  with(readuncommitted)
+	on EC.session_id = ES.session_id
+	where ER.[status] in ('suspended', 'running', 'runnable')
+	or exists (select top(1) 1 from sys.dm_exec_requests as ER0 where ER0.[blocking_session_id]=ES.[session_id])
 
 
 

@@ -1,6 +1,7 @@
-﻿create view [inf].[vTables] as
+﻿
+CREATE   view [inf].[vTables] as
 --таблицы
-select @@Servername AS Server,
+select cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server],
        DB_NAME() AS DBName,
 	   s.name as SchemaName,
 	   t.name as TableName,
