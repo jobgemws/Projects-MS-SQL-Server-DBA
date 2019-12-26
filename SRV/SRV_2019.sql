@@ -71,25 +71,25 @@ ALTER DATABASE [SRV] SET QUERY_STORE = OFF
 GO
 USE [SRV]
 GO
-/****** Object:  Schema [dll]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [dll]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [dll]
 GO
-/****** Object:  Schema [inf]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [inf]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [inf]
 GO
-/****** Object:  Schema [nav]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [nav]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [nav]
 GO
-/****** Object:  Schema [rep]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [rep]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [rep]
 GO
-/****** Object:  Schema [srv]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [srv]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [srv]
 GO
-/****** Object:  Schema [zabbix]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Schema [zabbix]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE SCHEMA [zabbix]
 GO
-/****** Object:  UserDefinedFunction [inf].[SpaceusedDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [inf].[SpaceusedDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,24 +159,23 @@ BEGIN
 	RETURN;
 END
 GO
-/****** Object:  UserDefinedFunction [rep].[GetDateFormat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [rep].[GetDateFormat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE FUNCTION [rep].[GetDateFormat] 
+CREATE   FUNCTION [rep].[GetDateFormat] 
 (
-	@dt datetime, -- входная дата
-	@format int=0 -- заданный формат
+	@dt datetime, -- input date
+	@format int=0 -- specified format
 )
 RETURNS nvarchar(255)
 AS
 /*
-	15.04.2014 ГЕМ:
-	Возвращает дату в виде строки по заданному формату и входной дате
-	Проставляет необходимые нули:
-	формат	входная дата	результат
+	Returns the date as a string according to the specified format and input date.
+	Dumps the necessary zeros:
+	format  input date		result
 	0		17.4.2014		"17.04.2014"
 	1		17.4.2014		"04.2014"
 	1		8.11.2014		"11.2014"
@@ -190,13 +189,13 @@ BEGIN
 
 	if(@format=0)
 	begin
-		set @res=IIF(@day<10,'0'+cast(@day as nvarchar(1)), cast(@day as nvarchar(2)))+'.';
-		set @res=@res+IIF(@month<10,'0'+cast(@month as nvarchar(1)), cast(@month as nvarchar(2)))+'.';
+		set @res=case when(@day<10) then '0'+cast(@day as nvarchar(1)) else cast(@day as nvarchar(2))+'.' end;
+		set @res=@res+case when(@month<10) then '0'+cast(@month as nvarchar(1)) else cast(@month as nvarchar(2))+'.' end;
 		set @res=@res+cast(@year as nvarchar(255));
 	end
 	else if(@format=1)
 	begin
-		set @res=IIF(@month<10,'0'+cast(@month as nvarchar(1)), cast(@month as nvarchar(2)))+'.';
+		set @res=case when(@month<10) then '0'+cast(@month as nvarchar(1)) else cast(@month as nvarchar(2))+'.' end;
 		set @res=@res+cast(@year as nvarchar(255));
 	end
 	else if(@format=2)
@@ -210,7 +209,7 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [rep].[GetNameMonth]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [rep].[GetNameMonth]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -253,7 +252,7 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [rep].[GetNumMonth]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [rep].[GetNumMonth]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -296,24 +295,23 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [rep].[GetTimeFormat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [rep].[GetTimeFormat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE FUNCTION [rep].[GetTimeFormat] 
+CREATE   FUNCTION [rep].[GetTimeFormat] 
 (
-	@dt datetime, -- входное время
-	@format int=0 -- заданный формат
+	@dt datetime, -- input time
+	@format int=0 -- specified format
 )
 RETURNS nvarchar(255)
 AS
 /*
-	15.04.2014 ГЕМ:
-	Возвращает время в виде строки по заданному формату и входному времени
-	Проставляет необходимые нули:
-	формат	входное время	результат
+	Returns the time as a string according to the specified format and input time.
+	Dumps the necessary zeros:
+	format 	input time		result
 	0		17:04			"17:04:00"
 	1		17:04			"17:04"
 	1		8:04			"08:04"
@@ -327,18 +325,18 @@ BEGIN
 
 	if(@format=0)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)))+':';
-		set @res=@res+IIF(@min<10,'0'+cast(@min as nvarchar(1)), cast(@min as nvarchar(2)))+':';
-		set @res=@res+IIF(@sec<10,'0'+cast(@sec as nvarchar(1)), cast(@sec as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2))+':' end;
+		set @res=@res+case when(@min<10) then '0'+cast(@min as nvarchar(1)) else cast(@min as nvarchar(2))+':' end;
+		set @res=@res+case when(@sec<10) then '0'+cast(@sec as nvarchar(1)) else cast(@sec as nvarchar(2)) end;
 	end
 	else if(@format=1)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)))+':';
-		set @res=@res+IIF(@min<10,'0'+cast(@min as nvarchar(1)), cast(@min as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2))+':' end;
+		set @res=@res+case when(@min<10) then '0'+cast(@min as nvarchar(1)) else cast(@min as nvarchar(2)) end;
 	end
 	else if(@format=2)
 	begin
-		set @res=IIF(@hour<10,'0'+cast(@hour as nvarchar(1)), cast(@hour as nvarchar(2)));
+		set @res=case when(@hour<10) then '0'+cast(@hour as nvarchar(1)) else cast(@hour as nvarchar(2)) end;
 	end
 
 	RETURN @res;
@@ -346,7 +344,7 @@ BEGIN
 END
 
 GO
-/****** Object:  UserDefinedFunction [srv].[GetNumericNormalize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [srv].[GetNumericNormalize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -383,7 +381,7 @@ BEGIN
 END
 
 GO
-/****** Object:  UserDefinedFunction [srv].[ReturnTime]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [srv].[ReturnTime]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -413,7 +411,7 @@ END;
 
 
 GO
-/****** Object:  Table [srv].[QueryRequestGroupStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[QueryRequestGroupStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -456,7 +454,7 @@ CREATE TABLE [srv].[QueryRequestGroupStatistics](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vQueryRequestGroupStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vQueryRequestGroupStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -494,7 +492,7 @@ SELECT [DBName]
       ,[InsertUTCDate]
   FROM [srv].[QueryRequestGroupStatistics]
 GO
-/****** Object:  Table [srv].[PlanQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[PlanQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -604,10 +602,10 @@ CREATE TABLE [srv].[PlanQuery](
 (
 	[SQLHandle] ASC,
 	[PlanHandle] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[TSQL_DAY_Statistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[TSQL_DAY_Statistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -633,7 +631,7 @@ CREATE TABLE [srv].[TSQL_DAY_Statistics](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indClustered]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indClustered]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indClustered] ON [srv].[TSQL_DAY_Statistics]
 (
 	[PlanHandle] ASC,
@@ -641,7 +639,7 @@ CREATE CLUSTERED INDEX [indClustered] ON [srv].[TSQL_DAY_Statistics]
 	[DATE] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[SQLQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[SQLQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -653,10 +651,10 @@ CREATE TABLE [srv].[SQLQuery](
  CONSTRAINT [PK_SQLQuery] PRIMARY KEY CLUSTERED 
 (
 	[SQLHandle] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vTSQL_DAY_Statistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vTSQL_DAY_Statistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -692,7 +690,7 @@ SELECT tds.[DATE]
   inner join [srv].[PlanQuery] as pq on pq.[PlanHandle]=tds.[PlanHandle] and pq.[SQLHandle]=tds.[SqlHandle]
   inner join [srv].[SQLQuery] as sq on sq.[SqlHandle]=tds.[SqlHandle]
 GO
-/****** Object:  Table [srv].[RequestStatisticsArchive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[RequestStatisticsArchive]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -895,7 +893,7 @@ CREATE TABLE [srv].[RequestStatisticsArchive](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indRequest]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indRequest]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indRequest] ON [srv].[RequestStatisticsArchive]
 (
 	[session_id] ASC,
@@ -908,9 +906,9 @@ CREATE CLUSTERED INDEX [indRequest] ON [srv].[RequestStatisticsArchive]
 	[plan_handle] ASC,
 	[transaction_id] ASC,
 	[connection_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[RequestStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[RequestStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1113,7 +1111,7 @@ CREATE TABLE [srv].[RequestStatistics](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indRequest]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indRequest]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indRequest] ON [srv].[RequestStatistics]
 (
 	[session_id] ASC,
@@ -1126,9 +1124,9 @@ CREATE CLUSTERED INDEX [indRequest] ON [srv].[RequestStatistics]
 	[plan_handle] ASC,
 	[transaction_id] ASC,
 	[connection_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vRequestStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vRequestStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1977,7 +1975,7 @@ select rs.[session_id] --Сессия
 
 
 GO
-/****** Object:  Table [srv].[QueryStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[QueryStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2005,16 +2003,16 @@ CREATE TABLE [srv].[QueryStatistics](
  CONSTRAINT [PK_QueryStatistics] PRIMARY KEY NONCLUSTERED 
 (
 	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indClustQueryStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indClustQueryStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indClustQueryStatistics] ON [srv].[QueryStatistics]
 (
 	[creation_time] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vQueryStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vQueryStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2049,7 +2047,7 @@ SELECT qs.[creation_time]
   inner join [srv].[PlanQuery] as pq on qs.[sql_handle]=pq.[SqlHandle] and qs.[plan_handle]=pq.[PlanHandle]
   inner join [srv].[SQLQuery] as sq on sq.[SqlHandle]=pq.[SqlHandle]
 GO
-/****** Object:  View [srv].[vPlanQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vPlanQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2159,7 +2157,7 @@ SELECT pq.[PlanHandle]
   FROM [srv].[PlanQuery] as pq
   inner join [srv].[SQLQuery] as sq on sq.[SQLHandle]=pq.[SQLHandle]
 GO
-/****** Object:  View [inf].[vTableSize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vTableSize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2216,7 +2214,7 @@ CREATE view [inf].[vTableSize] as
 
 
 GO
-/****** Object:  View [inf].[vDataSize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDataSize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2248,7 +2246,7 @@ select
 	[UnusedUserTablesKB]
 from tbl;
 GO
-/****** Object:  Table [srv].[IndicatorStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[IndicatorStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2267,7 +2265,7 @@ CREATE TABLE [srv].[IndicatorStatistics](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vIndicatorStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vIndicatorStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2294,7 +2292,7 @@ SELECT [DATE]
 	   end as 'IndicatorStatistics'
   FROM [srv].[IndicatorStatistics]
 GO
-/****** Object:  Table [srv].[IndicatorServerDayStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[IndicatorServerDayStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2315,7 +2313,7 @@ CREATE TABLE [srv].[IndicatorServerDayStatistics](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vIndicatorServerPred4DaysStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vIndicatorServerPred4DaysStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2367,7 +2365,7 @@ inner join tbl as t2 on t1.[Server]=t2.[Server] and t1.[Num]=t2.[Num]-1 and t2.[
 inner join tbl as t3 on t2.[Server]=t3.[Server] and t2.[Num]=t3.[Num]-1 and t3.[DATE]=cast(DateAdd(day,-2,GetUTCDate()) as DATE)
 inner join tbl as t4 on t3.[Server]=t4.[Server] and t3.[Num]=t4.[Num]-1 and t4.[DATE]=cast(DateAdd(day,-1,GetUTCDate()) as DATE);
 GO
-/****** Object:  View [inf].[vJobSteps]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobSteps]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2403,7 +2401,7 @@ SELECT [job_id]
   FROM [msdb].[dbo].[sysjobsteps];
 
 GO
-/****** Object:  View [inf].[vJobServers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobServers]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2423,7 +2421,7 @@ SELECT jobser.[job_id]
   left outer join [sys].[servers] as serv on jobser.[server_id]=serv.[server_id]
 
 GO
-/****** Object:  View [inf].[vJOBS]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJOBS]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2455,7 +2453,7 @@ select
 from msdb.dbo.sysjobs_view
 
 GO
-/****** Object:  View [inf].[vJobStepRunShortInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobStepRunShortInfo]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2565,7 +2563,7 @@ SELECT sj.[job_id] as Job_GUID
 
 
 GO
-/****** Object:  Table [srv].[Drivers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[Drivers]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2585,7 +2583,7 @@ CREATE TABLE [srv].[Drivers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vDrivers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vDrivers]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2617,7 +2615,7 @@ select
       ,[UpdateUTCdate]
   FROM [srv].[Drivers]
 GO
-/****** Object:  Table [srv].[TableStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[TableStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2671,13 +2669,13 @@ CREATE TABLE [srv].[TableStatistics](
 	[DiffTotalPageSizeKB]  AS (([TotalPageSizeKBNext]+[TotalPageSizeKBBack])-(2)*[TotalPageSizeKB]) PERSISTED
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[TableStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vTableStatisticsShort]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vTableStatisticsShort]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2735,7 +2733,7 @@ SELECT t.[ServerName]
   where t.[CountRowsBack] is not null
 	and	t.[CountRowsNext] is not null
 GO
-/****** Object:  View [inf].[vJobSchedules]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobSchedules]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2749,7 +2747,7 @@ SELECT [schedule_id]
   FROM [msdb].[dbo].[sysjobschedules];
 
 GO
-/****** Object:  View [inf].[vScheduleMultiJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vScheduleMultiJobs]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2775,7 +2773,7 @@ where exists(select top(1) 1 from sh where sh.schedule_id=s.schedule_id)
 
 
 GO
-/****** Object:  View [srv].[vTableStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vTableStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2824,7 +2822,7 @@ SELECT [ServerName]
 
 
 GO
-/****** Object:  View [inf].[vJobRunShortInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobRunShortInfo]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2835,14 +2833,15 @@ GO
 
 
 
-CREATE view [inf].[vJobRunShortInfo] as
+
+CREATE   view [inf].[vJobRunShortInfo] as
 SELECT sj.[job_id] as Job_GUID
       ,j.name as Job_Name
       ,case sj.[last_run_outcome]
-		when 0 then 'Ошибка'
-		when 1 then 'Успешно'
-		when 3 then 'Отменено'
-		else case when sj.[last_run_date] is not null and len(sj.[last_run_date])=8 then 'Неопределенное состояние'
+		when 0 then 'Error'
+		when 1 then 'Success'
+		when 3 then 'Canceled'
+		else case when sj.[last_run_date] is not null and len(sj.[last_run_date])=8 then 'Indefinite state'
 				else NULL
 				end
 	   end as LastFinishRunState
@@ -2889,7 +2888,7 @@ SELECT sj.[job_id] as Job_GUID
 
 
 GO
-/****** Object:  View [srv].[vDBSizeStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vDBSizeStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2922,7 +2921,7 @@ SELECT [ServerName]
   FROM [srv].[vTableStatistics]
   group by [ServerName], [DBName]
 GO
-/****** Object:  Table [srv].[TableIndexStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[TableIndexStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2937,13 +2936,13 @@ CREATE TABLE [srv].[TableIndexStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[TableIndexStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vTableIndexStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vTableIndexStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2973,7 +2972,7 @@ SELECT [ServerName]
 
 
 GO
-/****** Object:  View [srv].[vSQLQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vSQLQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2985,7 +2984,7 @@ SELECT [SQLHandle]
       ,[InsertUTCDate]
   FROM [srv].[SQLQuery]
 GO
-/****** Object:  Table [srv].[Defrag]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[Defrag]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3013,7 +3012,7 @@ CREATE TABLE [srv].[Defrag](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vStatisticDefrag]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vStatisticDefrag]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3040,7 +3039,7 @@ SELECT top 1000
 
 
 GO
-/****** Object:  Table [srv].[DBFileStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DBFileStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3094,28 +3093,28 @@ CREATE TABLE [srv].[DBFileStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[DBFileStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [inf].[vDBSizeDrive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDBSizeDrive]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vDBSizeDrive] as
+CREATE   view [inf].[vDBSizeDrive] as
 SELECT [Server], [DBName], [Drive]
       ,SUM([SizeMb]) as [SizeMb]
       ,SUM([GrowthMb]) as [GrowthMb]
       ,cast([InsertUTCDate] as date) as [DATE]
-  FROM [SRV].[srv].[DBFileStatistics]
+  FROM [srv].[DBFileStatistics]
   where [Server] not like 'HLT%'
   and [Server] not like 'STG%'
   group by [Server], [DBName], [Drive], cast([InsertUTCDate] as date)
 GO
-/****** Object:  Table [srv].[ServerDBFileInfoStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ServerDBFileInfoStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3134,13 +3133,13 @@ CREATE TABLE [srv].[ServerDBFileInfoStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[ServerDBFileInfoStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vServerDBFileInfoStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vServerDBFileInfoStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3180,7 +3179,7 @@ SELECT [ServerName]
       ,[Ext]
 
 GO
-/****** Object:  Table [srv].[DBFile]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DBFile]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3204,10 +3203,10 @@ CREATE TABLE [srv].[DBFile](
  CONSTRAINT [PK_DBFile] PRIMARY KEY CLUSTERED 
 (
 	[DBFile_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vDBFiles]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vDBFiles]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3236,7 +3235,7 @@ SELECT [DBFile_GUID]
       ,[UpdateUTCdate]
   FROM [srv].[DBFile];
 GO
-/****** Object:  Table [srv].[RestoreSettings]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[RestoreSettings]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3250,10 +3249,10 @@ CREATE TABLE [srv].[RestoreSettings](
  CONSTRAINT [PK_RestoreSettings_1] PRIMARY KEY CLUSTERED 
 (
 	[DBName] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vRestoreSettings]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vRestoreSettings]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3267,7 +3266,7 @@ SELECT [DBName]
       ,[InsertUTCDate]
   FROM [srv].[RestoreSettings]
 GO
-/****** Object:  Table [srv].[BigQueryStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[BigQueryStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3305,13 +3304,13 @@ CREATE TABLE [srv].[BigQueryStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[BigQueryStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vBigQueryStatisticsRemote]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vBigQueryStatisticsRemote]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3351,7 +3350,7 @@ SELECT [Server]
       ,[InsertUTCDate]
   FROM [srv].[BigQueryStatistics]
 GO
-/****** Object:  Table [srv].[BigQueryGroupStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[BigQueryGroupStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3389,13 +3388,13 @@ CREATE TABLE [srv].[BigQueryGroupStatistics](
 	[InsertUTCDate] [datetime] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:44 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[BigQueryGroupStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vBigQueryGroupStatisticsRemote]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vBigQueryGroupStatisticsRemote]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3434,7 +3433,7 @@ SELECT [Server]
       ,[InsertUTCDate]
   FROM [srv].[BigQueryGroupStatistics]
 GO
-/****** Object:  Table [srv].[BackupSettings]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[BackupSettings]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3448,10 +3447,10 @@ CREATE TABLE [srv].[BackupSettings](
  CONSTRAINT [PK_BackupSettings_1] PRIMARY KEY CLUSTERED 
 (
 	[DBID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vBackupSettings]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vBackupSettings]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3466,15 +3465,16 @@ SELECT [DBID]
       ,[InsertUTCDate]
   FROM [srv].[BackupSettings]
 GO
-/****** Object:  View [inf].[ServerDBFileInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[ServerDBFileInfo]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE view [inf].[ServerDBFileInfo] as
-SELECT  @@Servername AS Server ,
+
+CREATE   view [inf].[ServerDBFileInfo] as
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         File_id ,--Идентификатор файла в базе данных. Основное значение file_id всегда равно 1
         Type_desc ,--Описание типа файла
         Name as [FileName] ,--Логическое имя файла в базе данных
@@ -3517,7 +3517,7 @@ SELECT  @@Servername AS Server ,
 FROM    sys.master_files--database_files
 
 GO
-/****** Object:  View [srv].[vDBSizeShortStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vDBSizeShortStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3545,7 +3545,7 @@ SELECT [DB_Name] as [DBName]
   inner join [inf].[ServerDBFileInfo] as tbl2 on tbl1.[DBName]=tbl2.[DB_Name]
   group by [DB_Name]
 GO
-/****** Object:  View [inf].[vDBFilesOperationsStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDBFilesOperationsStat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3602,7 +3602,7 @@ from fn_virtualfilestats(NULL, NULL) as t1
 inner join [inf].[ServerDBFileInfo] as t2 on t1.[DbId]=t2.[database_id] and t1.[FileId]=t2.[File_Id]
 --order by IoStallReadMS desc
 GO
-/****** Object:  Table [srv].[Recipient]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[Recipient]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3616,18 +3616,18 @@ CREATE TABLE [srv].[Recipient](
  CONSTRAINT [PK_Recipient] PRIMARY KEY CLUSTERED 
 (
 	[Recipient_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY],
  CONSTRAINT [AK_Recipient_Code] UNIQUE NONCLUSTERED 
 (
 	[Recipient_Code] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY],
  CONSTRAINT [AK_Recipient_Name] UNIQUE NONCLUSTERED 
 (
 	[Recipient_Name] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[Address]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[Address]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3641,15 +3641,15 @@ CREATE TABLE [srv].[Address](
  CONSTRAINT [PK_Address] PRIMARY KEY CLUSTERED 
 (
 	[Address_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY],
  CONSTRAINT [AK_Address] UNIQUE NONCLUSTERED 
 (
 	[Recipient_GUID] ASC,
 	[Address] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vRecipientAddress]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vRecipientAddress]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3663,7 +3663,7 @@ select t1.Address,
 from [srv].[Address] as t1
 inner join [srv].[Recipient] as t2 on t1.Recipient_GUID=t2.Recipient_GUID
 GO
-/****** Object:  Table [srv].[ActiveConnectionStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ActiveConnectionStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3682,10 +3682,10 @@ CREATE TABLE [srv].[ActiveConnectionStatistics](
  CONSTRAINT [PK_ActiveConnectionStatistics] PRIMARY KEY CLUSTERED 
 (
 	[Row_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [srv].[vActiveConnectionStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vActiveConnectionStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3706,7 +3706,7 @@ SELECT [ServerName]
 	  ,[InsertUTCDate]
   FROM [srv].[ActiveConnectionStatistics] with(readuncommitted)
 GO
-/****** Object:  View [srv].[vActiveConnectionShortStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vActiveConnectionShortStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3749,7 +3749,7 @@ SELECT [ServerName]
  --     ,[DBName]
 	--  ,[Status]
 GO
-/****** Object:  UserDefinedFunction [dbo].[GetPlansObject]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  UserDefinedFunction [dbo].[GetPlansObject]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3800,7 +3800,7 @@ RETURN
 	where st.objectid=@ObjectID and st.dbid=@DBID
 )
 GO
-/****** Object:  View [inf].[AllIndexFrag]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[AllIndexFrag]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3844,7 +3844,7 @@ FROM sys.dm_db_index_physical_stats (DB_ID(), NULL,
 
 
 GO
-/****** Object:  View [inf].[SqlLogins]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[SqlLogins]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3863,7 +3863,7 @@ is_expiration_checked as IsExpirationChecked, --истечение срока д
 is_disabled as IsDisabled
 from sys.sql_logins
 GO
-/****** Object:  View [inf].[SysLogins]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[SysLogins]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3892,7 +3892,7 @@ dbcreator as DBCreator,
 bulkadmin as BulkAdmin
 from sys.syslogins
 GO
-/****** Object:  View [inf].[vActiveConnect]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vActiveConnect]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3921,7 +3921,7 @@ where
 
 
 GO
-/****** Object:  View [inf].[vBigQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vBigQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4055,7 +4055,7 @@ cross apply sys.dm_exec_query_plan(s.[plan_handle]) as sp
 
 
 GO
-/****** Object:  View [inf].[vBlockingQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vBlockingQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4084,7 +4084,7 @@ CROSS APPLY sys.dm_exec_sql_text(ec1.most_recent_sql_handle) AS h1
 CROSS APPLY sys.dm_exec_sql_text(ec2.most_recent_sql_handle) AS h2
 
 GO
-/****** Object:  View [inf].[vBlockRequest]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vBlockRequest]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4157,13 +4157,14 @@ where blocking_session_id<>0
 
 
 GO
-/****** Object:  View [inf].[vColumns]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vColumns]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vColumns] as
-SELECT  @@Servername AS Server ,
+
+CREATE   view [inf].[vColumns] as
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         isc.Table_Name AS TableName ,
         isc.Table_Schema AS SchemaName ,
@@ -4187,17 +4188,18 @@ FROM     INFORMATION_SCHEMA.COLUMNS isc
 
 
 GO
-/****** Object:  View [inf].[vColumnsStatisticsCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vColumnsStatisticsCount]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE view [inf].[vColumnsStatisticsCount] as
+
+CREATE   view [inf].[vColumnsStatisticsCount] as
 -- Имена столбцов и количество повторов
 -- Используется для поиска одноимённых столбцов с разными типами данных/длиной
 
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         Column_Name ,
         Data_Type ,
@@ -4216,7 +4218,7 @@ GROUP BY Column_Name ,
         Character_Maximum_Length; 
 
 GO
-/****** Object:  View [inf].[vColumnTableDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vColumnTableDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4235,7 +4237,7 @@ left outer join sys.extended_properties as ep on t.[object_id]=ep.[major_id]
 											 and ep.[name]='MS_Description'
 where t.[is_ms_shipped]=0;
 GO
-/****** Object:  View [inf].[vColumnViewDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vColumnViewDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4254,17 +4256,18 @@ left outer join sys.extended_properties as ep on t.[object_id]=ep.[major_id]
 											 and ep.[name]='MS_Description'
 where t.[is_ms_shipped]=0;
 GO
-/****** Object:  View [inf].[vComputedColumns]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vComputedColumns]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE view [inf].[vComputedColumns] as
+
+CREATE   view [inf].[vComputedColumns] as
 -- Вычисляемые столбцы
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(t.object_id) AS SchemaName ,
         OBJECT_NAME(t.object_id) AS Tablename ,
@@ -4281,7 +4284,7 @@ FROM    sys.computed_columns as t
 
 
 GO
-/****** Object:  View [inf].[vCountRows]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vCountRows]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4308,14 +4311,15 @@ CREATE view [inf].[vCountRows] as
 	--        TableName;
 
 GO
-/****** Object:  View [inf].[vDBFileInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDBFileInfo]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vDBFileInfo] as
+
+CREATE   view [inf].[vDBFileInfo] as
 --информация о файлах БД
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DB_Name ,
         File_id ,
         Type_desc ,
@@ -4330,16 +4334,17 @@ FROM    sys.database_files
 
 
 GO
-/****** Object:  View [inf].[vDefaultsConstraints]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDefaultsConstraints]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE view [inf].[vDefaultsConstraints] as
+
+CREATE   view [inf].[vDefaultsConstraints] as
 -- Column Defaults 
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         OBJECT_SCHEMA_NAME(t.object_id) AS SchemaName ,
         t.Name AS TableName ,
@@ -4360,7 +4365,7 @@ WHERE    default_object_id <> 0
 
 
 GO
-/****** Object:  View [inf].[vDelIndexOptimize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDelIndexOptimize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4438,7 +4443,7 @@ and ind.is_primary_key=0 --не является ограничением пер
 and ind.is_unique_constraint=0 --не является ограничением уникальности
 and t.database_id=DB_ID()
 GO
-/****** Object:  View [inf].[vDisk]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vDisk]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4459,7 +4464,7 @@ select [Disk]
 		GROUP BY volume_mount_point
 	) as a;
 GO
-/****** Object:  View [inf].[vFK_Keys]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vFK_Keys]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4485,7 +4490,7 @@ FROM    sys.foreign_keys AS f
 
 
 GO
-/****** Object:  View [inf].[vFK_KeysIndexes]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vFK_KeysIndexes]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4547,15 +4552,16 @@ FROM     INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS rc
 
 
 GO
-/****** Object:  View [inf].[vFuncs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vFuncs]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vFuncs] as
+
+CREATE   view [inf].[vFuncs] as
 -- Дополнительная информация о функциях
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         o.name AS 'FunctionName' ,
         o.[type] ,
@@ -4569,7 +4575,7 @@ WHERE   o.[Type] in ('FN', 'AF', 'FS', 'FT', 'IF', 'TF') -- Function
 
 
 GO
-/****** Object:  View [inf].[vFunctionStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vFunctionStat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4617,15 +4623,16 @@ FROM sys.dm_exec_function_stats AS QS
      CROSS APPLY sys.dm_exec_sql_text(QS.[sql_handle]) as ST
 	 CROSS APPLY sys.dm_exec_query_plan(QS.[plan_handle]) as PT
 GO
-/****** Object:  View [inf].[vHeaps]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vHeaps]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vHeaps] as
+
+CREATE   view [inf].[vHeaps] as
 -- Кучи + количество записей
 
-SELECT  @@ServerName AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(ddps.object_id) AS SchemaName ,
         OBJECT_NAME(ddps.object_id) AS TableName ,
@@ -4640,14 +4647,15 @@ GROUP BY ddps.object_id ,
         i.type_desc
 --ORDER BY TableName;
 GO
-/****** Object:  View [inf].[vIdentityColumns]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vIdentityColumns]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vIdentityColumns] as
+
+CREATE   view [inf].[vIdentityColumns] as
 --Колонки identity
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
         OBJECT_SCHEMA_NAME(object_id) AS SchemaName ,
         OBJECT_NAME(object_id) AS TableName ,
@@ -4662,12 +4670,12 @@ FROM    sys.identity_columns
 
 
 GO
-/****** Object:  View [inf].[vIndexDefrag]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vIndexDefrag]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vIndexDefrag]
+CREATE   view [inf].[vIndexDefrag]
 	as
 	with info as 
 	(SELECT
@@ -4710,16 +4718,17 @@ CREATE view [inf].[vIndexDefrag]
 		i.ghost_record_count as ghost,
 		round(i.avg_fragmentation_in_percent*i.page_count,0) as func
 	FROM info as i
-	inner join [sys].[all_objects]	as t	on i.[object_id] = t.[object_id]
+	inner join [sys].[all_objects]	as t	on i.[object_id] = t.[object_id];
 GO
-/****** Object:  View [inf].[vIndexesUser]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vIndexesUser]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vIndexesUser] as
+
+CREATE   view [inf].[vIndexesUser] as
 -- Пользовательские индексы
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
         obj.Name AS TableName ,
         i.Name AS IndexName ,
@@ -4753,7 +4762,7 @@ WHERE   obj.[Type] = 'U' -- User table
 --ORDER BY o.NAME ,
 --        i.name; 
 GO
-/****** Object:  View [inf].[vIndexUsageStats]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vIndexUsageStats]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4828,7 +4837,7 @@ CREATE view [inf].[vIndexUsageStats] as
 			 inner join sys.objects as obj on obj.object_id=i.object_id
 	--WHERE    OBJECTPROPERTY(S.[OBJECT_ID],'IsUserTable') = 1 
 GO
-/****** Object:  View [inf].[vIndFileGroup]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vIndFileGroup]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4859,7 +4868,7 @@ INNER JOIN sys.all_objects AS obj
 WHERE ind.[data_space_id] = f.[data_space_id]
 --AND obj.[type] = 'U' -- User Created Tables
 GO
-/****** Object:  View [inf].[vInnerTableSize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vInnerTableSize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4877,7 +4886,7 @@ where OBJECTPROPERTY(p.[object_id], N'IsUserTable')=0
 group by object_name(p.[object_id])
 --order by p.[rows] desc;
 GO
-/****** Object:  View [inf].[vJobActivity]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobActivity]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4909,7 +4918,7 @@ SELECT sja.[session_id]
     and jobser.[server_id]=0;
 
 GO
-/****** Object:  View [inf].[vJobHistory]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobHistory]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4935,7 +4944,7 @@ SELECT [instance_id]
   FROM [msdb].[dbo].[sysjobhistory];
 
 GO
-/****** Object:  View [inf].[vJobStepsLogs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vJobStepsLogs]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4951,7 +4960,7 @@ SELECT [log_id]
   FROM [msdb].[dbo].[sysjobstepslogs];
 
 GO
-/****** Object:  View [inf].[vLocks]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vLocks]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4974,19 +4983,20 @@ SELECT
         ON t1.lock_owner_address = t2.resource_address;
 
 GO
-/****** Object:  View [inf].[vNewIndexOptimize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vNewIndexOptimize]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vNewIndexOptimize] as
+
+CREATE   view [inf].[vNewIndexOptimize] as
 /*
 	ГЕМ: степень полезности новых индексов
 	index_advantage: >50 000 - очень выгодно создать индекс
 					 >10 000 - можно создать индекс, однако нужно анализировать и его поддержку
 					 <=10000 - индекс можно не создавать
 */
-SELECT @@ServerName AS ServerName,
+SELECT cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName,
        DB_Name(ddmid.[database_id]) as [DBName],
 	   OBJECT_SCHEMA_NAME(ddmid.[object_id], ddmid.[database_id]) as [Schema],
 	   OBJECT_NAME(ddmid.[object_id], ddmid.[database_id]) as [Name],
@@ -5056,7 +5066,7 @@ ON ddmig.index_handle = ddmid.index_handle
 
 
 GO
-/****** Object:  View [inf].[vObjectDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vObjectDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5077,7 +5087,7 @@ left outer join sys.extended_properties as ep on obj.[object_id]=ep.[major_id]
 where obj.[is_ms_shipped]=0
 and obj.[parent_object_id]=0
 GO
-/****** Object:  View [inf].[vObjectInParentDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vObjectInParentDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5098,7 +5108,7 @@ left outer join sys.extended_properties as ep on obj.[parent_object_id]=ep.[majo
 where obj.[is_ms_shipped]=0
 and obj.[parent_object_id]<>0
 GO
-/****** Object:  View [inf].[vOldStatisticsState]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vOldStatisticsState]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5188,7 +5198,7 @@ CREATE view [inf].[vOldStatisticsState] as
 		--если есть что обновлять (и данные существенно менялись)
 		AND ((st.[ProcModified]>=10.0) OR (st.[Func]>=10.0) OR (st.[ProcSampled]<=50))
 GO
-/****** Object:  View [inf].[vParameterDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vParameterDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5208,7 +5218,7 @@ left outer join sys.extended_properties as ep on obj.[object_id]=ep.[major_id]
 											 and ep.[name]='MS_Description'
 where obj.[is_ms_shipped]=0
 GO
-/****** Object:  View [inf].[vPerformanceObject]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vPerformanceObject]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5230,15 +5240,17 @@ from master.dbo.sysperfinfo
 
 
 GO
-/****** Object:  View [inf].[vProcedures]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vProcedures]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE view [inf].[vProcedures] as
--- Дополнительная информация о ХП 
 
-SELECT  @@Servername AS ServerName ,
+
+CREATE   view [inf].[vProcedures] as
+-- Additional information about SP 
+
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DB_Name ,
 		s.name as SchemaName,
         o.name AS 'ViewName' ,
@@ -5257,7 +5269,7 @@ WHERE   o.[type] in ('P', 'PC') -- Stored Procedures
 
 
 GO
-/****** Object:  View [inf].[vProcedureStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vProcedureStat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5305,7 +5317,7 @@ FROM sys.dm_exec_procedure_stats AS QS
      CROSS APPLY sys.dm_exec_sql_text(QS.[sql_handle]) as ST
 	 CROSS APPLY sys.dm_exec_query_plan(QS.[plan_handle]) as PT
 GO
-/****** Object:  View [inf].[vProcesses]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vProcesses]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5352,7 +5364,7 @@ from sysprocesses
 
 
 GO
-/****** Object:  View [inf].[vQueryResourse]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vQueryResourse]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5377,7 +5389,7 @@ CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) AS st
 
 
 GO
-/****** Object:  View [inf].[vQueryStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vQueryStat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5470,7 +5482,7 @@ FROM sys.dm_exec_query_stats AS QS
      CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST
 	 CROSS APPLY sys.dm_exec_query_plan(QS.[plan_handle]) as PT
 GO
-/****** Object:  View [inf].[vRAM]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vRAM]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5506,7 +5518,7 @@ select a.[TotalAvailOSRam_Mb]						--сколько свободно ОЗУ на
 	) as a
 	;
 GO
-/****** Object:  View [inf].[vReadWriteTables]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vReadWriteTables]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5544,17 +5556,18 @@ CREATE view [inf].[vReadWriteTables] as
 	--ORDER BY [Reads&Writes] DESC
 
 GO
-/****** Object:  View [inf].[vRecomendateIndex]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vRecomendateIndex]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE view [inf].[vRecomendateIndex] as
+
+CREATE   view [inf].[vRecomendateIndex] as
 
 -- Отсутствующие индексы из DMV
 
-SELECT  @@ServerName AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_Name(ddmid.[database_id]) as [DBName] ,
         t.name AS 'Affected_table' ,
 		ddmigs.user_seeks * ddmigs.avg_total_user_cost * (ddmigs.avg_user_impact * 0.01) AS index_advantage,
@@ -5623,7 +5636,7 @@ WHERE   ddmid.database_id = DB_ID()
 
 
 GO
-/****** Object:  View [inf].[vRequestDetail]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vRequestDetail]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5633,7 +5646,7 @@ GO
 
 
 
-CREATE view [inf].[vRequestDetail] as
+CREATE   view [inf].[vRequestDetail] as
 /*Активные, готовые к выполнению и ожидающие запросы, а также те, что явно блокируют другие сеансы*/
 with tbl0 as (
 	select ES.[session_id]
@@ -5648,7 +5661,7 @@ with tbl0 as (
 	      ,(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])) as [TSQL]
 		  ,(select top(1) [objectid] from sys.dm_exec_sql_text(ER.[sql_handle])) as [objectid]
 		  ,(select top(1) [query_plan] from sys.dm_exec_query_plan(ER.[plan_handle])) as [QueryPlan]
-		  ,(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
+		  ,NULL as [event_info]--(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
 	      ,ER.[wait_type]
 	      ,ES.[login_time]
 		  ,ES.[host_name]
@@ -5733,7 +5746,7 @@ with tbl0 as (
 	      ,ER.[statement_start_offset]
 	      ,ER.[statement_end_offset]
 	      ,ER.[plan_handle]
-		  ,ER.[dop]
+		  ,NULL as [dop]--ER.[dop]
 	      ,coalesce(ER.[database_id], ES.[database_id]) as [database_id]
 	      ,ER.[user_id]
 	      ,ER.[connection_id]
@@ -6114,36 +6127,36 @@ select tbl0.[session_id]
 		  ,max(qs.[last_rows])						as [max_last_rows]
 		  ,min(qs.[min_rows])						as [min_rows]
 		  ,max(qs.[max_rows])						as [max_rows]
-		  ,max(qs.[total_dop])						as [total_dop]
-		  ,min(qs.[last_dop])						as [min_last_dop]
-		  ,max(qs.[last_dop])						as [max_last_dop]
-		  ,min(qs.[min_dop])						as [min_dop]
-		  ,max(qs.[max_dop])						as [max_dop]
-		  ,max(qs.[total_grant_kb])					as [total_grant_kb]
-		  ,min(qs.[last_grant_kb])					as [min_last_grant_kb]
-		  ,max(qs.[last_grant_kb])					as [max_last_grant_kb]
-		  ,min(qs.[min_grant_kb])					as [min_grant_kb]
-		  ,max(qs.[max_grant_kb])					as [max_grant_kb]
-		  ,max(qs.[total_used_grant_kb])			as [total_used_grant_kb]
-		  ,min(qs.[last_used_grant_kb])				as [min_last_used_grant_kb]
-		  ,max(qs.[last_used_grant_kb])				as [max_last_used_grant_kb]
-		  ,min(qs.[min_used_grant_kb])				as [min_used_grant_kb]
-		  ,max(qs.[max_used_grant_kb])				as [max_used_grant_kb]
-		  ,max(qs.[total_ideal_grant_kb])			as [total_ideal_grant_kb]
-		  ,min(qs.[last_ideal_grant_kb])			as [min_last_ideal_grant_kb]
-		  ,max(qs.[last_ideal_grant_kb])			as [max_last_ideal_grant_kb]
-		  ,min(qs.[min_ideal_grant_kb])				as [min_ideal_grant_kb]
-		  ,max(qs.[max_ideal_grant_kb])				as [max_ideal_grant_kb]
-		  ,max(qs.[total_reserved_threads])			as [total_reserved_threads]
-		  ,min(qs.[last_reserved_threads])			as [min_last_reserved_threads]
-		  ,max(qs.[last_reserved_threads])			as [max_last_reserved_threads]
-		  ,min(qs.[min_reserved_threads])			as [min_reserved_threads]
-		  ,max(qs.[max_reserved_threads])			as [max_reserved_threads]
-		  ,max(qs.[total_used_threads])				as [total_used_threads]
-		  ,min(qs.[last_used_threads])				as [min_last_used_threads]
-		  ,max(qs.[last_used_threads])				as [max_last_used_threads]
-		  ,min(qs.[min_used_threads])				as [min_used_threads]
-		  ,max(qs.[max_used_threads])				as [max_used_threads]
+		  ,/*max(qs.[total_dop])			 */NULL as [total_dop]
+		  ,/*min(qs.[last_dop])				 */NULL as [min_last_dop]
+		  ,/*max(qs.[last_dop])				 */NULL as [max_last_dop]
+		  ,/*min(qs.[min_dop])				 */NULL as [min_dop]
+		  ,/*max(qs.[max_dop])				 */NULL as [max_dop]
+		  ,/*max(qs.[total_grant_kb])		 */NULL as [total_grant_kb]
+		  ,/*min(qs.[last_grant_kb])		 */NULL as [min_last_grant_kb]
+		  ,/*max(qs.[last_grant_kb])		 */NULL as [max_last_grant_kb]
+		  ,/*min(qs.[min_grant_kb])			 */NULL as [min_grant_kb]
+		  ,/*max(qs.[max_grant_kb])			 */NULL as [max_grant_kb]
+		  ,/*max(qs.[total_used_grant_kb])	 */NULL as [total_used_grant_kb]
+		  ,/*min(qs.[last_used_grant_kb])	 */NULL as [min_last_used_grant_kb]
+		  ,/*max(qs.[last_used_grant_kb])	 */NULL as [max_last_used_grant_kb]
+		  ,/*min(qs.[min_used_grant_kb])	 */NULL as [min_used_grant_kb]
+		  ,/*max(qs.[max_used_grant_kb])	 */NULL as [max_used_grant_kb]
+		  ,/*max(qs.[total_ideal_grant_kb])	 */NULL as [total_ideal_grant_kb]
+		  ,/*min(qs.[last_ideal_grant_kb])	 */NULL as [min_last_ideal_grant_kb]
+		  ,/*max(qs.[last_ideal_grant_kb])	 */NULL as [max_last_ideal_grant_kb]
+		  ,/*min(qs.[min_ideal_grant_kb])	 */NULL as [min_ideal_grant_kb]
+		  ,/*max(qs.[max_ideal_grant_kb])	 */NULL as [max_ideal_grant_kb]
+		  ,/*max(qs.[total_reserved_threads])*/NULL as [total_reserved_threads]
+		  ,/*min(qs.[last_reserved_threads]) */NULL as [min_last_reserved_threads]
+		  ,/*max(qs.[last_reserved_threads]) */NULL as [max_last_reserved_threads]
+		  ,/*min(qs.[min_reserved_threads])	 */NULL as [min_reserved_threads]
+		  ,/*max(qs.[max_reserved_threads])	 */NULL as [max_reserved_threads]
+		  ,/*max(qs.[total_used_threads])	 */NULL as [total_used_threads]
+		  ,/*min(qs.[last_used_threads])	 */NULL as [min_last_used_threads]
+		  ,/*max(qs.[last_used_threads])	 */NULL as [max_last_used_threads]
+		  ,/*min(qs.[min_used_threads])		 */NULL as [min_used_threads]
+		  ,/*max(qs.[max_used_threads])		 */NULL as [max_used_threads]
 	from tbl_res_rec_g as t
 	inner join sys.dm_exec_query_stats as qs with(readuncommitted) on t.[plan_handle]=qs.[plan_handle] 
 																  and t.[sql_handle]=qs.[sql_handle] 
@@ -6350,10 +6363,10 @@ select t.[session_id] --Сессия
 		  ,mg.[ideal_memory_kb] --Объем, в килобайтах (КБ), предоставленной памяти, необходимый для размещения всех данных в физической памяти.
 								--Основывается на оценке количества элементов
 		  
-		  ,mg.[reserved_worker_count] --Число рабочих процессов, зарезервированной с помощью параллельных запросов, а также число основных рабочих процессов, используемых всеми запросами
-		  ,mg.[used_worker_count] --Число рабочих процессов, используемых параллельных запросов
-		  ,mg.[max_used_worker_count] --???
-		  ,mg.[reserved_node_bitmap] --???
+		  ,NULL as [reserved_worker_count]--mg.[reserved_worker_count] --Число рабочих процессов, зарезервированной с помощью параллельных запросов, а также число основных рабочих процессов, используемых всеми запросами
+		  ,NULL as [used_worker_count]--mg.[used_worker_count] --Число рабочих процессов, используемых параллельных запросов
+		  ,NULL as [max_used_worker_count]--mg.[max_used_worker_count] --???
+		  ,NULL as [reserved_node_bitmap]--mg.[reserved_node_bitmap] --???
 		  ,pl.[bucketid] --Идентификатор сегмента хэша, в который кэшируется запись.
 						 --Значение указывает диапазон от 0 до значения размера хэш-таблицы для типа кэша.
 						 --Для кэшей SQL Plans и Object Plans размер хэш-таблицы может достигать 10007 на 32-разрядных версиях систем и 40009 — на 64-разрядных.
@@ -6567,7 +6580,7 @@ left outer join sys.dm_exec_cached_plans as pl on t.[plan_handle]=pl.[plan_handl
 left outer join tbl_rec_stat_g as qs on t.[plan_handle]=qs.[plan_handle] and t.[sql_handle]=qs.[sql_handle] --and qs.[last_execution_time]=cast(t.[start_time] as date)
 ;
 GO
-/****** Object:  View [inf].[vRequestLockDetail]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vRequestLockDetail]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6656,79 +6669,156 @@ FROM sys.dm_exec_requests as r
 inner join sys.dm_tran_locks as lock on lock.request_owner_id=r.[transaction_id]
 
 GO
-/****** Object:  View [inf].[vRequests]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vRequests]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
-
-
-
-
-
-	CREATE view [inf].[vRequests] as
+CREATE   view [inf].[vRequests] as
 /*
 	ГЕМ: Сведения о запросах
 */
-SELECT session_id
-	  ,status
-	  ,blocking_session_id
-	  ,database_id
-	  ,DB_NAME(database_id) as DBName
-	  ,(select top(1) text from sys.dm_exec_sql_text([sql_handle])) as [TSQL]
-	  ,(select top(1) [query_plan] from sys.dm_exec_query_plan([plan_handle])) as [QueryPlan]
-	  ,[sql_handle]
-      ,[statement_start_offset]--Количество символов в выполняемом в настоящий момент пакете или хранимой процедуре, в которой запущена текущая инструкция. Может применяться вместе с функциями динамического управления sql_handle, statement_end_offset и sys.dm_exec_sql_text для получения исполняемой в настоящий момент инструкции для запроса. Допускаются значения NULL.
-      ,[statement_end_offset]--Количество символов в выполняемом в настоящий момент пакете или хранимой процедуре, в которой завершилась текущая инструкция. Может применяться вместе с функциями динамического управления sql_handle, statement_end_offset и sys.dm_exec_sql_text для получения исполняемой в настоящий момент инструкции для запроса. Допускаются значения NULL.
-      ,[plan_handle]
-      ,[user_id]
-      ,[connection_id]
-      ,[wait_type]--тип ожидания
-      ,[wait_time]--Если запрос в настоящий момент блокирован, в столбце содержится продолжительность текущего ожидания (в миллисекундах). Не допускает значение NULL.
-	  ,round(cast([wait_time] as decimal(18,3))/1000, 3) as [wait_timeSec]
-      ,[last_wait_type]--Если запрос был блокирован ранее, в столбце содержится тип последнего ожидания. Не допускает значение NULL.
-      ,[wait_resource]--Если запрос в настоящий момент блокирован, в столбце указан ресурс, освобождения которого ожидает запрос. Не допускает значение NULL.
-      ,[open_transaction_count]--Число транзакций, открытых для данного запроса. Не допускает значение NULL.
-      ,[open_resultset_count]--Число результирующих наборов, открытых для данного запроса. Не допускает значение NULL.
-      ,[transaction_id]--Идентификатор транзакции, в которой выполняется запрос. Не допускает значение NULL.
-      ,[context_info]
-      ,[percent_complete]
-      ,[estimated_completion_time]
-      ,[cpu_time]--Время ЦП (в миллисекундах), затраченное на выполнение запроса. Не допускает значение NULL.
-	  ,round(cast([cpu_time] as decimal(18,3))/1000, 3) as [cpu_timeSec]
-      ,[total_elapsed_time]--Общее время, истекшее с момента поступления запроса (в миллисекундах). Не допускает значение NULL.
-	  ,round(cast([total_elapsed_time] as decimal(18,3))/1000, 3) as [total_elapsed_timeSec]
-      ,[scheduler_id]--Идентификатор планировщика, который планирует данный запрос. Не допускает значение NULL.
-      ,[task_address]--Адрес блока памяти, выделенного для задачи, связанной с этим запросом. Допускаются значения NULL.
-      ,[reads]--Число операций чтения, выполненных данным запросом. Не допускает значение NULL.
-      ,[writes]--Число операций записи, выполненных данным запросом. Не допускает значение NULL.
-      ,[logical_reads]--Число логических операций чтения, выполненных данным запросом. Не допускает значение NULL.
-      ,[text_size]--Установка параметра TEXTSIZE для данного запроса. Не допускает значение NULL.
-      ,[language]--Установка языка для данного запроса. Допускаются значения NULL.
-      ,[date_format]--Установка параметра DATEFORMAT для данного запроса. Допускаются значения NULL.
-      ,[date_first]--Установка параметра DATEFIRST для данного запроса. Не допускает значение NULL.
-      ,[quoted_identifier]
-      ,[arithabort]
-      ,[ansi_null_dflt_on]
-      ,[ansi_defaults]
-      ,[ansi_warnings]
-      ,[ansi_padding]
-      ,[ansi_nulls]
-      ,[concat_null_yields_null]
-      ,[transaction_isolation_level]--Уровень изоляции, с которым создана транзакция для данного запроса. Не допускает значение NULL (0-не задан, от 1 до 5 поувеличению уровня изоляции транзакции)
-      ,[lock_timeout]--Время ожидания блокировки для данного запроса (в миллисекундах). Не допускает значение NULL.
-      ,[deadlock_priority]--Значение параметра DEADLOCK_PRIORITY для данного запроса. Не допускает значение NULL.
-      ,[row_count]--Число строк, возвращенных клиенту по данному запросу. Не допускает значение NULL.
-      ,[prev_error]--Последняя ошибка, происшедшая при выполнении запроса. Не допускает значение NULL.
-      ,[nest_level]--Текущий уровень вложенности кода, выполняемого для данного запроса. Не допускает значение NULL.
-      ,[granted_query_memory]--Число страниц, выделенных для выполнения поступившего запроса. Не допускает значение NULL.
-      ,[executing_managed_code]--Указывает, выполняет ли данный запрос в настоящее время код объекта среды CLR (например, процедуры, типа или триггера). Этот флаг установлен в течение всего времени, когда объект среды CLR находится в стеке, даже когда из среды вызывается код Transact-SQL. Не допускает значение NULL.
-      ,[group_id]--Идентификатор группы рабочей нагрузки, которой принадлежит этот запрос. Не допускает значение NULL.
-      ,[query_hash]--Двоичное хэш-значение рассчитывается для запроса и используется для идентификации запросов с аналогичной логикой. Можно использовать хэш запроса для определения использования статистических ресурсов для запросов, которые отличаются только своими литеральными значениями.
-      ,[query_plan_hash]--Двоичное хэш-значение рассчитывается для плана выполнения запроса и используется для идентификации аналогичных планов выполнения запросов. Можно использовать хэш плана запроса для нахождения совокупной стоимости запросов со схожими планами выполнения.
-FROM sys.dm_exec_requests
+select ES.[session_id]
+	      ,ER.[blocking_session_id]
+		  ,ER.[request_id]
+	      ,ER.[start_time]
+		  ,DateDiff(second, ER.[start_time], GetDate()) as [date_diffSec] --Сколько в сек прошло времени от момента поступления запроса
+		  , COALESCE(
+						CAST(NULLIF(ER.[total_elapsed_time] / 1000, 0) as BIGINT)
+					   ,CASE WHEN (ES.[status] <> 'running' and isnull(ER.[status], '')  <> 'running') 
+								THEN  DATEDIFF(ss,0,getdate() - nullif(ES.[last_request_end_time], '1900-01-01T00:00:00.000'))
+						END
+					) as [total_time, sec] --Время всей работы запроса в сек
+		  , CAST(NULLIF((CAST(ER.[total_elapsed_time] as BIGINT) - CAST(ER.[wait_time] AS BIGINT)) / 1000, 0 ) as bigint) as [work_time, sec] --Время работы запроса в сек без учета времени ожиданий
+		  , CASE WHEN (ER.[status] <> 'running' AND ISNULL(ER.[status],'') <> 'running') 
+		  			THEN  DATEDIFF(ss,0,getdate() - nullif(ES.[last_request_end_time], '1900-01-01T00:00:00.000'))
+			END as [sleep_time, sec] --Время сна в сек
+		  , NULLIF( CAST((ER.[logical_reads] + ER.[writes]) * 8 / 1024 as numeric(38,2)), 0) as [IO, MB] --операций чтения и записи в МБ
+		  , CASE  ER.transaction_isolation_level
+			WHEN 0 THEN 'Unspecified'
+			WHEN 1 THEN 'ReadUncommited'
+			WHEN 2 THEN 'ReadCommited'
+			WHEN 3 THEN 'Repetable'
+			WHEN 4 THEN 'Serializable'
+			WHEN 5 THEN 'Snapshot'
+			END as [transaction_isolation_level_desc] --уровень изоляции транзакции (расшифровка)
+	      ,ER.[status]
+		  ,ES.[status] as [status_session]
+	      ,ER.[command]
+		  ,ER.[percent_complete]
+		  ,DB_Name(coalesce(ER.[database_id], ES.[database_id])) as [DBName]
+		  , SUBSTRING(
+						(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle]))
+					  , ER.[statement_start_offset]/2+1
+					  ,	(
+							CASE WHEN ((ER.[statement_start_offset]<0) OR (ER.[statement_end_offset]<0))
+									THEN DATALENGTH ((select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])))
+								 ELSE ER.[statement_end_offset]
+							END
+							- ER.[statement_start_offset]
+						)/2 +1
+					 ) as [CURRENT_REQUEST] --Текущий выполняемый запрос в пакете
+	      ,(select top(1) [text] from sys.dm_exec_sql_text(ER.[sql_handle])) as [TSQL]
+		  ,(select top(1) [objectid] from sys.dm_exec_sql_text(ER.[sql_handle])) as [objectid]
+		  ,(select top(1) [query_plan] from sys.dm_exec_query_plan(ER.[plan_handle])) as [QueryPlan]
+		  ,NULL as [event_info]--(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]
+	      ,ER.[wait_type]
+	      ,ES.[login_time]
+		  ,ES.[host_name]
+		  ,ES.[program_name]
+		  ,cast(ER.[wait_time]/1000 as decimal(18,3)) as [wait_timeSec] --Если запрос в настоящий момент блокирован, в столбце содержится продолжительность текущего ожидания (в секундах)
+	      ,ER.[wait_time]
+	      ,ER.[last_wait_type]
+	      ,ER.[wait_resource]
+	      ,ER.[open_transaction_count]
+	      ,ER.[open_resultset_count]
+	      ,ER.[transaction_id]
+	      ,ER.[context_info]
+	      ,ER.[estimated_completion_time]
+	      ,ER.[cpu_time]
+	      ,ER.[total_elapsed_time]
+	      ,ER.[scheduler_id]
+	      ,ER.[task_address]
+	      ,ER.[reads]
+	      ,ER.[writes]
+	      ,ER.[logical_reads]
+	      ,ER.[text_size]
+	      ,ER.[language]
+	      ,ER.[date_format]
+	      ,ER.[date_first]
+	      ,ER.[quoted_identifier]
+	      ,ER.[arithabort]
+	      ,ER.[ansi_null_dflt_on]
+	      ,ER.[ansi_defaults]
+	      ,ER.[ansi_warnings]
+	      ,ER.[ansi_padding]
+	      ,ER.[ansi_nulls]
+	      ,ER.[concat_null_yields_null]
+	      ,ER.[transaction_isolation_level]
+	      ,ER.[lock_timeout]
+	      ,ER.[deadlock_priority]
+	      ,ER.[row_count]
+	      ,ER.[prev_error]
+	      ,ER.[nest_level]
+	      ,ER.[granted_query_memory]
+	      ,ER.[executing_managed_code]
+	      ,ER.[group_id]
+	      ,ER.[query_hash]
+	      ,ER.[query_plan_hash]
+		  ,EC.[most_recent_session_id]
+	      ,EC.[connect_time]
+	      ,EC.[net_transport]
+	      ,EC.[protocol_type]
+	      ,EC.[protocol_version]
+	      ,EC.[endpoint_id]
+	      ,EC.[encrypt_option]
+	      ,EC.[auth_scheme]
+	      ,EC.[node_affinity]
+	      ,EC.[num_reads]
+	      ,EC.[num_writes]
+	      ,EC.[last_read]
+	      ,EC.[last_write]
+	      ,EC.[net_packet_size]
+	      ,EC.[client_net_address]
+	      ,EC.[client_tcp_port]
+	      ,EC.[local_net_address]
+	      ,EC.[local_tcp_port]
+	      ,EC.[parent_connection_id]
+	      ,EC.[most_recent_sql_handle]
+		  ,ES.[host_process_id]
+		  ,ES.[client_version]
+		  ,ES.[client_interface_name]
+		  ,ES.[security_id]
+		  ,ES.[login_name]
+		  ,ES.[nt_domain]
+		  ,ES.[nt_user_name]
+		  ,ES.[memory_usage]
+		  ,ES.[total_scheduled_time]
+		  ,ES.[last_request_start_time]
+		  ,ES.[last_request_end_time]
+		  ,ES.[is_user_process]
+		  ,ES.[original_security_id]
+		  ,ES.[original_login_name]
+		  ,ES.[last_successful_logon]
+		  ,ES.[last_unsuccessful_logon]
+		  ,ES.[unsuccessful_logons]
+		  ,ES.[authenticating_database_id]
+		  ,ER.[sql_handle]
+	      ,ER.[statement_start_offset]
+	      ,ER.[statement_end_offset]
+	      ,ER.[plan_handle]
+		  ,NULL as [dop]--ER.[dop]
+	      ,coalesce(ER.[database_id], ES.[database_id]) as [database_id]
+	      ,ER.[user_id]
+	      ,ER.[connection_id]
+	from sys.dm_exec_requests ER with(readuncommitted)
+	right join sys.dm_exec_sessions ES with(readuncommitted)
+	on ES.session_id = ER.session_id 
+	left join sys.dm_exec_connections EC  with(readuncommitted)
+	on EC.session_id = ES.session_id
+	where ER.[status] in ('suspended', 'running', 'runnable')
+	or exists (select top(1) 1 from sys.dm_exec_requests as ER0 where ER0.[blocking_session_id]=ES.[session_id])
 
 
 
@@ -6736,7 +6826,7 @@ FROM sys.dm_exec_requests
 
 
 GO
-/****** Object:  View [inf].[vSchedulersOS]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSchedulersOS]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6780,7 +6870,7 @@ SELECT scheduler_id			--Идентификатор планировщика. В�
 FROM sys.dm_os_schedulers
 WHERE scheduler_id < 255
 GO
-/****** Object:  View [inf].[vSchemaDescription]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSchemaDescription]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6796,7 +6886,7 @@ left outer join sys.extended_properties as ep on t.[schema_id]=ep.[major_id]
 											 and ep.[minor_id]=0
 											 and ep.[name]='MS_Description'
 GO
-/****** Object:  View [inf].[vServerBackupDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerBackupDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6841,7 +6931,7 @@ select
 	[last_lsn] as [LastLSN]
 from backup_cte;
 GO
-/****** Object:  View [inf].[vServerConfigurations]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerConfigurations]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6920,15 +7010,16 @@ FROM sys.configurations
 
 
 GO
-/****** Object:  View [inf].[vServerFilesDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerFilesDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE view [inf].[vServerFilesDB] as
+
+CREATE   view [inf].[vServerFilesDB] as
 --основная информация о файлах БД
-SELECT  @@SERVERNAME AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         d.name AS DBName ,
         create_date ,
         compatibility_level ,
@@ -6940,7 +7031,7 @@ WHERE   m.[type] = 0 -- data files only
 --ORDER BY d.name;
 
 GO
-/****** Object:  View [inf].[vServerLastBackupDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerLastBackupDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6994,14 +7085,15 @@ from backup_cte
 where rownum = 1;
 
 GO
-/****** Object:  View [inf].[vServerOnlineDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerOnlineDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vServerOnlineDB] as
+
+CREATE   view [inf].[vServerOnlineDB] as
 -- какие БД сейчас используются
-SELECT  @@Servername AS Server ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server] ,
         DB_NAME(database_id) AS DatabaseName ,
         COUNT(database_id) AS Connections ,
         Login_name AS  LoginName ,
@@ -7015,7 +7107,7 @@ GROUP BY database_id ,
          login_name
 --ORDER BY DatabaseName;
 GO
-/****** Object:  View [inf].[vServerProblemInCountFilesTempDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerProblemInCountFilesTempDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7044,14 +7136,15 @@ From sys.dm_os_waiting_tasks
 Where wait_type Like 'PAGE%LATCH_%'
 And resource_description Like '2:%' 
 GO
-/****** Object:  View [inf].[vServerRunTime]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerRunTime]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vServerRunTime] as
+
+CREATE   view [inf].[vServerRunTime] as
 --время работы сервера
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         create_date AS  ServerStarted ,
         DATEDIFF(s, create_date, GETDATE()) / 86400.0 AS DaysRunning ,
         DATEDIFF(s, create_date, GETDATE()) AS SecondsRunnig
@@ -7060,7 +7153,7 @@ WHERE   name = 'tempdb';
 
 
 GO
-/****** Object:  View [inf].[vServerShortInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vServerShortInfo]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7115,7 +7208,7 @@ Select @@SERVERNAME as [Server\Instance]
 ,SERVERPROPERTY(N'FilestreamConfiguredLevel')		as FilestreamConfiguredLevel
 ,SERVERPROPERTY(N'FilestreamEffectiveLevel')		as FilestreamEffectiveLevel
 GO
-/****** Object:  View [inf].[vSessionThreadOS]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSessionThreadOS]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7136,7 +7229,7 @@ SELECT STasks.session_id, SThreads.os_thread_id
 
 
 GO
-/****** Object:  View [inf].[vSizeCache]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSizeCache]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7182,7 +7275,7 @@ select
   CAST((select top(1) QueriesUseOneCountCacheSize from tbl) * 100 / (select top(1) QueriesCacheSize from tbl) as int) as 'Percent of Queries/Queries'
 --option(recompile)
 GO
-/****** Object:  View [inf].[vSuspendedRequest]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSuspendedRequest]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7253,15 +7346,16 @@ WHERE status = N'suspended' --приостановлен сеанс;
 
 
 GO
-/****** Object:  View [inf].[vSynonyms]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vSynonyms]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vSynonyms] as
+
+CREATE   view [inf].[vSynonyms] as
 -- дополнительная информация о синонимах
 
-SELECT  @@Servername AS ServerName ,
+SELECT  cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS ServerName ,
         DB_NAME() AS DBName ,
 		sch.name as SchemaName,
         s.name AS [Synonyms] ,
@@ -7273,14 +7367,15 @@ inner join sys.schemas as sch on sch.schema_id=s.schema_id
 
 
 GO
-/****** Object:  View [inf].[vTables]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vTables]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vTables] as
+
+CREATE   view [inf].[vTables] as
 --таблицы
-select @@Servername AS Server,
+select cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server],
        DB_NAME() AS DBName,
 	   s.name as SchemaName,
 	   t.name as TableName,
@@ -7291,7 +7386,7 @@ select @@Servername AS Server,
 from sys.tables as t
 inner join sys.schemas as s on t.schema_id=s.schema_id
 GO
-/****** Object:  View [inf].[vTriggers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vTriggers]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7320,7 +7415,7 @@ left outer join sys.sql_modules sm ON t.object_id = sm.OBJECT_ID;
 
 
 GO
-/****** Object:  View [inf].[vTriggerStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vTriggerStat]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7368,7 +7463,7 @@ FROM sys.dm_exec_trigger_stats AS QS
      CROSS APPLY sys.dm_exec_sql_text(QS.[sql_handle]) as ST
 	 CROSS APPLY sys.dm_exec_query_plan(QS.[plan_handle]) as PT
 GO
-/****** Object:  View [inf].[vTypesRunStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vTypesRunStatistics]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7398,14 +7493,15 @@ GROUP BY Data_Type ,
 --        Character_Maximum_Length  
 
 GO
-/****** Object:  View [inf].[vViews]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vViews]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create view [inf].[vViews] as
+
+CREATE   view [inf].[vViews] as
 --представления
-select @@Servername AS Server,
+select cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)) AS [Server],
        DB_NAME() AS DBName,
 	   s.name as SchemaName,
 	   t.name as TableName,
@@ -7416,7 +7512,7 @@ select @@Servername AS Server,
 from sys.views as t
 inner join sys.schemas as s on t.schema_id=s.schema_id
 GO
-/****** Object:  View [inf].[vWaits]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [inf].[vWaits]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7927,7 +8023,7 @@ SELECT [WaitType]
 
 
 GO
-/****** Object:  View [srv].[vDelIndexInclude]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vDelIndexInclude]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8070,7 +8166,7 @@ CREATE view [srv].[vDelIndexInclude] as
 	) -- don't check clustered indexes
 	
 GO
-/****** Object:  View [srv].[vStatisticsIOInTempDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  View [srv].[vStatisticsIOInTempDB]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8091,7 +8187,7 @@ ON stats.database_id = files.database_id
 AND stats.file_id = files.file_id
 WHERE files.type_desc = 'ROWS'
 GO
-/****** Object:  Table [dbo].[AuditQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [dbo].[AuditQuery]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8105,7 +8201,7 @@ CREATE TABLE [dbo].[AuditQuery](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TEST]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [dbo].[TEST]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8122,7 +8218,7 @@ CREATE TABLE [dbo].[TEST](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[DBListNotDelete]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DBListNotDelete]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8136,7 +8232,7 @@ CREATE TABLE [srv].[DBListNotDelete](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ddl_log]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ddl_log]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8151,10 +8247,10 @@ CREATE TABLE [srv].[ddl_log](
  CONSTRAINT [PK_ddl_log] PRIMARY KEY CLUSTERED 
 (
 	[DDL_Log_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ddl_log_all]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ddl_log_all]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8172,10 +8268,10 @@ CREATE TABLE [srv].[ddl_log_all](
  CONSTRAINT [PK_ddl_log_all] PRIMARY KEY CLUSTERED 
 (
 	[DDL_Log_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[Deadlocks]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[Deadlocks]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8191,7 +8287,7 @@ CREATE TABLE [srv].[Deadlocks](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[DefragRun]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DefragRun]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8201,7 +8297,7 @@ CREATE TABLE [srv].[DefragRun](
 	[UpdateUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[DefragServers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DefragServers]    Script Date: 26.12.2019 11:33:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8224,13 +8320,13 @@ CREATE TABLE [srv].[DefragServers](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[DefragServers]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[DelIndexIncludeStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DelIndexIncludeStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8255,13 +8351,13 @@ CREATE TABLE [srv].[DelIndexIncludeStatistics](
 	[DataBase] [nvarchar](256) NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[DelIndexIncludeStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[DiskSpaceStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[DiskSpaceStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8276,13 +8372,13 @@ CREATE TABLE [srv].[DiskSpaceStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[DiskSpaceStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ErrorInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ErrorInfo]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8307,10 +8403,10 @@ CREATE TABLE [srv].[ErrorInfo](
  CONSTRAINT [PK_ErrorInfo] PRIMARY KEY CLUSTERED 
 (
 	[ErrorInfo_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ErrorInfoArchive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ErrorInfoArchive]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8335,10 +8431,10 @@ CREATE TABLE [srv].[ErrorInfoArchive](
  CONSTRAINT [PK_ArchiveErrorInfo] PRIMARY KEY CLUSTERED 
 (
 	[ErrorInfo_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[history_dm_db_index_usage_stats]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[history_dm_db_index_usage_stats]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8371,7 +8467,7 @@ CREATE TABLE [srv].[history_dm_db_index_usage_stats](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[IndexDefragStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[IndexDefragStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8397,13 +8493,13 @@ CREATE TABLE [srv].[IndexDefragStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[IndexDefragStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[IndexUsageStatsStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[IndexUsageStatsStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8456,13 +8552,13 @@ CREATE TABLE [srv].[IndexUsageStatsStatistics](
 	[DataBase] [nvarchar](256) NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[IndexUsageStatsStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[KillSession]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[KillSession]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8548,10 +8644,10 @@ CREATE TABLE [srv].[KillSession](
  CONSTRAINT [PK_KillSession] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[KillSessionArchive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[KillSessionArchive]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8673,7 +8769,7 @@ CREATE TABLE [srv].[KillSessionArchive](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ListDefragIndex]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ListDefragIndex]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8696,7 +8792,7 @@ CREATE TABLE [srv].[ListDefragIndex](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[NewIndexOptimizeStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[NewIndexOptimizeStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8736,13 +8832,13 @@ CREATE TABLE [srv].[NewIndexOptimizeStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[NewIndexOptimizeStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[OldStatisticsStateStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[OldStatisticsStateStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8772,13 +8868,13 @@ CREATE TABLE [srv].[OldStatisticsStateStatistics](
 	[DataBase] [nvarchar](256) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[OldStatisticsStateStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[RAMSpaceStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[RAMSpaceStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8794,13 +8890,13 @@ CREATE TABLE [srv].[RAMSpaceStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[RAMSpaceStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ReadWriteTablesStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ReadWriteTablesStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8818,13 +8914,13 @@ CREATE TABLE [srv].[ReadWriteTablesStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[ReadWriteTablesStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[RestoreSettingsDetail]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[RestoreSettingsDetail]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8839,10 +8935,10 @@ CREATE TABLE [srv].[RestoreSettingsDetail](
  CONSTRAINT [PK_RestoreSettingsDetail_1] PRIMARY KEY CLUSTERED 
 (
 	[Row_GUID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[SessionTran]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[SessionTran]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8859,10 +8955,10 @@ CREATE TABLE [srv].[SessionTran](
 (
 	[SessionID] ASC,
 	[TransactionID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ShortInfoRunJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ShortInfoRunJobs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8882,10 +8978,10 @@ CREATE TABLE [srv].[ShortInfoRunJobs](
  CONSTRAINT [PK_ShortInfoRunJobs] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[ShortInfoRunJobsServers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[ShortInfoRunJobsServers]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8904,13 +9000,13 @@ CREATE TABLE [srv].[ShortInfoRunJobsServers](
 	[LastDateTime] [datetime] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[ShortInfoRunJobsServers]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[StatisticsIOInTempDBStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[StatisticsIOInTempDBStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8926,13 +9022,13 @@ CREATE TABLE [srv].[StatisticsIOInTempDBStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[StatisticsIOInTempDBStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[vLoginEnable]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[vLoginEnable]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8942,7 +9038,7 @@ CREATE TABLE [srv].[vLoginEnable](
 	[type_desc] [nvarchar](60) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [srv].[WaitsStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Table [srv].[WaitsStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8961,27 +9057,27 @@ CREATE TABLE [srv].[WaitsStatistics](
 	[InsertUTCDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE CLUSTERED INDEX [indInsertUTCDate] ON [srv].[WaitsStatistics]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [dbo].[TEST]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ActiveConnectionStatistics]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indSession]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indSession]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [indSession] ON [srv].[ActiveConnectionStatistics]
 (
 	[ServerName] ASC,
@@ -8989,150 +9085,156 @@ CREATE UNIQUE NONCLUSTERED INDEX [indSession] ON [srv].[ActiveConnectionStatisti
 	[LoginName] ASC,
 	[DBName] ASC,
 	[LoginTime] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[BackupSettings]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IX_DBFile]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [IX_DBFile]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [IX_DBFile] ON [srv].[DBFile]
 (
 	[DB_ID] ASC,
 	[File_ID] ASC,
 	[Server] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ddl_log_all]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertDate] ON [srv].[Deadlocks]
 (
 	[InsertDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[Defrag]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[Drivers]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ErrorInfo]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ErrorInfoArchive]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
+CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[KillSession]
+(
+	[InsertUTCDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
+GO
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ListDefragIndex]
 (
 	[InsertUTCDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[PlanQuery]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[QueryStatistics]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indPlanQuery] ON [srv].[QueryStatistics]
 (
 	[plan_handle] ASC,
 	[sql_handle] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[Recipient]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[RequestStatistics]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indPlanQuery] ON [srv].[RequestStatistics]
 (
 	[sql_handle] ASC,
 	[plan_handle] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[RequestStatisticsArchive]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indPlanQuery]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indPlanQuery] ON [srv].[RequestStatisticsArchive]
 (
 	[plan_handle] ASC,
 	[sql_handle] ASC
 )
 WHERE ([sql_handle] IS NOT NULL AND [plan_handle] IS NOT NULL)
-WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[RestoreSettings]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[SessionTran]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[ShortInfoRunJobs]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indInsertUTCDate]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indInsertUTCDate] ON [srv].[SQLQuery]
 (
 	[InsertUTCDate] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 95) ON [PRIMARY]
 GO
-/****** Object:  Index [indDATE]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  Index [indDATE]    Script Date: 26.12.2019 11:33:45 ******/
 CREATE NONCLUSTERED INDEX [indDATE] ON [srv].[TSQL_DAY_Statistics]
 (
 	[DATE] ASC
@@ -9162,7 +9264,7 @@ ALTER TABLE [srv].[DBFile] ADD  CONSTRAINT [DF_DBFile_InsertUTCDate]  DEFAULT (g
 GO
 ALTER TABLE [srv].[DBFile] ADD  CONSTRAINT [DF_DBFile_UpdateUTCdate]  DEFAULT (getutcdate()) FOR [UpdateUTCdate]
 GO
-ALTER TABLE [srv].[DBFileStatistics] ADD  CONSTRAINT [DF_DBFileStatistics_Server]  DEFAULT (@@servername) FOR [Server]
+ALTER TABLE [srv].[DBFileStatistics] ADD  CONSTRAINT [DF_DBFileStatistics_Server]  DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) FOR [Server]
 GO
 ALTER TABLE [srv].[DBFileStatistics] ADD  CONSTRAINT [DF_DBFileStatistics_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
@@ -9178,7 +9280,7 @@ ALTER TABLE [srv].[Deadlocks] ADD  CONSTRAINT [DF_Deadlocks_InsertDate]  DEFAULT
 GO
 ALTER TABLE [srv].[Defrag] ADD  CONSTRAINT [DF_Defrag_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
-ALTER TABLE [srv].[Defrag] ADD  CONSTRAINT [DF_Defrag_Server]  DEFAULT (@@servername) FOR [Server]
+ALTER TABLE [srv].[Defrag] ADD  CONSTRAINT [DF_Defrag_Server]  DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) FOR [Server]
 GO
 ALTER TABLE [srv].[DefragRun] ADD  CONSTRAINT [DF_DefragRun_Run]  DEFAULT ((0)) FOR [Run]
 GO
@@ -9188,13 +9290,13 @@ ALTER TABLE [srv].[DefragServers] ADD  CONSTRAINT [DF_DefragServers_InsertUTCDat
 GO
 ALTER TABLE [srv].[DelIndexIncludeStatistics] ADD  CONSTRAINT [DF_DelIndexIncludeStatistics_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
-ALTER TABLE [srv].[DiskSpaceStatistics] ADD  CONSTRAINT [DF_DiskSpaceStatistics_Server]  DEFAULT (@@servername) FOR [Server]
+ALTER TABLE [srv].[DiskSpaceStatistics] ADD  CONSTRAINT [DF_DiskSpaceStatistics_Server]  DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) FOR [Server]
 GO
 ALTER TABLE [srv].[DiskSpaceStatistics] ADD  CONSTRAINT [DF_DiskSpaceStatistics_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
 ALTER TABLE [srv].[Drivers] ADD  CONSTRAINT [DF_Drivers_Driver_GUID]  DEFAULT (newsequentialid()) FOR [Driver_GUID]
 GO
-ALTER TABLE [srv].[Drivers] ADD  CONSTRAINT [DF_Drivers_Server]  DEFAULT (@@servername) FOR [Server]
+ALTER TABLE [srv].[Drivers] ADD  CONSTRAINT [DF_Drivers_Server]  DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) FOR [Server]
 GO
 ALTER TABLE [srv].[Drivers] ADD  CONSTRAINT [DF_Drivers_TotalSpace]  DEFAULT ((0)) FOR [TotalSpace]
 GO
@@ -9262,7 +9364,7 @@ ALTER TABLE [srv].[QueryRequestGroupStatistics] ADD  CONSTRAINT [DF_QueryRequest
 GO
 ALTER TABLE [srv].[QueryStatistics] ADD  CONSTRAINT [DF_QueryStatistics_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
-ALTER TABLE [srv].[RAMSpaceStatistics] ADD  CONSTRAINT [DF_RAMSpaceStatistics_Server]  DEFAULT (@@servername) FOR [Server]
+ALTER TABLE [srv].[RAMSpaceStatistics] ADD  CONSTRAINT [DF_RAMSpaceStatistics_Server]  DEFAULT (CONVERT([nvarchar](255),serverproperty(N'MachineName'))) FOR [Server]
 GO
 ALTER TABLE [srv].[RAMSpaceStatistics] ADD  CONSTRAINT [DF_RAMSpaceStatistics_Server_physical_memory_Mb]  DEFAULT ((0)) FOR [Server_physical_memory_Mb]
 GO
@@ -9322,7 +9424,7 @@ ALTER TABLE [srv].[TSQL_DAY_Statistics] ADD  CONSTRAINT [DF_TSQL_DAY_Statistics_
 GO
 ALTER TABLE [srv].[WaitsStatistics] ADD  CONSTRAINT [DF_WaitsStatistics_InsertUTCDate]  DEFAULT (getutcdate()) FOR [InsertUTCDate]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_help_revlogin]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [dbo].[sp_help_revlogin]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9430,7 +9532,7 @@ RETURN 0
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_hexadecimal]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [dbo].[sp_hexadecimal]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9467,7 +9569,7 @@ SELECT @hexvalue = @charvalue
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_WhoIsActive_Admin]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [dbo].[sp_WhoIsActive_Admin]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -14382,16 +14484,11 @@ END;
 
 
 GO
-/****** Object:  StoredProcedure [inf].[InfoAgentJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [inf].[InfoAgentJobs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
 CREATE   PROCEDURE [inf].[InfoAgentJobs]
 AS
 BEGIN
@@ -14451,8 +14548,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных о выполненных заданиях на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных о выполненных заданиях';
+		            @str_title nvarchar(max)=N'Автосбор данных о выполненных заданиях на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных о выполненных заданиях';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14480,8 +14577,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных о дисках и файлов баз данных на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных о дисках и файлов баз данных';
+		            @str_title nvarchar(max)=N'Автосбор данных о дисках и файлов баз данных на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных о дисках и файлов баз данных';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14508,8 +14605,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об активных запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об активных запросах';
+		            @str_title nvarchar(max)=N'Автосбор данных об активных запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об активных запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14536,8 +14633,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об активных подключениях на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об активных подключениях';
+		            @str_title nvarchar(max)=N'Автосбор данных об активных подключениях на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об активных подключениях';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14564,8 +14661,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор данных об производительности СУБД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора данных об производительности СУБД';
+		            @str_title nvarchar(max)=N'Автосбор данных об производительности СУБД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора данных об производительности СУБД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14592,8 +14689,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор кол-ва строк кластерных структур  и размер таблиц на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора кол-ва строк кластерных структур и размера таблиц';
+		            @str_title nvarchar(max)=N'Автосбор кол-ва строк кластерных структур  и размер таблиц на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора кол-ва строк кластерных структур и размера таблиц';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14620,8 +14717,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автосбор статистики роста файлов БД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автосбора статистики роста файлов БД';
+		            @str_title nvarchar(max)=N'Автосбор статистики роста файлов БД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автосбора статистики роста файлов БД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14649,8 +14746,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление зависших неактивных подключений на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления зависших подключений';
+		            @str_title nvarchar(max)=N'Автоудаление зависших неактивных подключений на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления зависших подключений';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14677,8 +14774,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление старых записей на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления старых записей';
+		            @str_title nvarchar(max)=N'Автоудаление старых записей на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления старых записей';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14720,8 +14817,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоочистка кеша с последующим обновлением статистики по всем несистемным БД на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка авточистки кеша с последующим обновлением статистики по всем несистемным БД';
+		            @str_title nvarchar(max)=N'Автоочистка кеша с последующим обновлением статистики по всем несистемным БД на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка авточистки кеша с последующим обновлением статистики по всем несистемным БД';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14748,8 +14845,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Оптимизация индексов на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка оптимизации индексов';
+		            @str_title nvarchar(max)=N'Оптимизация индексов на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка оптимизации индексов';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14776,8 +14873,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Создание полных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка создания полных резервных копий';
+		            @str_title nvarchar(max)=N'Создание полных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка создания полных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14818,8 +14915,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Удаление старых файлов на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка удаления старых файлов';
+		            @str_title nvarchar(max)=N'Удаление старых файлов на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка удаления старых файлов';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14846,8 +14943,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Сбор данных о запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка сбора данных о запросах';
+		            @str_title nvarchar(max)=N'Сбор данных о запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка сбора данных о запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14874,8 +14971,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Сбор данных об активных запросах на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка сбора данных об активных запросах';
+		            @str_title nvarchar(max)=N'Сбор данных об активных запросах на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка сбора данных об активных запросах';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14902,8 +14999,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Создание разностных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка создания разностных резервных копий';
+		            @str_title nvarchar(max)=N'Создание разностных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка создания разностных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14930,8 +15027,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Восстановление БД из их полных резервных копий на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка восстановления БД из их полных резервных копий';
+		            @str_title nvarchar(max)=N'Восстановление БД из их полных резервных копий на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка восстановления БД из их полных резервных копий';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14958,8 +15055,8 @@ BEGIN
 		            @str_num  nvarchar(max)=cast(ERROR_NUMBER() as nvarchar(max)),
 		            @str_line nvarchar(max)=cast(ERROR_LINE()   as nvarchar(max)),
 		            @str_proc nvarchar(max)=ERROR_PROCEDURE(),
-		            @str_title nvarchar(max)=N'Автоудаление забытых транзакций на сервере '+@@servername,
-		            @str_pred_mess nvarchar(max)=N'На сервере '+@@servername+N' возникла ошибка автоудаления забытых транзакций';
+		            @str_title nvarchar(max)=N'Автоудаление забытых транзакций на сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255)),
+		            @str_pred_mess nvarchar(max)=N'На сервере '+cast(SERVERPROPERTY(N'MachineName') as nvarchar(255))+N' возникла ошибка автоудаления забытых транзакций';
 		
 		    exec [SRV].srv.ErrorInfoIncUpd
 		         @ERROR_TITLE           = @str_title,
@@ -14978,7 +15075,7 @@ BEGIN
 	*/
 END
 GO
-/****** Object:  StoredProcedure [inf].[RunAsyncExecute]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [inf].[RunAsyncExecute]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15031,7 +15128,7 @@ AS BEGIN
   
 END  
 GO
-/****** Object:  StoredProcedure [inf].[sp_WhoIsActive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [inf].[sp_WhoIsActive]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20202,7 +20299,7 @@ BEGIN;
 END;
 
 GO
-/****** Object:  StoredProcedure [nav].[ZabbixGetCountRequestStatus]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [nav].[ZabbixGetCountRequestStatus]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20277,7 +20374,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [rep].[GetProjectHoursInDate]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [rep].[GetProjectHoursInDate]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20315,7 +20412,7 @@ AS BEGIN
   
 END  
 GO
-/****** Object:  StoredProcedure [srv].[AddDBListNotDelete]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AddDBListNotDelete]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20357,7 +20454,7 @@ BEGIN
 	END
 END
 GO
-/****** Object:  StoredProcedure [srv].[All_Find_Ref_Other_DB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[All_Find_Ref_Other_DB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20398,7 +20495,7 @@ begin
 	DEALLOCATE ExecCurS;
 end
 GO
-/****** Object:  StoredProcedure [srv].[Alter_index]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Alter_index]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20484,7 +20581,7 @@ BEGIN
 	DEALLOCATE SSCur
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoAllDBForDurabilityForced]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoAllDBForDurabilityForced]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20544,18 +20641,19 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[AutoBigQueryStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoBigQueryStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoBigQueryStatistics]
+CREATE   PROCEDURE [srv].[AutoBigQueryStatistics]
 AS
 BEGIN
 	/*
@@ -20564,7 +20662,9 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
-	SELECT @@SERVERNAME AS [Server]
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
+	SELECT @servername AS [Server]
             ,[creation_time]
 			,[last_execution_time]
 			,[execution_count]
@@ -20667,7 +20767,7 @@ BEGIN
            ,[AvgIOLogicalWrites]
            ,[AvgIOPhysicalReads]
            ,[DATE])
-	SELECT	@@SERVERNAME AS [Server],
+	SELECT	@servername AS [Server],
 			SUM([execution_count]),
 			AVG([AvgDur]),
 			AVG([AvgCPUTime]),
@@ -20747,7 +20847,7 @@ BEGIN
 	DROP TABLE #tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoCHECKDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoCHECKDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20802,18 +20902,19 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[AutoDataCollection]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDataCollection]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoDataCollection]
+CREATE   PROCEDURE [srv].[AutoDataCollection]
 AS
 BEGIN
 	/*
@@ -20824,10 +20925,14 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	EXEC [srv].[AutoStatisticsDiskAndRAMSpace];
 	EXEC [srv].[AutoStatisticsFileDB];
     EXEC [srv].[AutoBigQueryStatistics];
-	EXEC [srv].[AutoIndexStatistics];
+
+	if(@servername<>N'PRD-1CSQL-01') EXEC [srv].[AutoIndexStatistics];
+
 	EXEC [srv].[AutoShortInfoRunJobs];
 	EXEC [srv].[AutoStatisticsIOInTempDBStatistics];
 	EXEC [srv].[AutoNewIndexOptimizeStatistics];
@@ -20837,11 +20942,12 @@ BEGIN
 	EXEC [srv].[AutoDBFile];
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoDataCollectionRemote]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDataCollectionRemote]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 -- =============================================
@@ -20849,7 +20955,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoDataCollectionRemote]
+CREATE     PROCEDURE [srv].[AutoDataCollectionRemote]
 AS
 BEGIN
 	/*
@@ -20859,6 +20965,8 @@ BEGIN
 	SET QUERY_GOVERNOR_COST_LIMIT 0;
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @sql nvarchar(max);
 	declare @server sysname;
@@ -20872,7 +20980,7 @@ BEGIN
 	from sys.servers
 	where [is_system]=0
 	  and [is_linked]=1
-	  and [name]<>N'sql_services';
+	  and [name]<>@servername;
 
 	DECLARE sql_cursor CURSOR LOCAL FOR
 	select [name]
@@ -20888,7 +20996,7 @@ BEGIN
 		delete from @existsSRV;
 		
 		set @sql=N'
-		if(exists(select top(1) 1 from ['+@server+N'].master.sys.databases where [name]=''SRV''))
+		if(exists(select top(1) 1 from ['+@server+N'].master.sys.databases where [name]=''FortisAdmin''))
 		begin
 			select 1;
 		end
@@ -20928,7 +21036,7 @@ BEGIN
 					   ,[AvgRes_S]
 					   ,[AvgSig_S]
 					   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[WaitsStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[WaitsStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -20953,7 +21061,7 @@ BEGIN
 				   ,[SampleDays]
 				   ,[SampleSeconds]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[ReadWriteTablesStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ReadWriteTablesStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21002,7 +21110,7 @@ BEGIN
 				   ,[IndexName]
 				   ,[has_filter]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[OldStatisticsStateStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[OldStatisticsStateStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21076,7 +21184,7 @@ BEGIN
 				   ,[est_impact]
 				   ,[SecondsUptime]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[NewIndexOptimizeStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[NewIndexOptimizeStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21097,7 +21205,7 @@ BEGIN
 				   ,[AvgIOLogicalWrites]
 				   ,[AvgIOPhysicalReads]
 				   ,[DATE]
-				FROM ['+@server+N'].[SRV].[srv].[IndicatorServerDayStatistics] as t_src
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndicatorServerDayStatistics] as t_src
 				WHERE [DATE]>='''+cast(cast(DateAdd(day,-1,@dt0) as date) as nvarchar(255))+N'''
 				and not exists (select top(1) 1 from [srv].[IndicatorServerDayStatistics] as t_trg where t_src.[DATE]=t_trg.[DATE] and t_src.[Server]=t_trg.[Server]);
 			end';
@@ -21197,7 +21305,7 @@ BEGIN
 				   ,[Columns]
 				   ,[IncludeColumns]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[IndexUsageStatsStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndexUsageStatsStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21238,7 +21346,7 @@ BEGIN
 				   ,[ghost]
 				   ,[func]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[IndexDefragStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[IndexDefragStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21282,7 +21390,7 @@ BEGIN
 				   ,[IndexIncludedColumns]
 				   ,[ActualIndexName]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DelIndexIncludeStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DelIndexIncludeStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21352,7 +21460,7 @@ BEGIN
 				   ,[query_hash]
 				   ,[query_plan_hash]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[vBigQueryStatisticsRemote]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[vBigQueryStatisticsRemote]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21420,7 +21528,7 @@ BEGIN
 				   ,[DataPageSizeKB]
 				   ,[DataPageSizeKBBack]
 				   ,[DataPageSizeKBNext]
-				FROM ['+@server+N'].[SRV].[srv].[TableStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[TableStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21439,7 +21547,7 @@ BEGIN
 				   ,[IndexUsedForCounts]
 				   ,[CountRows]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[TableIndexStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[TableIndexStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21471,7 +21579,7 @@ BEGIN
 				   ,[SizeMb]
 				   ,[SizeGb]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[ServerDBFileInfoStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ServerDBFileInfoStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21506,7 +21614,7 @@ BEGIN
 				   ,[object_id]
 				   ,[idx]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[Defrag]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[Defrag]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21538,7 +21646,7 @@ BEGIN
 				   ,[InsertUTCDate]
 				   ,[TargetServer]
 				   ,[LastDateTime]
-				FROM ['+@server+N'].[SRV].[srv].[ShortInfoRunJobsServers]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[ShortInfoRunJobsServers]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21559,7 +21667,7 @@ BEGIN
 				   ,[num_of_reads]
 				   ,[avg_read_stall_ms]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[StatisticsIOInTempDBStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[StatisticsIOInTempDBStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21583,7 +21691,7 @@ BEGIN
 				   ,[Available_Percent]
 				   ,[State]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DiskSpaceStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DiskSpaceStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 
@@ -21604,7 +21712,7 @@ BEGIN
 				   ,[SQL_server_physical_memory_in_use_Mb]
 				   ,[State]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[RAMSpaceStatistics]
+				FROM ['+@server+N'].[FortisAdmin].[srv].[RAMSpaceStatistics]
 				WHERE [InsertUTCDate]>='''+cast(@dt as nvarchar(255))+N'''
 				  AND [InsertUTCDate]<='''+cast(@dt0 as nvarchar(255))+N''';
 			end';
@@ -21674,7 +21782,7 @@ BEGIN
 				   ,[query_hash]
 				   ,[query_plan_hash]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[vBigQueryGroupStatisticsRemote];
+				FROM ['+@server+N'].[FortisAdmin].[srv].[vBigQueryGroupStatisticsRemote];
 			end';
 
 			exec sp_executesql @sql;
@@ -21774,7 +21882,7 @@ BEGIN
 				   ,[RedoTargetForkGuid]
 				   ,[BackupLsn]
 				   ,[InsertUTCDate]
-				FROM ['+@server+N'].[SRV].[srv].[DBFileStatistics];
+				FROM ['+@server+N'].[FortisAdmin].[srv].[DBFileStatistics];
 			end';
 
 			exec sp_executesql @sql;--,
@@ -21807,7 +21915,7 @@ BEGIN
 			   ,[object_id]
 			   ,[idx]
 			   ,[InsertUTCDate])
-		SELECT @@SERVERNAME AS [Server]
+		SELECT @servername AS [Server]
 			   ,[db]
 			   ,[shema]
 			   ,[table]
@@ -21827,7 +21935,7 @@ BEGIN
 			  AND [InsertUTCDate]<=@dt0;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoDBFile]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDBFile]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21940,12 +22048,12 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[AutoDefragIndex]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDefragIndex]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [srv].[AutoDefragIndex]
+CREATE   PROCEDURE [srv].[AutoDefragIndex]
 	@count int=null --кол-во одновременно обрабатываемых индексов
 	,@isrebuild bit=0 --позволять ли перестраиваться индексам (фрагментация которых свыше 30%)
 	,@isclear bit=1 --очистить обработанные индексы (т е заново оптимизировать индексы)
@@ -22238,11 +22346,11 @@ BEGIN
 		begin
 			if(@frag>=30 and @isrebuild=1 and @isRebuildOnline=1)
 			begin
-				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON); end try begin catch print 0; end catch '
+				set @SQL_Str = @SQL_Str+'begin try SET LOCK_TIMEOUT 4000;  ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REBUILD WITH(ONLINE=ON); end try begin catch print 0; end catch '
 			end
 			else
 			begin
-				set @SQL_Str = @SQL_Str+'begin try ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
+				set @SQL_Str = @SQL_Str+'begin try SET LOCK_TIMEOUT 4000;  ALTER INDEX ['+@IndexName+'] on ['+@Shema+'].['+@Table+'] REORGANIZE;'
 									   +'UPDATE STATISTICS ['+@Shema+'].['+@Table+'] ['+@IndexName+']; end try begin catch print 0; end catch ';
 			end
 
@@ -22293,16 +22401,14 @@ BEGIN
 						from	@tbl_copy;
 	end
 END
-
-
 GO
-/****** Object:  StoredProcedure [srv].[AutoDefragIndexDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDefragIndexDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [srv].[AutoDefragIndexDB]
+CREATE   PROCEDURE [srv].[AutoDefragIndexDB]
 	@DB nvarchar(255)=NULL, --по конкретной БД или по всем
 	@count int=NULL, --кол-во индексов для рассмотрения в каждой БД
 	@IsTempdb bit=0 --включать ли БД tempdb
@@ -22319,7 +22425,7 @@ BEGIN
 	declare @sql nvarchar(max);
 	declare @ParmDefinition nvarchar(255)= N'@count int';
 
-	truncate table [SRV].[srv].[ListDefragIndex];
+	truncate table [srv].[ListDefragIndex];
 	
 	if(@DB is null)
 	begin
@@ -22357,16 +22463,16 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoDeleteFileNotDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDeleteFileNotDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [srv].[AutoDeleteFileNotDB]
-	@path_data varchar(4000)='E:\sql_data\' --каталог mdf файлов
-   ,@path_log varchar(4000)='F:\sql_log\' --каталог ldf файлов
+CREATE   PROCEDURE [srv].[AutoDeleteFileNotDB]
+	@path_data nvarchar(4000)=N'E:\sql_data\' --каталог mdf файлов
+   ,@path_log nvarchar(4000)=N'F:\sql_log\' --каталог ldf файлов
 AS
 BEGIN
 	/*
@@ -22379,7 +22485,7 @@ BEGIN
 
 	set xact_abort on;
 	 
-	declare @tbl table(a varchar(4000),b int,c int, d int); --собираем содержимое файлов
+	declare @tbl table(a nvarchar(4000), b int, c int, d int); --собираем содержимое файлов
  
 	insert into @tbl(a,b,c) --mdf файлы собираем
 	exec xp_dirtree @path_data,1,1;
@@ -22392,10 +22498,10 @@ BEGIN
 	 
 	--в для @path2 получит значение null
 	 
-	declare @SQL nvarchar(max)=''--контейнер sql скрипта
+	declare @SQL nvarchar(max)=N''--контейнер sql скрипта
 	 
-	select @SQL=@SQL+'
-	exec xp_cmdshell ''del '+case when d=1 then @path_data+p.a else @path_log+p.a end+''''
+	select @SQL=@SQL+N'
+	exec xp_cmdshell ''del '+case when d=1 then @path_data+p.a else @path_log+p.a end+N''''
 	from
 	(select db.name DB, mf.physical_name
 	from sys.databases db
@@ -22403,7 +22509,7 @@ BEGIN
 	where db.database_id>4 /*не системные, не смотрим онлайн БД и пр. это не важно*/) db
 	right outer join @tbl p ON(db.physical_name=case when d=1 then @path_data+p.a else @path_log+p.a end)
 	where db.DB is null
-	and (p.a like '%.mdf' or p.a like '%.ldf');
+	and (p.a like N'%.mdf' or p.a like N'%.ldf');
 	 
 	begin try
 	    exec sp_executesql @SQL; --выполняем удаление файлов (поскольку они не связанны, то должны удаляться на ура)
@@ -22418,15 +22524,15 @@ BEGIN
 	end catch
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoDeleteSnapshotNotDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoDeleteSnapshotNotDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [srv].[AutoDeleteSnapshotNotDB]
-	@path varchar(2000)='E:\DB\'
+CREATE   PROCEDURE [srv].[AutoDeleteSnapshotNotDB]
+	@path nvarchar(2000)='E:\DB\'
 AS
 BEGIN
 	/*
@@ -22439,15 +22545,15 @@ BEGIN
 
 	set xact_abort on;
 	 
-	declare @table table(a varchar(4000), b int, c int);
+	declare @table table(a nvarchar(4000), b int, c int);
 	 
 	insert into @table(a,b,c)
 	exec xp_dirtree @path, 1, 1;
 	 
-	declare @SQL varchar(max)='';
+	declare @SQL nvarchar(max)=N'';
 	 
-	select @SQL=@SQL+'
-	exec xp_cmdshell ''del '+@path+''+b.a+'''
+	select @SQL=@SQL+N'
+	exec xp_cmdshell ''del '+@path+N''+b.a+N'''
 	'
 	from
 	(select b.physical_name as physical_name
@@ -22455,7 +22561,7 @@ BEGIN
 	where a.source_database_id is not null) as a
 	full outer join @table as b on (a.physical_name=@path+b.a )
 	where a.physical_name is null
-	and b.a like '%.ss';
+	and b.a like N'%.ss';
 	 
 	--заменить print на exec
 	--print @SQL;
@@ -22463,7 +22569,7 @@ BEGIN
 	if(len(@SQL)>1)	exec sp_executesql @SQL;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoFlushLog]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoFlushLog]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22517,11 +22623,13 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[AutoIndexStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoIndexStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 
 
 -- =============================================
@@ -22529,7 +22637,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoIndexStatistics]
+CREATE   PROCEDURE [srv].[AutoIndexStatistics]
 AS
 BEGIN
 	/*
@@ -22538,9 +22646,12 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	declare @dt date=CAST(GetUTCDate() as date);
     declare @dbs nvarchar(255);
 	declare @sql nvarchar(max);
+	declare @paramdef nvarchar(255)=N'@servername nvarchar(255)';
 
 	--сбор фрагментации индексов
 	select [name]
@@ -22556,7 +22667,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vIndexDefrag]'+N''''+N') is not null) BEGIN '
-		+N'insert into [SRV].[srv].[IndexDefragStatistics]
+		+N'insert into [FortisAdmin].[srv].[IndexDefragStatistics]
 	         ([Server]
 			 ,[db]
 			 ,[shema]
@@ -22574,7 +22685,7 @@ BEGIN
 			 ,[rec]
 			 ,[ghost]
 			 ,[func])
-		SELECT @@SERVERNAME AS [Server]
+		SELECT @servername AS [Server]
 		     ,[db]
 			 ,[shema]
 			 ,[tb]
@@ -22593,7 +22704,7 @@ BEGIN
 			 ,[func]
 		  FROM [inf].[vIndexDefrag]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs3
 		where [name]=@dbs;
@@ -22613,7 +22724,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vIndexUsageStats]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[IndexUsageStatsStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[IndexUsageStatsStatistics]
 	         ([SERVER]
 			,[DataBase]
 			,[SCHEMA_NAME]
@@ -22658,7 +22769,7 @@ BEGIN
 			,[Filter_Definition]
 			,[Columns]
 			,[IncludeColumns])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[SCHEMA_NAME]
 			,[OBJECT NAME]
@@ -22704,7 +22815,7 @@ BEGIN
 			,[IncludeColumns]
 		FROM ['+@dbs+'].[inf].[vIndexUsageStats]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs
 		where [name]=@dbs;
@@ -22724,7 +22835,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[srv].[vDelIndexInclude]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[DelIndexIncludeStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[DelIndexIncludeStatistics]
 	         ([Server]
 			,[DataBase]
 			,[SchemaName]
@@ -22741,7 +22852,7 @@ BEGIN
 			,[IndexKeyColumns]
 			,[IndexIncludedColumns]
 			,[ActualIndexName])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[SchemaName]
 			,[ObjectName]
@@ -22759,7 +22870,7 @@ BEGIN
 			,[ActualIndexName]
 		FROM ['+@dbs+'].[srv].[vDelIndexInclude]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs4
 		where [name]=@dbs;
@@ -22779,7 +22890,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vOldStatisticsState]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[OldStatisticsStateStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[OldStatisticsStateStatistics]
 	         ([Server]
 			,[DataBase]
 			,[object_id]
@@ -22801,7 +22912,7 @@ BEGIN
 			,[auto_created]
 			,[IndexName]
 			,[has_filter])
-	   SELECT @@SERVERNAME AS [Server]
+	   SELECT @servername AS [Server]
 			,DB_Name()
 			,[object_id]
 			,[SchemaName]
@@ -22824,7 +22935,7 @@ BEGIN
 			,[has_filter]
 		FROM ['+@dbs+'].[inf].[vOldStatisticsState]; END';
 
-		exec sp_executesql @sql;
+		exec sp_executesql @sql, @paramdef, @servername=@servername;
 
 		delete from #dbs5
 		where [name]=@dbs;
@@ -22836,7 +22947,7 @@ BEGIN
 	drop table #dbs5;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoKillLongSessionUser]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoKillLongSessionUser]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23226,7 +23337,7 @@ BEGIN
 	DROP TABLE #tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoKillSessionTranBegin]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoKillSessionTranBegin]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23523,7 +23634,7 @@ BEGIN
 	drop table #tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoNewIndexOptimizeStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoNewIndexOptimizeStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23609,12 +23720,12 @@ BEGIN
 	FROM [inf].[vNewIndexOptimize];
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoReadWriteTablesStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoReadWriteTablesStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [srv].[AutoReadWriteTablesStatistics]
+CREATE   PROCEDURE [srv].[AutoReadWriteTablesStatistics]
 AS
 BEGIN
 	/*
@@ -23646,7 +23757,7 @@ BEGIN
 		set @sql=N'USE ['+@dbs+N'];
 		if(exists(select top(1) 1 from sys.views where [name]=''vReadWriteTables'' and [schema_id]=schema_id(''inf'')))
 		begin
-			INSERT INTO [SRV].[srv].[ReadWriteTablesStatistics]
+			INSERT INTO [FortisAdmin].[srv].[ReadWriteTablesStatistics]
 			([ServerName]
 		     ,[DBName]
 		     ,[SchemaTableName]
@@ -23678,7 +23789,7 @@ BEGIN
 	DEALLOCATE sql_cursor;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoSetRecoveryModelDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoSetRecoveryModelDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23731,26 +23842,31 @@ BEGIN
 	DROP TABLE #tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoShortInfoRunJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoShortInfoRunJobs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoShortInfoRunJobs]
+CREATE   PROCEDURE [srv].[AutoShortInfoRunJobs]
 	@second int=60,
 	@body nvarchar(max)=NULL OUTPUT
 AS
 BEGIN
 	/*
-		Возвращает сообщение о выполненных заданиях для последующей отправки на почту
+		Returns a message about completed tasks 
+		for later sending to the mail
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
     truncate table [srv].[ShortInfoRunJobs];
 
@@ -23772,14 +23888,12 @@ BEGIN
           ,[LastRunDurationInt]
           ,[LastOutcomeMessage]
           ,LastRunOutcome
-          ,@@SERVERNAME
+          ,@servername
       FROM [inf].[vJobRunShortInfo]
       where [Enabled]=1
       and ([LastRunOutcome]=0
       or [LastRunDurationInt]>=@second)
       and LastDateTime>=DateAdd(day,-2,getdate());
-
-	  exec [srv].[GetHTMLTableShortInfoRunJobs] @body=@body OUTPUT;
 
 	  INSERT INTO [srv].[ShortInfoRunJobsServers]
            ([Job_GUID]
@@ -23800,12 +23914,12 @@ BEGIN
            ,[LastRunDurationInt]
            ,[LastOutcomeMessage]
            ,[LastRunOutcome]
-           ,@@SERVERNAME as [Server]
+           ,@servername as [Server]
 		   ,[TargetServer]
 	  FROM [inf].[vJobRunShortInfo];
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoShrinkLog]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoShrinkLog]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23868,17 +23982,18 @@ BEGIN
 	drop table #files;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsActiveConnections]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsActiveConnections]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoStatisticsActiveConnections]
+CREATE   PROCEDURE [srv].[AutoStatisticsActiveConnections]
 AS
 BEGIN
 	/*
@@ -23887,8 +24002,10 @@ BEGIN
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	;with conn as (
-		select @@SERVERNAME as [ServerName]
+		select @servername as [ServerName]
 		   ,[SessionID]
            ,[LoginName]
 		   ,[DBName]           
@@ -23932,7 +24049,7 @@ BEGIN
 	UPDATE SET trg.[EndRegUTCDate]=GetUTCDate();
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsActiveRequests]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsActiveRequests]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25522,7 +25639,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsDiskAndRAMSpace]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsDiskAndRAMSpace]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25595,7 +25712,7 @@ BEGIN
 	cross join sys.dm_os_sys_memory as v;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsFileDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsFileDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25638,18 +25755,19 @@ BEGIN
 	FROM [inf].[ServerDBFileInfo];
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsIOInTempDBStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsIOInTempDBStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[AutoStatisticsIOInTempDBStatistics]
+CREATE   PROCEDURE [srv].[AutoStatisticsIOInTempDBStatistics]
 AS
 BEGIN
 	/*
@@ -25657,6 +25775,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	INSERT INTO [srv].[StatisticsIOInTempDBStatistics]
            ([Server]
@@ -25666,7 +25786,7 @@ BEGIN
            ,[avg_write_stall_ms]
            ,[num_of_reads]
            ,[avg_read_stall_ms])
-	SELECT @@SERVERNAME AS [ServerName]
+	SELECT @servername AS [ServerName]
 		  ,[physical_name]
           ,[name]
           ,[num_of_writes]
@@ -25676,7 +25796,7 @@ BEGIN
 	FROM [srv].[vStatisticsIOInTempDB];
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsQuerys]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsQuerys]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25881,7 +26001,7 @@ BEGIN
 	from @tbl2;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoStatisticsTimeRequests]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoStatisticsTimeRequests]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26265,7 +26385,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoUpdateStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoUpdateStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26391,7 +26511,7 @@ BEGIN
 	drop table #tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoUpdateStatisticsCache]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoUpdateStatisticsCache]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26450,7 +26570,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoUpdateStatisticsDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoUpdateStatisticsDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26511,18 +26631,12 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[AutoWaitStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[AutoWaitStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [srv].[AutoWaitStatistics]
+CREATE   PROCEDURE [srv].[AutoWaitStatistics]
 AS
 BEGIN
 	/*
@@ -26530,6 +26644,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	INSERT INTO [srv].[WaitsStatistics]
            ([Server]
@@ -26542,7 +26658,7 @@ BEGIN
            ,[AvgWait_S]
            ,[AvgRes_S]
            ,[AvgSig_S])
-	 SELECT @@SERVERNAME AS [Server]
+	 SELECT @servername AS [Server]
            ,[WaitType]
            ,[Wait_S]
            ,[Resource_S]
@@ -26555,7 +26671,7 @@ BEGIN
 	 FROM [inf].[vWaits];
 END
 GO
-/****** Object:  StoredProcedure [srv].[Backups_info]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Backups_info]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26679,7 +26795,7 @@ end
 
 
 GO
-/****** Object:  StoredProcedure [srv].[CleanCashes]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[CleanCashes]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26720,7 +26836,7 @@ begin
 end
 
 GO
-/****** Object:  StoredProcedure [srv].[ClearFullInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ClearFullInfo]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26730,7 +26846,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[ClearFullInfo]
+CREATE     PROCEDURE [srv].[ClearFullInfo]
 AS
 BEGIN
 	/*
@@ -26786,9 +26902,10 @@ BEGIN
 
 	truncate table [srv].[IndicatorServerDayStatistics];
 	truncate table [srv].[DBFileStatistics];
+	truncate table [srv].[KillSessionArchive];
 END
 GO
-/****** Object:  StoredProcedure [srv].[ConnectValid]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ConnectValid]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26814,7 +26931,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[DB_USE_DATASPACE]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[DB_USE_DATASPACE]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26905,7 +27022,7 @@ begin
 	end catch
 end
 GO
-/****** Object:  StoredProcedure [srv].[DeleteArchive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[DeleteArchive]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26914,7 +27031,7 @@ GO
 
 
 
-CREATE PROCEDURE [srv].[DeleteArchive]
+CREATE   PROCEDURE [srv].[DeleteArchive]
 	@day int=14 -- кол-во дней, по которым определяется старость записи
 AS
 BEGIN
@@ -27091,13 +27208,20 @@ BEGIN
 		delete
 		from [srv].[DBFileStatistics]
 		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
+	END
+
+	while(exists(select top(1) 1 from [srv].[KillSessionArchive] where InsertUTCDate<=dateadd(day,-@day,getUTCDate())))
+	begin
+		delete
+		from [srv].[KillSessionArchive]
+		where InsertUTCDate<=dateadd(day,-@day,getUTCDate());
 	end
 END
 
 
 
 GO
-/****** Object:  StoredProcedure [srv].[DeleteArchiveInProductDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[DeleteArchiveInProductDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27117,7 +27241,7 @@ BEGIN
 	SET NOCOUNT ON;
 END
 GO
-/****** Object:  StoredProcedure [srv].[Depend_objects]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Depend_objects]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27319,7 +27443,7 @@ begin
 	
 end
 GO
-/****** Object:  StoredProcedure [srv].[Disk_RAM]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Disk_RAM]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27351,7 +27475,7 @@ begin
 	cross join sys.dm_os_sys_memory as v;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ErrorInfoIncUpd]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ErrorInfoIncUpd]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27430,7 +27554,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetActiveConnectionStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetActiveConnectionStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27483,7 +27607,7 @@ begin
       ,[Status];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetAllIndexFrag]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetAllIndexFrag]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27585,7 +27709,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetColumns]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetColumns]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27671,7 +27795,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetDBFilesOperationsStat]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetDBFilesOperationsStat]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27718,7 +27842,7 @@ begin
   FROM [inf].[vDBFilesOperationsStat];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetDefaultsConstraints]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetDefaultsConstraints]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27798,7 +27922,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetDelIndexOptimize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetDelIndexOptimize]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27837,7 +27961,7 @@ begin
 	  FROM [inf].[vDelIndexOptimize];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetFK_Keys]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetFK_Keys]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27911,7 +28035,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetFuncs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetFuncs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27976,7 +28100,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetHeaps]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetHeaps]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28041,7 +28165,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetIdentityColumns]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetIdentityColumns]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28112,7 +28236,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetNewIndexOptimize]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetNewIndexOptimize]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28161,7 +28285,7 @@ begin
 	  where [index_advantage]>=30000;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetProcedures]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetProcedures]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28229,7 +28353,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetQueryRequestGroupStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetQueryRequestGroupStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28278,7 +28402,7 @@ begin
   FROM [srv].[vQueryRequestGroupStatistics];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetSqlLogins]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetSqlLogins]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28303,7 +28427,7 @@ begin
 	FROM [inf].[SqlLogins];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetSynonyms]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetSynonyms]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28368,7 +28492,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetSysLogins]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetSysLogins]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28403,7 +28527,7 @@ begin
 	FROM [inf].[SysLogins];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetTableStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetTableStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28447,7 +28571,7 @@ begin
   FROM [srv].[vTableStatistics];
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetTriggers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetTriggers]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28539,7 +28663,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetViews]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetViews]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28610,7 +28734,7 @@ begin
   drop table #dbs;
 end
 GO
-/****** Object:  StoredProcedure [srv].[ExcelGetWaits]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[ExcelGetWaits]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28638,7 +28762,7 @@ begin
 	FROM [inf].[vWaits];
 end
 GO
-/****** Object:  StoredProcedure [srv].[Find_Ref_Other_DB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Find_Ref_Other_DB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28684,7 +28808,7 @@ begin
 	if (exists(select top(1) 1 from @tbl)) select distinct DB, obj, [type_desc], referenced_entity_name, referenced_database_name, referenced_server_name from @tbl;
 end
 GO
-/****** Object:  StoredProcedure [srv].[FindObj]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[FindObj]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28738,7 +28862,7 @@ begin
 	if (object_id(N'tempdb..##TBL', N'U') is not null)	drop table ##TBL;
 end
 GO
-/****** Object:  StoredProcedure [srv].[FindObject]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[FindObject]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28861,7 +28985,7 @@ begin
 	
 end
 GO
-/****** Object:  StoredProcedure [srv].[Get_Statistic_Waits]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Get_Statistic_Waits]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28944,7 +29068,7 @@ begin
 		drop table #Waits;
 end
 GO
-/****** Object:  StoredProcedure [srv].[GetHTMLTable]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetHTMLTable]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -29155,7 +29279,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoDrivers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoDrivers]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -29347,17 +29471,18 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoRunJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoRunJobs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[GetHTMLTableShortInfoRunJobs]
+CREATE   PROCEDURE [srv].[GetHTMLTableShortInfoRunJobs]
 	@body nvarchar(max) OUTPUT,
 	@second int=60
 AS
@@ -29367,6 +29492,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @tbl table (
 						Job_GUID				uniqueidentifier
@@ -29508,24 +29635,25 @@ BEGIN
 	begin
 		set @body='В ходе анализа последних выполнений заданий, задания с ошибочным завершением, а также те, что выполнились по времени более '
 				 +cast(@second as nvarchar(255))
-				 +' секунд, не выявлены на сервере '+@@SERVERNAME;
+				 +' секунд, не выявлены на сервере '+@servername;
 	end
 	
 	set @body=@body+'<br><br>Для более детальной информации обратитесь к таблице SRV.srv.ShortInfoRunJobs';
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoRunJobsServers]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetHTMLTableShortInfoRunJobsServers]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[GetHTMLTableShortInfoRunJobsServers]
+CREATE   PROCEDURE [srv].[GetHTMLTableShortInfoRunJobsServers]
 	@Path nvarchar(255),
 	@Filename nvarchar(255),
 	@second int=60
@@ -29536,6 +29664,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	DECLARE  @objFileSystem int
         ,@objTextStream int,
@@ -29736,7 +29866,7 @@ BEGIN
 	begin
 		set @body='В ходе анализа последних выполнений заданий, задания с ошибочным завершением, а также те, что выполнились по времени более '
 				 +cast(@second as nvarchar(255))
-				 +' секунд, не выявлены на сервере '+@@SERVERNAME;
+				 +' секунд, не выявлены на сервере '+@servername;
 	end
 	
 	set @body=@body+'<br><br>Для более детальной информации обратитесь к таблице SRV.srv.ShortInfoRunJobs';
@@ -29766,7 +29896,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[GetRecipients]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetRecipients]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -29798,7 +29928,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[GetScalling_monitor_db]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetScalling_monitor_db]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30402,7 +30532,7 @@ SELECT  @reservedpages = @reservedpages + sum(isnull(reserved_page_count,0)),@us
 	  exec [srv].[DB_USE_DATASPACE] @DATABASE
   end
 GO
-/****** Object:  StoredProcedure [srv].[GetStatisticJobs]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[GetStatisticJobs]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30489,7 +30619,7 @@ end
 
 
 GO
-/****** Object:  StoredProcedure [srv].[InsertTableStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[InsertTableStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30499,7 +30629,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE   PROCEDURE [srv].[InsertTableStatistics]
+CREATE     PROCEDURE [srv].[InsertTableStatistics]
 AS
 BEGIN
 	/*
@@ -30525,7 +30655,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vCountRows]'+N''''+N') is not null) BEGIN '
-		+N'insert into [SRV].[srv].[TableIndexStatistics]
+		+N'insert into [FortisAdmin].[srv].[TableIndexStatistics]
 	         ([ServerName]
 				   ,[DBName]
 		           ,[SchemaName]
@@ -30560,7 +30690,7 @@ BEGIN
 		set @sql=
 		N'USE ['+@dbs+']; '
 		+N'IF(object_id('+N''''+N'[inf].[vTableSize]'+N''''+N') is not null) BEGIN '
-		+N'INSERT INTO [SRV].[srv].[TableStatistics]
+		+N'INSERT INTO [FortisAdmin].[srv].[TableStatistics]
 	         ([ServerName]
 			   ,[DBName]
 	         ,[SchemaName]
@@ -30701,7 +30831,7 @@ BEGIN
 	and t1.[TableName]=t2.[TableName];
 END
 GO
-/****** Object:  StoredProcedure [srv].[KillConnect]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[KillConnect]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30764,7 +30894,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[KillFullOldConnect]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[KillFullOldConnect]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30808,7 +30938,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[Locks]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Locks]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31084,7 +31214,7 @@ AS
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[MergeDBFileInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[MergeDBFileInfo]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31092,7 +31222,8 @@ GO
 
 
 
-CREATE PROCEDURE [srv].[MergeDBFileInfo]
+
+CREATE   PROCEDURE [srv].[MergeDBFileInfo]
 AS
 BEGIN
 	/*
@@ -31100,6 +31231,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	;merge [srv].[DBFile] as f
 	using [inf].[ServerDBFileInfo] as ff
@@ -31143,12 +31276,12 @@ BEGIN
 				,ff.[File_id]
 				,0
 			   )
-	when not matched by source and f.[Server]=@@SERVERNAME then delete;
+	when not matched by source and f.[Server]=@servername then delete;
 END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[MergeDriverInfo]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[MergeDriverInfo]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31156,7 +31289,8 @@ GO
 
 
 
-CREATE PROCEDURE [srv].[MergeDriverInfo]
+
+CREATE   PROCEDURE [srv].[MergeDriverInfo]
 AS
 BEGIN
 	/*
@@ -31164,6 +31298,8 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
 
 	declare @Drivers table (
 							[Server] nvarchar(255),
@@ -31183,7 +31319,7 @@ BEGIN
 							TotalSpace,
 							FreeSpace
 	from				srv.Drivers
-	where [Server]=@@SERVERNAME;
+	where [Server]=@servername;
 
 	declare @TotalSpace float;
     declare @FreeSpace float;
@@ -31217,7 +31353,7 @@ BEGIN
 				 ,[DiffFreeSpace]= dd.[DiffFreeSpace];
 END
 GO
-/****** Object:  StoredProcedure [srv].[RunDiffBackupDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunDiffBackupDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31335,7 +31471,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[RunErrorInfoProc]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunErrorInfoProc]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31486,7 +31622,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[RunFullBackupDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunFullBackupDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31496,8 +31632,12 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[RunFullBackupDB]
-	@ClearLog bit=1 --усекать ли журнал транзакций
+CREATE   PROCEDURE [srv].[RunFullBackupDB]
+	@ClearLog   bit=1 --усекать ли журнал транзакций
+	,@IsExtName bit=1 --добавлять ли к имени дату
+	,@IsCHECKDB bit=0 --проверять ли резервную копию
+	,@IsAllDB	bit=0 --брать ли в обработку все БД
+	,@FullPathBackup nvarchar(4000)='\\backup-srv01\SQL_Backups\1C\CHECKDB\'--полный путь к каталогу для создания резервных копий (работает при @IsAllDB=1)
 AS
 BEGIN
 	/*
@@ -31530,13 +31670,30 @@ BEGIN
 		[FullPathBackup] [nvarchar](255) NOT NULL
 	);
 	
-	insert into @tbl (
-	           [DBName]
-	           ,[FullPathBackup]
-	)
-	select		DB_NAME([DBID])
-	           ,[FullPathBackup]
-	from [srv].[BackupSettings];
+	if(@IsAllDB=1)
+	begin
+		insert into @tbl (
+		           [DBName]
+		           ,[FullPathBackup]
+		)
+		select		[name] as [DBName]
+		           ,@FullPathBackup
+		from sys.databases
+		where [database_id]>4
+		and [name]<>N'FortisAdmin'
+		and [state]=0
+		and [user_access]=0;
+	end
+	else
+	begin
+		insert into @tbl (
+		           [DBName]
+		           ,[FullPathBackup]
+		)
+		select		DB_NAME([DBID])
+		           ,[FullPathBackup]
+		from [srv].[BackupSettings];
+	end
 
 	insert into @tbllog([DBName], [FileNameLog])
 	select t.[DBName], tt.[FileName] as [FileNameLog]
@@ -31552,14 +31709,25 @@ BEGIN
 		@DBName=[DBName],
 		@pathBackup=[FullPathBackup]
 		from @tbl;
-	
-		set @backupName=@DBName+N'_Full_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))--+N'_'
-						--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+		
+		if(@IsExtName=1)
+		begin
+			set @backupName=@DBName+N'_Full_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))--+N'_'
+							--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+		end
+		else
+		begin
+			set @backupName=@DBName;
+		end
+
 		set @pathstr=@pathBackup+@backupName+N'.bak';
 
-		set @sql=N'DBCC CHECKDB(N'+N''''+@DBName+N''''+N')  WITH NO_INFOMSGS';
+		if(@IsCHECKDB=1)
+		begin
+			set @sql=N'DBCC CHECKDB(N'+N''''+@DBName+N''''+N')  WITH NO_INFOMSGS';
 
-		exec(@sql);
+			exec(@sql);
+		end
 	
 		set @sql=N'BACKUP DATABASE ['+@DBName+N'] TO DISK = N'+N''''+@pathstr+N''''+
 				 N' WITH NOFORMAT, NOINIT, NAME = N'+N''''+@backupName+N''''+
@@ -31573,7 +31741,10 @@ BEGIN
 
 		set @sql=N'Ошибка верификации. Сведения о резервном копировании для базы данных "'+@DBName+'" не найдены.';
 
-		if @backupSetId is null begin raiserror(@sql, 16, 1) end
+		if (@backupSetId is null)
+		begin
+			raiserror(@sql, 16, 1);
+		end
 		else
 		begin
 			set @sql=N'RESTORE VERIFYONLY FROM DISK = N'+''''+@pathstr+N''''+N' WITH FILE = '+cast(@backupSetId as nvarchar(255));
@@ -31605,7 +31776,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[RunFullRestoreDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunFullRestoreDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31721,7 +31892,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[RunLogBackupDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunLogBackupDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31815,7 +31986,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[RunLogShippingFailover]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunLogShippingFailover]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32020,7 +32191,7 @@ BEGIN
 	end
 END
 GO
-/****** Object:  StoredProcedure [srv].[RunRequestGroupStatistics]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[RunRequestGroupStatistics]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32451,7 +32622,7 @@ begin
 	inner join @tbl as tt on t.[sql_handle]=tt.[sql_handle];
 end
 GO
-/****** Object:  StoredProcedure [srv].[SelectErrorInfoArchive]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[SelectErrorInfoArchive]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32496,7 +32667,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [srv].[SendDBMail]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[SendDBMail]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32579,7 +32750,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [srv].[sp_DriveSpace]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[sp_DriveSpace]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32650,7 +32821,7 @@ begin
     goto DestroyObjects;
 end
 GO
-/****** Object:  StoredProcedure [srv].[SpaceusedDBServer]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[SpaceusedDBServer]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32720,7 +32891,7 @@ BEGIN
 	from @tbl;
 END
 GO
-/****** Object:  StoredProcedure [srv].[Used_resouces_by_sessions]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[Used_resouces_by_sessions]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32780,7 +32951,7 @@ begin
 	ORDER BY used_memory_kb desc,required_memory_kb desc,sum(writes) desc
 end
 GO
-/****** Object:  StoredProcedure [srv].[usp_Find_Problems]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[usp_Find_Problems]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32880,7 +33051,7 @@ AS
  
             END
 GO
-/****** Object:  StoredProcedure [srv].[XPDeleteFile]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [srv].[XPDeleteFile]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32915,7 +33086,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [zabbix].[GetActiveRequestDiff_MSec]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetActiveRequestDiff_MSec]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32950,7 +33121,7 @@ BEGIN
 	WHERE ER.[start_time]>=0;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetActiveRequestProblemCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetActiveRequestProblemCount]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32999,7 +33170,7 @@ BEGIN
 	  ) and ER.session_id>50;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetActiveUserTransaction]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetActiveUserTransaction]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33031,7 +33202,7 @@ BEGIN
 	where [is_user_transaction]=1;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetCurrentInMaxSizeFile]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetCurrentInMaxSizeFile]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33065,7 +33236,7 @@ BEGIN
 	AND [max_size] > 0;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetExistsErrorInLog]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetExistsErrorInLog]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33196,7 +33367,7 @@ BEGIN
 	select cast(@rez as int) as [value];
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetFileBackupProblemCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetFileBackupProblemCount]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33316,11 +33487,12 @@ BEGIN
 	or [DateModify]<=DateAdd(hour,-36,GetDate());
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetForecastDiskMinAvailable_Mb]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetForecastDiskMinAvailable_Mb]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -33331,7 +33503,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [zabbix].[GetForecastDiskMinAvailable_Mb]
+CREATE   PROCEDURE [zabbix].[GetForecastDiskMinAvailable_Mb]
 AS
 BEGIN
 	/*
@@ -33344,6 +33516,8 @@ BEGIN
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 	SET XACT_ABORT ON;
 
+	declare @servername nvarchar(255)=cast(SERVERPROPERTY(N'MachineName') as nvarchar(255));
+
 	declare @tbl table ([DATE] date, [MinAvailable_Mb] decimal(18,6), [MinAvailable_Percent] decimal(18,6), [Disk] nvarchar(255));
 	declare @tbl_res table ([DiffMinAvailable_Mb] decimal(18,6), [DiffMinAvailable_Percent] decimal(18,6), [Disk] nvarchar(255));
 	declare @curr table ([Disk] nvarchar (255), [MinAvailable_Mb] decimal(18,6));
@@ -33355,7 +33529,7 @@ BEGIN
 	      ,min([Available_Percent])		 as [MinAvailable_Percent]
 		  ,[Disk]
 	  FROM [srv].[DiskSpaceStatistics]
-	  where [Server]=@@SERVERNAME
+	  where [Server]=@servername
 	  group by cast([InsertUTCDate] as date), [Disk];
 	
 	;with tbl as (
@@ -33394,7 +33568,7 @@ BEGIN
 	from @diff;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetJobAgentProblemCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetJobAgentProblemCount]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33440,7 +33614,7 @@ BEGIN
 	from tbl;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetOldBackupsCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetOldBackupsCount]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33454,7 +33628,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [zabbix].[GetOldBackupsCount]
+CREATE   PROCEDURE [zabbix].[GetOldBackupsCount]
 	@hours_full int=25 -- старость в часах для полной резервной копии
 	,@hours_log int=1 -- старость в часах для резервной копии журнала транзакций
 AS
@@ -33468,17 +33642,32 @@ BEGIN
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 	SET XACT_ABORT ON;
 
-	--declare @server_name nvarchar(255)=cast(SERVERPROPERTY(N'ComputerNamePhysicalNetBIOS') as nvarchar(255));
+	declare @server_name nvarchar(255)=cast(SERVERPROPERTY(N'ComputerNamePhysicalNetBIOS') as nvarchar(255));
 
-	select count(*) as [count]
+	if((left(@server_name,3) in (N'PRD')) or (@server_name like 'SQL_SERVICES%') or (@server_name in ('com-dba-01')))
+	begin
+		select sum([count]) as [count]
+		from(
+			select count(*) as [count]
 			from sys.databases as db
 			left outer join [inf].[vServerLastBackupDB] as bak on db.[name]=bak.[DBName] and bak.[BackupType]=N'database'
 			where db.[name] not in (N'tempdb', N'NewVeeamBackupDB')
 			and (bak.BackupStartDate<DateAdd(hour,-@hours_full,GetDate()) or bak.BackupStartDate is null)
-			and db.[create_date]<DateAdd(hour,-@hours_full,GetDate());
+			and db.[create_date]<DateAdd(hour,-@hours_full,GetDate())
+			union all
+			select count(*) as [count]
+			from sys.databases as db
+			left outer join [inf].[vServerLastBackupDB] as bak on db.[name]=bak.[DBName] and bak.[BackupType]=N'log'
+			where db.[name] not in (N'tempdb', N'NewVeeamBackupDB', N'NewVeeamBackupReporting', N'SRV', N'VeeamOne', N'FortisAdmin', N'SpotlightPlaybackDatabase', N'SpotlightStatisticsRepository')
+			and db.[database_id]>4
+			and (bak.BackupStartDate<DateAdd(hour,-@hours_log,GetDate()) or bak.BackupStartDate is null)
+			and db.[create_date]<DateAdd(hour,-@hours_full,GetDate())
+		) as t;
+	end
+	else select 0 as [count];
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetPercRAMTypeWait]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetPercRAMTypeWait]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33512,7 +33701,7 @@ BEGIN
 	or [WaitType] like 'PAGEIOLATCH%';
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetReadStallMSTempDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetReadStallMSTempDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33543,7 +33732,7 @@ BEGIN
 	FROM [srv].[vStatisticsIOInTempDB];
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetRunnableTasksCount]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetRunnableTasksCount]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33570,7 +33759,7 @@ BEGIN
 	from [inf].[vSchedulersOS];
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetServerPerformance_Info]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetServerPerformance_Info]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33707,7 +33896,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetSpaceusedDBServer]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetSpaceusedDBServer]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33766,7 +33955,7 @@ BEGIN
 	from @tbl;
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetValRAMTypeWait]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetValRAMTypeWait]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33800,7 +33989,7 @@ BEGIN
 	or [WaitType] like 'PAGEIOLATCH%';
 END
 GO
-/****** Object:  StoredProcedure [zabbix].[GetWriteStallMSTempDB]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  StoredProcedure [zabbix].[GetWriteStallMSTempDB]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33830,7 +34019,7 @@ BEGIN
 	FROM [srv].[vStatisticsIOInTempDB];
 END
 GO
-/****** Object:  DdlTrigger [SchemaLog]    Script Date: 26.12.2019 10:14:28 ******/
+/****** Object:  DdlTrigger [SchemaLog]    Script Date: 26.12.2019 11:33:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33951,7 +34140,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Сбор да�
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Выполняет автоперевод всех несистемных БД в указанную модель восстановления' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'AutoSetRecoveryModelDB'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Возвращает сообщение о выполненных заданиях для последующей отправки на почту' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'AutoShortInfoRunJobs'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Returns a message about completed tasks for later sending to the mail' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'AutoShortInfoRunJobs'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Выполняет автосжатие журналов транзакций БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'AutoShrinkLog'
 GO
@@ -34051,6 +34240,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Формирует и возвращает HTML-код для таблицы запоминающих устройств (логических дисков)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'GetHTMLTableShortInfoDrivers'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Формирует и возвращает HTML-код для таблицы выполненных заданий' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'GetHTMLTableShortInfoRunJobs'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Возвращает HTML-код для таблицы выполненных заданий' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'GetHTMLTableShortInfoRunJobsServers'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Процедура составления почтовых адресов уведомлений' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'PROCEDURE',@level1name=N'GetRecipients'
 GO
@@ -34159,7 +34350,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Формат:
 1: "mm.yyyy"
 2: "yyyy"' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetDateFormat', @level2type=N'PARAMETER',@level2name=N'@format'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Возвращает дату в виде строки по заданному формату и входной дате' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetDateFormat'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Returns the date as a string according to the specified format and input date' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetDateFormat'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Номер месяца в году' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetNameMonth', @level2type=N'PARAMETER',@level2name=N'@Month_Num'
 GO
@@ -34176,7 +34367,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Формат:
 1: "hh:mm"
 2: "hh"' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetTimeFormat', @level2type=N'PARAMETER',@level2name=N'@format'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Возвращает время в виде строки по заданному формату и входному времени' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetTimeFormat'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Returns the time as a string according to the specified format and input time' , @level0type=N'SCHEMA',@level0name=N'rep', @level1type=N'FUNCTION',@level1name=N'GetTimeFormat'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Число в виде строки' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'FUNCTION',@level1name=N'GetNumericNormalize', @level2type=N'PARAMETER',@level2name=N'@str'
 GO
@@ -34195,6 +34386,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Объекты схемы rep содержат информацию для отчетов' , @level0type=N'SCHEMA',@level0name=N'rep'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Объекты схемы srv обычно базируются на собранных заранее данных (т е напрямую запросом без использования объекта не получится)' , @level0type=N'SCHEMA',@level0name=N'srv'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Здесь располагаются объекты для вывода значений в Zabbix' , @level0type=N'SCHEMA',@level0name=N'zabbix'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Идентификатор записи' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'AuditQuery', @level2type=N'COLUMN',@level2name=N'ID'
 GO
@@ -34263,6 +34456,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индекс �
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Настройки резервного копирования' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'BackupSettings'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Группировка по тяжелым запросам' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'BigQueryGroupStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика тяжелых запросов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'BigQueryStatistics'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Идентификатор файла БД (глобальный)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBFile', @level2type=N'COLUMN',@level2name=N'DBFile_GUID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Сервер' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBFile', @level2type=N'COLUMN',@level2name=N'Server'
@@ -34296,6 +34493,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Уникальный индекс (естественный ключ)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBFile', @level2type=N'INDEX',@level2name=N'IX_DBFile'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по файлам БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBFile'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по файлам БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBFileStatistics'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Белый список БД, которых нельзя удалять' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DBListNotDelete'
 GO
@@ -34392,6 +34591,12 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и в
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Настройки реорганизации индексов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DefragRun'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'История оптимизаций индексов со всех серверов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DefragServers'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика перекрывающихся индексов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DelIndexIncludeStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика использования емкости дисков' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'DiskSpaceStatistics'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Идентификатор записи (глобальный)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'Drivers', @level2type=N'COLUMN',@level2name=N'Driver_GUID'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Сервер' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'Drivers', @level2type=N'COLUMN',@level2name=N'Server'
@@ -34484,6 +34689,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индекс �
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Архив уведомлений на почту' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'ErrorInfoArchive'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика степени фрагментации индексов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'IndexDefragStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика использования индексов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'IndexUsageStatsStatistics'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Сервер' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'IndicatorServerDayStatistics', @level2type=N'COLUMN',@level2name=N'Server'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Кол-во вызовов по снимкам активных запросов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'IndicatorServerDayStatistics', @level2type=N'COLUMN',@level2name=N'ExecutionCount'
@@ -34518,6 +34727,8 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата, за
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индикатор производительности экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'IndicatorStatistics'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индекс по InsertUTCDate' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'KillSession', @level2type=N'INDEX',@level2name=N'indInsertUTCDate'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Убитые сессии (см. sys.dm_exec_sessions и sys.dm_exec_connections)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'KillSession'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'ListDefragIndex', @level2type=N'COLUMN',@level2name=N'db'
@@ -34539,6 +34750,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индекс по InsertUTCDate' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'ListDefragIndex', @level2type=N'INDEX',@level2name=N'indInsertUTCDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Список индексов, прошедших реорганизацию в одной итерации' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'ListDefragIndex'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Рекомендуемые индексы согласно собранной статистики' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'NewIndexOptimizeStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Устаревшая статистика' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'OldStatisticsStateStatistics'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Хэш плана выполнения' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'PlanQuery', @level2type=N'COLUMN',@level2name=N'PlanHandle'
 GO
@@ -34598,6 +34813,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индекс по паре полей (близок к естественному ключу)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'QueryStatistics', @level2type=N'INDEX',@level2name=N'indPlanQuery'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Снимки по статистикам экземпляра MS SQL Server (sys.dm_exec_query_stats)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'QueryStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по использованию емкости ОЗУ' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'RAMSpaceStatistics'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по IO на таблицы БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'ReadWriteTablesStatistics'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Идентификатор записи (глобальный)' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'Recipient', @level2type=N'COLUMN',@level2name=N'Recipient_GUID'
 GO
@@ -35191,6 +35410,8 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата и в
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Запросы' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'SQLQuery'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по IO на файлы БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'StatisticsIOInTempDBStatistics'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Сервер' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'TableIndexStatistics', @level2type=N'COLUMN',@level2name=N'ServerName'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'БД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'TableIndexStatistics', @level2type=N'COLUMN',@level2name=N'DBName'
@@ -35335,6 +35556,8 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Дата, ко
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Индикатор производительности экземпляра MS SQL Server по снимкам активных запросов' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'TSQL_DAY_Statistics'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика типов ожиданий по всей СУБД' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'TABLE',@level1name=N'WaitsStatistics'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Все индексы с информацией о степени фрагментации (sys.dm_db_index_physical_stats)' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'AllIndexFrag'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по файлам всех БД экземпляра MS SQL Server (sys.master_files)' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'ServerDBFileInfo'
@@ -35370,9 +35593,13 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информа
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по операциям чтения-записи по всем файлам всех экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vDBFilesOperationsStat'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по размерам БД в разрезе логических дисков по собранным заранее статистикам' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vDBSizeDrive'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ограничения значения по умолчанию для столбцов (с определением этих ограничений)' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vDefaultsConstraints'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Лишние индексы' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vDelIndexOptimize'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Данные о размерах всей емкости и свободного места по логическим дискам' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vDisk'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Внешние ключи' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vFK_Keys'
 GO
@@ -35398,7 +35625,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Активны
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'История выполнения заданий Агента экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vJobHistory'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Краткая информация о последних выполнениях заданий Агента экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vJobRunShortInfo'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Summary of the latest tasks of the MS SQL Server Instance Agent jobs' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vJobRunShortInfo'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Задания Агента экземпляра MS SQL Server по представлению msdb.dbo.sysjobs_view' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vJOBS'
 GO
@@ -35426,7 +35653,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Описани
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Счетчики производительности экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vPerformanceObject'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Хранимые процедуры с их определениями' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vProcedures'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Stored procedures with their definitions' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vProcedures'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по хранимым поцедурам' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vProcedureStat'
 GO
@@ -35435,6 +35662,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация о запросах согласно статистике экземпляра MS SQL Server ' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vQueryResourse'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Статистика по запросам' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vQueryStat'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по использованию ОЗУ' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vRAM'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Данные по чтению/записи таблицы (кучи не рассматриваются, т к у них нет индексов).
 Только те таблицы, к которым обращались после запуска SQL Server' , @level0type=N'SCHEMA',@level0name=N'inf', @level1type=N'VIEW',@level1name=N'vReadWriteTables'
@@ -35496,6 +35725,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по активным подключениям по собранным данных' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vActiveConnectionStatistics'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Настройки резервного копирования' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vBackupSettings'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Группировка по тяжелым запросам для удаленного сбора' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vBigQueryGroupStatisticsRemote'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Тяжелые запросы для удаленного сбора' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vBigQueryStatisticsRemote'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Информация по файлам всех БД экземпляра MS SQL Server' , @level0type=N'SCHEMA',@level0name=N'srv', @level1type=N'VIEW',@level1name=N'vDBFiles'
 GO
