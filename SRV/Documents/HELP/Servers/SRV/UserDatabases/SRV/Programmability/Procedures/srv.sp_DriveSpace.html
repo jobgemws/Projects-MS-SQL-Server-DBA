@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.sp_DriveSpace</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.sp_DriveSpace</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.sp_DriveSpace" />
+            <h1 class="inline-middle">srv.sp_DriveSpace</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Выводит информацию по устройству</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@DrivePath</td>
+                  <td>varchar</td>
+                  <td>1024</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@TotalSpace</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>@FreeSpace</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">sp_DriveSpace</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">@DrivePath</font>&nbsp;<font color="#0000ff">varchar</font><font color="#808080">(</font><font color="#000000">1024</font><font color="#808080">)</font>&nbsp;<font color="#008000">--устройство (можно передать метку тома 'C:')</font><br>&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@TotalSpace</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#0000ff">output</font>&nbsp;<font color="#008000">--всего емкость в байтах</font><br>&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@FreeSpace</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#0000ff">output</font>&nbsp;&nbsp;<font color="#008000">--свободного пространства в байтах</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<br><font color="#008000">/*
+		Выводит информацию по устройству
+		http://www.t-sql.ru/post/disk_size.aspx
+	*/</font><br>&nbsp;&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@fso</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@Drive</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@DriveName</font>&nbsp;<font color="#0000ff">varchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@Folder</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@Drives</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@source</font>&nbsp;<font color="#0000ff">varchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@desc</font>&nbsp;<font color="#0000ff">varchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;&nbsp;<font color="#008000">-- Создаем обект файловой системы</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">sp_OACreate</font>&nbsp;<font color="#ff0000">'Scripting.FileSystemObject'</font><font color="#808080">,</font>&nbsp;<font color="#008080">@fso</font>&nbsp;<font color="#0000ff">output</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@fso</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">!</font><font color="#808080">=</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">ErrorInfo</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#008000">-- Получаем папку по заданному пути</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">sp_OAmethod</font>&nbsp;<font color="#008080">@fso</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'GetFolder'</font><font color="#808080">,</font>&nbsp;<font color="#008080">@Folder</font>&nbsp;<font color="#0000ff">output</font><font color="#808080">,</font>&nbsp;<font color="#008080">@DrivePath</font>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@fso</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">!</font><font color="#808080">=</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">ErrorInfo</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#008000">-- Получаем устройство</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">sp_OAmethod</font>&nbsp;<font color="#008080">@Folder</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'Drive'</font><font color="#808080">,</font>&nbsp;<font color="#008080">@Drive</font>&nbsp;<font color="#0000ff">output</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@Folder</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">!</font><font color="#808080">=</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">ErrorInfo</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#008000">-- Определяем полный размер устройства</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">sp_OAGetProperty</font>&nbsp;<font color="#008080">@Drive</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TotalSize'</font><font color="#808080">,</font>&nbsp;<font color="#008080">@TotalSpace</font>&nbsp;<font color="#0000ff">output</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@Drive</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">!</font><font color="#808080">=</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">ErrorInfo</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#008000">-- Определяем свободное место не устройстве</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">sp_OAGetProperty</font>&nbsp;<font color="#008080">@Drive</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'AvailableSpace'</font><font color="#808080">,</font>&nbsp;<font color="#008080">@FreeSpace</font>&nbsp;<font color="#0000ff">output</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@Object</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@Drive</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@ret</font>&nbsp;<font color="#808080">!</font><font color="#808080">=</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">ErrorInfo</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">DestroyObjects:</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@Folder</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_OADestroy</font>&nbsp;<font color="#008080">@Folder</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@Drive</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_OADestroy</font>&nbsp;<font color="#008080">@Drive</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@fso</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_OADestroy</font>&nbsp;<font color="#008080">@fso</font><br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#808080">(</font><font color="#008080">@ret</font><font color="#808080">)</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">ErrorInfo:</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_OAGetErrorInfo</font>&nbsp;<font color="#008080">@Object</font><font color="#808080">,</font>&nbsp;<font color="#008080">@source</font>&nbsp;<font color="#0000ff">output</font><font color="#808080">,</font>&nbsp;<font color="#008080">@desc</font>&nbsp;<font color="#0000ff">output</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#ff0000">'Source error: '</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#ff00ff">isnull</font><font color="#808080">(</font>&nbsp;<font color="#008080">@source</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'n/a'</font>&nbsp;<font color="#808080">)</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#0000ff">char</font><font color="#808080">(</font><font color="#000000">13</font><font color="#808080">)</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#ff0000">'Description: '</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#ff00ff">isnull</font><font color="#808080">(</font>&nbsp;<font color="#008080">@desc</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'n/a'</font>&nbsp;<font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">goto</font>&nbsp;<font color="#008080">DestroyObjects</font><font color="#808080">;</font><br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Выводит информацию по устройству'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'sp_DriveSpace'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Tables\srv.ErrorInfo.html" data-mapping-enabled="true"><span>srv.ErrorInfo</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.MergeDriverInfo.html" data-mapping-enabled="true"><span>srv.MergeDriverInfo</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

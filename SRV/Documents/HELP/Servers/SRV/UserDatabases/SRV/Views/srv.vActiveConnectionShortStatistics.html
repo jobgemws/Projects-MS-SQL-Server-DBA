@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.vActiveConnectionShortStatistics</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Views</a></li>
+            <li class="active">srv.vActiveConnectionShortStatistics</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="srv.vActiveConnectionShortStatistics" />
+            <h1 class="inline-middle">srv.vActiveConnectionShortStatistics</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Сокращенная информация по активным подключениям по собранным данным</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:36</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:36</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ServerName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Status</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgCount</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>MinInsertUTCDate</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#0000ff">create</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">view</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">vActiveConnectionShortStatistics</font>&nbsp;<font color="#0000ff">as</font><br><font color="#0000ff">with</font>&nbsp;<font color="#008080">tbl0</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#808080">(</font><br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[vActiveConnectionStatistics]</font><br>&nbsp;<font color="#0000ff">group</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">YEAR</font><font color="#808080">(</font><font color="#008080">[InsertUTCDate]</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">MONTH</font><font color="#808080">(</font><font color="#008080">[InsertUTCDate]</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DAY</font><font color="#808080">(</font><font color="#008080">[InsertUTCDate]</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DATEPART</font><font color="#808080">(</font><font color="#0000ff">hour</font><font color="#808080">,</font><font color="#008080">[InsertUTCDate]</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DATEPART</font><font color="#808080">(</font><font color="#0000ff">minute</font><font color="#808080">,</font><font color="#008080">[InsertUTCDate]</font><font color="#808080">)</font><br><font color="#808080">)</font><br><font color="#808080">,</font>&nbsp;<font color="#008080">tbl1</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#808080">(</font><br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">count</font><font color="#808080">(</font><font color="#808080">*</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[count]</font><br>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">tbl0</font><br>&nbsp;<font color="#0000ff">group</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br><font color="#808080">)</font><br><font color="#0000ff">SELECT</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">count</font><font color="#808080">(</font><font color="#808080">*</font><font color="#808080">)</font><font color="#808080">/</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#008080">[count]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">tbl1</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">tbl1</font><font color="#808080">.</font><font color="#008080">[ServerName]</font><font color="#808080">=</font><font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">[ServerName]</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">tbl1</font><font color="#808080">.</font><font color="#008080">[DBName]</font><font color="#808080">=</font><font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">[DBName]</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">tbl1</font><font color="#808080">.</font><font color="#008080">[Status]</font><font color="#808080">=</font><font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">[Status]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgCount]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">min</font><font color="#808080">(</font><font color="#008080">InsertUTCDate</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">MinInsertUTCDate</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[vActiveConnectionStatistics]</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">t</font><br>&nbsp;&nbsp;<font color="#0000ff">group</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">[ServerName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Status]</font><br>&nbsp;<font color="#008000">--order by [ServerName]</font><br>&nbsp;<font color="#008000">--     ,[DBName]</font><br>&nbsp;<font color="#008000">--  ,[Status]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Сокращенная информация по активным подключениям по собранным данным'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'VIEW'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'vActiveConnectionShortStatistics'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\srv.vActiveConnectionStatistics.html" data-mapping-enabled="true"><span>srv.vActiveConnectionStatistics</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

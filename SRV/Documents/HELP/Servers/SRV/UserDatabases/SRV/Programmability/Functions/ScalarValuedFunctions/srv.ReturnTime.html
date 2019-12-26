@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.ReturnTime</title>
+<script src="../../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\Functions.html" data-mapping-enabled="true">Functions</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\ScalarValuedFunctions\ScalarValuedFunctions.html" data-mapping-enabled="true">Scalar-Valued Functions</a></li>
+            <li class="active">srv.ReturnTime</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../../images/scalarfunction.svg" title="srv.ReturnTime" />
+            <h1 class="inline-middle">srv.ReturnTime</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Функция форматировния вывода времени выполнения SQL JOBS из БД msdb. Время переводится в удобичитаемый формат.</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Null on Null Input</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>(Result)</td>
+                  <td>nvarchar</td>
+                  <td>50</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>@d</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">FUNCTION</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">ReturnTime</font>&nbsp;<font color="#808080">(</font><font color="#008080">@d</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">RETURNS</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font>&nbsp;<br><font color="#0000ff">AS</font><br><font color="#0000ff">BEGIN</font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@res</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#808080">(</font><font color="#008080">@d</font><font color="#808080"><</font><font color="#000000">60</font><font color="#808080">)</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'00:'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@d</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">></font><font color="#808080">=</font><font color="#000000">60</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">@d</font><font color="#808080"><</font><font color="#000000">6000</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">ceiling</font><font color="#808080">(</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font><font color="#808080">-</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">60</font><font color="#808080">)</font>&nbsp;&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">></font><font color="#808080">=</font><font color="#000000">6000</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">/</font><font color="#000000">100.0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">+</font>&nbsp;<font color="#ff0000">N':'</font><font color="#808080">+</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@d</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">/</font><font color="#000000">100.0</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">6000</font><font color="#808080">)</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font>&nbsp;<font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">right</font><font color="#808080">(</font><font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">ceiling</font><font color="#808080">(</font><font color="#808080">(</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@d</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">/</font><font color="#000000">100.0</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">6000</font><font color="#808080">)</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font><font color="#808080">-</font>&nbsp;<font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@d</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">floor</font><font color="#808080">(</font><font color="#008080">@d</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">/</font><font color="#000000">100.0</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">6000</font><font color="#808080">)</font><font color="#808080">/</font><font color="#000000">60.0</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">60</font><font color="#808080">)</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff0000">N'00:00'</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#008080">@res</font><font color="#808080">;</font><br><font color="#0000ff">END</font><font color="#808080">;</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Функция форматировния вывода времени выполнения SQL JOBS из БД msdb. Время переводится в удобичитаемый формат.'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'FUNCTION'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'ReturnTime'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetStatisticJobs.html" data-mapping-enabled="true"><span>srv.GetStatisticJobs</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

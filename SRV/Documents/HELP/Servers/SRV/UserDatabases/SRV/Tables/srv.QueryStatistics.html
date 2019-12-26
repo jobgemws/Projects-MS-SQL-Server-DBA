@@ -1,0 +1,619 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.QueryStatistics</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Tables\Tables.html" data-mapping-enabled="true">Tables</a></li>
+            <li class="active">srv.QueryStatistics</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/table.svg" title="srv.QueryStatistics" />
+            <h1 class="inline-middle">srv.QueryStatistics</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Снимки по статистикам экземпляра MS SQL Server (sys.dm_exec_query_stats)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Is Partitioned</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Partitioned Column</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Heap</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Full Text Catalog</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Full Text</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Compression</td>
+                  <td>NONE</td>
+                </tr>
+                <tr>
+                  <td>Row Count (~)</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:18</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>26.12.2019 11:27:20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th>Precision</th>
+                  <th>Scale</th>
+                  <th>Not Null</th>
+                  <th>Identity</th>
+                  <th>Rule</th>
+                  <th>Default</th>
+                  <th>Computed</th>
+                  <th>Persisted</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Primary Key PK_QueryStatistics" />
+                    </a></div></td>
+                  <td>ID</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td>1 - 1</td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key indClustQueryStatistics" />
+                    </a></div></td>
+                  <td>creation_time</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Время, когда запрос был скомпилирован</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_execution_time</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Момент фактического последнего выполнения запроса</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>execution_count</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Сколько раз запрос был выполнен с момента компиляции</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>CPU</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Суммарное время использования процессора в миллисекундах</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgCPUTime</td>
+                  <td>money</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>4</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Средняя загрузка процессора на один запрос</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TotDuration</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Общее время выполнения запроса, в миллисекундах</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgDur</td>
+                  <td>money</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>4</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Среднее время выполнения запроса в миллисекундах</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Reads</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Общее количество чтений</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Writes</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Общее количество изменений страниц данных</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AggIO</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Общее количество логических операций ввода-вывода (суммарно)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIO</td>
+                  <td>money</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>4</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Среднее количество логических дисковых операций на одно выполнение запроса</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indPlanQuery" />
+                    </a></div></td>
+                  <td>sql_handle</td>
+                  <td>varbinary</td>
+                  <td>64</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Хэш запроса</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indPlanQuery" />
+                    </a></div></td>
+                  <td>plan_handle</td>
+                  <td>varbinary</td>
+                  <td>64</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Хэш плана выполнения</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement_start_offset</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Начальная позиция запроса, описываемого строкой, в соответствующем тексте пакета или сохраняемом объекте, в байтах, начиная с 0</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement_end_offset</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Конечная позиция запроса, описываемого строкой, в соответствующем тексте пакета или сохраняемом объекте, в байтах, начиная с 0.
+В версиях до SQL Server 2014 значение -1 обозначает конец пакета. Конечные комментарии больше не включаются</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_name</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>БД</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_name</td>
+                  <td>nvarchar</td>
+                  <td>257</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Объект</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/index.svg" data-toggle="tooltip" title="Indexes indInsertUTCDate" />
+                    </a></div></td>
+                  <td>InsertUTCDate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(getutcdate())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span>Дата и время создания записи в UTC</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Indexes" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Indexes</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Columns</th>
+                  <th>Unique</th>
+                  <th>Type</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key indClustQueryStatistics" />
+                    </a></div></td>
+                  <td>indClustQueryStatistics</td>
+                  <td>creation_time</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td>
+                    <span>Кластеризованный неуникальный индекс</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>indInsertUTCDate</td>
+                  <td>InsertUTCDate</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td>
+                    <span>Индекс по InsertUTCDate</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>indPlanQuery</td>
+                  <td>plan_handle, sql_handle</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td>
+                    <span>Индекс по паре полей (близок к естественному ключу)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/primarykey.svg" data-toggle="tooltip" title="Primary Key PK_QueryStatistics" />
+                    </a></div></td>
+                  <td>PK_QueryStatistics</td>
+                  <td>ID</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">QueryStatistics</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;<font color="#008080">ID</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#0000ff">IDENTITY</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">creation_time</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">last_execution_time</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">execution_count</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">CPU</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">AvgCPUTime</font>&nbsp;<font color="#0000ff">money</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">TotDuration</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">AvgDur</font>&nbsp;<font color="#0000ff">money</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">Reads</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">Writes</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">AggIO</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">AvgIO</font>&nbsp;<font color="#0000ff">money</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">sql_handle</font>&nbsp;<font color="#0000ff">varbinary</font><font color="#808080">(</font><font color="#000000">64</font><font color="#808080">)</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">plan_handle</font>&nbsp;<font color="#0000ff">varbinary</font><font color="#808080">(</font><font color="#000000">64</font><font color="#808080">)</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">statement_start_offset</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">statement_end_offset</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">database_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">128</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#ff00ff">object_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">257</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">InsertUTCDate</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font>&nbsp;<font color="#0000ff">CONSTRAINT</font>&nbsp;<font color="#008080">DF_QueryStatistics_InsertUTCDate</font>&nbsp;<font color="#0000ff">DEFAULT</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">getutcdate</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">CONSTRAINT</font>&nbsp;<font color="#008080">PK_QueryStatistics</font>&nbsp;<font color="#0000ff">PRIMARY</font>&nbsp;<font color="#0000ff">KEY</font>&nbsp;<font color="#0000ff">NONCLUSTERED</font>&nbsp;<font color="#808080">(</font><font color="#008080">ID</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">WITH</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">FILLFACTOR</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">95</font><font color="#808080">)</font><br><font color="#808080">)</font><br><font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">CLUSTERED</font>&nbsp;<font color="#0000ff">INDEX</font>&nbsp;<font color="#008080">indClustQueryStatistics</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">QueryStatistics</font>&nbsp;<font color="#808080">(</font><font color="#008080">creation_time</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">WITH</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">FILLFACTOR</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">95</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">INDEX</font>&nbsp;<font color="#008080">indInsertUTCDate</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">QueryStatistics</font>&nbsp;<font color="#808080">(</font><font color="#008080">InsertUTCDate</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">WITH</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">FILLFACTOR</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">95</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">INDEX</font>&nbsp;<font color="#008080">indPlanQuery</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">QueryStatistics</font>&nbsp;<font color="#808080">(</font><font color="#008080">plan_handle</font><font color="#808080">,</font>&nbsp;<font color="#008080">sql_handle</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">WITH</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">FILLFACTOR</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">95</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Снимки по статистикам экземпляра MS SQL Server (sys.dm_exec_query_stats)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Время, когда запрос был скомпилирован'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'creation_time'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Момент фактического последнего выполнения запроса'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'last_execution_time'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Сколько раз запрос был выполнен с момента компиляции'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'execution_count'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Суммарное время использования процессора в миллисекундах'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'CPU'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Средняя загрузка процессора на один запрос'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AvgCPUTime'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Общее время выполнения запроса, в миллисекундах'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'TotDuration'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Среднее время выполнения запроса в миллисекундах'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AvgDur'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Общее количество чтений'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Reads'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Общее количество изменений страниц данных'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Writes'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Общее количество логических операций ввода-вывода (суммарно)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AggIO'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Среднее количество логических дисковых операций на одно выполнение запроса'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AvgIO'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Хэш запроса'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'sql_handle'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Хэш плана выполнения'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'plan_handle'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Начальная позиция запроса, описываемого строкой, в соответствующем тексте пакета или сохраняемом объекте, в байтах, начиная с 0'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'statement_start_offset'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<br><font color="#ff0000">N'Конечная позиция запроса, описываемого строкой, в соответствующем тексте пакета или сохраняемом объекте, в байтах, начиная с 0.
+В версиях до SQL Server 2014 значение -1 обозначает конец пакета. Конечные комментарии больше не включаются'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'statement_end_offset'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'БД'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'database_name'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Объект'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'object_name'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Дата и время создания записи в UTC'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'COLUMN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'InsertUTCDate'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Кластеризованный неуникальный индекс'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'INDEX'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'indClustQueryStatistics'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Индекс по InsertUTCDate'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'INDEX'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'indInsertUTCDate'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Индекс по паре полей (близок к естественному ключу)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'QueryStatistics'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'INDEX'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'indPlanQuery'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">4</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\srv.vQueryStatistics.html" data-mapping-enabled="true"><span>srv.vQueryStatistics</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsQuerys.html" data-mapping-enabled="true"><span>srv.AutoStatisticsQuerys</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.AutoStatisticsTimeRequests.html" data-mapping-enabled="true"><span>srv.AutoStatisticsTimeRequests</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.ClearFullInfo.html" data-mapping-enabled="true"><span>srv.ClearFullInfo</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

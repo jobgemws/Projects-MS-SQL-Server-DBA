@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>rep.GetTimeFormat</title>
+<script src="../../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\Functions.html" data-mapping-enabled="true">Functions</a></li>
+            <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\ScalarValuedFunctions\ScalarValuedFunctions.html" data-mapping-enabled="true">Scalar-Valued Functions</a></li>
+            <li class="active">rep.GetTimeFormat</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../../images/scalarfunction.svg" title="rep.GetTimeFormat" />
+            <h1 class="inline-middle">rep.GetTimeFormat</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Returns the time as a string according to the specified format and input time</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Null on Null Input</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>(Result)</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>@dt</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>
+                    <span>Время</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@format</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span>Формат:
+0: "hh:mm:ss"
+1: "hh:mm"
+2: "hh"</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">FUNCTION</font>&nbsp;<font color="#008080">rep</font><font color="#808080">.</font><font color="#008080">GetTimeFormat</font>&nbsp;<br><font color="#808080">(</font><br>&nbsp;<font color="#008080">@dt</font>&nbsp;<font color="#0000ff">datetime</font><font color="#808080">,</font>&nbsp;<font color="#008000">-- input time</font><br>&nbsp;<font color="#008080">@format</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font>&nbsp;<font color="#008000">-- specified format</font><br><font color="#808080">)</font><br><font color="#0000ff">RETURNS</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><br><font color="#0000ff">AS</font><br><font color="#008000">/*
+	Returns the time as a string according to the specified format and input time.
+	Dumps the necessary zeros:
+	format 	input time		result
+	0		17:04			"17:04:00"
+	1		17:04			"17:04"
+	1		8:04			"08:04"
+	2		17:04			"17"
+*/</font><br><font color="#0000ff">BEGIN</font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@res</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@hour</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#ff00ff">DATEPART</font><font color="#808080">(</font><font color="#0000ff">HOUR</font><font color="#808080">,</font>&nbsp;<font color="#008080">@dt</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@min</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#ff00ff">DATEPART</font><font color="#808080">(</font><font color="#0000ff">MINUTE</font><font color="#808080">,</font>&nbsp;<font color="#008080">@dt</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@sec</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#ff00ff">DATEPART</font><font color="#808080">(</font><font color="#ff00ff">SECOND</font><font color="#808080">,</font>&nbsp;<font color="#008080">@dt</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font><font color="#808080">(</font><font color="#008080">@format</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@hour</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">':'</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#008080">@res</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@min</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@min</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@min</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">':'</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#008080">@res</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@sec</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@sec</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@sec</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#0000ff">if</font><font color="#808080">(</font><font color="#008080">@format</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@hour</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">':'</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#008080">@res</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@min</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@min</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@min</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#0000ff">if</font><font color="#808080">(</font><font color="#008080">@format</font><font color="#808080">=</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@res</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font><font color="#808080">(</font><font color="#008080">@hour</font><font color="#808080"><</font><font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">'0'</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">@hour</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">RETURN</font>&nbsp;<font color="#008080">@res</font><font color="#808080">;</font><br><font color="#000000"></font><br><font color="#0000ff">END</font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Returns the time as a string according to the specified format and input time'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'rep'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'FUNCTION'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetTimeFormat'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Время'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'rep'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'FUNCTION'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetTimeFormat'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PARAMETER'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'@dt'</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<br><font color="#ff0000">N'Формат:
+0: "hh:mm:ss"
+1: "hh:mm"
+2: "hh"'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'rep'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'FUNCTION'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetTimeFormat'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PARAMETER'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'@format'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\rep.html" data-mapping-enabled="true"><span>rep</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">4</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetHTMLTable.html" data-mapping-enabled="true"><span>srv.GetHTMLTable</span></a></li>
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetHTMLTableShortInfoDrivers.html" data-mapping-enabled="true"><span>srv.GetHTMLTableShortInfoDrivers</span></a></li>
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetHTMLTableShortInfoRunJobs.html" data-mapping-enabled="true"><span>srv.GetHTMLTableShortInfoRunJobs</span></a></li>
+              <li><a href="../../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetHTMLTableShortInfoRunJobsServers.html" data-mapping-enabled="true"><span>srv.GetHTMLTableShortInfoRunJobsServers</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.Depend_objects</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.Depend_objects</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.Depend_objects" />
+            <h1 class="inline-middle">srv.Depend_objects</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Построение зависимостей в хранимых объектов MS SQL (на основе sys.sql_expression_dependencies)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@DB</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@type</td>
+                  <td>nvarchar</td>
+                  <td>50</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@type2</td>
+                  <td>nvarchar</td>
+                  <td>50</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@ref_DB</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@obj</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@ref_obj</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@stat</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@srv</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@job</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">Depend_objects</font><br>&nbsp;<font color="#008080">@DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@type</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@type2</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@ref_DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@ref_obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@stat</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">,</font>&nbsp;<br>&nbsp;<font color="#008080">@srv</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@job</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">TRANSACTION</font>&nbsp;<font color="#0000ff">ISOLATION</font>&nbsp;<font color="#0000ff">LEVEL</font>&nbsp;<font color="#0000ff">READ</font>&nbsp;<font color="#0000ff">UNCOMMITTED</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#008000">/*Построение зависимостей в хранимых объектов MS SQL (на основе sys.sql_expression_dependencies)*/</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">OBJECT_ID</font><font color="#808080">(</font><font color="#ff0000">N'tempdb..##TBL'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">DROP</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">tempdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">##TBL</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">LEN</font><font color="#808080">(</font><font color="#008080">@DB</font><font color="#808080">)</font><font color="#808080"><</font><font color="#000000">1</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">RAISERROR</font><font color="#808080">(</font><font color="#ff0000">N'Вы не указали БД!'</font><font color="#808080">,</font>&nbsp;<font color="#000000">10</font><font color="#808080">,</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@job</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">@obj</font><font color="#808080">)</font><font color="#808080">></font><font color="#000000">0</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#008000">--Использование объекта в SQL JOBS</font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#0000ff">name</font>&nbsp;<font color="#0000ff">job</font><font color="#808080">,</font><font color="#ff0000">N'в теле'</font>&nbsp;<font color="#008080">place</font><font color="#808080">,</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">command</font><font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#0000ff">enabled</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobs</font>&nbsp;<font color="#008080">a</font>&nbsp;<font color="#808080">inner</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobsteps</font>&nbsp;<font color="#008080">b</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">(</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#808080">(</font><font color="#008080">command</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N'%'</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">command</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N'%'</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#0000ff">name</font><font color="#808080">=</font><font color="#008080">@obj</font><font color="#808080">)</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">@DB</font><font color="#808080">=</font><font color="#ff0000">N''</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">command</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#008080">@DB</font><font color="#808080">+</font><font color="#ff0000">N'%'</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">[database_name]</font><font color="#808080">=</font><font color="#008080">@DB</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@job</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">@obj</font><font color="#808080">)</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#008000">--ИСпользование объекта в SQL JOBS</font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#0000ff">name</font>&nbsp;<font color="#0000ff">job</font><font color="#808080">,</font><font color="#ff0000">N'в теле'</font>&nbsp;<font color="#008080">place</font><font color="#808080">,</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">command</font><font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#0000ff">enabled</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobs</font>&nbsp;<font color="#008080">a</font>&nbsp;<font color="#808080">inner</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobsteps</font>&nbsp;<font color="#008080">b</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">(</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">command</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#008080">@DB</font><font color="#808080">+</font><font color="#ff0000">N'%'</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">[database_name]</font><font color="#808080">=</font><font color="#008080">@DB</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@type</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N'U'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'V'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'P'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'FN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'IF'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'TR'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'TF'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N''</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#808080">(</font><font color="#008080">@type2</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font><font color="#808080">(</font><font color="#ff0000">N'U'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'V'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'P'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'FN'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'IF'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'TR'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'TF'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N''</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">RAISERROR</font><font color="#808080">(</font><br><font color="#ff0000">N'Вы указали не валидный тип поиска! Валидные типы:
+		SQL_INLINE_TABLE_VALUED_FUNCTION	IF
+		SQL_SCALAR_FUNCTION	FN
+		SQL_STORED_PROCEDURE	P 
+		SQL_TABLE_VALUED_FUNCTION	TF
+		SQL_TRIGGER	TR
+		USER_TABLE	U 
+		VIEW	V '</font><font color="#808080">,</font>&nbsp;<font color="#000000">10</font><font color="#808080">,</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">create</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">##TBL</font><font color="#808080">(</font><font color="#008080">DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[obj]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">COL</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">5</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@S</font>&nbsp;<font color="#0000ff">varchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><br><font color="#ff0000">N'USE [?] select DB_NAME() DB,[name] [obj],'''' COL,[type_desc],[type] from sys.objects 
+	where [type] in(''P'',
+	''V'',
+	''U'',
+	''IF'',
+	''FN'',
+	''TF'',
+	''TR'')
+	UNION
+	select TOP 1 DB_NAME() DB,TABLE_NAME,COLUMN_NAME COL,''USER_TABLE'' [type_desc],''U'' [type] 
+	FROM INFORMATION_SCHEMA.COLUMNS where COLUMN_NAME='''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N''''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">insert</font>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">##TBL</font><font color="#808080">(</font><font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">[obj]</font><font color="#808080">,</font>&nbsp;<font color="#008080">COL</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_MSforeachdb</font>&nbsp;<font color="#008080">@S</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@obj</font><font color="#808080"><</font><font color="#808080">></font><font color="#ff0000">N''</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@type</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#808080">*</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">##TBL</font><br>&nbsp;&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">DB</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N'master'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'tempdb'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'model'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'msdb'</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">[obj]</font><font color="#808080">=</font><font color="#008080">@obj</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">COL</font><font color="#808080">=</font><font color="#008080">@obj</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@DBR</font>&nbsp;<font color="#0000ff">sysname</font><font color="#808080">=</font><font color="#008080">@DB</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@dbContext</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">256</font><font color="#808080">)</font><font color="#808080">=</font><font color="#008080">@DBR</font><font color="#808080">+</font><font color="#ff0000">N'.dbo.'</font><font color="#808080">+</font><font color="#ff0000">N'sp_executeSQL'</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@SQL</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#008000">--Не рассматриваем триггеры</font><br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@type</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N'TR'</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@type2</font><font color="#808080"><</font><font color="#808080">></font><font color="#ff0000">N'TR'</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@stat</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">=</font><br><font color="#ff0000">N'
+		select DB_NAME() DB,b.[name] parent_obj,b.type,b.type_desc,referenced_entity_name,case when referenced_server_name is null then isnull(c.[type],'''')
+		else '''' end ref_type,
+		case when referenced_server_name is null then isnull(c.[type_desc],''Не существует!'')
+		else '''' end ref_type_desc
+		,isnull(referenced_database_name,DB_NAME()) referenced_database_name, isnull(referenced_server_name ,'''') referenced_server_name
+		from sys.sql_expression_dependencies a
+		left join sys.objects b on(a.referencing_id=b.[object_id])
+		left join ##TBL c on(a.referenced_entity_name=c.[obj] and (isnull(referenced_database_name,DB_NAME())=c.DB))
+		where  left(b.[name],7)<>''Obsolet''
+		and right(b.[name], 4) not in(''Test'',''COPY'')
+		and right(b.[name], 2) not in(''BP'')
+		and right(b.[name], 3) not in(''OLD'')
+		and left(b.[name], 6) not in(''DELETE'') and left(b.[name], 3) not in(''sp_'')
+		and b.[name] not like ''%[0-9][0-9][0-9][0-9]''
+		and (b.[type]='''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N'''='''') and (c.[type]='''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><font color="#ff0000">N'''='''') and (b.[name]='''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N'''='''' or a.referenced_entity_name='''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><br><font color="#ff0000">N''')
+		and (referenced_entity_name='''</font><font color="#808080">+</font><font color="#008080">@ref_obj</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@ref_obj</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		and (a.[referenced_database_name]='''</font><font color="#808080">+</font><font color="#008080">@ref_DB</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@ref_DB</font><font color="#808080">+</font><font color="#ff0000">N'''='''') and ('</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">@srv</font><font color="#808080">=</font><font color="#000000">0</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'''''='''''</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">@srv</font><font color="#808080">=</font><font color="#000000">1</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'a.[referenced_server_name]<>'''''</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">+</font><br><font color="#ff0000">N')
+		GROUP BY b.[name],b.type_desc,b.type,referenced_entity_name,c.[type],c.[type_desc],isnull(referenced_database_name,DB_NAME()), referenced_server_name'</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#008000">--Блок обработки ошибок</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">EXEC</font>&nbsp;<font color="#008080">@dbContext</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_MSG</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_LINE</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@type</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N'TR'</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@type2</font><font color="#808080"><</font><font color="#808080">></font><font color="#ff0000">N'TR'</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@stat</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">=</font><br><font color="#ff0000">N'
+		select DB_NAME() DB,o.name [obj],o.type_desc,isnull(referenced_entity_name,'''') referenced_entity_name,isnull(ref_type_desc,'''') ref_type_desc
+		,isnull(referenced_database_name,'''') referenced_database_name
+		from sys.objects o LEFT OUTER JOIN
+		(select b.[name] parent_obj,b.type_desc,referenced_entity_name,c.[type_desc] ref_type_desc
+		,isnull(referenced_database_name,DB_NAME()) referenced_database_name
+		from sys.sql_expression_dependencies a
+		left join sys.objects b on(a.referencing_id=b.[object_id])
+		left join ##TBL c on(a.referenced_entity_name=c.[obj] and (isnull(referenced_database_name,DB_NAME())=c.DB))
+		where  left(b.[name],7)<>''Obsolet''
+		and right(b.[name], 4) not in(''Test'',''COPY'')
+		and right(b.[name], 2) not in(''BP'')
+		and right(b.[name], 3) not in(''OLD'')
+		and left(b.[name], 6) not in(''DELETE'') and left(b.[name], 3) not in(''sp_'')
+		and b.[name] not like ''%[0-9][0-9][0-9][0-9]''
+		and (b.[type]='''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N'''='''') and (c.[type]='''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		GROUP BY b.[name],b.type_desc,referenced_entity_name,c.[type_desc],isnull(referenced_database_name,DB_NAME()) ) tbl 
+		ON(o.name=tbl.parent_obj and o.type_desc=tbl.type_desc and (o.[type]='''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><br><font color="#ff0000">N'''=''''))
+		where (o.[type]='''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		and  left(o.[name],7)<>''Obsolet''
+		and right(o.[name], 4) not in(''Test'',''COPY'')
+		and right(o.[name], 2) not in(''BP'')
+		and right(o.[name], 3) not in(''OLD'')
+		and left(o.[name], 6) not in(''DELETE'') and left(o.[name], 3) not in(''sp_'')
+		and o.[name] not like ''%[0-9][0-9][0-9][0-9]'''</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#008000">--Блок обработки ошибок</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">EXEC</font>&nbsp;<font color="#008080">@dbContext</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_MSG</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_LINE</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#008000">--Отдельно рассматриваем триггеры</font><br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@type</font><font color="#808080">=</font><font color="#ff0000">N'TR'</font><font color="#808080">)</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#808080">(</font><font color="#008080">@type2</font><font color="#808080">=</font><font color="#ff0000">N'TR'</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">LEN</font><font color="#808080">(</font><font color="#008080">@SQL</font><font color="#808080">)</font><font color="#808080">></font><font color="#000000">0</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">RAISERROR</font><font color="#808080">(</font><font color="#ff0000">N'Ошибка формирования скрипта SQL!'</font><font color="#808080">,</font>&nbsp;<font color="#000000">10</font><font color="#808080">,</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">end</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">=</font><br><font color="#ff0000">N'select distinct b.name [trigger],isnull(a.referenced_database_name,DB_NAME()) referenced_database_name,a.referenced_entity_name,isnull(ob.type_desc,''Нет объекта'') ref_type_desc,o.name parent_name,o.type_desc 
+		from sys.sql_expression_dependencies a inner join sys.objects b on(a.referencing_id=b.object_id)
+		inner join sys.triggers tr on(a.referencing_id=tr.object_id and ('''</font><font color="#808080">+</font><font color="#008080">@type</font><font color="#808080">+</font><br><font color="#ff0000">N'''=''TR'' or 0=1))
+		inner join sys.objects o on(tr.parent_id=o.object_id )
+		left join ##TBL ob on(a.referenced_entity_name=ob.[obj] and (referenced_database_name is null or referenced_database_name=ob.DB))
+		where (ob.[type]='''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@type2</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		and (referenced_entity_name='''</font><font color="#808080">+</font><font color="#008080">@ref_obj</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@ref_obj</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		and (a.[referenced_database_name]='''</font><font color="#808080">+</font><font color="#008080">@ref_DB</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@ref_DB</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+		order by 1'</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#008000">--Блок обработки ошибок</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">EXEC</font>&nbsp;<font color="#008080">@dbContext</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">TRY</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_MSG</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ERR_LINE</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">CATCH</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">OBJECT_ID</font><font color="#808080">(</font><font color="#ff0000">N'tempdb..##TBL'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">DROP</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">tempdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">##TBL</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Построение зависимостей в хранимых объектов MS SQL (на основе sys.sql_expression_dependencies)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Depend_objects'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

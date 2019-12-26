@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.AllIndexFrag</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Views</a></li>
+            <li class="active">inf.AllIndexFrag</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.AllIndexFrag" />
+            <h1 class="inline-middle">inf.AllIndexFrag</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Все индексы с информацией о степени фрагментации (sys.dm_db_index_physical_stats)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:53</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:53</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Schema</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_fragmentation_in_percent</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>page_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_fragment_size_in_pages</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>partition_number</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_type_desc</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>alloc_unit_type_desc</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_depth</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_level</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>fragment_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>FullTable</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">view</font>&nbsp;<font color="#008080">inf</font><font color="#808080">.</font><font color="#008080">AllIndexFrag</font>&nbsp;<font color="#0000ff">as</font><br><font color="#0000ff">SELECT</font>&nbsp;<font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">TABLE_CATALOG</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[DBName]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">TABLE_SCHEMA</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[Schema]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">TABLE_NAME</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[Name]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">idx</font><font color="#808080">.</font><font color="#008080">[name]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">[sys]</font><font color="#808080">.</font><font color="#008080">[indexes]</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">idx</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">t1</font><font color="#808080">.</font><font color="#008080">[object_id]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">idx</font><font color="#808080">.</font><font color="#008080">[object_id]</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">idx</font><font color="#808080">.</font><font color="#008080">[index_id]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[index_id]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">index_name</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">avg_fragmentation_in_percent</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">page_count</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">avg_fragment_size_in_pages</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[database_id]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[object_id]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">index_id</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">partition_number</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">index_type_desc</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">alloc_unit_type_desc</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">index_depth</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">index_level</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">fragment_count</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff0000">'['</font><font color="#808080">+</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">table_catalog</font><font color="#808080">+</font><font color="#ff0000">'].['</font><font color="#808080">+</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">table_schema</font><font color="#808080">+</font><font color="#ff0000">'].['</font><font color="#808080">+</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">table_name</font><font color="#808080">+</font><font color="#ff0000">']'</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">FullTable</font><br><font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#ff00ff">dm_db_index_physical_stats</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">DB_ID</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">a</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">--JOIN sys.indexes AS b ON a.object_id = b.object_id AND a.index_id = b.index_id</font><br>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008000">tables</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">t1</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#ff00ff">object_id</font><font color="#808080">=</font><font color="#008080">t1</font><font color="#808080">.</font><font color="#ff00ff">object_id</font><br>&nbsp;<font color="#808080">inner</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008000">INFORMATION_SCHEMA</font><font color="#808080">.</font><font color="#008000">TABLES</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">t2</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#008080">t1</font><font color="#808080">.</font><font color="#0000ff">name</font><font color="#808080">=</font><font color="#008080">t2</font><font color="#808080">.</font><font color="#008080">table_name</font><br>&nbsp;<font color="#008000">--where t1.type_desc = 'USER_TABLE'</font><br>&nbsp;<font color="#008000">--and t2.table_catalog='VTSDB2'</font><br>&nbsp;<font color="#008000">--and a.avg_fragmentation_in_percent>30</font><br>&nbsp;<font color="#008000">--order by a.avg_fragmentation_in_percent desc;</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Все индексы с информацией о степени фрагментации (sys.dm_db_index_physical_stats)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'inf'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'VIEW'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AllIndexFrag'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.ExcelGetAllIndexFrag.html" data-mapping-enabled="true"><span>srv.ExcelGetAllIndexFrag</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

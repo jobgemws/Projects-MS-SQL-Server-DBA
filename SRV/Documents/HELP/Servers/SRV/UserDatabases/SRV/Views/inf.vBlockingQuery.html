@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vBlockingQuery</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Views</a></li>
+            <li class="active">inf.vBlockingQuery</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vBlockingQuery" />
+            <h1 class="inline-middle">inf.vBlockingQuery</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Заблокированные запросы (расширенный способ) экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:51</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:51</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>request_session_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>blocking_session_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>BlockedObjectName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>resource_type</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>RequestingText</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>BlockingTest</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>request_mode</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">create</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">view</font>&nbsp;<font color="#008080">inf</font><font color="#808080">.</font><font color="#008080">vBlockingQuery</font>&nbsp;<font color="#0000ff">as</font><br><font color="#008000">/*
+	http://sqlcom.ru/dba-tools/quickest-way-to-identify-blocking-query/
+*/</font><br><font color="#0000ff">SELECT</font><br><font color="#008080">db</font><font color="#808080">.</font><font color="#0000ff">name</font>&nbsp;<font color="#008080">DBName</font><font color="#808080">,</font><br><font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">request_session_id</font><font color="#808080">,</font><br><font color="#008080">wt</font><font color="#808080">.</font><font color="#008080">blocking_session_id</font><font color="#808080">,</font><br><font color="#ff00ff">OBJECT_NAME</font><font color="#808080">(</font><font color="#008080">p</font><font color="#808080">.</font><font color="#ff00ff">OBJECT_ID</font><font color="#808080">)</font>&nbsp;<font color="#008080">BlockedObjectName</font><font color="#808080">,</font><br><font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">resource_type</font><font color="#808080">,</font><br><font color="#008080">h1</font><font color="#808080">.</font><font color="#0000ff">TEXT</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">RequestingText</font><font color="#808080">,</font><br><font color="#008080">h2</font><font color="#808080">.</font><font color="#0000ff">TEXT</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">BlockingTest</font><font color="#808080">,</font><br><font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">request_mode</font><br><font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_tran_locks</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">tl</font><br><font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">databases</font>&nbsp;<font color="#008080">db</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">db</font><font color="#808080">.</font><font color="#008080">database_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">resource_database_id</font><br><font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_waiting_tasks</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">wt</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">lock_owner_address</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">wt</font><font color="#808080">.</font><font color="#008080">resource_address</font><br><font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008000">partitions</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">p</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">p</font><font color="#808080">.</font><font color="#008080">hobt_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">resource_associated_entity_id</font><br><font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_connections</font>&nbsp;<font color="#008080">ec1</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">ec1</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">tl</font><font color="#808080">.</font><font color="#008080">request_session_id</font><br><font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_connections</font>&nbsp;<font color="#008080">ec2</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">ec2</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">wt</font><font color="#808080">.</font><font color="#008080">blocking_session_id</font><br><font color="#808080">CROSS</font>&nbsp;<font color="#0000ff">APPLY</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ec1</font><font color="#808080">.</font><font color="#008080">most_recent_sql_handle</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">h1</font><br><font color="#808080">CROSS</font>&nbsp;<font color="#0000ff">APPLY</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ec2</font><font color="#808080">.</font><font color="#008080">most_recent_sql_handle</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">h2</font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Заблокированные запросы (расширенный способ) экземпляра MS SQL Server'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'inf'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'VIEW'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'vBlockingQuery'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

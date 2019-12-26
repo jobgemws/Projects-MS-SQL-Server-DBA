@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.GetStatisticJobs</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.GetStatisticJobs</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.GetStatisticJobs" />
+            <h1 class="inline-middle">srv.GetStatisticJobs</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Данные по выполнению заданий на сервере</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#008000">--Данные по выполнению заданий на сервере</font><br><font color="#008000">--Автор: Прилепа Б.А. - АБД</font><br><font color="#008000">--Дата создания: 16.01.2017</font><br><font color="#008000">--exec [dbo].[GetStatisticJobs] @srv='1csrv'</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">GetStatisticJobs</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@servername</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">SERVERPROPERTY</font><font color="#808080">(</font><font color="#ff0000">N'MachineName'</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">@servername</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">SERVERNAME</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[name]</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[count]</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[ReturnTime]</font><font color="#808080">(</font><font color="#008080">avg_run_duration</font><font color="#808080">)</font>&nbsp;<font color="#008080">avg_run_duration</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[ReturnTime]</font><font color="#808080">(</font><font color="#008080">min_run_duration</font><font color="#808080">)</font>&nbsp;<font color="#008080">min_run_duration</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[ReturnTime]</font><font color="#808080">(</font><font color="#008080">max_run_duration</font><font color="#808080">)</font>&nbsp;<font color="#008080">max_run_duration</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[ReturnTime]</font><font color="#808080">(</font><font color="#008080">sum_run_duration</font><font color="#808080">)</font>&nbsp;<font color="#008080">sum_run_duration</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">[enabled]</font><br>&nbsp;<font color="#808080">,</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">run_date</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">date</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">run_date</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">last_run</font><font color="#808080">=</font><font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">)</font><font color="#808080">=</font><font color="#000000">5</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'0'</font><font color="#808080">+</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">3</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">)</font><font color="#808080">=</font><font color="#000000">6</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">4</font><font color="#808080">)</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N':'</font><font color="#808080">+</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#008080">last_run</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">last_duration</font><font color="#808080">=</font><font color="#008080">[srv]</font><font color="#808080">.</font><font color="#008080">[ReturnTime]</font><font color="#808080">(</font><font color="#008080">last_duration</font><font color="#808080">)</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#000000">0</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'Неуспех'</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#000000">1</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'Успех'</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#000000">2</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'Повтор'</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#000000">3</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'Отмена'</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">Неуспехов</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">date_created</font><br>&nbsp;<font color="#0000ff">from</font><br>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1000</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">MAX</font><font color="#808080">(</font><font color="#008080">[enabled]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[enabled]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">[name]</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">date_created</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">run_date</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">max</font><font color="#808080">(</font><font color="#008080">run_time</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">last_run</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">AVG</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">avg_run_duration</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">MIN</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">min_run_duration</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">MAX</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">max_run_duration</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">SUM</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">sum_run_duration</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">SUM</font><font color="#808080">(</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">run_status</font><font color="#808080">=</font><font color="#000000">0</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">Неуспехов</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">last_run_status</font><font color="#808080">=</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#008080">run_status</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#008000">dbo</font><font color="#808080">.</font><font color="#008080">sysjobhistory</font>&nbsp;<font color="#008080">j</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">j</font><font color="#808080">.</font><font color="#008080">job_id</font>&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">run_date</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">,</font><font color="#008080">run_time</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">last_duration</font><font color="#808080">=</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#008080">run_duration</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">run_duration</font><font color="#808080">></font><font color="#808080">=</font><font color="#000000">100</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">,</font><font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font><font color="#808080">-</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">60</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#008080">run_duration</font>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#008000">dbo</font><font color="#808080">.</font><font color="#008080">sysjobhistory</font>&nbsp;<font color="#008080">j</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">j</font><font color="#808080">.</font><font color="#008080">job_id</font>&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">run_date</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">,</font><font color="#008080">run_time</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">count</font><font color="#808080">(</font><font color="#808080">*</font><font color="#808080">)</font>&nbsp;&nbsp;<font color="#008080">[count]</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#008000">dbo</font><font color="#808080">.</font><font color="#008080">sysjobs</font>&nbsp;<font color="#008080">b</font><br>&nbsp;&nbsp;<font color="#0000ff">left</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">job_id</font><font color="#808080">,</font>&nbsp;<font color="#008080">run_duration</font><font color="#808080">=</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">run_duration</font><font color="#808080">></font><font color="#808080">=</font><font color="#000000">100</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">,</font><font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font><font color="#808080">-</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">60</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#0000ff">right</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#008080">run_duration</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font><font color="#808080">,</font><font color="#008080">run_date</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">run_time</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">run_status</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">ROW_NUMBER</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">over</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">partition</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">job_id</font>&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">run_date</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">k</font>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#008000">dbo</font><font color="#808080">.</font><font color="#008080">sysjobhistory</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">a</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#808080">(</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">run_date</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">date</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">getdate</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">date</font><font color="#808080">)</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#008080">k</font><font color="#808080">=</font><font color="#000000">1</font><br>&nbsp;&nbsp;<font color="#0000ff">group</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">,</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">[name]</font><font color="#808080">,</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">date_created</font><font color="#808080">,</font>&nbsp;<font color="#008080">run_date</font><br>&nbsp;&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#ff00ff">sum</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">,</font><font color="#ff00ff">count</font><font color="#808080">(</font><font color="#808080">*</font><font color="#808080">)</font>&nbsp;<font color="#808080">*</font><font color="#ff00ff">avg</font><font color="#808080">(</font><font color="#008080">run_duration</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">desc</font><br>&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">a</font><font color="#808080">;</font><br><font color="#0000ff">end</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Данные по выполнению заданий на сервере'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetStatisticJobs'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\ScalarValuedFunctions\srv.ReturnTime.html" data-mapping-enabled="true"><span>srv.ReturnTime</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

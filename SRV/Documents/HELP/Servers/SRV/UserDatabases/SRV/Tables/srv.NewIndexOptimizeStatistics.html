@@ -1,0 +1,802 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.NewIndexOptimizeStatistics</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Tables\Tables.html" data-mapping-enabled="true">Tables</a></li>
+            <li class="active">srv.NewIndexOptimizeStatistics</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/table.svg" title="srv.NewIndexOptimizeStatistics" />
+            <h1 class="inline-middle">srv.NewIndexOptimizeStatistics</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Рекомендуемые индексы согласно собранной статистики</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Group</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Is Partitioned</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Partitioned Column</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream Partition Scheme</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Filestream File Groups</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Heap</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Full Text Catalog</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Full Text</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Compression</td>
+                  <td>NONE</td>
+                </tr>
+                <tr>
+                  <td>Row Count (~)</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:22</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:22</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th>Precision</th>
+                  <th>Scale</th>
+                  <th>Not Null</th>
+                  <th>Identity</th>
+                  <th>Rule</th>
+                  <th>Default</th>
+                  <th>Computed</th>
+                  <th>Persisted</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ServerName</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Schema</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Name</td>
+                  <td>nvarchar</td>
+                  <td>128</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_advantage</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>group_handle</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>unique_compiles</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_user_seek</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_user_scan</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_total_user_cost</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_user_impact</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>system_seeks</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_system_scan</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_system_seek</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_total_system_cost</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>avg_system_impact</td>
+                  <td>float</td>
+                  <td>8</td>
+                  <td>53</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_group_handle</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>index_handle</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_id</td>
+                  <td>smallint</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_id</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>equality_columns</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>inequality_columns</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>K</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Keys</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>include</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sql_statement</td>
+                  <td>nvarchar</td>
+                  <td>4000</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>user_seeks</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>user_scans</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>est_impact</td>
+                  <td>bigint</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>SecondsUptime</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key indInsertUTCDate" />
+                    </a></div></td>
+                  <td>InsertUTCDate</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td><p class="value-true">True</p></td>
+                  <td></td>
+                  <td></td>
+                  <td>(getutcdate())</td>
+                  <td><p class="value-false">False</p></td>
+                  <td><p class="value-false">False</p></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Indexes" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Indexes</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th>Columns</th>
+                  <th>Unique</th>
+                  <th>Type</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td><div><a class="anchor-link" href="#Indexes"><img class="image-small" src="../../../../../images/Cluster.svg" data-toggle="tooltip" title="Cluster Key indInsertUTCDate" />
+                    </a></div></td>
+                  <td>indInsertUTCDate</td>
+                  <td>InsertUTCDate</td>
+                  <td><p class="value-false">False</p></td>
+                  <td></td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">NewIndexOptimizeStatistics</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;<font color="#008080">ServerName</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">128</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">DBName</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">128</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">[Schema]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">128</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">Name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">128</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">index_advantage</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">group_handle</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">unique_compiles</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">last_user_seek</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">last_user_scan</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">avg_total_user_cost</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">avg_user_impact</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">system_seeks</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">last_system_scan</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">last_system_seek</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">avg_total_system_cost</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">avg_system_impact</font>&nbsp;<font color="#0000ff">float</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">index_group_handle</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">index_handle</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">database_id</font>&nbsp;<font color="#0000ff">smallint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#ff00ff">object_id</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">equality_columns</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">inequality_columns</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">statement</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">K</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">Keys</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#0000ff">include</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">sql_statement</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">user_seeks</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">user_scans</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">est_impact</font>&nbsp;<font color="#0000ff">bigint</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">SecondsUptime</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">,</font><br>&nbsp;&nbsp;<font color="#008080">InsertUTCDate</font>&nbsp;<font color="#0000ff">datetime</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font>&nbsp;<font color="#0000ff">CONSTRAINT</font>&nbsp;<font color="#008080">DF_NewIndexOptimizeStatistics_InsertUTCDate</font>&nbsp;<font color="#0000ff">DEFAULT</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">getutcdate</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">)</font><br><font color="#808080">)</font><br><font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#0000ff">CLUSTERED</font>&nbsp;<font color="#0000ff">INDEX</font>&nbsp;<font color="#008080">indInsertUTCDate</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">NewIndexOptimizeStatistics</font>&nbsp;<font color="#808080">(</font><font color="#008080">InsertUTCDate</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">WITH</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">FILLFACTOR</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">95</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">[PRIMARY]</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Рекомендуемые индексы согласно собранной статистики'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'TABLE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'NewIndexOptimizeStatistics'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">3</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.AutoNewIndexOptimizeStatistics.html" data-mapping-enabled="true"><span>srv.AutoNewIndexOptimizeStatistics</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.ClearFullInfo.html" data-mapping-enabled="true"><span>srv.ClearFullInfo</span></a></li>
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.DeleteArchive.html" data-mapping-enabled="true"><span>srv.DeleteArchive</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

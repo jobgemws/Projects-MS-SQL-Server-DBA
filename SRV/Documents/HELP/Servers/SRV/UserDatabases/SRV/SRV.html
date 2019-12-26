@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>SRV</title>
+<script src="../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li class="active">SRV</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../images/database.svg" title="SRV" />
+            <h1 class="inline-middle">SRV</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>База данных для администрирования
+Версия для MS SQL Server 2016-2017 (также полностью или частично поддерживается MS SQL Server 2012-2014).
+Поддержка всех версий до версии MS SQL Server 2012 может быть не на достаточном уровне для использования в производственной среде.
+Необходимые типовые задания см. в ХП inf.InfoAgentJobs.</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="ObjectTypes" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Object Types</h2>
+          <span class="badge inline-middle">8</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><img src="../../../../images/table.svg" class="image-small" title="Tables" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Tables\Tables.html" data-mapping-enabled="true"><span>Tables</span></a></li>
+              <li><img src="../../../../images/view.svg" class="image-small" title="Views" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true"><span>Views</span></a></li>
+              <li><img src="../../../../images/procedure.svg" class="image-small" title="Stored Procedures" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true"><span>Stored Procedures</span></a></li>
+              <li><img src="../../../../images/tablefunction.svg" class="image-small" title="Table-Valued Functions" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\TableValuedFunctions\TableValuedFunctions.html" data-mapping-enabled="true"><span>Table-Valued Functions</span></a></li>
+              <li><img src="../../../../images/scalarfunction.svg" class="image-small" title="Scalar-Valued Functions" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Programmability\Functions\ScalarValuedFunctions\ScalarValuedFunctions.html" data-mapping-enabled="true"><span>Scalar-Valued Functions</span></a></li>
+              <li><img src="../../../../images/DdlTrigger.svg" class="image-small" title="Database Triggers" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Programmability\Triggers\Triggers.html" data-mapping-enabled="true"><span>Database Triggers</span></a></li>
+              <li><img src="../../../../images/DatabaseRole.svg" class="image-small" title="Database Roles" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Security\Roles\DatabaseRoles\DatabaseRoles.html" data-mapping-enabled="true"><span>Database Roles</span></a></li>
+              <li><img src="../../../../images/schema.svg" class="image-small" title="Schemas" />
+              <a href="../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\Schemas.html" data-mapping-enabled="true"><span>Schemas</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="ServerOptions" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Options</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Database collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>Restrict access</td>
+                  <td>MULTI_USER</td>
+                </tr>
+                <tr>
+                  <td>Cleanly shutdown</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Supplemental logging enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Is Read-Only</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Auto close</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Auto shrink</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Database is read-only for restore log</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Is Snapshot</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Snapshot isolation state</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Read committed snapshot on</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Recovery model</td>
+                  <td>SIMPLE</td>
+                </tr>
+                <tr>
+                  <td>Page verify option</td>
+                  <td>Checksum</td>
+                </tr>
+                <tr>
+                  <td>Auto create statistics</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Auto update statistics</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Auto update statistics asynchronously</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>ANSI NULL default</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>ANSI NULL enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>ANSI padding enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>ANSI warnings enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Arithmetic abort enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Concatenating NULL yields NULL</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Numeric roundabort enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Recursive triggers enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Close cursors on commit</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Local cursor by default</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Fulltext enabled</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Trustworthy</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Database chaining</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Forced parameterization</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Master key encrypted by server</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Published</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Merge published</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Is distribution database</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Sync with backup</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Service broker GUID</td>
+                  <td>e5895a99-8bce-49a2-bc56-76b05073f988</td>
+                </tr>
+                <tr>
+                  <td>Service broker enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Log reuse wait</td>
+                  <td>Nothing</td>
+                </tr>
+                <tr>
+                  <td>Date correlation</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Change data capture enabled</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Honor broker priority</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Database owner</td>
+                  <td>sa</td>
+                </tr>
+                <tr>
+                  <td>Delayed durability</td>
+                  <td>Disabled</td>
+                </tr>
+                <tr>
+                  <td>Containment type</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

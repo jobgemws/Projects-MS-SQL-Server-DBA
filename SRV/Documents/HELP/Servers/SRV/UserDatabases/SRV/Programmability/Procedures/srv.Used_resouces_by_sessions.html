@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.Used_resouces_by_sessions</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.Used_resouces_by_sessions</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.Used_resouces_by_sessions" />
+            <h1 class="inline-middle">srv.Used_resouces_by_sessions</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Мониторинг использования ресурсов ОП(RAM),cpu,reads,writes по текущим исполняемым сессиям на SQL Server-е</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#008000">--Мониторинг использования ресурсов ОП(RAM),cpu,reads,writes по текущим исполняемым сессиям на SQL Server-е</font><br><font color="#008000">--Прилепа Б.А. - АБД</font><br><font color="#008000">--22.05.2017</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">Used_resouces_by_sessions</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#008080">spid</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[percent]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">required_memory_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">used_memory_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[status]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">sum</font><font color="#808080">(</font><font color="#008080">writes</font><font color="#808080">)</font>&nbsp;<font color="#008080">writes</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">loginame</font><font color="#808080">=</font><font color="#808080">(</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#ff00ff">max</font><font color="#808080">(</font><font color="#008080">loginame</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff00ff">min</font><font color="#808080">(</font><font color="#008080">loginame</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff00ff">max</font><font color="#808080">(</font><font color="#008080">loginame</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">max</font><font color="#808080">(</font><font color="#008080">loginame</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">' '</font><font color="#808080">+</font><font color="#ff00ff">min</font><font color="#808080">(</font><font color="#008080">loginame</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">end</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[db_name]</font><font color="#808080">,</font><font color="#008080">[hostname]</font><font color="#808080">,</font><font color="#008080">client_net_address</font><font color="#808080">,</font><font color="#008080">[program_name]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">start_time</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">wait_time</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">last_wait_type</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">command</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[statement]</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[text]</font><br>&nbsp;<font color="#0000ff">FROM</font><br>&nbsp;&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">distinct</font>&nbsp;<font color="#008080">r</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">spid</font><font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">percent_complete</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">[percent]</font><font color="#808080">,</font><font color="#008080">required_memory_kb</font><font color="#808080">,</font><font color="#008080">used_memory_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">r</font><font color="#808080">.</font><font color="#008080">[status]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">writes</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DB_NAME</font><font color="#808080">(</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">database_id</font><font color="#808080">)</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">[db_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[hostname]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">dmec</font><font color="#808080">.</font><font color="#008080">client_net_address</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[program_name]</font><font color="#808080">,</font><font color="#008080">s</font><font color="#808080">.</font><font color="#008080">loginame</font><font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">start_time</font><font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">wait_time</font><font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">last_wait_type</font><font color="#808080">,</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">command</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font>&nbsp;<font color="#ff00ff">SUBSTRING</font><font color="#808080">(</font><font color="#0000ff">text</font><font color="#808080">,</font>&nbsp;<font color="#008080">statement_start_offset</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">2</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">1</font><font color="#808080">,</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">(</font><font color="#0000ff">CASE</font>&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">statement_end_offset</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#808080">-</font><font color="#000000">1</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff00ff">LEN</font><font color="#808080">(</font><font color="#ff00ff">CONVERT</font><font color="#808080">(</font><font color="#0000ff">NVARCHAR</font><font color="#808080">(</font><font color="#ff00ff">MAX</font><font color="#808080">)</font><font color="#808080">,</font><font color="#0000ff">text</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">*</font>&nbsp;<font color="#000000">2</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">ELSE</font>&nbsp;<font color="#008080">statement_end_offset</font>&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#008080">statement_start_offset</font><font color="#808080">)</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">sql_handle</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#008080">[statement]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">[text]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font>&nbsp;<font color="#008080">r</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_connections</font>&nbsp;<font color="#008080">dmec</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">r</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">dmec</font><font color="#808080">.</font><font color="#008080">session_id</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">INNER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">sysprocesses</font>&nbsp;<font color="#008080">s</font>&nbsp;<font color="#0000ff">ON</font>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">spid</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">r</font><font color="#808080">.</font><font color="#008080">session_id</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">CROSS</font>&nbsp;<font color="#0000ff">APPLY</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font>&nbsp;<font color="#808080">(</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">sql_handle</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">t</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">LEFT</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_query_memory_grants</font>&nbsp;<font color="#008080">p</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">(</font><font color="#008080">r</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">=</font><font color="#008080">p</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">)</font>&nbsp;<font color="#008000">--Использование ОП по сессиям</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#008080">tbl</font>&nbsp;<br>&nbsp;<font color="#0000ff">GROUP</font>&nbsp;<font color="#0000ff">BY</font>&nbsp;<font color="#008080">spid</font><font color="#808080">,</font><font color="#008080">[percent]</font><font color="#808080">,</font><font color="#008080">required_memory_kb</font><font color="#808080">,</font><font color="#008080">used_memory_kb</font><font color="#808080">,</font><font color="#008080">[status]</font><font color="#808080">,</font><font color="#008080">[db_name]</font><font color="#808080">,</font><font color="#008080">[hostname]</font><font color="#808080">,</font><font color="#008080">client_net_address</font><font color="#808080">,</font><font color="#008080">[program_name]</font><font color="#808080">,</font><font color="#008080">start_time</font><font color="#808080">,</font><font color="#008080">wait_time</font><font color="#808080">,</font><font color="#008080">last_wait_type</font><font color="#808080">,</font><font color="#008080">command</font><font color="#808080">,</font><font color="#008080">[statement]</font><font color="#808080">,</font><font color="#008080">[text]</font><br>&nbsp;<font color="#0000ff">ORDER</font>&nbsp;<font color="#0000ff">BY</font>&nbsp;<font color="#008080">used_memory_kb</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">,</font><font color="#008080">required_memory_kb</font>&nbsp;<font color="#0000ff">desc</font><font color="#808080">,</font><font color="#ff00ff">sum</font><font color="#808080">(</font><font color="#008080">writes</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">desc</font><br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Мониторинг использования ресурсов ОП(RAM),cpu,reads,writes по текущим исполняемым сессиям на SQL Server-е'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Used_resouces_by_sessions'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

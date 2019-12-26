@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.Find_Ref_Other_DB</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.Find_Ref_Other_DB</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.Find_Ref_Other_DB" />
+            <h1 class="inline-middle">srv.Find_Ref_Other_DB</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Хранимая процедура ищет использование хранимых объектов и таблиц в определении других хранимых обхектах SQL (в основе лежит sql_expression_dependencies)
+	Выполняется только в контексте одной БД</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@DB</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@obj</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@srv</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">proc</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">Find_Ref_Other_DB</font><br>&nbsp;<font color="#008080">@DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#808080">null</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@srv</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<br><font color="#008000">/*
+	Хранимая процедура ищет использование хранимых объектов и таблиц в определении других хранимых обхектах SQL (в основе лежит sql_expression_dependencies)
+	Выполняется только в контексте одной БД
+	*/</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@sql</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">=</font><br><font color="#ff0000">N'select DB_NAME() DB,b.name obj,b.type_desc,referenced_entity_name ,referenced_database_name, referenced_server_name 
+	from sys.sql_expression_dependencies a INNER JOIN 
+	sys.objects b on(a.referencing_id=b.object_id)
+	left join sys.objects c on(a.referenced_entity_name=c.name)
+	where lower(referenced_database_name) is not null and referenced_database_name not in(''master'')
+	and left(b.name,7)<>''Obsolet''
+	and right(b.name, 4) not in(''Test'',''COPY'')
+	and right(b.name, 2) not in(''BP'')
+	and left(b.name, 6) not in(''DELETE'')
+	and b.name not like ''%[0-9][0-9][0-9][0-9]''
+	and (referenced_database_name='''</font><font color="#808080">+</font><font color="#008080">@DB</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@DB</font><font color="#808080">+</font><font color="#ff0000">N''''</font><font color="#808080">+</font><br><font color="#ff0000">'='''')
+	'</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#ff00ff">len</font><font color="#808080">(</font><font color="#008080">@obj</font><font color="#808080">)</font><font color="#808080">></font><font color="#000000">0</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'and (b.name='''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">''' or referenced_entity_name='''</font><font color="#808080">+</font><font color="#008080">@obj</font><font color="#808080">+</font><font color="#ff0000">N''')'</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff0000">N''</font>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#808080">+</font><br><font color="#ff0000">N'
+	 '</font><font color="#808080">+</font><font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">@srv</font><font color="#808080">=</font><font color="#000000">1</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">N'and exists(select 1 from sys.sql_expression_dependencies se where a.referencing_id=se.referencing_id and se.referenced_server_name is not null)'</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff0000">N''</font>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#808080">+</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@tbl</font>&nbsp;<font color="#0000ff">table</font><font color="#808080">(</font><font color="#008080">DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_entity_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_database_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_server_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#008000">--print @sql</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">insert</font>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">@tbl</font><br>&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#800000">sp_executesql</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#808080">exists</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">@tbl</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#0000ff">distinct</font>&nbsp;<font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">obj</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_entity_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_database_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_server_name</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">@tbl</font><font color="#808080">;</font><br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<br><font color="#ff0000">N'Хранимая процедура ищет использование хранимых объектов и таблиц в определении других хранимых обхектах SQL (в основе лежит sql_expression_dependencies)
+	Выполняется только в контексте одной БД'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Find_Ref_Other_DB'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

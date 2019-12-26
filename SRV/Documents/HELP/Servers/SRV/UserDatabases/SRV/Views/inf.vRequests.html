@@ -1,0 +1,937 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vRequests</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Views</a></li>
+            <li class="active">inf.vRequests</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vRequests" />
+            <h1 class="inline-middle">inf.vRequests</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Сведения о запросах экземпляра MS SQL Server</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:42</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>26.12.2019 11:27:19</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>session_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>blocking_session_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>request_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>start_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>date_diffSec</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_time, sec</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>work_time, sec</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sleep_time, sec</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>IO, MB</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>transaction_isolation_level_desc</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>status</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>status_session</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>command</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>percent_complete</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DBName</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>CURRENT_REQUEST</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TSQL</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>objectid</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>QueryPlan</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>event_info</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>wait_type</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>login_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>host_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>program_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>wait_timeSec</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>wait_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_wait_type</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>wait_resource</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>open_transaction_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>open_resultset_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>transaction_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>context_info</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>estimated_completion_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>cpu_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_elapsed_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>scheduler_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>task_address</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>logical_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>text_size</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>language</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>date_format</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>date_first</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>quoted_identifier</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>arithabort</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ansi_null_dflt_on</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ansi_defaults</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ansi_warnings</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ansi_padding</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>ansi_nulls</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>concat_null_yields_null</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>transaction_isolation_level</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>lock_timeout</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>deadlock_priority</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>row_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>prev_error</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>nest_level</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>granted_query_memory</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>executing_managed_code</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>group_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_hash</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_plan_hash</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>most_recent_session_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>connect_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>net_transport</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>protocol_type</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>protocol_version</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>endpoint_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>encrypt_option</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>auth_scheme</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>node_affinity</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>num_reads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>num_writes</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_read</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_write</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>net_packet_size</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>client_net_address</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>client_tcp_port</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>local_net_address</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>local_tcp_port</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>parent_connection_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>most_recent_sql_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>host_process_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>client_version</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>client_interface_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>security_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>login_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>nt_domain</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>nt_user_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>memory_usage</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>total_scheduled_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_request_start_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_request_end_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>is_user_process</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>original_security_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>original_login_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_successful_logon</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_unsuccessful_logon</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>unsuccessful_logons</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>authenticating_database_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sql_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement_start_offset</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>statement_end_offset</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>plan_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>dop</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>user_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>connection_id</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">view</font>&nbsp;<font color="#008080">inf</font><font color="#808080">.</font><font color="#008080">vRequests</font>&nbsp;<font color="#0000ff">as</font><br><font color="#008000">/*
+	ГЕМ: Сведения о запросах
+*/</font><br><font color="#0000ff">select</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[session_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[blocking_session_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[request_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DateDiff</font><font color="#808080">(</font><font color="#ff00ff">second</font><font color="#808080">,</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">GetDate</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[date_diffSec]</font>&nbsp;<font color="#008000">--Сколько в сек прошло времени от момента поступления запроса</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">COALESCE</font><font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#ff00ff">NULLIF</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[total_elapsed_time]</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">1000</font><font color="#808080">,</font>&nbsp;<font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">BIGINT</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#0000ff">CASE</font>&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#808080">(</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[status]</font>&nbsp;<font color="#808080"><</font><font color="#808080">></font>&nbsp;<font color="#ff0000">'running'</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#ff00ff">isnull</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[status]</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">''</font><font color="#808080">)</font>&nbsp;&nbsp;<font color="#808080"><</font><font color="#808080">></font>&nbsp;<font color="#ff0000">'running'</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">THEN</font>&nbsp;&nbsp;<font color="#ff00ff">DATEDIFF</font><font color="#808080">(</font><font color="#008080">ss</font><font color="#808080">,</font><font color="#000000">0</font><font color="#808080">,</font><font color="#ff00ff">getdate</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#ff00ff">nullif</font><font color="#808080">(</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_request_end_time]</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'1900-01-01T00:00:00.000'</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">END</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[total_time, sec]</font>&nbsp;<font color="#008000">--Время всей работы запроса в сек</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#ff00ff">NULLIF</font><font color="#808080">(</font><font color="#808080">(</font><font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[total_elapsed_time]</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">BIGINT</font><font color="#808080">)</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[wait_time]</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#0000ff">BIGINT</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">1000</font><font color="#808080">,</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">bigint</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[work_time, sec]</font>&nbsp;<font color="#008000">--Время работы запроса в сек без учета времени ожиданий</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#0000ff">CASE</font>&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[status]</font>&nbsp;<font color="#808080"><</font><font color="#808080">></font>&nbsp;<font color="#ff0000">'running'</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#ff00ff">ISNULL</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[status]</font><font color="#808080">,</font><font color="#ff0000">''</font><font color="#808080">)</font>&nbsp;<font color="#808080"><</font><font color="#808080">></font>&nbsp;<font color="#ff0000">'running'</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">THEN</font>&nbsp;&nbsp;<font color="#ff00ff">DATEDIFF</font><font color="#808080">(</font><font color="#008080">ss</font><font color="#808080">,</font><font color="#000000">0</font><font color="#808080">,</font><font color="#ff00ff">getdate</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#ff00ff">nullif</font><font color="#808080">(</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_request_end_time]</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'1900-01-01T00:00:00.000'</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[sleep_time, sec]</font>&nbsp;<font color="#008000">--Время сна в сек</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">NULLIF</font><font color="#808080">(</font>&nbsp;<font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[logical_reads]</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[writes]</font><font color="#808080">)</font>&nbsp;<font color="#808080">*</font>&nbsp;<font color="#000000">8</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">1024</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">numeric</font><font color="#808080">(</font><font color="#000000">38</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[IO, MB]</font>&nbsp;<font color="#008000">--операций чтения и записи в МБ</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#0000ff">CASE</font>&nbsp;&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">transaction_isolation_level</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'Unspecified'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'ReadUncommited'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">2</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'ReadCommited'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">3</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'Repetable'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">4</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'Serializable'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#000000">5</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff0000">'Snapshot'</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[transaction_isolation_level_desc]</font>&nbsp;<font color="#008000">--уровень изоляции транзакции (расшифровка)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[status]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[status]</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[status_session]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[command]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[percent_complete]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">DB_Name</font><font color="#808080">(</font><font color="#ff00ff">coalesce</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[database_id]</font><font color="#808080">,</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[database_id]</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#ff00ff">SUBSTRING</font><font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">[text]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_start_offset]</font><font color="#808080">/</font><font color="#000000">2</font><font color="#808080">+</font><font color="#000000">1</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">CASE</font>&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_start_offset]</font><font color="#808080"><</font><font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_end_offset]</font><font color="#808080"><</font><font color="#000000">0</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#ff00ff">DATALENGTH</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">[text]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">ELSE</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_end_offset]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">END</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">-</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_start_offset]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">/</font><font color="#000000">2</font>&nbsp;<font color="#808080">+</font><font color="#000000">1</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[CURRENT_REQUEST]</font>&nbsp;<font color="#008000">--Текущий выполняемый запрос в пакете</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">[text]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[TSQL]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">[objectid]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[objectid]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#008080">[query_plan]</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_query_plan</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[plan_handle]</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[QueryPlan]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">NULL</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[event_info]</font><font color="#008000">--(select top(1) [event_info] from sys.dm_exec_input_buffer(ES.[session_id], ER.[request_id])) as [event_info]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[wait_type]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[login_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[host_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[program_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[wait_time]</font><font color="#808080">/</font><font color="#000000">1000</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">decimal</font><font color="#808080">(</font><font color="#000000">18</font><font color="#808080">,</font><font color="#000000">3</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[wait_timeSec]</font>&nbsp;<font color="#008000">--Если запрос в настоящий момент блокирован, в столбце содержится продолжительность текущего ожидания (в секундах)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[wait_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[last_wait_type]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[wait_resource]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[open_transaction_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[open_resultset_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[transaction_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[context_info]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[estimated_completion_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[cpu_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[total_elapsed_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[scheduler_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[task_address]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[logical_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[text_size]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[language]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[date_format]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[date_first]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[quoted_identifier]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[arithabort]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[ansi_null_dflt_on]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[ansi_defaults]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[ansi_warnings]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[ansi_padding]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[ansi_nulls]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[concat_null_yields_null]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[transaction_isolation_level]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[lock_timeout]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[deadlock_priority]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[row_count]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[prev_error]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[nest_level]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[granted_query_memory]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[executing_managed_code]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[group_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[query_hash]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[query_plan_hash]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[most_recent_session_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[connect_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[net_transport]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[protocol_type]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[protocol_version]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[endpoint_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[encrypt_option]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[auth_scheme]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[node_affinity]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[num_reads]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[num_writes]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[last_read]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[last_write]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[net_packet_size]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[client_net_address]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[client_tcp_port]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[local_net_address]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[local_tcp_port]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[parent_connection_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">[most_recent_sql_handle]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[host_process_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[client_version]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[client_interface_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[security_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[login_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[nt_domain]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[nt_user_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[memory_usage]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[total_scheduled_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_request_start_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_request_end_time]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[is_user_process]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[original_security_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[original_login_name]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_successful_logon]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[last_unsuccessful_logon]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[unsuccessful_logons]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[authenticating_database_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_start_offset]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[statement_end_offset]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[plan_handle]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">NULL</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[dop]</font><font color="#008000">--ER.[dop]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#ff00ff">coalesce</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[database_id]</font><font color="#808080">,</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[database_id]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[database_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[user_id]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[connection_id]</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font>&nbsp;<font color="#008080">ER</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">right</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sessions</font>&nbsp;<font color="#008080">ES</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<br>&nbsp;<font color="#0000ff">left</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_connections</font>&nbsp;<font color="#008080">EC</font>&nbsp;&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#008080">EC</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">session_id</font><br>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[status]</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">'suspended'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'running'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'runnable'</font><font color="#808080">)</font><br>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#808080">exists</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">ER0</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">ER0</font><font color="#808080">.</font><font color="#008080">[blocking_session_id]</font><font color="#808080">=</font><font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">[session_id]</font><font color="#808080">)</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Сведения о запросах экземпляра MS SQL Server'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'inf'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'VIEW'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'vRequests'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

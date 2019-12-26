@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.FindObject</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.FindObject</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.FindObject" />
+            <h1 class="inline-middle">srv.FindObject</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Хранимая процедура глобального поиска объекта, в том числе его использорвания в SQL JOB</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@name</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@mult</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@like</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#008000">--exec [dbo].[sp_FindObject] @name='ms_Mail_Prepare&Send_CheckMove'</font><br><font color="#008000">--exec [dbo].[sp_FindObject] @name='Operation',@like=1</font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;&nbsp;&nbsp;<font color="#0000ff">proc</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">FindObject</font><br>&nbsp;<font color="#008080">@name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N'sp_tc_search_code'</font>&nbsp;<font color="#008000">--exec master.dbo.sp_FindObject @name='agreement_requests'</font><br>&nbsp;<br><font color="#008000">/*,@name2 varchar(255)=''
+	,@name3 varchar(255)='esbsrv02'
+	,@name4 varchar(255)='esbsrv03'
+	,@name5 varchar(255)='esbsrv04'*/</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">@mult</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">@like</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">1</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#008000">--Хранимая процедура глобального поиска объекта, в том числе его использорвания в SQL JOB</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">object_id</font><font color="#808080">(</font><font color="#ff0000">N'tempdb..#t'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">drop</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">#t</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@sql</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@sql2</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">4000</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@like</font><font color="#808080">=</font><font color="#000000">0</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@P</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@table</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">referenced_database_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">referenced_entity_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">type_desc_obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">ref_obj</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[type_desc]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@P</font><font color="#808080">=</font><br><font color="#ff0000">N'use [?]
+		select distinct referenced_database_name referenced_database_name,db_name() DB,referenced_entity_name,b.type_desc type_desc_obj,c.name ref_obj,c.type_desc
+		from sys.sql_expression_dependencies a 
+		LEFT JOIN sys.objects b on(a.referenced_id=b.object_id)
+		LEFT JOIN sys.objects c on(a.referencing_id=c.object_id)
+		where (referenced_entity_name='''</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N''' or c.name='''</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N''')'</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">insert</font>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">@table</font>&nbsp;<font color="#808080">(</font><font color="#008080">referenced_database_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_entity_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">type_desc_obj</font><font color="#808080">,</font>&nbsp;<font color="#008080">ref_obj</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#0000ff">master</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sp_msforeachdb</font>&nbsp;<font color="#008080">@P</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">referenced_database_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">referenced_entity_name</font><font color="#808080">,</font>&nbsp;<font color="#008080">type_desc_obj</font><font color="#808080">,</font>&nbsp;<font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">ref_obj</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">@table</font><br>&nbsp;&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#000000">1</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">,</font><font color="#000000">3</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@tbl</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#808080">(</font><font color="#008080">DB</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<br><font color="#008000">/*if @mult=1
+	set @sql='USE [?]
+	select DB_NAME() DB,''В тексте'',a.name name,a.type_desc from sys.objects a (nolock) inner join sys.sql_modules b (nolock) on(a.object_id=b.object_id) where b.[definition] like ''%'+@name+'%''
+	or b.[definition] like ''%'+@name2+'%'' or b.[definition] like ''%'+@name3+'%'' or b.[definition] like ''%'+@name4+'%'' or b.[definition] like ''%'+@name5+'%'''*/</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@mult</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@like</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">=</font><br><font color="#ff0000">N'USE [?]
+		select DB_NAME() DB,''В тексте'',a.name name,a.type_desc from sys.objects a (nolock) inner join sys.sql_modules b (nolock) on(a.object_id=b.object_id) 
+		where a.[type] in(''P'',
+		''V'',
+		''U'',
+		''IF'',
+		''FN'',
+		''TF'',
+		''TR'') and b.[definition] like '''</font><font color="#808080">+</font><font color="#ff0000">'%'</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N'%'</font><font color="#808080">+</font><br><font color="#ff0000">'''
+		union
+		select DB_NAME() DB,''Столбец'',TABLE_NAME COLLATE Cyrillic_General_CI_AS,''Таблица'' type_desc from INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME='''</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N''''</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">@mult</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#808080">(</font><font color="#008080">@like</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">=</font><br><font color="#ff0000">N'USE [?]
+		select DB_NAME() DB,''Столбец'',TABLE_NAME COLLATE Cyrillic_General_CI_AS,''Таблица'' type_desc from INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME='''</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N''''</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@like</font><font color="#808080">=</font><font color="#000000">1</font><br>&nbsp;&nbsp;<font color="#0000ff">insert</font>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">@tbl</font>&nbsp;<font color="#808080">(</font><font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[name]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_Msforeachdb</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#008080">@like</font><font color="#808080">=</font><font color="#000000">0</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@sql2</font><font color="#808080">=</font><br><font color="#ff0000">N'USE [?]
+		select DB_NAME() DB,''Название'',name name,type_desc from sys.objects where [name]='''</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><font color="#ff0000">N''''</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">insert</font>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">@tbl</font>&nbsp;<font color="#808080">(</font><font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[name]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#008080">sp_Msforeachdb</font>&nbsp;<font color="#008080">@sql2</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#0000ff">distinct</font>&nbsp;<font color="#808080">*</font>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">#t</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">@tbl</font><br>&nbsp;&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">DB</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N''</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'master'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'msdb'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'monitor_performance'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'tempdb'</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%_New'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%_p'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%_Test'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%copy'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%Old'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'%[0-9][0-9][0-9][0-9]%'</font>&nbsp;<br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'Obsolet%'</font><br>&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[name]</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'DELETE%'</font><font color="#808080">;</font><br><font color="#000000"></font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">DB</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[name]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[type_desc]</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">job</font><font color="#808080">,</font>&nbsp;<font color="#008080">command</font><font color="#808080">,</font>&nbsp;<font color="#008080">[enabled]</font><font color="#008000">--,convert(date,last_run_date,104) last_run_date,left(last_run_time,2)+':'+right(left(last_run_time,4),2)+':'+right(last_run_time,2) last_run_time </font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#t</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">a</font><br>&nbsp;&nbsp;<font color="#0000ff">LEFT</font>&nbsp;<font color="#808080">OUTER</font>&nbsp;<font color="#808080">JOIN</font>&nbsp;<font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[name]</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">job</font><font color="#808080">,</font>&nbsp;<font color="#008080">b</font><font color="#808080">.</font><font color="#008080">command</font>&nbsp;<font color="#808080">,</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[enabled]</font><font color="#008000">--,cast(b.last_run_date as varchar(50)) last_run_date,cast(last_run_time as varchar(50)) last_run_time </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobs</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">a</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">inner</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008080">msdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">sysjobsteps</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">b</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#808080">(</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">=</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">job_id</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">b</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#808080">(</font><font color="#008080">b</font><font color="#808080">.</font><font color="#008080">command</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N''</font><font color="#808080">+</font><font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#008080">a</font><font color="#808080">.</font><font color="#008080">[name]</font><font color="#808080">+</font><font color="#ff0000">N'%'</font><font color="#808080">+</font><font color="#ff0000">N''</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">object_id</font><font color="#808080">(</font><font color="#ff0000">'tempdb..#t'</font><font color="#808080">,</font><font color="#ff0000">'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">drop</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">#t</font><font color="#808080">;</font><br>&nbsp;<br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Хранимая процедура глобального поиска объекта, в том числе его использорвания в SQL JOB'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'FindObject'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

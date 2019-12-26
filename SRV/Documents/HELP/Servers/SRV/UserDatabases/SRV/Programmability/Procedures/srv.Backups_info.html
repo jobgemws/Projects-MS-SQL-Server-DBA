@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.Backups_info</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.Backups_info</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.Backups_info" />
+            <h1 class="inline-middle">srv.Backups_info</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Мониторинг резервирования данных</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@DATE</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@DATE2</td>
+                  <td>datetime</td>
+                  <td>8</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@DAYS</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@INTERVAL</td>
+                  <td>nvarchar</td>
+                  <td>2</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@DATABASE</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#008000">/*
+Автор - Прилепа Б.А. АБД
+Мониторинг резервирования данных
+
+exec [dbo].[sp_backups_info] --Вся история по всем базам
+exec [dbo].[sp_backups_info] @db='Trucks' --Вя имеющаяся история по одной БД
+exec [dbo].[sp_backups_info] @d='2019-01-28',@k=3 /*три дня в прошлое с 2019-01-28*/,@t='DD', @db='Trucks'
+exec [dbo].[sp_backups_info] @d='2019-01-26',@k=8 /*8 часов в прошлое с 2019-01-26 00:00:00*/,@t='HH', @db='Trucks'
+exec [dbo].[sp_backups_info] @d=null,@t='MI',@k=120 /*за 2 последних часа*/, @db='Trucks'
+exec [dbo].[sp_backups_info] @db='Trucks',@d='2019-01-27 06:00:00',@d2='2019-01-25 10:00:00' --с 6 утра 27-го января дня и до 10 утра 25-го
+exec [dbo].[sp_backups_info] @DATABASE='MonopolySun' --Получение результатов на удаленном сервера
+*/</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">Backups_info</font><br>&nbsp;<font color="#008080">@DATE</font>&nbsp;&nbsp;<font color="#0000ff">datetime</font>&nbsp;&nbsp;<font color="#808080">=</font>&nbsp;<font color="#808080">null</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@DATE2</font>&nbsp;&nbsp;<font color="#0000ff">datetime</font>&nbsp;&nbsp;<font color="#808080">=</font>&nbsp;<font color="#808080">null</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@DAYS</font>&nbsp;&nbsp;<font color="#0000ff">int</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">7</font>&nbsp;<font color="#008000">/*период от даты*/</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@INTERVAL</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2</font><font color="#808080">)</font>&nbsp;&nbsp;<font color="#808080">=</font>&nbsp;<font color="#ff0000">N'DD'</font><font color="#008000">/*DD - дни*/</font>&nbsp;<font color="#808080">,</font><br>&nbsp;<font color="#008080">@DATABASE</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font>&nbsp;<font color="#808080">null</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@DATE</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">null</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@DATE</font><font color="#808080">=</font><font color="#ff00ff">getdate</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@i</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@DATE2</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@i</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@DAYS</font><font color="#808080">=</font><font color="#808080">null</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@DATE2</font><font color="#808080">></font><font color="#008080">@DATE</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#ff0000">N'Вторая дата @d2 - '''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">@DATE2</font><font color="#808080">,</font><font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N''' должна быть меньше пераой @d - '''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">@DATE</font><font color="#808080">,</font><font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N'''!'</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">return</font>&nbsp;<font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@DATABASE</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">null</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@DATABASE</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font>&nbsp;<font color="#008000">--Поиск по всем БД</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@SQL</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@DAYS_BEFORE</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">=</font><font color="#008080">@DAYS</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@dop</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">''</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@i</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@dop</font><font color="#808080">=</font><font color="#ff0000">N'( '</font><font color="#808080">+</font><font color="#008080">@DAYS_BEFORE</font><font color="#808080">+</font><font color="#ff0000">N' is not null and backup_finish_date<='''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">@DATE</font><font color="#808080">,</font><font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><br><font color="#ff0000">N''' 
+		and backup_finish_date>= dateadd('</font><font color="#808080">+</font><font color="#008080">@INTERVAL</font><font color="#808080">+</font><font color="#ff0000">N',-isnull('</font><font color="#808080">+</font><font color="#008080">@DAYS_BEFORE</font><font color="#808080">+</font><font color="#ff0000">N',999),'''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">@DATE</font><font color="#808080">,</font><font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N'''))'</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#008080">@i</font><font color="#808080">=</font><font color="#000000">1</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@dop</font><font color="#808080">=</font><font color="#ff0000">N'(backup_finish_date<='''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">@DATE</font><font color="#808080">,</font>&nbsp;<font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N''' and backup_finish_date>='''</font><font color="#808080">+</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">50</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">@DATE2</font><font color="#808080">,</font>&nbsp;<font color="#000000">113</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">N''')'</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">=</font><br>&nbsp;<font color="#ff0000">N'if len('''</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><font color="#ff0000">N''')>0 and (select count(1) from master.sys.databases where [name]='''</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><br><font color="#ff0000">N''')=0
+	begin
+	   print ''Указанная Вами БД ( '</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><br><font color="#ff0000">N' ) не найденна! Проверьте передаваемые параметры!''
+	   return
+	end
+	
+	select a.database_name,db.name db,[physical_name],a.recovery_model,
+	case when a.type=''D'' then ''Полный'' 
+	when a.type=''I'' then ''Дифференциальный''
+	when a.type=''L'' then ''Транзакционный''
+	when a.type=''F'' then ''File or filegroup''
+	when a.type=''G'' then ''Differential file''
+	when a.type=''P'' then ''Partial''
+	when a.type=''Q'' then ''Differential partialend'' end [type]
+	,is_damaged Поврежден
+	,MAX(a.backup_finish_date) backup_finish_date
+	,cast(c.backup_size/1024.0/1024.0 as numeric(12,3)) as backup_size
+	,a.collation_name,
+	[physical_device_name]=LAST_VALUE([physical_device_name]) over (partition by a.database_name order by backup_finish_date desc)
+	,ROW_NUMBER() over (partition by a.database_name order by backup_finish_date desc) Rang
+	,SUM(cast(c.backup_size/1024.0/1024.0 as numeric(12,3))) OVER (partition by 1) all_full_backup_size
+	from master.sys.databases db left outer join (select * from [msdb].[dbo].[backupset] 
+	where database_name='''</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><br><font color="#ff0000">N''' ) a on(a.database_name=db.name) 
+	left join [msdb].[dbo].[backupmediafamily] b on(a.[media_set_id]=b.[media_set_id])
+	left join [msdb].[dbo].[backupfile] c on(a.[backup_set_id]=c.[backup_set_id])
+	where (db.name='''</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><font color="#ff0000">N''' or '''</font><font color="#808080">+</font><font color="#008080">@DATABASE</font><font color="#808080">+</font><br><font color="#ff0000">N'''='''')
+	group by a.database_name,
+	db.name
+	,[physical_name],
+	a.recovery_model,
+	a.backup_finish_date,
+	a.[compressed_backup_size],
+	a.collation_name,
+	[physical_device_name],
+	c.backup_size,
+	is_damaged,
+	a.type
+	order by a.backup_finish_date desc'</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">begin</font>&nbsp;<font color="#0000ff">try</font><br>&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#800000">sp_executesql</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">try</font><br>&nbsp;<font color="#0000ff">begin</font>&nbsp;<font color="#0000ff">catch</font><br>&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">err_msg</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">err_line</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">catch</font><br><font color="#0000ff">end</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Мониторинг резервирования данных'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Backups_info'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

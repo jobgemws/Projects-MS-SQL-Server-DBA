@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.ExcelGetViews</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.ExcelGetViews</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.ExcelGetViews" />
+            <h1 class="inline-middle">srv.ExcelGetViews</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Возвращает информацию по представлениям</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">PROCEDURE</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">ExcelGetViews</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<br><font color="#008000">/*
+		возвращает информацию по представлениям
+	*/</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">NOCOUNT</font>&nbsp;<font color="#0000ff">ON</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">TRANSACTION</font>&nbsp;<font color="#0000ff">ISOLATION</font>&nbsp;<font color="#0000ff">LEVEL</font>&nbsp;<font color="#0000ff">READ</font>&nbsp;<font color="#0000ff">UNCOMMITTED</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#008080">[Server]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[DBName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[SchemaName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[TableName]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[Type]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[TypeDesc]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[CreateDate]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">[ModifyDate]</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">#ttt</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">[inf]</font><font color="#808080">.</font><font color="#008080">[vViews]</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">[name]</font><br>&nbsp;&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">#dbs</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">databases</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@dbs</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@sql</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">while</font><font color="#808080">(</font><font color="#808080">exists</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#dbs</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">)</font><br>&nbsp;<font color="#008080">@dbs</font><font color="#808080">=</font><font color="#008080">[name]</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#dbs</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">=</font><br>&nbsp;<br><font color="#ff0000">N'insert into #ttt([Server]
+	    ,[DBName]
+	    ,[SchemaName]
+	    ,[TableName]
+	    ,[Type]
+	    ,[TypeDesc]
+	    ,[CreateDate]
+	    ,[ModifyDate])
+	select [Server]
+	    ,[DBName]
+	    ,[SchemaName]
+	    ,[TableName]
+	    ,[Type]
+	    ,[TypeDesc]
+	    ,[CreateDate]
+	    ,[ModifyDate]
+	from ['</font><font color="#808080">+</font><font color="#008080">@dbs</font><font color="#808080">+</font><font color="#ff0000">'].[inf].[vViews];'</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#800000">sp_executesql</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">delete</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#dbs</font><br>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">[name]</font><font color="#808080">=</font><font color="#008080">@dbs</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">end</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#808080">*</font><br>&nbsp;&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#ttt</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">drop</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">#ttt</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">drop</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">#dbs</font><font color="#808080">;</font><br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Возвращает информацию по представлениям'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'ExcelGetViews'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">2</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Views\inf.vViews.html" data-mapping-enabled="true"><span>inf.vViews</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

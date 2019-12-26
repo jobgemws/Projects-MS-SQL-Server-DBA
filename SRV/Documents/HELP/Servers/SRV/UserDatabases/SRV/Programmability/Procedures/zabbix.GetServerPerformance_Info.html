@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>zabbix.GetServerPerformance_Info</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">zabbix.GetServerPerformance_Info</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="zabbix.GetServerPerformance_Info" />
+            <h1 class="inline-middle">zabbix.GetServerPerformance_Info</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Хранимая процедура для быстрого анализа основных проблем на сервере MS SQL с 
+
+1 - нет блокировок, но время max время выполнения запроса >=30 сек.
+2 - имеется одна блокировка в соотношении с max долгим запросом >=30 сек.
+3 - имеется 1-4 блокировки в соотношении с max долгим запросом >=30 сек.
+4 - имеется 5 и более блокировок  или (от 1 и более блокировки с max долгим запросом от 90 сек.
+5 - низкое значение доступной RAM для ОС ([Avail_RAM_Memory_Mb] <= @MinLimitRAM)
+<=1024 Mb
+6 - крайне низкое значение доступной RAM для ОС ([Avail_RAM_Memory_Mb] <= @MinLimitRAM)
+<=206 Mb или доступная для MS SQL RAM меньше 100 Мб
+7 - бол-во ядер с высокой нагрузкой на ЦП   ( [highly_loaded_cores_%] >= @HighLoadCPU)
+>60-80% всех ядер доступных MS SQL сильно нагружены
+8 - бол-во ядер со сверхвысокой нагрузкой на ЦП   ( [highly_loaded_cores_%] >= @SuperHighLoadCPU)
+>80% всех ядер доступных MS SQL сильно нагружены
+9 - есть доступные ядра, но они помечены OFFLINE для MS SQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@HighLoadCPU</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@SuperHighLoadCPU</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@CountBlocks</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@HighCountBlocks</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@MaxWaitQuery</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@LockMaxWaitQuery_ms</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#008000">--Быстрый мониторинг основных параметров производительности</font><br><font color="#008000">--Автор: Прилепа Б.А. - АБД</font><br><font color="#008000">--09.07.2019</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">PROCEDURE</font>&nbsp;<font color="#008080">zabbix</font><font color="#808080">.</font><font color="#008080">GetServerPerformance_Info</font>&nbsp;<font color="#008080">@HighLoadCPU</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">60</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@SuperHighLoadCPU</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">80</font><font color="#808080">,</font><br>&nbsp;<font color="#008000">--@MinLimitRAM INT = 1024,</font><br>&nbsp;<font color="#008080">@CountBlocks</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">1</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@HighCountBlocks</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">5</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@MaxWaitQuery</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">15</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">@LockMaxWaitQuery_ms</font>&nbsp;<font color="#0000ff">INT</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">300</font><br><font color="#0000ff">AS</font><br><font color="#0000ff">BEGIN</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">NOCOUNT</font>&nbsp;<font color="#0000ff">ON</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">XACT_ABORT</font>&nbsp;<font color="#0000ff">ON</font><font color="#808080">;</font>&nbsp;<br><font color="#000000"></font><br>&nbsp;<font color="#008000">--Высчитываем число доступных ноде процессоров</font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@cpu_count</font>&nbsp;<font color="#0000ff">int</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@cpu_count</font><font color="#808080">=</font><font color="#808080">(</font><font color="#0000ff">select</font>&nbsp;<font color="#0000ff">top</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#008080">cpu_count</font>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_nodes</font>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">node_state_desc</font><font color="#808080">=</font><font color="#ff0000">'ONLINE'</font><font color="#808080">)</font><font color="#808080">-</font><font color="#000000">1</font>&nbsp;<font color="#008000">--Так как отсчет cpu_id идет с нуля</font><br><font color="#000000"></font><br>&nbsp;<font color="#808080">;</font><font color="#0000ff">WITH</font>&nbsp;<font color="#008080">os_schedulers</font><br>&nbsp;<font color="#0000ff">AS</font><br>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">cpu_id</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">active_workers_count</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#008080">load_factor</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_schedulers</font><br>&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">cpu_id</font>&nbsp;<font color="#808080"><</font><font color="#808080">=</font>&nbsp;<font color="#008080">@cpu_count</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">[status]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#ff0000">'VISIBLE ONLINE'</font><font color="#808080">)</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">Offline_cpu</font>&nbsp;<font color="#808080">(</font><font color="#008080">Offline_cpu</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">AS</font><br>&nbsp;<font color="#008000">--https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-schedulers-transact-sql?view=sql-server-ver15</font><br>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">COUNT</font><font color="#808080">(</font><font color="#008080">[status]</font><font color="#808080">)</font>&nbsp;<font color="#008080">offline_cpu</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_schedulers</font><br>&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">cpu_id</font>&nbsp;<font color="#808080"><</font><font color="#808080">=</font>&nbsp;<font color="#008080">@cpu_count</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">[status]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#ff0000">'VISIBLE OFFLINE'</font><br>&nbsp;<font color="#808080">)</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;<font color="#008080">RES</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">CASE</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[highly_loaded_cores_%]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@SuperHighLoadCPU</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#008080">@CountBlocks</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">[highly_loaded_cores_%]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@HighLoadCPU</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">8</font>&nbsp;<font color="#008000">--Сильная перегрузка CPU для доступных ядер (повторение такой картины говорит о крайне критической проблеме с нагрузкой ЦП)</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[highly_loaded_cores_%]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@HighLoadCPU</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">[max_waiting_query_sec]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@MaxWaitQuery</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#008080">[maintenance_max_waiting_query_sec]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@MaxWaitQuery</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">7</font>&nbsp;<font color="#008000">--Высокое значение загруженности CPU (без блокировок, есть запросы свыше @MaxWaitQuery)</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[highly_loaded_cores_%]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@HighLoadCPU</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">[max_waiting_query_sec]</font>&nbsp;<font color="#808080"><</font>&nbsp;<font color="#008080">@MaxWaitQuery</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">[maintenance_max_waiting_query_sec]</font>&nbsp;<font color="#808080"><</font>&nbsp;<font color="#008080">@MaxWaitQuery</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">6</font>&nbsp;<font color="#008000">--Высокое значение загруженности CPU (без блокировок, а также слишком длинный запросов)			</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@HighCountBlocks</font>&nbsp;<font color="#808080">OR</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">(</font><font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@CountBlocks</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_lock_waiting_ms]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@LockMaxWaitQuery_ms</font>&nbsp;<font color="#808080">*</font>&nbsp;<font color="#000000">10</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">5</font>&nbsp;<font color="#008000">--Критическая проблема с блокировками </font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#008080">@CountBlocks</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080"><</font>&nbsp;<font color="#008080">@HighCountBlocks</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_lock_waiting_ms]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@LockMaxWaitQuery_ms</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">4</font>&nbsp;<font color="#008000">--Несколько долгих блокировок</font><br>&nbsp;&nbsp;&nbsp;<font color="#008000">--Частое повторение говорит о значимой критичности плохой производительности одного или нескольких запросов</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">@CountBlocks</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_lock_waiting_ms]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@LockMaxWaitQuery_ms</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">3</font>&nbsp;<font color="#008000">--Одиночная долгая блокировка</font><br>&nbsp;&nbsp;&nbsp;<font color="#008000">--Частое повторение говорит о системной проблеме с одним запросом</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_waiting_query_sec]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@MaxWaitQuery</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">2</font>&nbsp;<font color="#008000">--Долгие SQL запросы, кроме обслуживания и профилирования</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#008080">[blocking_queries]</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">AND</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[maintenance_max_waiting_query_sec]</font>&nbsp;<font color="#808080">></font><font color="#808080">=</font>&nbsp;<font color="#008080">@MaxWaitQuery</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">1</font>&nbsp;<font color="#008000">--MS SQL процессы обслуживания, задача</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">Offline_cpu</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">Offline_cpu</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">></font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#000000">9</font>&nbsp;<font color="#008000">--Есть ядра, которых не видит MS SQL, но они доступны (требуется рестарт сервиса)</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">ELSE</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[highly_loaded_cores_%]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[Offline_cpu]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[max_waiting_query_sec]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[blocking_queries]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[maintenance_max_waiting_query_sec]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[max_lock_waiting_ms]</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font>&nbsp;&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#ff00ff">CAST</font><font color="#808080">(</font><font color="#ff00ff">ROUND</font><font color="#808080">(</font><font color="#ff00ff">COUNT</font><font color="#808080">(</font><font color="#0000ff">DISTINCT</font>&nbsp;<font color="#008080">cpu_id</font><font color="#808080">)</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">COUNT</font><font color="#808080">(</font><font color="#0000ff">DISTINCT</font>&nbsp;<font color="#008080">cpu_id</font><font color="#808080">)</font>&nbsp;<font color="#808080">/</font>&nbsp;<font color="#000000">1.0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">os_schedulers</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#0000ff">NUMERIC</font><font color="#808080">(</font><font color="#000000">4</font><font color="#808080">,</font>&nbsp;<font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">*</font>&nbsp;<font color="#000000">100</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#0000ff">INT</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">os_schedulers</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#008080">active_workers_count</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#000000">8</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">load_factor</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#000000">3</font><font color="#808080">)</font>&nbsp;<font color="#008000">/*повышенная нагрузка на ядро*/</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">active_workers_count</font>&nbsp;<font color="#808080"><</font><font color="#808080">=</font>&nbsp;<font color="#000000">8</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">load_factor</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#000000">9</font><font color="#808080">)</font>&nbsp;&nbsp;<font color="#008000">/*повышенный фактор нагрузки*/</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[highly_loaded_cores_%]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#0000ff">CASE</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHEN</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">Offline_cpu</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">Offline_cpu</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">></font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#0000ff">THEN</font>&nbsp;<font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">Offline_cpu</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">Offline_cpu</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">ELSE</font>&nbsp;<font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">END</font>&nbsp;<font color="#008080">Offline_cpu</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">--Запросы JOB-ов, сервисов, пользовательские запросы</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">DATEDIFF</font><font color="#808080">(</font><font color="#008080">SS</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">MIN</font><font color="#808080">(</font><font color="#008080">start_time</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">GETDATE</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#008080">SS</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">[connection_id]</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">last_wait_type</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">IN</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">'XE_LIVE_TARGET_TVF'</font>&nbsp;<font color="#008000">/*Сборщик XE Events*/</font><font color="#808080">,</font>&nbsp;<font color="#008000">--АБД сам следит за провилированием</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">'TRACEWRITE'</font>&nbsp;<font color="#008000">/*Профайлер*/</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">'PREEMPTIVE_OS_ENCRYPTMESSAGE'</font><font color="#008000">/*упреждающее сообщение шифрования ОС*/</font><font color="#808080">,</font><font color="#ff0000">'BROKER_RECEIVE_WAITFOR'</font>&nbsp;<font color="#008000">/*Таймер диалога*/</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">command</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">IN</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">'UPDATE STATISTICS'</font><font color="#808080">,</font><font color="#ff0000">'BACKUP DATABASE'</font><font color="#808080">,</font><font color="#ff0000">'BACKUP LOG'</font><font color="#808080">,</font><font color="#ff0000">'RESTORE DATABASE'</font><font color="#808080">,</font><font color="#ff0000">'RESTORE LOG'</font><font color="#808080">,</font><font color="#ff0000">'DBCC'</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">--Обновление стастик, DBCC, операции создание и восстановления резервных копий</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_waiting_query_sec]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">DATEDIFF</font><font color="#808080">(</font><font color="#008080">SS</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">MIN</font><font color="#808080">(</font><font color="#008080">start_time</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">GETDATE</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#008080">SS</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">[connection_id]</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">last_wait_type</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">IN</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">'XE_LIVE_TARGET_TVF'</font>&nbsp;<font color="#008000">/*Сборщик XE Events*/</font><font color="#808080">,</font>&nbsp;<font color="#008000">--АБД сам следит за провилированием</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">'TRACEWRITE'</font>&nbsp;<font color="#008000">/*Профайлер*/</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">'PREEMPTIVE_OS_ENCRYPTMESSAGE'</font><font color="#008000">/*упреждающее сообщение шифрования ОС*/</font><font color="#808080">,</font><font color="#ff0000">'BROKER_RECEIVE_WAITFOR'</font>&nbsp;<font color="#008000">/*Таймер диалога*/</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#808080">(</font><font color="#008080">command</font>&nbsp;<font color="#808080">IN</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">'UPDATE STATISTICS'</font><font color="#808080">,</font><font color="#ff0000">'BACKUP DATABASE'</font><font color="#808080">,</font><font color="#ff0000">'BACKUP LOG'</font><font color="#808080">,</font><font color="#ff0000">'RESTORE DATABASE'</font><font color="#808080">,</font><font color="#ff0000">'RESTORE LOG'</font><font color="#808080">,</font><font color="#ff0000">'DBCC'</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">--Обновление стастик, DBCC, операции создание и восстановления резервных копий</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[maintenance_max_waiting_query_sec]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">COUNT</font><font color="#808080">(</font><font color="#0000ff">distinct</font>&nbsp;<font color="#008080">blocking_session_id</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_waiting_tasks</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">blocking_session_id</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[blocking_queries]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">,</font><font color="#808080">(</font><font color="#0000ff">SELECT</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff00ff">max</font><font color="#808080">(</font><font color="#008080">wait_duration_ms</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_waiting_tasks</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">blocking_session_id</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">[max_lock_waiting_ms]</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#008080">a</font><font color="#808080">)</font>&nbsp;<font color="#008080">TBL</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">END</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<br><font color="#ff0000">N'Хранимая процедура для быстрого анализа основных проблем на сервере MS SQL с 
+
+1 - нет блокировок, но время max время выполнения запроса >=30 сек.
+2 - имеется одна блокировка в соотношении с max долгим запросом >=30 сек.
+3 - имеется 1-4 блокировки в соотношении с max долгим запросом >=30 сек.
+4 - имеется 5 и более блокировок  или (от 1 и более блокировки с max долгим запросом от 90 сек.
+5 - низкое значение доступной RAM для ОС ([Avail_RAM_Memory_Mb] <= @MinLimitRAM)
+<=1024 Mb
+6 - крайне низкое значение доступной RAM для ОС ([Avail_RAM_Memory_Mb] <= @MinLimitRAM)
+<=206 Mb или доступная для MS SQL RAM меньше 100 Мб
+7 - бол-во ядер с высокой нагрузкой на ЦП   ( [highly_loaded_cores_%] >= @HighLoadCPU)
+>60-80% всех ядер доступных MS SQL сильно нагружены
+8 - бол-во ядер со сверхвысокой нагрузкой на ЦП   ( [highly_loaded_cores_%] >= @SuperHighLoadCPU)
+>80% всех ядер доступных MS SQL сильно нагружены
+9 - есть доступные ядра, но они помечены OFFLINE для MS SQL'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'zabbix'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetServerPerformance_Info'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\zabbix.html" data-mapping-enabled="true"><span>zabbix</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

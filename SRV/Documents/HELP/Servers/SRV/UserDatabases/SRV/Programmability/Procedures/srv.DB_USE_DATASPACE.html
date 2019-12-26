@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.DB_USE_DATASPACE</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.DB_USE_DATASPACE</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.DB_USE_DATASPACE" />
+            <h1 class="inline-middle">srv.DB_USE_DATASPACE</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Анализ свободного места в БД</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@DATABASE</td>
+                  <td>nvarchar</td>
+                  <td>255</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#008000">--Цель: анализ свободного места в БД</font><br><font color="#008000">--Автор: Прилепа Б.А. - АБД</font><br><font color="#008000">--Дата создания: 10.08.2015</font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">procedure</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">DB_USE_DATASPACE</font><br>&nbsp;<font color="#008080">@DATABASE</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><br><font color="#0000ff">as</font><br><font color="#0000ff">begin</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">nocount</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#0000ff">xact_abort</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">begin</font>&nbsp;<font color="#0000ff">try</font><br>&nbsp;&nbsp;<font color="#008000">--Цель: анализ свободного места в БД</font><br>&nbsp;&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@SQL</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">OBJECT_ID</font><font color="#808080">(</font><font color="#ff0000">N'tempdb..##DB_FILES'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">DROP</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">tempdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">##DB_FILES</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">create</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">##DB_FILES</font><font color="#808080">(</font><font color="#008080">[Name]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[FileName]</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">2000</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">[Size(Mb)]</font>&nbsp;<font color="#0000ff">numeric</font><font color="#808080">(</font><font color="#000000">11</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">[UsedSpace(Mb)]</font>&nbsp;<font color="#0000ff">numeric</font><font color="#808080">(</font><font color="#000000">11</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">,</font>&nbsp;<font color="#008080">ID</font>&nbsp;<font color="#0000ff">int</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">@name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff0000">N''</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">SysCur</font>&nbsp;<font color="#0000ff">CURSOR</font>&nbsp;<font color="#0000ff">LOCAL</font>&nbsp;<font color="#0000ff">FOR</font>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#008080">[name]</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">databases</font><br>&nbsp;&nbsp;<font color="#0000ff">WHERE</font>&nbsp;<font color="#008080">@DATABASE</font><font color="#808080">=</font><font color="#ff0000">N''</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#008080">[name]</font><font color="#808080">=</font><font color="#008080">@DATABASE</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">OPEN</font>&nbsp;<font color="#008080">SysCur</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">FETCH</font>&nbsp;<font color="#0000ff">NEXT</font>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">SysCur</font>&nbsp;<font color="#0000ff">INTO</font>&nbsp;<font color="#008080">@name</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">WHILE</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">@@FETCH_STATUS</font><font color="#808080">=</font><font color="#000000">0</font><font color="#808080">)</font><br>&nbsp;&nbsp;<font color="#0000ff">BEGIN</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">set</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">=</font><font color="#ff0000">N'USE ['</font><font color="#808080">+</font><font color="#008080">@name</font><font color="#808080">+</font><br><font color="#ff0000">N']
+			create table #tmpspc (Fileid int, FileGroup int, TotalExtents int, UsedExtents int, Name sysname, FileName nchar(520))
+						insert #tmpspc EXEC (''dbcc showfilestats'')
+			
+			insert into ##DB_FILES([Name],[FileName],[Size(Mb)], [UsedSpace(Mb)],ID)
+			SELECT
+			cast(s.name as varchar(255)) AS [Name],
+			cast(s.physical_name as varchar(2000)) AS [FileName],
+			cast(round((s.size * CONVERT(float,8)/1024.0),2) AS numeric(11,2)) AS [Size(Mb)],
+			cast(round((CAST(CASE s.type WHEN 2 THEN 0 ELSE tspc.UsedExtents*convert(float,64) END AS float)/1024.0),2) AS numeric(11,2)) AS [UsedSpace(Mb)],
+			cast(s.file_id as INT) AS [ID]
+			FROM
+			sys.filegroups AS g
+			INNER JOIN sys.master_files AS s ON ((s.type = 2 or s.type = 0) and s.database_id = db_id() and (s.drop_lsn IS NULL)) AND (s.data_space_id=g.data_space_id)
+			LEFT OUTER JOIN #tmpspc tspc ON tspc.Fileid = s.file_id
+			WHERE
+			(CAST(cast(g.name as varbinary(256)) AS sysname)=N''PRIMARY'')
+			UNION ALL
+			SELECT
+			s.name AS [Name],
+			s.physical_name AS [FileName],
+			round((s.size * CONVERT(float,8)/1024.0),2) AS [Size],
+			round((CAST(FILEPROPERTY(s.name, ''SpaceUsed'') AS float)* CONVERT(float,8)/1024.0),2) AS [UsedSpace],
+			s.file_id AS [ID]
+			FROM
+			sys.master_files AS s
+			WHERE
+			(s.type = 1 and s.database_id = db_id())
+			ORDER BY
+			[ID] ASC
+			drop table #tmpspc'</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#800000">sp_executesql</font>&nbsp;<font color="#008080">@SQL</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">FETCH</font>&nbsp;<font color="#0000ff">NEXT</font>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">SysCur</font>&nbsp;<font color="#0000ff">INTO</font>&nbsp;<font color="#008080">@name</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">END</font><br><font color="#000000"></font><br>&nbsp;&nbsp;<font color="#0000ff">CLOSE</font>&nbsp;<font color="#008080">SysCur</font><font color="#808080">;</font><br>&nbsp;&nbsp;<font color="#0000ff">DEALLOCATE</font>&nbsp;<font color="#008080">SysCur</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#008080">[Name]</font><font color="#808080">,</font><font color="#008080">[FileName]</font><font color="#808080">,</font><font color="#008080">[Size(Mb)]</font><font color="#808080">,</font>&nbsp;<font color="#008080">[UsedSpace(Mb)]</font><font color="#808080">,</font><font color="#008080">[Size(Mb)]</font><font color="#808080">-</font><font color="#008080">[UsedSpace(Mb)]</font>&nbsp;<font color="#008080">[Available(Mb)]</font><font color="#808080">,</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#808080">(</font><font color="#000000">1</font><font color="#808080">-</font><font color="#808080">(</font><font color="#008080">[UsedSpace(Mb)]</font><font color="#808080">/</font><font color="#008080">[Size(Mb)]</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">100</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">numeric</font><font color="#808080">(</font><font color="#000000">5</font><font color="#808080">,</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#008080">[AvailbaleSpace(%)]</font><br>&nbsp;&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">##DB_FILES</font><br>&nbsp;&nbsp;<font color="#0000ff">ORDER</font>&nbsp;<font color="#0000ff">BY</font>&nbsp;<font color="#808080">(</font><font color="#000000">1</font><font color="#808080">-</font><font color="#808080">(</font><font color="#008080">[UsedSpace(Mb)]</font><font color="#808080">/</font><font color="#008080">[Size(Mb)]</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">100</font>&nbsp;<font color="#0000ff">ASC</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">IF</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">OBJECT_ID</font><font color="#808080">(</font><font color="#ff0000">'tempdb..##DB_FILES'</font><font color="#808080">,</font><font color="#ff0000">'U'</font><font color="#808080">)</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NOT</font>&nbsp;<font color="#808080">NULL</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">DROP</font>&nbsp;<font color="#0000ff">TABLE</font>&nbsp;<font color="#008080">tempdb</font><font color="#808080">.</font><font color="#808080">.</font><font color="#008080">##DB_FILES</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">try</font><br>&nbsp;<font color="#0000ff">begin</font>&nbsp;<font color="#0000ff">catch</font><br>&nbsp;&nbsp;<font color="#0000ff">if</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">@@ERROR</font><font color="#808080"><</font><font color="#808080">></font><font color="#000000">0</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">SELECT</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#ff00ff">ERROR_LINE</font><font color="#808080">,</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">(</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#ff00ff">ERROR_MESSAGE</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">catch</font><br><font color="#0000ff">end</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Анализ свободного места в БД'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'DB_USE_DATASPACE'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.GetScalling_monitor_db.html" data-mapping-enabled="true"><span>srv.GetScalling_monitor_db</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>inf.vBigQuery</title>
+<script src="../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Views\Views.html" data-mapping-enabled="true">Views</a></li>
+            <li class="active">inf.vBigQuery</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../images/view.svg" title="inf.vBigQuery" />
+            <h1 class="inline-middle">inf.vBigQuery</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Информация по тяжелым запросам (которые выполнялись более не менее 100 мсек) согласно статистике экземпляра MS SQL Server (sys.dm_exec_query_stats)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>Collation</td>
+                  <td>Cyrillic_General_CI_AS</td>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Schema Bound</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Created</td>
+                  <td>30.03.2019 18:41:51</td>
+                </tr>
+                <tr>
+                  <td>Last Modified</td>
+                  <td>30.03.2019 18:41:51</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Columns" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Columns</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Name</th>
+                  <th class="column-description-60">Description</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>creation_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>last_execution_time</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>execution_count</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>CPU</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgCPUTime</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>TotDuration</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgDur</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIOLogicalReads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIOLogicalWrites</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AggIO</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIO</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIOPhysicalReads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>plan_generation_num</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgRows</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgDop</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgGrantKb</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgUsedGrantKb</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgIdealGrantKb</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgReservedThreads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>AvgUsedThreads</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_text</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>database_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>object_name</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_plan</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>sql_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>plan_handle</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_hash</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>query_plan_hash</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">view</font>&nbsp;<font color="#008080">inf</font><font color="#808080">.</font><font color="#008080">vBigQuery</font><br><font color="#0000ff">as</font><br><font color="#008000">/*
+creation_time - Время, когда запрос был скомпилирован. Поскольку при старте сервера кэш пустой, данное время всегда больше либо равно моменту запуска сервиса. Если время, указанное в этом столбце позже, чем предполагаемое (первое использование процедуры), это говорит о том, что запрос по тем или иным причинам был рекомпилирован.
+last_execution_time - Момент фактического последнего выполнения запроса.
+execution_count - Сколько раз запрос был выполнен с момента компиляции
+Количество выполнений позволяет найти ошибки в алгоритмах - часто в наиболее выполняемых запросах оказываются те, которые находятся внутри каких-либо циклов однако могут быть выполнены перед самим циклом один раз. Например, получение каких-либо параметров из базы данных, не меняющихся внутри цикла.
+CPU - Суммарное время использования процессора в миллисекундах. Если запрос обрабатывается параллельно, то это время может превысить общее время выполнения запроса, поскольку суммируется время использования запроса каждым ядром. Во время использования процессора включается только фактическая нагрузка на ядра, в нее не входят ожидания каких-либо ресурсов.
+Очевидно, что данный показатель позволяет выявлять запросы, наиболее сильно загружающие процессор.
+AvgCPUTime - Средняя загрузка процессора на один запрос. 
+TotDuration - Общее время выполнения запроса, в миллисекундах.
+Данный параметр может быть использован для поиска тех запросов, которые, независимо от причины выполняются "наиболее долго". Если общее время выполнения запроса существенно ниже времени CPU (с поправкой на параллелизм) - это говорит о том, что при выполнения запроса были ожидания каких-либо ресурсов. В большинстве случаев это связано с дисковой активностью или блокировками, но также это может быть сетевой интерфейс или другой ресурс. 
+Полный список типов ожиданий можно посмотреть в описании представления sys.dm_os_wait_stats.
+AvgDur - Среднее время выполнения запроса в миллисекундах.
+Reads - Общее количество чтений.
+Это пожалуй лучший агрегатный показатель, позволяющий выявить наиболее нагружающие сервер запросы.
+Логическое чтение - это разовое обращение к странице данных, физические чтения не учитываются.
+В рамках выполнения одного запроса, могут происходить неоднократные обращения к одной и той же странице.
+Чем больше обращений к страницам, тем больше требуется дисковых чтений, памяти и, если речь идет о повторных обращениях, большее время требуется удерживать страницы в памяти.
+Writes - Общее количество изменений страниц данных.
+Характеризует то, как запрос "нагружает" дисковую систему операциями записи.
+Следует помнить, что этот показатель может быть больше 0 не только у тех запросов, которые явно меняют данные, но также и у тех, которые сохраняют промежуточные данные в tempdb.
+AggIO - Общее количество логических операций ввода-вывода (суммарно)
+Как правило, количество логических чтений на порядки превышает количество операций записи, поэтому этот показатель сам по себе для анализа применим в редких случаях.
+AvgIO - Среднее количество логических дисковых операций на одно выполнение запроса.
+Значение данного показателя можно анализировать из следующих соображений:
+Одна страница данных - это 8192 байта. Можно получить среднее количество байт данных, "обрабатываемых" данным запросом. Если этот объем превышает реальное количество данных, которые обрабатывает запрос (суммарный объем данных в используемых в запросе таблицах), это говорит о том, что был выбран заведомо плохой план выполнения и требуется заняться оптимизацией данного запроса.
+Я встречал случай, когда один запрос делал количество обращений, эквивалентных объему в 5Тб, при этом общий объем данных в это БД был 300Гб, а объем данных в таблицах, задействованных в запросе не превышал 10Гб.
+В общем можно описать одну причину такого поведения сервера - вместо использования индекса сервер предпочитает сканировать таблицу или наоборот.
+Если объем логических чтений в разы превосходит общие объем данных, то это вызвано повторным обращениям к одним и тем же страницам данных. Помимо того, что в одном запросе таблица может быть использована несколько раз, к одним и тем же страницам сервер обращается например в случаях, когда используется индекс и по результатам поиска по нему, найденные некоторые строки данных лежат на одной и той же странице. Конечно, в таком случае предпочтительным могло бы быть сканирование таблицы - в этом случае сервер обращался бы к каждой странице данных только один раз. Однако этому часто мешают... попытки оптимизации запросов, когда разработчик явно указывает, какой индекс или тип соединения должен быть использован.
+Обратный случай - вместо использования индекса было выбрано сканирование таблицы. Как правило, это связано с тем, что статистика устарела и требуется её обновление. Однако и в этом случае причиной неудачно выбранного плана вполне могут оказаться подсказки оптимизатору запросов.
+query_text - Текст самого запроса
+database_name - Имя базы данных, в находится объект, содержащий запрос. NULL для системных процедур
+object_name - Имя объекта (процедуры или функции), содержащего запрос.
+*/</font><br><font color="#0000ff">with</font>&nbsp;<font color="#008080">s</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#808080">(</font><br>&nbsp;<font color="#0000ff">select</font>&nbsp;&nbsp;<font color="#0000ff">top</font><font color="#808080">(</font><font color="#000000">100</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">creation_time</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">last_execution_time</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">execution_count</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_worker_time</font><font color="#808080">/</font><font color="#000000">1000</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">CPU</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#808080">(</font><font color="#008080">total_worker_time</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font><font color="#808080">*</font><font color="#000000">1000</font><font color="#808080">)</font><font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgCPUTime]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">qs</font><font color="#808080">.</font><font color="#008080">total_elapsed_time</font><font color="#808080">/</font><font color="#000000">1000</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">TotDuration</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#808080">(</font><font color="#008080">qs</font><font color="#808080">.</font><font color="#008080">total_elapsed_time</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font><font color="#808080">*</font><font color="#000000">1000</font><font color="#808080">)</font><font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgDur]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_logical_reads</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[Reads]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_logical_writes</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[Writes]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_logical_reads</font><font color="#808080">+</font><font color="#008080">total_logical_writes</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AggIO]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#808080">(</font><font color="#008080">total_logical_reads</font><font color="#808080">+</font><font color="#008080">total_logical_writes</font><font color="#808080">)</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgIO]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">[sql_handle]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">plan_handle</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">statement_start_offset</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">statement_end_offset</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">plan_generation_num</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_physical_reads</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_physical_reads</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgIOPhysicalReads]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_logical_reads</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgIOLogicalReads]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_logical_writes</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgIOLogicalWrites]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">query_hash</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">query_plan_hash</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_rows</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_rows</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgRows]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_dop</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_dop</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgDop]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_grant_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_grant_kb</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgGrantKb]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_used_grant_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_used_grant_kb</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgUsedGrantKb]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_ideal_grant_kb</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_ideal_grant_kb</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgIdealGrantKb]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_reserved_threads</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_reserved_threads</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgReservedThreads]</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#008080">total_used_threads</font><font color="#808080">,</font><br>&nbsp;&nbsp;&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#008080">total_used_threads</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font>&nbsp;<font color="#808080">+</font>&nbsp;<font color="#000000">0.0</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[AvgUsedThreads]</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_query_stats</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">qs</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">order</font>&nbsp;<font color="#0000ff">by</font>&nbsp;<font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">money</font><font color="#808080">,</font>&nbsp;<font color="#808080">(</font><font color="#008080">qs</font><font color="#808080">.</font><font color="#008080">total_elapsed_time</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">/</font><font color="#808080">(</font><font color="#008080">execution_count</font><font color="#808080">*</font><font color="#000000">1000</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">desc</font><font color="#008000">-->=100 --выполнялся запрос не менее 100 мс</font><br><font color="#808080">)</font><br><font color="#0000ff">select</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">creation_time</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">last_execution_time</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">execution_count</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#0000ff">CPU</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgCPUTime]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">TotDuration</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgDur]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgIOLogicalReads]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgIOLogicalWrites]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AggIO]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgIO]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgIOPhysicalReads]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">plan_generation_num</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgRows]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgDop]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgGrantKb]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgUsedGrantKb]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgIdealGrantKb]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgReservedThreads]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[AvgUsedThreads]</font><font color="#808080">,</font><br>&nbsp;<font color="#008000">--st.text as query_text,</font><br>&nbsp;<font color="#0000ff">case</font>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">sql_handle</font>&nbsp;<font color="#808080">IS</font>&nbsp;<font color="#808080">NULL</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff0000">' '</font><br>&nbsp;&nbsp;<font color="#0000ff">else</font><font color="#808080">(</font><font color="#ff00ff">substring</font><font color="#808080">(</font><font color="#008080">st</font><font color="#808080">.</font><font color="#0000ff">text</font><font color="#808080">,</font><font color="#808080">(</font><font color="#008080">s</font><font color="#808080">.</font><font color="#008080">statement_start_offset</font><font color="#808080">+</font><font color="#000000">2</font><font color="#808080">)</font><font color="#808080">/</font><font color="#000000">2</font><font color="#808080">,</font><font color="#808080">(</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">case</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">statement_end_offset</font>&nbsp;<font color="#808080">=</font><font color="#808080">-</font><font color="#000000">1</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff00ff">len</font><font color="#808080">(</font><font color="#ff00ff">convert</font><font color="#808080">(</font><font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">MAX</font><font color="#808080">)</font><font color="#808080">,</font><font color="#008080">st</font><font color="#808080">.</font><font color="#0000ff">text</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">*</font><font color="#000000">2</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">statement_end_offset</font>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#808080">-</font>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">statement_start_offset</font><font color="#808080">)</font><font color="#808080">/</font><font color="#000000">2</font>&nbsp;&nbsp;<font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">query_text</font><font color="#808080">,</font><br>&nbsp;<font color="#ff00ff">db_name</font><font color="#808080">(</font><font color="#008080">st</font><font color="#808080">.</font><font color="#008080">dbid</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">database_name</font><font color="#808080">,</font><br>&nbsp;<font color="#ff00ff">object_schema_name</font><font color="#808080">(</font><font color="#008080">st</font><font color="#808080">.</font><font color="#008080">objectid</font><font color="#808080">,</font>&nbsp;<font color="#008080">st</font><font color="#808080">.</font><font color="#008080">dbid</font><font color="#808080">)</font><font color="#808080">+</font><font color="#ff0000">'.'</font><font color="#808080">+</font><font color="#ff00ff">object_name</font><font color="#808080">(</font><font color="#008080">st</font><font color="#808080">.</font><font color="#008080">objectid</font><font color="#808080">,</font>&nbsp;<font color="#008080">st</font><font color="#808080">.</font><font color="#008080">dbid</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[object_name]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">sp</font><font color="#808080">.</font><font color="#008080">[query_plan]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">plan_handle</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">query_hash</font><font color="#808080">,</font><br>&nbsp;<font color="#008080">s</font><font color="#808080">.</font><font color="#008080">query_plan_hash</font><br><font color="#0000ff">from</font>&nbsp;<font color="#008080">s</font><br><font color="#808080">cross</font>&nbsp;<font color="#0000ff">apply</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sql_text</font><font color="#808080">(</font><font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[sql_handle]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">st</font><br><font color="#808080">cross</font>&nbsp;<font color="#0000ff">apply</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_query_plan</font><font color="#808080">(</font><font color="#008080">s</font><font color="#808080">.</font><font color="#008080">[plan_handle]</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">sp</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Информация по тяжелым запросам (которые выполнялись более не менее 100 мсек) согласно статистике экземпляра MS SQL Server (sys.dm_exec_query_stats)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'inf'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'VIEW'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'vBigQuery'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\inf.html" data-mapping-enabled="true"><span>inf</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\srv.AutoBigQueryStatistics.html" data-mapping-enabled="true"><span>srv.AutoBigQueryStatistics</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

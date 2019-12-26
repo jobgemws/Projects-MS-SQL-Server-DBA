@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>zabbix.GetActiveRequestProblemCount</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">zabbix.GetActiveRequestProblemCount</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="zabbix.GetActiveRequestProblemCount" />
+            <h1 class="inline-middle">zabbix.GetActiveRequestProblemCount</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Возвращает количество проблемных запросов в режиме реального времени</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="Parameters" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Parameters</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered table-100">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Data Type</th>
+                  <th>Length</th>
+                  <th class="column-description-35">Description</th>
+                </tr>
+                <tr>
+                  <td>@diffSec</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@diffSecBackUp</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@Wait_Duration_ms</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>@Wait_Duration_semaphore_ms</td>
+                  <td>int</td>
+                  <td>4</td>
+                  <td>
+                    <span></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#008000">-- =============================================</font><br><font color="#008000">-- Author:		<Author,,Name></font><br><font color="#008000">-- Create date: <Create Date,,></font><br><font color="#008000">-- Description:	<Description,,></font><br><font color="#008000">-- =============================================</font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">PROCEDURE</font>&nbsp;<font color="#008080">zabbix</font><font color="#808080">.</font><font color="#008080">GetActiveRequestProblemCount</font><br>&nbsp;<font color="#008080">@diffSec</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">int</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">=</font><font color="#000000">20</font>&nbsp;<font color="#008000">--20 секунд на мониториг долгих запросов ctr'SELECT', 'INSERT', 'UPDATE', 'DELETE'</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">@diffSecBackUp</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">int</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">=</font><font color="#000000">300</font>&nbsp;<font color="#008000">--операции бэкпирования, анализ перестроение индексов</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">@Wait_Duration_ms</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">3000</font><br>&nbsp;<font color="#808080">,</font><font color="#008080">@Wait_Duration_semaphore_ms</font>&nbsp;<font color="#0000ff">int</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">500</font><br><font color="#0000ff">AS</font><br><font color="#0000ff">BEGIN</font><br>&nbsp;<br><font color="#008000">/*
+		Количество проблемных запросов в режиме реального времени
+	*/</font><br><font color="#000000"></font><br>&nbsp;<font color="#008000">--SET QUERY_GOVERNOR_COST_LIMIT 0;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">NOCOUNT</font>&nbsp;<font color="#0000ff">ON</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">TRANSACTION</font>&nbsp;<font color="#0000ff">ISOLATION</font>&nbsp;<font color="#0000ff">LEVEL</font>&nbsp;<font color="#0000ff">READ</font>&nbsp;<font color="#0000ff">UNCOMMITTED</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@data</font>&nbsp;<font color="#0000ff">datetime</font><font color="#808080">=</font><font color="#ff00ff">getdate</font><font color="#808080">(</font><font color="#808080">)</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@server_name</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">=</font><font color="#ff00ff">cast</font><font color="#808080">(</font><font color="#ff00ff">SERVERPROPERTY</font><font color="#808080">(</font><font color="#ff0000">N'ComputerNamePhysicalNetBIOS'</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">@server_name</font><font color="#808080">,</font>&nbsp;<font color="#000000">3</font><font color="#808080">)</font>&nbsp;<font color="#808080">in</font>&nbsp;<font color="#808080">(</font><font color="#ff0000">N'PRD'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'COM'</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#808080">or</font>&nbsp;<font color="#808080">(</font><font color="#008080">@server_name</font>&nbsp;<font color="#808080">like</font>&nbsp;<font color="#ff0000">N'SQL_SERVICES%'</font><font color="#808080">)</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#ff00ff">count</font><font color="#808080">(</font><font color="#0000ff">distinct</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">)</font>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#0000ff">case</font>&nbsp;<font color="#0000ff">when</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">count</font><font color="#808080">(</font><font color="#0000ff">distinct</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">)</font><font color="#808080">></font><font color="#000000">3</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">then</font>&nbsp;<font color="#000000">3</font>&nbsp;<font color="#0000ff">else</font>&nbsp;<font color="#ff00ff">count</font><font color="#808080">(</font><font color="#0000ff">distinct</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">end</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">end</font>&nbsp;<font color="#0000ff">as</font>&nbsp;<font color="#008080">[count]</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_requests</font>&nbsp;<font color="#008080">ER</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font><br>&nbsp;<font color="#808080">inner</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_exec_sessions</font>&nbsp;<font color="#008080">ES</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">on</font>&nbsp;<font color="#008080">ES</font><font color="#808080">.</font><font color="#008080">session_id</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><br>&nbsp;<font color="#0000ff">left</font>&nbsp;<font color="#808080">outer</font>&nbsp;<font color="#808080">join</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">dm_os_waiting_tasks</font>&nbsp;<font color="#0000ff">AS</font>&nbsp;<font color="#0000ff">t</font>&nbsp;<font color="#0000ff">with</font><font color="#808080">(</font><font color="#0000ff">readuncommitted</font><font color="#808080">)</font>&nbsp;<font color="#0000ff">on</font><font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">=</font><font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">blocking_session_id</font><font color="#808080">)</font><br>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">connection_id</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">not</font>&nbsp;<font color="#808080">null</font>&nbsp;<font color="#808080">and</font><br>&nbsp;<font color="#808080">(</font><font color="#808080">(</font><font color="#0000ff">left</font><font color="#808080">(</font><font color="#008080">last_wait_type</font><font color="#808080">,</font><font color="#000000">3</font><font color="#808080">)</font>&nbsp;<font color="#808080">=</font><font color="#ff0000">'LCK'</font><font color="#008000">/*локи*/</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#008080">last_wait_type</font><font color="#808080">=</font><font color="#ff0000">'AWAITING COMMAND'</font>&nbsp;<font color="#008000">/*скорее всего косяк в коде разрабов или триггер, ожидание внешнее от приложений*/</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#0000ff">t</font><font color="#808080">.</font><font color="#008080">wait_duration_ms</font>&nbsp;<font color="#808080">></font>&nbsp;<font color="#008080">@Wait_Duration_ms</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">last_wait_type</font>&nbsp;<font color="#808080">in</font><font color="#808080">(</font><font color="#ff0000">'RESOURCE_SEMAPHORE'</font><font color="#808080">,</font><font color="#ff0000">'RESOURCE_SEMAPHORE_QUERY_COMPILE'</font>&nbsp;<font color="#008000">/*Нехватка RAM под запрос, утечки RAM*/</font><font color="#808080">,</font><font color="#ff0000">'PAGEIOLATCH_UP'</font><br>&nbsp;&nbsp;&nbsp;<font color="#008000">/*задача ожидает кратковременной блокировки буфера, находящегося в состоянии запроса ввода-вывода (часто связанно с tempdb)*/</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><font color="#808080"><</font><font color="#808080">=</font><font color="#ff00ff">DateAdd</font><font color="#808080">(</font><font color="#008080">ms</font><font color="#808080">,</font>&nbsp;<font color="#808080">-</font><font color="#008080">@Wait_Duration_semaphore_ms</font><font color="#808080">,</font>&nbsp;<font color="#008080">@data</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><font color="#808080"><</font><font color="#808080">=</font><font color="#ff00ff">DateAdd</font><font color="#808080">(</font><font color="#ff00ff">second</font><font color="#808080">,</font>&nbsp;<font color="#808080">-</font><font color="#008080">@diffSec</font><font color="#808080">,</font>&nbsp;<font color="#008080">@data</font><font color="#808080">)</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">command</font>&nbsp;<font color="#808080">in</font><font color="#808080">(</font><font color="#ff0000">'SELECT'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'INSERT'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'UPDATE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'DELETE'</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><font color="#808080"><</font><font color="#808080">=</font><font color="#ff00ff">DateAdd</font><font color="#808080">(</font><font color="#ff00ff">second</font><font color="#808080">,</font>&nbsp;<font color="#808080">-</font><font color="#008080">@diffSecBackUp</font><font color="#808080">,</font>&nbsp;<font color="#008080">@data</font><font color="#808080">)</font>&nbsp;<font color="#808080">AND</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">command</font>&nbsp;<font color="#808080">in</font><font color="#808080">(</font><font color="#ff0000">'BACKUP LOG'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'BACKUP DATABASE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'DBCC'</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#808080">(</font><font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">last_wait_type</font><font color="#808080">=</font><font color="#ff0000">'CXPACKET'</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">[start_time]</font><font color="#808080"><</font><font color="#808080">=</font><font color="#ff00ff">DateAdd</font><font color="#808080">(</font><font color="#ff00ff">second</font><font color="#808080">,</font>&nbsp;<font color="#808080">-</font><font color="#008080">@diffSec</font><font color="#808080">,</font>&nbsp;<font color="#008080">@data</font><font color="#808080">)</font><font color="#808080">)</font><font color="#808080">)</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">)</font>&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">ER</font><font color="#808080">.</font><font color="#008080">session_id</font><font color="#808080">></font><font color="#000000">50</font><font color="#808080">;</font><br><font color="#0000ff">END</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Возвращает количество проблемных запросов в режиме реального времени'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'zabbix'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'GetActiveRequestProblemCount'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\zabbix.html" data-mapping-enabled="true"><span>zabbix</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>srv.AutoAllDBForDurabilityForced</title>
+<script src="../../../../../../scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/clipboard.min.js" type="text/javascript"></script>
+<script src="../../../../../../scripts/main.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../../../../../styles/bootstrap/Default.css" type="text/css">
+<link rel="stylesheet" href="../../../../../../styles/main.css" type="text/css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb">
+            <li><a href="../../../../../../startpage.html" data-mapping-enabled="true">Project</a></li>
+            <li><a href="../../../../../../Servers\Servers.html" data-mapping-enabled="true">Servers</a></li>
+            <li><a href="../../../../../../Servers\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\UserDatabases.html" data-mapping-enabled="true">User databases</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\SRV.html" data-mapping-enabled="true">SRV</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Programmability.html" data-mapping-enabled="true">Programmability</a></li>
+            <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Programmability\Procedures\Procedures.html" data-mapping-enabled="true">Stored Procedures</a></li>
+            <li class="active">srv.AutoAllDBForDurabilityForced</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title col-xs-12">
+          <div><img class="inline-middle image-large" src="../../../../../../images/procedure.svg" title="srv.AutoAllDBForDurabilityForced" />
+            <h1 class="inline-middle">srv.AutoAllDBForDurabilityForced</h1>
+            <div class="dropdown actions-btn-wrap">
+              <button type="button" class="btn btn-default actions-btn" data-toggle="dropdown"><span class="icon-actions icon-small actions-btn-span"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a id="CollapseAll" href="#">Collapse All</a></li>
+                <li><a id="ExpandAll" href="#">Expand All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="Description" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Description</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span>Выполняет перевод всех несистемных БД в режим полностью отложенных транзакций (неустойчивых)</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Properties</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover table-bordered">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr>
+                  <td>ANSI Nulls ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Quoted Identifier ON</td>
+                  <td><p class="value-true">True</p></td>
+                </tr>
+                <tr>
+                  <td>Encrypted</td>
+                  <td><p class="value-false">False</p></td>
+                </tr>
+                <tr>
+                  <td>Execute As</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Assembly</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="SqlScript" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">SQL Script</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="sqlscript panel-default">
+              <font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUOTED_IDENTIFIER</font><font color="#808080">,</font>&nbsp;<font color="#0000ff">ANSI_NULLS</font>&nbsp;<font color="#0000ff">ON</font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">CREATE</font>&nbsp;<font color="#808080">OR</font>&nbsp;<font color="#0000ff">ALTER</font>&nbsp;<font color="#0000ff">PROCEDURE</font>&nbsp;<font color="#008080">srv</font><font color="#808080">.</font><font color="#008080">AutoAllDBForDurabilityForced</font><br><font color="#0000ff">AS</font><br><font color="#0000ff">BEGIN</font><br>&nbsp;<br><font color="#008000">/*
+		перевод всех несистемных БД в режим полностью отложенных транзакций (неустойчивых)
+	*/</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">QUERY_GOVERNOR_COST_LIMIT</font>&nbsp;<font color="#000000">0</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">NOCOUNT</font>&nbsp;<font color="#0000ff">ON</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">SET</font>&nbsp;<font color="#0000ff">TRANSACTION</font>&nbsp;<font color="#0000ff">ISOLATION</font>&nbsp;<font color="#0000ff">LEVEL</font>&nbsp;<font color="#0000ff">READ</font>&nbsp;<font color="#0000ff">UNCOMMITTED</font><font color="#808080">;</font><br><font color="#000000"></font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@sql</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#ff00ff">max</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">declare</font>&nbsp;<font color="#008080">@db</font>&nbsp;<font color="#0000ff">nvarchar</font><font color="#808080">(</font><font color="#000000">255</font><font color="#808080">)</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">[name]</font><br>&nbsp;<font color="#0000ff">into</font>&nbsp;<font color="#008080">#tbl_db</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#008080">databases</font><br>&nbsp;<font color="#0000ff">where</font>&nbsp;<font color="#008080">[source_database_id]</font>&nbsp;<font color="#808080">is</font>&nbsp;<font color="#808080">null</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[database_id]</font><font color="#808080">></font><font color="#000000">4</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[state]</font><font color="#808080">=</font><font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[is_read_only]</font><font color="#808080">=</font><font color="#000000">0</font><br>&nbsp;&nbsp;&nbsp;<font color="#808080">and</font>&nbsp;<font color="#008080">[delayed_durability]</font><font color="#808080"><</font><font color="#808080">></font><font color="#000000">2</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">DECLARE</font>&nbsp;<font color="#008080">sql_cursor</font>&nbsp;<font color="#0000ff">CURSOR</font>&nbsp;<font color="#0000ff">LOCAL</font>&nbsp;<font color="#0000ff">FOR</font><br>&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">[name]</font><br>&nbsp;<font color="#0000ff">from</font>&nbsp;<font color="#008080">#tbl_db</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;<font color="#0000ff">OPEN</font>&nbsp;<font color="#008080">sql_cursor</font><font color="#808080">;</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;<font color="#0000ff">FETCH</font>&nbsp;<font color="#0000ff">NEXT</font>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">sql_cursor</font>&nbsp;&nbsp;&nbsp;<br>&nbsp;<font color="#0000ff">INTO</font>&nbsp;<font color="#008080">@db</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">while</font>&nbsp;<font color="#808080">(</font><font color="#ff00ff">@@FETCH_STATUS</font>&nbsp;<font color="#808080">=</font>&nbsp;<font color="#000000">0</font>&nbsp;<font color="#808080">)</font><br>&nbsp;<font color="#0000ff">begin</font><br>&nbsp;&nbsp;<font color="#0000ff">select</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">=</font><font color="#ff0000">'ALTER DATABASE ['</font><font color="#808080">+</font><font color="#008080">@db</font><font color="#808080">+</font><font color="#ff0000">'] SET DELAYED_DURABILITY = FORCED WITH NO_WAIT'</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">print</font>&nbsp;<font color="#008080">@sql</font><br>&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">exec</font>&nbsp;<font color="#800000">sp_executesql</font>&nbsp;<font color="#008080">@sql</font><font color="#808080">;</font><br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">FETCH</font>&nbsp;<font color="#0000ff">NEXT</font>&nbsp;<font color="#0000ff">FROM</font>&nbsp;<font color="#008080">sql_cursor</font><br>&nbsp;&nbsp;&nbsp;<font color="#0000ff">INTO</font>&nbsp;<font color="#008080">@db</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">end</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">CLOSE</font>&nbsp;<font color="#008080">sql_cursor</font><font color="#808080">;</font><br>&nbsp;<font color="#0000ff">DEALLOCATE</font>&nbsp;<font color="#008080">sql_cursor</font><font color="#808080">;</font><br>&nbsp;<br>&nbsp;<font color="#0000ff">drop</font>&nbsp;<font color="#0000ff">table</font>&nbsp;<font color="#008080">#tbl_db</font><font color="#808080">;</font><br><font color="#0000ff">END</font><br><font color="#000000"></font><br><font color="#000000"></font><br><font color="#0000ff">GO</font><br><font color="#000000"></font><br><font color="#0000ff">EXEC</font>&nbsp;<font color="#008000">sys</font><font color="#808080">.</font><font color="#800000">sp_addextendedproperty</font>&nbsp;<font color="#ff0000">N'MS_Description'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'Выполняет перевод всех несистемных БД в режим полностью отложенных транзакций (неустойчивых)'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'SCHEMA'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'srv'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">'PROCEDURE'</font><font color="#808080">,</font>&nbsp;<font color="#ff0000">N'AutoAllDBForDurabilityForced'</font><br><font color="#0000ff">GO</font></div>
+          </div>
+        </div>
+      </div>
+      <div id="DependsOn" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Depends On</h2>
+          <span class="badge inline-middle">1</span>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="items-list">
+              <li><a href="../../../../../../Servers\SRV\UserDatabases\SRV\Security\Schemas\srv.html" data-mapping-enabled="true"><span>srv</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="UsedBy" class="panel panel-default">
+        <div class="panel-heading">
+          <span class="icon-bottom inline-middle expanded icon-small"></span>
+          <span class="icon-right inline-middle collapsed icon-small" style="display:none"></span>
+          <h2 class="inline-middle">Used By</h2>
+        </div>
+        <div class="panel-collapse collapse in">
+          <div class="panel-body">
+            <span class="text-muted">No items found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="col-xs-4">Author:&nbsp;</div>
+    <div class="col-xs-4 align-center">Copyright &#169; All Rights Reserved</div>
+    <div class="col-xs-4 align-right">Created:&nbsp;26.12.2019</div>
+  </div>
+</body>
+</html>
