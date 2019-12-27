@@ -13,6 +13,8 @@ select	t2.[DB_Name] as [DBName]
 			,t1.IoStallMS
 			,t1.BytesOnDisk
 			,t1.[TimeStamp]
+			,(1.0 * t1.IoStallWriteMS / t1.NumberWrites) AS avg_write_stall_ms
+			,(1.0 * t1.IoStallReadMS / t1.NumberReads) AS avg_read_stall_ms
 			,t1.FileHandle
 			,t2.[Type_desc]
 			,t2.[FileName]
