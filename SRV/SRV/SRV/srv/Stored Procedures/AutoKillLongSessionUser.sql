@@ -129,7 +129,7 @@ BEGIN
 	FROM sys.dm_exec_sessions AS ES WITH(READUNCOMMITTED)
 	INNER JOIN sys.dm_exec_requests AS ER WITH(READUNCOMMITTED) ON ES.[session_id]=ER.[session_id]
 	WHERE ER.[start_time]<=DATEADD(SECOND, -@oldsec, GetDate())
-	  AND ES.[program_name] LIKE N'Microsoft SQL Server Management Studio%';
+	  AND (ES.[program_name] LIKE N'%Management Studio%' OR ES.[program_name] LIKE N'%DBeaver%');
 	
 	DECLARE sql_cursor CURSOR LOCAL FOR
 	select [session_id]
