@@ -1,0 +1,1 @@
+--удалить соответствующие записи из msdb.dbo.sysdownloadlist и msdb.dbo.systargetservers

@@ -1,0 +1,1 @@
+EXECUTE master.sys.sp_MSforeachdb 'USE [?]; select DB_NAME() as DB,* from [srv].[vDelIndexInclude]';
