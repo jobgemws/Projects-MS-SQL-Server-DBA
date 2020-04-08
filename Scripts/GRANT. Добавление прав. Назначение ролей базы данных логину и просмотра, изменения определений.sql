@@ -2,7 +2,7 @@ USE [master]
  
 DECLARE @Login varchar(255)='login'
 DECLARE @Default_DB varchar(255)='master' --БД по умолчанию
-DECLARE @SQL nvarchar(max)=N'' --sql контэйнер
+DECLARE @SQL nvarchar(max)=N'' --sql контейнер
 DECLARE @processadmin tinyint=1 --даем права processadmin на сервере
 DECLARE @IS_VIEW_ANY_DEFINITION tinyint=1 --просмотр любого определения объектов в рамках сервера
 DECLARE @IS_ALTER_ANY_DEFINITION tinyint=0 --изменения любого определения объектов в рамках сервера ALTER DDL в рамках сервера
@@ -22,7 +22,7 @@ and name in('db_datareader')) roles --список ролей которые н�
 --Заполнения списка необходимых БД
 INSERT INTO @ListDatabases
 select [name]
-from sys.databases where database_id>4 and name not in('SRV','FortisAdmin')
+from sys.databases where database_id>4 and name not in('SRV','Admin')
 and (name in('') or @All_User_DBs=1) --Здесь через запятую дать список БД
  
 SET @SQL='CREATE LOGIN ['+@Login+'] FROM WINDOWS WITH DEFAULT_DATABASE=['+@Default_DB+']'
