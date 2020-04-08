@@ -1,5 +1,5 @@
 -----Анализ индексов
-declare @DB varchar(255)='MonopolySunTemp' --БД для анализа
+declare @DB varchar(255)='SRV' --БД для анализа
 ,@k int=5 --кратность Danger по превышению scans_lookups над seeks
 ,@kk int=10 --updates >= reads*@kk
 ,@frag int=8 --пороговая логическая фрагментированность от 8%
