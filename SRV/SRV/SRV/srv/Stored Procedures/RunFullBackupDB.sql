@@ -7,7 +7,7 @@ CREATE PROCEDURE [srv].[RunFullBackupDB]
   @ClearLog BIT = 1 --усекать ли журнал транзакций
 , @IsExtName BIT = 1 --добавлять ли к имени дату и время в формате YYYY_MM_DD_HH_MM_SS в формате UTC
 , @IsCHECKDB BIT = 0 --проверять ли базу данных перед резервным копированием
-, @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок
+, @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок (NULL-по умолчанию)
 , @IsCopyOnly BIT = 0 --создать ли резервную копию только для копирования
 , @IsAllDB BIT = 0 --брать ли в обработку все БД
 , @FullPathBackup NVARCHAR(4000) = N'\\Shared\Backup\'--полный путь к каталогу для создания резервных копий (работает при @IsAllDB=1)
@@ -18,7 +18,7 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 
-	DECLARE @dt DATETIME = GETDATE();
+	DECLARE @dt DATETIME = GETUTCDATE();
 	DECLARE @year INT = YEAR(@dt);
 	DECLARE @month INT = MONTH(@dt);
 	DECLARE @day INT = DAY(@dt);
