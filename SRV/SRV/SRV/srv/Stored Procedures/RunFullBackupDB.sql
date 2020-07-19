@@ -3,12 +3,14 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE   PROCEDURE [srv].[RunFullBackupDB]
-	@ClearLog   bit=1 --усекать ли журнал транзакций
-	,@IsExtName bit=1 --добавлять ли к имени дату
-	,@IsCHECKDB bit=0 --проверять ли резервную копию
-	,@IsAllDB	bit=0 --брать ли в обработку все БД
-	,@FullPathBackup nvarchar(4000)='\\backup-srv01\SQL_Backups\1C\CHECKDB\'--полный путь к каталогу для создания резервных копий (работает при @IsAllDB=1)
+CREATE PROCEDURE [srv].[RunFullBackupDB]
+  @ClearLog BIT = 1 --усекать ли журнал транзакций
+, @IsExtName BIT = 1 --добавлять ли к имени дату
+, @IsCHECKDB BIT = 0 --проверять ли резервную копию
+, @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок
+, @IsCopyOnly BIT = 0 --создать ли резервную копию только для копирования
+, @IsAllDB BIT = 0 --брать ли в обработку все БД
+, @FullPathBackup NVARCHAR(4000) = N'\\Shared\Backup\'--полный путь к каталогу для создания резервных копий (работает при @IsAllDB=1)
 AS
 BEGIN
 	/*
@@ -16,137 +18,167 @@ BEGIN
 	*/
 	SET NOCOUNT ON;
 
-    declare @dt datetime=getdate();
-	declare @year int=YEAR(@dt);
-	declare @month int=MONTH(@dt);
-	declare @day int=DAY(@dt);
-	declare @hour int=DatePart(hour, @dt);
-	declare @minute int=DatePart(minute, @dt);
-	declare @second int=DatePart(second, @dt);
-	declare @pathBackup nvarchar(255);
-	declare @pathstr nvarchar(255);
-	declare @DBName nvarchar(255);
-	declare @backupName nvarchar(255);
-	declare @sql nvarchar(max);
-	declare @backupSetId as int;
-	declare @FileNameLog nvarchar(255);
+	DECLARE @dt DATETIME = GETDATE();
+	DECLARE @year INT = YEAR(@dt);
+	DECLARE @month INT = MONTH(@dt);
+	DECLARE @day INT = DAY(@dt);
+	DECLARE @hour INT = DATEPART(HOUR, @dt);
+	DECLARE @minute INT = DATEPART(MINUTE, @dt);
+	DECLARE @second INT = DATEPART(SECOND, @dt);
+	DECLARE @pathBackup NVARCHAR(255);
+	DECLARE @pathstr NVARCHAR(255);
+	DECLARE @DBName NVARCHAR(255);
+	DECLARE @backupName NVARCHAR(255);
+	DECLARE @sql NVARCHAR(MAX);
+	DECLARE @backupSetId AS INT;
+	DECLARE @FileNameLog NVARCHAR(255);
+	DECLARE @ContinueAfterError NVARCHAR(255);
+	DECLARE @CopyOnly NVARCHAR(255);
 
-	declare @tbllog table(
-		[DBName] [nvarchar](255) NOT NULL,
-		[FileNameLog] [nvarchar](255) NOT NULL
+	IF (@IsContinueAfterError = 1)
+		SET @ContinueAfterError = N'CONTINUE_AFTER_ERROR';
+	ELSE
+		SET @ContinueAfterError = N'STOP_ON_ERROR';
+
+	IF (@IsCopyOnly = 1)
+		SET @CopyOnly = N'COPY_ONLY, ';
+	ELSE
+		SET @CopyOnly = N'';
+
+	DECLARE @tbllog TABLE (
+		[DBName] [NVARCHAR](255) NOT NULL
+	   ,[FileNameLog] [NVARCHAR](255) NOT NULL
 	);
-	
-	declare @tbl table (
-		[DBName] [nvarchar](255) NOT NULL,
-		[FullPathBackup] [nvarchar](255) NOT NULL
+
+	DECLARE @tbl TABLE (
+		[DBName] [NVARCHAR](255) NOT NULL
+	   ,[FullPathBackup] [NVARCHAR](255) NOT NULL
 	);
-	
-	if(@IsAllDB=1)
-	begin
-		insert into @tbl (
-		           [DBName]
-		           ,[FullPathBackup]
+
+	IF (@IsAllDB = 1)
+	BEGIN
+		INSERT INTO @tbl ([DBName]
+		, [FullPathBackup])
+			SELECT
+				[name] AS [DBName]
+			   ,@FullPathBackup
+			FROM sys.databases
+			WHERE [database_id] > 4
+			AND [State] = 0
+			AND [user_access] = 0
+			AND [is_in_standby] = 0;
+	END
+	ELSE
+	BEGIN
+		INSERT INTO @tbl ([DBName]
+		, [FullPathBackup])
+			SELECT
+				DB_NAME([DBID])
+			   ,[FullPathBackup]
+			FROM [SRV].[BackupSettings];
+	END
+
+	INSERT INTO @tbllog ([DBName], [FileNameLog])
+		SELECT
+			t.[DBName]
+		   ,tt.[FileName] AS [FileNameLog]
+		FROM @tbl AS t
+		INNER JOIN [inf].[ServerDBFileInfo] AS tt
+			ON t.[DBName] = DB_NAME(tt.[database_id])
+		WHERE tt.[Type_desc] = N'LOG';
+
+	WHILE (EXISTS (SELECT TOP (1)
+			1
+		FROM @tbl)
+	)
+	BEGIN
+	SET @backupSetId = NULL;
+
+	SELECT TOP (1)
+		@DBName = [DBName]
+	   ,@pathBackup = [FullPathBackup]
+	FROM @tbl;
+
+	IF (@IsExtName = 1)
+	BEGIN
+		SET @backupName = @DBName + N'_Full_backup_' + CAST(@year AS NVARCHAR(255)) + N'_' + CAST(@month AS NVARCHAR(255)) + N'_' + CAST(@day AS NVARCHAR(255))--+N'_'
+	--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+	END
+	ELSE
+	BEGIN
+		SET @backupName = @DBName;
+	END
+
+	SET @pathstr = @pathBackup + @backupName + N'.bak';
+
+	IF (@IsCHECKDB = 1)
+	BEGIN
+		SET @sql = N'DBCC CHECKDB(N' + N'''' + @DBName + N'''' + N')  WITH NO_INFOMSGS';
+
+		EXEC (@sql);
+	END
+
+	SET @sql = N'BACKUP DATABASE [' + @DBName + N'] TO DISK = N' + N'''' + @pathstr + N'''' +
+	N' WITH ' + @CopyOnly + N'NOFORMAT, NOINIT, NAME = N' + N'''' + @backupName + N'''' +
+	N', SKIP, NOREWIND, NOUNLOAD, COMPRESSION, STATS = 10, CHECKSUM, ' + @ContinueAfterError + N';';
+
+	EXEC (@sql);
+
+	SELECT
+		@backupSetId = position
+	FROM msdb..backupset
+	WHERE database_name = @DBName
+	AND backup_set_id = (SELECT
+			MAX(backup_set_id)
+		FROM msdb..backupset
+		WHERE database_name = @DBName);
+
+	SET @sql = N'Ошибка верификации. Сведения о резервном копировании для базы данных "' + @DBName + '" не найдены.';
+
+	IF (@backupSetId IS NULL)
+	BEGIN
+		RAISERROR (@sql, 16, 1);
+	END
+	ELSE
+	BEGIN
+		SET @sql = N'RESTORE VERIFYONLY FROM DISK = N' + '''' + @pathstr + N'''' + N' WITH FILE = ' + CAST(@backupSetId AS NVARCHAR(255));
+
+		EXEC (@sql);
+	END
+
+	IF (@ClearLog = 1)
+	BEGIN
+		WHILE (EXISTS (SELECT TOP (1)
+				1
+			FROM @tbllog
+			WHERE [DBName] = @DBName)
 		)
-		select		[name] as [DBName]
-		           ,@FullPathBackup
-		from sys.databases
-		where [database_id]>4
-		and [name]<>N'FortisAdmin'
-		and [state]=0
-		and [user_access]=0;
-	end
-	else
-	begin
-		insert into @tbl (
-		           [DBName]
-		           ,[FullPathBackup]
-		)
-		select		DB_NAME([DBID])
-		           ,[FullPathBackup]
-		from [srv].[BackupSettings];
-	end
+		BEGIN
+		SELECT TOP (1)
+			@FileNameLog = FileNameLog
+		FROM @tbllog
+		WHERE DBName = @DBName;
 
-	insert into @tbllog([DBName], [FileNameLog])
-	select t.[DBName], tt.[FileName] as [FileNameLog]
-	from @tbl as t
-	inner join [inf].[ServerDBFileInfo] as tt on t.[DBName]=DB_NAME(tt.[database_id])
-	where tt.[Type_desc]='LOG';
-	
-	while(exists(select top(1) 1 from @tbl))
-	begin
-		set @backupSetId=NULL;
+		SET @sql = N'USE [' + @DBName + N'];' + N' DBCC SHRINKFILE (N' + N'''' + @FileNameLog + N'''' + N' , 0, TRUNCATEONLY)';
 
-		select top(1)
-		@DBName=[DBName],
-		@pathBackup=[FullPathBackup]
-		from @tbl;
-		
-		if(@IsExtName=1)
-		begin
-			set @backupName=@DBName+N'_Full_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))--+N'_'
-							--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
-		end
-		else
-		begin
-			set @backupName=@DBName;
-		end
+		EXEC (@sql);
 
-		set @pathstr=@pathBackup+@backupName+N'.bak';
+		DELETE FROM @tbllog
+		WHERE FileNameLog = @FileNameLog
+			AND DBName = @DBName;
+		END
+	END
 
-		if(@IsCHECKDB=1)
-		begin
-			set @sql=N'DBCC CHECKDB(N'+N''''+@DBName+N''''+N')  WITH NO_INFOMSGS';
-
-			exec(@sql);
-		end
-	
-		set @sql=N'BACKUP DATABASE ['+@DBName+N'] TO DISK = N'+N''''+@pathstr+N''''+
-				 N' WITH NOFORMAT, NOINIT, NAME = N'+N''''+@backupName+N''''+
-				 N', CHECKSUM, STOP_ON_ERROR, SKIP, REWIND, COMPRESSION, STATS = 10;';
-	
-		exec(@sql);
-
-		select @backupSetId = position
-		from msdb..backupset where database_name=@DBName
-		and backup_set_id=(select max(backup_set_id) from msdb..backupset where database_name=@DBName);
-
-		set @sql=N'Ошибка верификации. Сведения о резервном копировании для базы данных "'+@DBName+'" не найдены.';
-
-		if (@backupSetId is null)
-		begin
-			raiserror(@sql, 16, 1);
-		end
-		else
-		begin
-			set @sql=N'RESTORE VERIFYONLY FROM DISK = N'+''''+@pathstr+N''''+N' WITH FILE = '+cast(@backupSetId as nvarchar(255));
-
-			exec(@sql);
-		end
-
-		if(@ClearLog=1)
-		begin
-			while(exists(select top(1) 1 from @tbllog where [DBName]=@DBName))
-			begin
-				select top(1)
-				@FileNameLog=FileNameLog
-				from @tbllog
-				where DBName=@DBName;
-			
-				set @sql=N'USE ['+@DBName+N'];'+N' DBCC SHRINKFILE (N'+N''''+@FileNameLog+N''''+N' , 0, TRUNCATEONLY)';
-
-				exec(@sql);
-
-				delete from @tbllog
-				where FileNameLog=@FileNameLog
-				and DBName=@DBName;
-			end
-		end
-		
-		delete from @tbl
-		where [DBName]=@DBName;
-	end
+	DELETE FROM @tbl
+	WHERE [DBName] = @DBName;
+	END
 END
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Создание полной резервной копии БД с предварительной проверкой на целостность самой БД', @level0type = N'SCHEMA', @level0name = N'srv', @level1type = N'PROCEDURE', @level1name = N'RunFullBackupDB';
+EXECUTE sp_addextendedproperty @name = N'MS_Description'
+							  ,@value = N'Создание полной резервной копии БД с предварительной проверкой на целостность самой БД'
+							  ,@level0type = N'SCHEMA'
+							  ,@level0name = N'srv'
+							  ,@level1type = N'PROCEDURE'
+							  ,@level1name = N'RunFullBackupDB';
 
