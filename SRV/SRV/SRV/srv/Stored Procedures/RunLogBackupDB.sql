@@ -9,6 +9,7 @@ CREATE PROCEDURE [srv].[RunLogBackupDB]
 , @IsCHECKDB BIT = 0 --проверять ли базу данных перед резервным копированием
 , @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок (NULL-по умолчанию)
 , @IsCopyOnly BIT = 0 --создать ли резервную копию только для копирования
+, @OnlyDBName NVARCHAR(255) = NULL --создать резервную копию для заданной базы данных
 AS
 BEGIN
 	/*
@@ -63,6 +64,7 @@ BEGIN
 	from [srv].[BackupSettings] as b
 	inner join sys.databases as d on b.[DBID]=d.[database_id]
 	where d.recovery_model<3
+	AND ((DB_NAME([DBID])=@OnlyDBName) OR (@OnlyDBName IS NULL))
 	and DB_NAME([DBID]) not in (
 		N'master',
 		N'tempdb',
@@ -81,15 +83,20 @@ BEGIN
 	INNER JOIN [inf].[ServerDBFileInfo] AS tt
 		ON t.[DBName] = DB_NAME(tt.[database_id])
 	WHERE tt.[Type_desc] = N'LOG';
+
+	DECLARE db_cursor CURSOR LOCAL
+    FOR SELECT [DBName]
+	           ,[LogPathBackup]
+	FROM @tbl;
+
+	OPEN db_cursor; 
 	
-	while(exists(select top(1) 1 from @tbl))
+	FETCH NEXT FROM db_cursor   
+	INTO @DBName, @pathBackup;
+	
+	while(@@FETCH_STATUS = 0)
 	begin
 		set @backupSetId=NULL;
-
-		select top(1)
-		@DBName=[DBName],
-		@pathBackup=[LogPathBackup]
-		from @tbl;
 
 		IF (@IsExtName = 1)
 		BEGIN
@@ -136,30 +143,36 @@ BEGIN
 
 		IF (@ClearLog = 1)
 		BEGIN
-			WHILE (EXISTS (SELECT TOP (1)
-					1
-				FROM @tbllog
-				WHERE [DBName] = @DBName)
-			)
-			BEGIN
-			SELECT TOP (1)
-				@FileNameLog = FileNameLog
+			DECLARE log_cursor CURSOR LOCAL
+			FOR SELECT [FileNameLog]
 			FROM @tbllog
 			WHERE DBName = @DBName;
 
-			SET @sql = N'USE [' + @DBName + N'];' + N' DBCC SHRINKFILE (N' + N'''' + @FileNameLog + N'''' + N' , 0, TRUNCATEONLY)';
+			OPEN log_cursor; 
+			
+			FETCH NEXT FROM log_cursor   
+			INTO @FileNameLog;
+			
+			WHILE (@@FETCH_STATUS = 0)
+			BEGIN
+				SET @sql = N'USE [' + @DBName + N'];' + N' DBCC SHRINKFILE (N' + N'''' + @FileNameLog + N'''' + N' , 0, TRUNCATEONLY)';
 
-			EXEC (@sql);
+				EXEC (@sql);
 
-			DELETE FROM @tbllog
-			WHERE FileNameLog = @FileNameLog
-				AND DBName = @DBName;
+				FETCH NEXT FROM log_cursor   
+				INTO @FileNameLog;
 			END
+
+			CLOSE log_cursor;  
+			DEALLOCATE log_cursor;
 		END
 		
-		delete from @tbl
-		where [DBName]=@DBName;
-	end
+		FETCH NEXT FROM db_cursor   
+		INTO @DBName, @pathBackup;
+	END
+
+	CLOSE db_cursor;  
+	DEALLOCATE db_cursor;
 END
 
 GO
