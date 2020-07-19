@@ -76,7 +76,7 @@ BEGIN
 			SELECT
 				DB_NAME([DBID])
 			   ,[FullPathBackup]
-			FROM [SRV].[BackupSettings];
+			FROM [srv].[BackupSettings];
 	END
 
 	INSERT INTO @tbllog ([DBName], [FileNameLog])
