@@ -44,14 +44,14 @@ BEGIN
 
 	DECLARE @tbl TABLE (
 		[DBName] [NVARCHAR](255) NOT NULL
-	   ,[FullPathBackup] [NVARCHAR](255) NOT NULL
+	   ,[DiffPathBackup] [NVARCHAR](255) NOT NULL
 	);
 
 	INSERT INTO @tbl ([DBName]
-		, [FullPathBackup])
+		, [DiffPathBackup])
 			SELECT
 				DB_NAME([DBID])
-			   ,[FullPathBackup]
+			   ,[DiffPathBackup]
 			FROM [srv].[BackupSettings];
 
 	INSERT INTO @tbllog ([DBName], [FileNameLog])
@@ -72,7 +72,7 @@ BEGIN
 
 	SELECT TOP (1)
 		@DBName = [DBName]
-	   ,@pathBackup = [FullPathBackup]
+	   ,@pathBackup = [DiffPathBackup]
 	FROM @tbl;
 
 	IF (@IsExtName = 1)
