@@ -5,8 +5,8 @@
 -- =============================================
 CREATE PROCEDURE [srv].[RunFullBackupDB]
   @ClearLog BIT = 1 --усекать ли журнал транзакций
-, @IsExtName BIT = 1 --добавлять ли к имени дату
-, @IsCHECKDB BIT = 0 --проверять ли резервную копию
+, @IsExtName BIT = 1 --добавлять ли к имени дату и время в формате YYYY_MM_DD_HH_MM_SS в формате UTC
+, @IsCHECKDB BIT = 0 --проверять ли базу данных перед резервным копированием
 , @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок
 , @IsCopyOnly BIT = 0 --создать ли резервную копию только для копирования
 , @IsAllDB BIT = 0 --брать ли в обработку все БД
@@ -36,9 +36,10 @@ BEGIN
 	DECLARE @CopyOnly NVARCHAR(255);
 
 	IF (@IsContinueAfterError = 1)
-		SET @ContinueAfterError = N'CONTINUE_AFTER_ERROR';
-	ELSE
-		SET @ContinueAfterError = N'STOP_ON_ERROR';
+		SET @ContinueAfterError = N', CONTINUE_AFTER_ERROR';
+	ELSE IF(@IsContinueAfterError=0)
+		SET @ContinueAfterError = N', STOP_ON_ERROR';
+	ELSE SET @ContinueAfterError=N'';
 
 	IF (@IsCopyOnly = 1)
 		SET @CopyOnly = N'COPY_ONLY, ';
@@ -101,8 +102,12 @@ BEGIN
 
 	IF (@IsExtName = 1)
 	BEGIN
-		SET @backupName = @DBName + N'_Full_backup_' + CAST(@year AS NVARCHAR(255)) + N'_' + CAST(@month AS NVARCHAR(255)) + N'_' + CAST(@day AS NVARCHAR(255))--+N'_'
-	--+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
+		SET @backupName = @DBName + N'_Full_backup_' + CAST(@year AS NVARCHAR(255)) + N'_' +
+			CASE WHEN (@month<10) THEN N'0' ELSE N'' END + CAST(@month AS NVARCHAR(255)) + N'_' + 
+			CASE WHEN (@day<10) THEN N'0' ELSE N'' END +CAST(@day AS NVARCHAR(255))+N'_'+
+			CASE WHEN (@hour<10) THEN N'0' ELSE N'' END + cast(@hour as nvarchar(255))+N'_'+
+			CASE WHEN (@minute<10) THEN N'0' ELSE N'' END + cast(@minute as nvarchar(255))+N'_'+
+			CASE WHEN (@second<10) THEN N'0' ELSE N'' END + cast(@second as nvarchar(255));
 	END
 	ELSE
 	BEGIN
@@ -120,7 +125,7 @@ BEGIN
 
 	SET @sql = N'BACKUP DATABASE [' + @DBName + N'] TO DISK = N' + N'''' + @pathstr + N'''' +
 	N' WITH ' + @CopyOnly + N'NOFORMAT, NOINIT, NAME = N' + N'''' + @backupName + N'''' +
-	N', SKIP, NOREWIND, NOUNLOAD, COMPRESSION, STATS = 10, CHECKSUM, ' + @ContinueAfterError + N';';
+	N', SKIP, NOREWIND, NOUNLOAD, COMPRESSION, STATS = 10, CHECKSUM' + @ContinueAfterError + N';';
 
 	EXEC (@sql);
 
