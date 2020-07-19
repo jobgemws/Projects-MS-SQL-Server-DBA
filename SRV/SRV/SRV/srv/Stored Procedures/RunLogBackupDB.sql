@@ -3,7 +3,12 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [srv].[RunLogBackupDB] 
+CREATE PROCEDURE [srv].[RunLogBackupDB]
+  @ClearLog BIT = 1 --усекать ли журнал транзакций
+, @IsExtName BIT = 1 --добавлять ли к имени дату и время в формате YYYY_MM_DD_HH_MM_SS в формате UTC
+, @IsCHECKDB BIT = 0 --проверять ли базу данных перед резервным копированием
+, @IsContinueAfterError BIT = 0 --продолжать ли создание резервной копии при возниакновении ошибок (NULL-по умолчанию)
+, @IsCopyOnly BIT = 0 --создать ли резервную копию только для копирования
 AS
 BEGIN
 	/*
@@ -24,6 +29,25 @@ BEGIN
 	declare @backupName nvarchar(255);
 	declare @sql nvarchar(max);
 	declare @backupSetId as int;
+	DECLARE @FileNameLog NVARCHAR(255);
+	DECLARE @ContinueAfterError NVARCHAR(255);
+	DECLARE @CopyOnly NVARCHAR(255);
+
+	IF (@IsContinueAfterError = 1)
+		SET @ContinueAfterError = N', CONTINUE_AFTER_ERROR';
+	ELSE IF(@IsContinueAfterError=0)
+		SET @ContinueAfterError = N', STOP_ON_ERROR';
+	ELSE SET @ContinueAfterError=N'';
+
+	IF (@IsCopyOnly = 1)
+		SET @CopyOnly = N'COPY_ONLY, ';
+	ELSE
+		SET @CopyOnly = N'';
+
+	DECLARE @tbllog TABLE (
+		[DBName] [NVARCHAR](255) NOT NULL
+	   ,[FileNameLog] [NVARCHAR](255) NOT NULL
+	);
 	
 	declare @tbl table (
 		[DBName] [nvarchar](255) NOT NULL,
@@ -48,6 +72,15 @@ BEGIN
 		N'ReportServerTempDB'
 	)
 	and [LogPathBackup] is not null;
+
+	INSERT INTO @tbllog ([DBName], [FileNameLog])
+	SELECT
+		t.[DBName]
+	   ,tt.[FileName] AS [FileNameLog]
+	FROM @tbl AS t
+	INNER JOIN [inf].[ServerDBFileInfo] AS tt
+		ON t.[DBName] = DB_NAME(tt.[database_id])
+	WHERE tt.[Type_desc] = N'LOG';
 	
 	while(exists(select top(1) 1 from @tbl))
 	begin
@@ -57,14 +90,33 @@ BEGIN
 		@DBName=[DBName],
 		@pathBackup=[LogPathBackup]
 		from @tbl;
-	
-		set @backupName=@DBName+N'_Log_backup_'+cast(@year as nvarchar(255))+N'_'+cast(@month as nvarchar(255))+N'_'+cast(@day as nvarchar(255))+N'_'
-						+cast(@hour as nvarchar(255))+N'_'+cast(@minute as nvarchar(255))+N'_'+cast(@second as nvarchar(255));
-		set @pathstr=@pathBackup+@backupName+N'.trn';
+
+		IF (@IsExtName = 1)
+		BEGIN
+			SET @backupName = @DBName + N'_Log_backup_' + CAST(@year AS NVARCHAR(255)) + N'_' +
+				CASE WHEN (@month<10) THEN N'0' ELSE N'' END + CAST(@month AS NVARCHAR(255)) + N'_' + 
+				CASE WHEN (@day<10) THEN N'0' ELSE N'' END +CAST(@day AS NVARCHAR(255))+N'_'+
+				CASE WHEN (@hour<10) THEN N'0' ELSE N'' END + cast(@hour as nvarchar(255))+N'_'+
+				CASE WHEN (@minute<10) THEN N'0' ELSE N'' END + cast(@minute as nvarchar(255))+N'_'+
+				CASE WHEN (@second<10) THEN N'0' ELSE N'' END + cast(@second as nvarchar(255));
+		END
+		ELSE
+		BEGIN
+			SET @backupName = @DBName;
+		END
+
+		SET @pathstr = @pathBackup + @backupName + N'.trn';
+
+		IF (@IsCHECKDB = 1)
+		BEGIN
+			SET @sql = N'DBCC CHECKDB(N' + N'''' + @DBName + N'''' + N')  WITH NO_INFOMSGS';
+
+			EXEC (@sql);
+		END
 	
 		set @sql=N'BACKUP LOG ['+@DBName+N'] TO DISK = N'+N''''+@pathstr+N''''+
-				 N' WITH NOFORMAT, NOINIT, NAME = N'+N''''+@backupName+N''''+
-				 N', CHECKSUM, STOP_ON_ERROR, SKIP, REWIND, COMPRESSION, STATS = 10;';
+				 N' WITH  ' + @CopyOnly + N'NOFORMAT, NOINIT, NAME = N'+N''''+@backupName+N''''+
+				 N', CHECKSUM, SKIP, REWIND, COMPRESSION, STATS = 10'+@ContinueAfterError+N';';
 	
 		exec(@sql);
 
@@ -80,7 +132,30 @@ BEGIN
 			set @sql=N'RESTORE VERIFYONLY FROM DISK = N'+''''+@pathstr+N''''+N' WITH FILE = '+cast(@backupSetId as nvarchar(255));
 
 			exec(@sql);
-		end
+		END
+
+		IF (@ClearLog = 1)
+		BEGIN
+			WHILE (EXISTS (SELECT TOP (1)
+					1
+				FROM @tbllog
+				WHERE [DBName] = @DBName)
+			)
+			BEGIN
+			SELECT TOP (1)
+				@FileNameLog = FileNameLog
+			FROM @tbllog
+			WHERE DBName = @DBName;
+
+			SET @sql = N'USE [' + @DBName + N'];' + N' DBCC SHRINKFILE (N' + N'''' + @FileNameLog + N'''' + N' , 0, TRUNCATEONLY)';
+
+			EXEC (@sql);
+
+			DELETE FROM @tbllog
+			WHERE FileNameLog = @FileNameLog
+				AND DBName = @DBName;
+			END
+		END
 		
 		delete from @tbl
 		where [DBName]=@DBName;
